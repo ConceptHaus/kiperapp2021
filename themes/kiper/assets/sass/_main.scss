@@ -173,7 +173,7 @@ article {
     width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative;
   }
   &__only {
-    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); background-color: $gris2; box-shadow: 0px 4px 6px rgba($black, 0.25); border-radius: 20px; overflow: hidden; @include transition(all 300ms ease); @include displayFlex(flex, row, flex-start, center, wrap);
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); background-color: $gris2; box-shadow: 0px 4px 6px rgba($black, 0.25); border-radius: 20px; overflow: hidden; @include transition(all 300ms ease); @include displayFlex(flex, row, flex-start, center, wrap); max-height: 940px;
     &--black {
       & .planesct__title {
         background-color: $negro;
@@ -924,12 +924,15 @@ form {
   }
   // Paginador button
   & .page-link {
-    padding: 0; border: none; margin: 0; background-color: transparent!important; width: 25px; height: 25px; text-align: center; background-position: center; background-repeat: no-repeat; background-size: 100%; line-height: 25px; text-decoration: none; color: $gris; font-size: rem(14px); @include transition(all 300ms); font-family: 'GothamMedium'; font-weight: 700; outline: 0;
-    &.page--prev {
-      text-indent: -9999px; font-size: 0;
+    padding: 0; border: none; margin: 0; background-color: transparent!important; width: 25px; height: 25px; text-align: center; line-height: 25px; text-decoration: none; color: $gris; font-size: rem(14px); @include transition(all 300ms); font-family: 'GothamMedium'; font-weight: 700; outline: 0!important;
+    &:focus {
+      z-index: 3; color: $rojo; background-color: transparent; outline: 0; box-shadow: none!important;
     }
-    &.page--next {
-      text-indent: -9999px; font-size: 0;
+    &.page--prev, &.page--next {
+      background-color: $rojo!important; color: $white;
+      &:hover {
+        color: $white;
+      }
     }
     &.active {
       color: $rojo;
