@@ -21,6 +21,9 @@
       }
       & .desclink {
         padding: 0; margin: 0; text-align: center; color: $white; font-family: 'Gotham-Light'; font-weight: 400; line-height: 1.2; @include fluid-type(10px, 13px, 320px, 1200px);
+        & strong {
+          margin-top: 10px; display: block; padding: 0;
+        }
         & a {
           @include fluid-type(10px, 13px, 320px, 1200px); color: $white; text-decoration: none;
         }
@@ -76,7 +79,7 @@
     &--info {
       list-style-type: none; @include display(flex); @include justify-content(center); @include flex-direction(column); margin-bottom: 16px;
       & li {
-        list-style-type: none; padding: 0; margin: 0 0 8px;
+        list-style-type: none; padding: 0; margin: 0 0 3px;
         & a {
           padding: 0; margin: 0; text-align: center; color: $white; font-family: 'Gotham-Light'; font-weight: 400; line-height: 1; text-decoration: none; display: block; @include fluid-type(10px, 13px, 320px, 1200px);
         }
@@ -87,7 +90,7 @@
       @media all and (min-width: 768px) {
         @include justify-content(flex-end); margin-bottom: 0;
         & li {
-          margin: 0 0 20px;
+          margin: 0 0 6px;
           & a {
             text-align: right;
           }
