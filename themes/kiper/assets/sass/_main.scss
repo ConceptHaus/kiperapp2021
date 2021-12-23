@@ -301,15 +301,15 @@ article {
     }
   }
   &__mensual {
-    width: 100%; height: auto; display: block; text-align: center; @include fluid-type(9px, 16px, 320px, 1200px); color: $gris; font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0 0 10px; line-height: 1;
+    width: 100%; height: auto; display: block; text-align: center; @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($rojo, 0.55); font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0 0 10px; line-height: 1;
   }
   &__monto {
-    width: 100%; height: auto; display: block; text-align: center; font-family: 'GothamMedium'; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
+    width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
     &--black {
       color: $gris; margin-bottom: 15px; font-size: rem(40px);
       // @include fluid-type(18px, 50px, 320px, 1200px);
       & .price-old {
-        font-size: rem(14px); color: $gris; text-decoration:line-through; display: block; margin-bottom: 10px;
+        font-size: rem(14px); color: $gris; text-decoration:line-through; display: block; margin-bottom: 10px; font-weight: 800;
       }
       & .moneda {
         @include fluid-type(13px, 20px, 320px, 1200px); vertical-align: middle; margin-left: 6px;

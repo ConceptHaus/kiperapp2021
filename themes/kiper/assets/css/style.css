@@ -160,8 +160,7 @@ border-radius: 20vw;
 height: 2.5vw;
 position: relative;
 top: 3vw;
-font-family: 'GothamMedium';
-font-weight: 100;
+font-family: 'Gotham-Light'; font-weight: 600; 
 font-size: 1vw;
 letter-spacing: .03vw;
 }
@@ -471,6 +470,7 @@ position: relative;
 width: 100%;
 /* height: 36vw; */
 height: 12vw;
+padding-top: 30px;
 }
 .content_pregunta_movil{
   /* visibility: hidden; */
