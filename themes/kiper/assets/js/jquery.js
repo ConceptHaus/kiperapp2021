@@ -91,21 +91,23 @@ $(function(){
         }
       });
     });
-    $('[data-check-pro-btn]:checked + label').addClass('planesct__link--select');
-    $('[data-price-pro="opcion-4"]').addClass('selPrice');
-    $('[data-check-pro-btn]').each(function(){
-      var idChPro = $(this).attr('id');
-      // console.log(idCh);
-      $('#'+idChPro).click(function() {
-        $('[data-check-pro-btn] + label').removeClass('planesct__link--select');
-        $('[data-price-pro]').removeClass('selPrice');
-        if(this.checked) {
-          $(this).next().addClass('planesct__link--select');
-          // console.log(idCh);
-          $('[data-price-pro="'+idChPro+'"]').addClass('selPrice');
-        }
-      });
-    });
+    
+    // $('[data-check-pro-btn]:checked + label').addClass('planesct__link--select');
+    // $('[data-price-pro="opcion-4"]').addClass('selPrice');
+    // $('[data-check-pro-btn]').each(function(){
+    //   var idChPro = $(this).attr('id');
+    //   // console.log(idCh);
+    //   $('#'+idChPro).click(function() {
+    //     $('[data-check-pro-btn] + label').removeClass('planesct__link--select');
+    //     $('[data-price-pro]').removeClass('selPrice');
+    //     if(this.checked) {
+    //       $(this).next().addClass('planesct__link--select');
+    //       // console.log(idCh);
+    //       $('[data-price-pro="'+idChPro+'"]').addClass('selPrice');
+    //     }
+    //   });
+    // });
+
     // $('#envioDatos').click(function (e) {
     //     e.preventDefault();
     //     var form = $("#form_contacto");
