@@ -91,6 +91,18 @@ $(function(){
         }
       });
     });
+    // //bloquear ctrl+c ctrl+v
+    // $(document).ready(function(){
+    //   $("#bloquear").on('paste', function(e){
+    //     e.preventDefault();
+    //     alert('Esta acción está prohibida');
+    //   })
+      
+    //   $("#bloquear").on('copy', function(e){
+    //     e.preventDefault();
+    //     alert('Esta acción está prohibida');
+    //   })
+    // })
     
     // $('[data-check-pro-btn]:checked + label').addClass('planesct__link--select');
     // $('[data-price-pro="opcion-4"]').addClass('selPrice');
@@ -131,9 +143,81 @@ $(function(){
     //       console.log(json);
     //     }
     //     })
-    // });
+    // });  
 
-  // Formulario Validate
+    //validación con formulario inicia 
+    $("#frmProbar").validate({
+      // errorElement: 'div',
+      // errorClass: 'error-line',
+      rules: {
+        inpNombres: {
+          required: true 
+        },
+        inpApellidos: {
+          required: true 
+        },
+        inpEmail: {
+          required: true,
+          email: true,
+        },
+        inpConfEmail: {
+          required: true,
+          email: true,
+          equalTo: "#inpEmail"
+        },
+        inpDominio: {
+          required: true,
+        },
+        inpNegocio: {
+          required: true 
+        },
+        inpPais: {
+          required: true 
+        },
+        inpEdo:{
+          required: true 
+        }
+      },
+      messages: {
+        inpNombres: "Este campo es requerido",
+        inpEmail: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+          email: '<i class="fa fa-exclamation-triangle"></i>',
+        },
+        telefono: {
+          required: '<i class="fa fa-exclamation-triangle"></i>',
+          number: '<i class="fa fa-exclamation-triangle"></i>',
+        },
+        negocio: '<i class="fa fa-exclamation-triangle"></i>',
+        mensaje: '<i class="fa fa-exclamation-triangle"></i>',
+      },
+      submitHandler: function(form) {
+        var form = $("#frmProbar");
+        var url = form.attr('action');
+        var data = form.serialize();
+        console.log("hola");
+        console.log(url);
+        console.log(data);
+        $.ajax({
+          type: 'POST',
+          url: url,
+          data: data,
+          dataType: 'json',
+          success: function (json) {
+            console.log(json);
+          },
+          error: function(json){
+            var error = '';
+      
+            console.log("error");
+            console.log(json);
+          }
+        });
+      }
+    });
+
+
+    // Formulario Validate
   $("#form_contacto").validate({
     errorElement: 'div',
     errorClass: 'error-line',
@@ -244,8 +328,9 @@ function extrasInput(id, idx, cant) {
   });
 }
 
-
-
-
-
-
+function validaDominio(){
+}
+// carga cuando termina 
+document.ready(function(){
+ $.ajax( )
+});
