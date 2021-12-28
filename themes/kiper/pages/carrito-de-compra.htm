@@ -1,0 +1,111 @@
+title = "Carrito de Compra"
+url = "/carrito-de-compra"
+layout = "layout"
+description = "Página para el carrito de compra"
+is_hidden = 0
+==
+
+<section class="iniciaSec">
+	<form action="POST" name="frmProbar" id="frmProbar" action="" autocomplete="off" novalidate>
+		<div class="ctFrm">
+			<div class="container">
+				<div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-7">
+            <nav class="breadct" aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{'inicio'|page}}">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="{{'inicia-prueba'|page}}">Comenzar ahora</a></li>
+                <li class="breadcrumb-item"><a href="{{'pagar-ahora'|page}}">Pagar ahora</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Carrito de compra</li>
+              </ol>
+            </nav><!-- end.breadcrumb -->
+          </div><!-- end.col-* -->
+					<div class="col-12">
+						<span class="content_pregunta">Carrito de
+						<span class="naranja">Compra</span><br></span>
+						<span class="">Estas a un paso de tomar el control de tus clientes potenciales e incrementar tus ventas</span>
+					</div><!-- end.col-* -->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+		</div><!-- end.ctFrm -->
+		<div class="planesct">
+			<div class="container">
+				<div class="row justify-content-center">
+
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="frmInicia">
+							<div class="row g-3">
+								<div class="col-12">
+									<h2 class="frmInicia__title">Datos de tarjeta</h2>
+								</div>
+								<div class="col-12">
+									<p class="frmInicia__labelTow">Selecciona tipo de tarjeta</p>
+									<div class="cc-selector">
+										<input checked="checked" id="visa" type="radio" name="credit-card" value="visa" />
+										<label class="drinkcard-cc visa" for="visa"></label>
+										<input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+										<label class="drinkcard-cc mastercard"for="mastercard"></label>
+									</div>
+								</div>
+                <div class="col-12 inputStyle">
+                  <input type="text" pattern="[0-9]" class="form-control" name="credit-number" id="credit-number" placeholder="Número de tarjeta" maxlength="19">
+                </div>
+								<div class="col-12 inputStyle">
+									<input type="text" class="form-control" name="tarjeta_name" id="tarjeta_name" placeholder="Nombre completo como aparece en la tarjeta*">
+								</div>
+								<div class="col-12">
+									<p class="frmInicia__labelTow">Vigencia</p>
+								</div>
+								<div class="col-6 inputStyle">
+									<!-- <select name="mescard" id="mescard" class="form-select required">
+										<option value="enero">Enero</option>
+										<option value="febrero">Febrero</option>
+										<option value="marzo">Marzo</option>
+										<option value="abril">Abril</option>
+										<option value="mayo">Maya</option>
+										<option value="junio">Junio</option>
+										<option value="julio">Julio</option>
+										<option value="agosto">Agosto</option>
+										<option value="septiembre">Septiembre</option>
+										<option value="octubre">Octubre</option>
+										<option value="noviembre">Noviembre</option>
+										<option value="diciembre">Diciembre</option>
+									</select> -->
+                  <input type="text" name="mescard" id="mescard" class="form-control" placeholder="MM" maxlength="2">
+								</div>
+								<div class="col-6 inputStyle">
+									<!-- <select name="yearcard" id="yearcard" class="form-select required">
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
+										<option value="2023">2023</option>
+										<option value="2024">2024</option>
+										<option value="2025">2025</option>
+										<option value="2026">2026</option>
+										<option value="2027">2027</option>
+									</select> -->
+                  <input type="text" name="mescard" id="mescard" class="form-control" placeholder="AA" maxlength="2">
+								</div>
+								<div class="col-6 col-md-4 inputStyle">
+									<input type="text" class="form-control" name="credit-ccv" id="credit-ccv" placeholder="CVV" maxlength="3">
+                  <div class="iconTar">
+                    <img src="{{ 'assets/img/cvv.png'|theme }}" alt="">
+                  </div>
+								</div>
+								<div class="col-6 col-md-8">
+									<div class="cvv-details">
+										<p>3 dígitos generalmente se encuentran<br>a un costado de la firma</p>
+									</div>
+								</div>
+							</div>
+						</div><!-- end.frmDataBox -->
+					</div><!-- end.col-* -->
+					<div class="col-12 col-md-10 col-lg-7">
+						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Finalizar compra">  
+					</div> <!-- end.col-*-->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+
+			
+		</div><!-- end.planesct -->
+	</form><!-- end.form -->
+</section><!-- end.iniciaSec -->
