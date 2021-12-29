@@ -145,77 +145,7 @@ $(function(){
     //     })
     // });  
 
-    //validación con formulario inicia 
-    $("#frmProbar").validate({
-      // errorElement: 'div',
-      // errorClass: 'error-line',
-      rules: {
-        inpNombres: {
-          required: true 
-        },
-        inpApellidos: {
-          required: true 
-        },
-        inpEmail: {
-          required: true,
-          email: true,
-        },
-        inpConfEmail: {
-          required: true,
-          email: true,
-          equalTo: "#inpEmail"
-        },
-        inpDominio: {
-          required: true,
-        },
-        inpNegocio: {
-          required: true 
-        },
-        inpPais: {
-          required: true 
-        },
-        inpEdo:{
-          required: true 
-        }
-      },
-      messages: {
-        inpNombres: "Este campo es requerido",
-        inpEmail: {
-          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-          email: '<i class="fa fa-exclamation-triangle"></i>',
-        },
-        telefono: {
-          required: '<i class="fa fa-exclamation-triangle"></i>',
-          number: '<i class="fa fa-exclamation-triangle"></i>',
-        },
-        negocio: '<i class="fa fa-exclamation-triangle"></i>',
-        mensaje: '<i class="fa fa-exclamation-triangle"></i>',
-      },
-      submitHandler: function(form) {
-        var form = $("#frmProbar");
-        var url = form.attr('action');
-        var data = form.serialize();
-        console.log("hola");
-        console.log(url);
-        console.log(data);
-        $.ajax({
-          type: 'POST',
-          url: url,
-          data: data,
-          dataType: 'json',
-          success: function (json) {
-            console.log(json);
-          },
-          error: function(json){
-            var error = '';
-      
-            console.log("error");
-            console.log(json);
-          }
-        });
-      }
-    });
-
+   
 
     // Formulario Validate
   $("#form_contacto").validate({
@@ -330,7 +260,105 @@ function extrasInput(id, idx, cant) {
 
 function validaDominio(){
 }
-// carga cuando termina 
-document.ready(function(){
- $.ajax( )
+
+
+$(function() {
+
+
+jQuery.extend(jQuery.validator.messages, {
+    required: "Campo requerido",
+    email: "Email inválido",
+    number: "Ingrese solo digitos",
+    digits: "Ingrese solo digitos",
+    creditcard: "Número de tarjeta inválido",
+    equalTo: "El email debe ser igual",
+    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    minlength: jQuery.validator.format("Please enter at least {0} characters."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
+
+     //validación con formulario inicia 
+    $("#frmProbar").validate({
+       errorElement: 'div',
+      // errorClass: 'error-line',
+      rules: {
+        inpNombres: {
+          required: true 
+        },
+        inpApellidos: {
+          required: true 
+        },
+        inpEmail: {
+          required: true,
+          email: true
+        },
+        inpConfEmail: {
+          required: true,
+          email: true,
+          equalTo: "#inpEmail"
+        },
+        inpDominio: {
+          required: true
+        },
+        inpNegocio: {
+          required: true 
+        },
+        inpPais: {
+          required: true 
+        },
+        inpEdo:{
+          required: true 
+        }
+      },
+      messages: {
+        inpNombres: {
+          required: "Este campo es requerido"
+        },
+        inpEmail: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+          email: '<i class="fa fa-exclamation-triangle"></i>'
+        },
+        inpConfEmail: {
+          required: "Campo requerido",
+          equalTo: "Los email no coinciden"
+        },
+        inpTelefono: {
+          required: '<i class="fa fa-exclamation-triangle"></i>',
+          number: '<i class="fa fa-exclamation-triangle"></i>'
+        },
+        inpNegocio: 
+        {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido'
+        }
+      },
+      submitHandler: function(form) {
+        var form = $("#frmProbar");
+        var url = form.attr('action');
+        var data = form.serialize();
+        console.log("hola");
+        console.log(url);
+        console.log(data);
+        $.ajax({
+          type: 'POST',
+          url: url,
+          data: data,
+          dataType: 'json',
+          success: function (json) {
+            console.log(json);
+          },
+          error: function(json){
+            var error = '';
+      
+            console.log("error");
+            console.log(json);
+          }
+        });
+      }
+    });
+
+    $("#frmProbar").removeAttr("novalidate");
+
 });

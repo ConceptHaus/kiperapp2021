@@ -4,7 +4,7 @@ layout = "layout"
 is_hidden = 0
 ==
 <section class="iniciaSec">
-	<form action="POST" name="frmProbar" id="frmProbar">
+	<form method="POST" name="frmProbar" id="frmProbar">
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -25,52 +25,49 @@ is_hidden = 0
 						<div class="frmInicia">
 							<div class="row g-3">
 								<div class="col-12 col-md-6 inputStyle">
-									<input type="text" nombre="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre(s)*" >
+									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre(s)*" />
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<input type="text" nombre="inpApellidos" id="inpApellidos" class="form-control required" placeholder="Apellido(s)*" >
-								</div>
-								<!-- <div class="col-12 inputStyle">
-									<input type="email" class="form-control" placeholder="Correo eléctronico">
-								</div> -->
-								<div class="col-12 col-md-6 inputStyle">
-									<input type="email" nombre="inpEmail" id="inpEmail" class="form-control required" placeholder="Correo eléctronico*" >
+									<input type="text" name="inpApellidos" id="inpApellidos" class="form-control required"  value="" placeholder="Apellido(s)*" />
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<input type="email" nombre="inpConfEmail" id="inpConfEmail" class="form-control required" placeholder="Confirmar correo eléctronico*" >
+									<input type="email" name="inpEmail" id="inpEmail" class="form-control required" value="" placeholder="Correo eléctronico*" />
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="email" name="inpConfEmail" id="inpConfEmail" class="form-control required" value="" placeholder="Confirmar correo eléctronico*" />
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="text" nombre="inpTelefono" id="inpTelefono" class="form-control" placeholder="Teléfono">
+									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control" placeholder="Teléfono" />
 								</div>
 								<div class="col-12">
 									<h2 class="frmInicia__title">Datos de la empresa</h2>
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="text" nombre="inpDominio" id="inpDominio" class="form-control required" placeholder="Dominio de tu negocio*" >
+									<input type="text" name="inpDominio" id="inpDominio" class="form-control required" placeholder="Dominio de tu negocio*" />
 									<div class="frmInicia__alerta alert alert-info" role="alert">
 										<small>Si aún no cuentas con tu sitio web ingresa el nombre comercial de tu empresa seguido de: kiper.app</small>
 									</div>
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="text" nombre="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" >
+									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required" id="inpPais" name="inpPais" >
-										<option value="">País</option>
+										<option value="1">País</option>
 										<!-- <option value="9">México</option> -->
 									</select>
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required" id="inpEdo" name="inpEdo" >
-										<option value="">Estado / Distrito</option>
+										<option value="1">Estado / Distrito</option>
 										<!-- <option value="9">Morelos</option> -->
 									</select>
 								</div>
 								<div class="col col-md-6 inputStyle">
-									<input type="text" nombre="inpMunicipio" id="inpMunicipio" class="form-control" placeholder="Alcaldía / Municipio">
+									<input type="text" name="inpMunicipio" id="inpMunicipio" class="form-control" placeholder="Alcaldía / Municipio" />
 								</div>
 								<div class="col col-md-6 inputStyle">
-									<input type="text" nombre="inpCodPos" id="inpCodPos" class="form-control" placeholder="Código Postal"> 
+									<input type="text" name="inpCodPos" id="inpCodPos" class="form-control" placeholder="Código Postal" /> 
 								</div>
 							</div><!-- end.row -->
 						</div><!-- end.frmInicia -->
