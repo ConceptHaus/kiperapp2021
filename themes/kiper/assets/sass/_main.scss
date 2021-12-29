@@ -586,6 +586,22 @@ form {
   &__labelTow {
     text-align: left; display: block; margin: 0; font-family: 'Gotham-Light'; font-weight: 700; @include fluid-type(14px, 18px, 320px, 1200px); 
   }
+  &__datos {
+    width: 100%; height: auto; padding: 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box); border: 1px solid $gris; border-radius: 6px;
+    & .titleBox {
+      @include position(absolute, -11px null null 20px); display: inline-block; color: $gris; padding: 0 6px; margin: 0; font-family: 'Gotham-Light'; font-weight: 700; background-color: $white; font-size: rem(13px);
+    }
+    & input[type="text"],
+    & input[type="email"] {
+      margin-bottom: 15px;
+    }
+  }
+  &__check {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
+  }
+  & .checkCus {
+    margin-bottom: 20px;
+  }
   & .inputStyle {
     position: relative;
     & input {
@@ -1070,5 +1086,36 @@ span.cc{ color:#6d84b4 }
         @include fluid-type(11px, 13px, 320px, 1200px); color: $rojo; text-decoration: none;
       }
     }
+  }
+}
+
+// CheckboxCustom
+.CheckStyle {
+  position: absolute; opacity: 0;
+  & ~ label {
+    position: relative; cursor: pointer; padding: 0; margin: 0; color: $gris; font-family: 'Gotham-Light'; font-weight: 500;
+  }
+  & ~ label:before {
+    content: ''; margin-right: 10px; display: inline-block; vertical-align: text-top; width: 20px; height: 20px; background: transparent; border: solid $black 1px; @include box-sizing(border-box); @include transition(all 0.25s ease);
+  }
+  &:hover ~ label:before {
+    background: rgba($rojo,0.35);
+  }
+  &:focus ~ label:before {
+    box-shadow: 0 0 0 3px rgba($rojo, 0.12);
+  }
+  &:checked ~ label:before {
+    background: rgba($rojo,1);
+  }
+  &:disabled ~ label {
+    color: $black;
+    cursor: auto;
+  }
+  &:disabled ~ label:before {
+    box-shadow: none;
+    background: $black;
+  }
+  &:checked ~ label:after {
+    content: ''; position: absolute; left: 4px; top: 4px; background: $rojo; width: 12px; height: 12px;
   }
 }
