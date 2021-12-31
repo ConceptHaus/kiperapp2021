@@ -15,3 +15,12 @@
 1.0.6:
     - 'Updated table kiper_facturacion_prov_mex'
     - builder_table_update_kiper_facturacion_prov_mex.php
+1.0.7:
+    - 'Updated table kiper_facturacion_prov_mex'
+    - builder_table_update_kiper_facturacion_prov_mx.php
+1.0.8:
+    - 'Updated table kiper_facturacion_prov_eu'
+    - builder_table_update_kiper_facturacion_prov_eu_2.php
+1.0.9:
+    - 'Updated table kiper_facturacion_prov_mx'
+    - builder_table_update_kiper_facturacion_prov_mx_2.php

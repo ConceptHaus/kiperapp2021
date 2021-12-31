@@ -223,30 +223,36 @@ $(function(){
     $(dataMob).toggle( "slow" );
   });
 
-  // $('#inpPais').change(function() {
-  //   var for_item = $(this).val();
-  //   if(for_item != '' && for_item.length > 0) {
-  //     $('')
-  //   }
-  // });
-
-  $("select.country").on('change', function(){
-    var selectedCountry = $(".country option:selected").val();
-    // console.log(selectedCountry);
-    // $.request('onCalculate',{
-    //     data: { codigo : selectedCountry } 
-    // }).done(function(data){
-    //     $("#response").html(data);
-    // });
-    $('form').request('onCalculate', {
-      data: {
-        codigo: selectedCountry
-      },
-      success: function(data) {
-        console.log(data + 'hola');
-      }
-    });
+  $('#inpPais').change(function() {
+    var for_item = $(this).val();
+    if(for_item != '' && for_item.length > 0) {
+      $('#inpEdo').prop("disabled", false);
+    } else {
+      $('#inpEdo').prop("disabled", true);
+    }
   });
+
+  // $("#inpPais").on('change', function(){
+  //   var selectedCountry = $("#inpPais").val();
+  //   var selectStatus = $("#inpPais").data('status-pais');
+  //   var selectId = $("#inpPais").data('id-pais');
+  //   console.log(selectedCountry);
+  //   $.request('onCalculate',{
+  //       data: { codigo : selectedCountry } 
+  //   }).done(function(data){
+  //       $("#response").html(data);
+  //   });
+  //   $('#frmProbar').request('onTest', {
+  //     data: {
+  //       inpPais: selectedCountry
+  //     },
+  //     success: function(data) {
+  //       // console.log(data + 'hola');
+  //       $("#inpEdo").html(data);
+  //       $('#inpEdo').prop("disabled", false);
+  //     }
+  //   });
+  // });
 });
 
 function wowData() {

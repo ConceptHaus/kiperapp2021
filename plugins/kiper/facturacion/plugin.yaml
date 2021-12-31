@@ -24,7 +24,7 @@ navigation:
                     - Facturaciones.admin
             side-menu-item2:
                 label: México
-                url: kiper/facturacion/mexico
+                url: kiper/facturacion/mex
                 icon: icon-star
                 permissions:
                     - Facturaciones.admin

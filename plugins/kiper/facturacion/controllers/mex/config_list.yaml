@@ -1,7 +1,7 @@
-title: Mexico
+title: Mex
 modelClass: Kiper\Facturacion\Models\MX
-list: $/kiper/facturacion/models/mex/columns.yaml
-recordUrl: 'kiper/facturacion/mexico/update/:id'
+list: $/kiper/facturacion/models/mx/columns.yaml
+recordUrl: 'kiper/facturacion/mex/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
 showSetup: true

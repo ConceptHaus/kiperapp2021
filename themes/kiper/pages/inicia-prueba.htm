@@ -3,40 +3,39 @@ url = "/comenzar-ahora"
 layout = "layout"
 is_hidden = 0
 
-[builderList listadoPaises]
-modelClass = "Kiper\Facturacion\Models\Pais"
+[builderList estadoList]
+modelClass = "Kiper\Facturacion\Models\MX"
 scope = "-"
 scopeValue = "{{ :scope }}"
-displayColumn = "pais"
+displayColumn = "nombre"
 noRecordsMessage = "No records found"
 detailsPage = "-"
 detailsUrlParameter = "id"
-recordsPerPage = 20
+recordsPerPage = 50
 pageNumber = "{{ :page }}"
 sortColumn = "id"
 sortDirection = "asc"
 ==
 <?php
-function onCalculate()
+function onTest()
 {
-    // update MySQL here
-		$val = $_POST["inpPais"];
-		if($val == 1) {
-			$titles = Db::select('select * from kiper_facturacion_prov_mex where status = '.$val);
-			foreach ($titles as $pais) {
-				echo $pais->nombre;
-			}
-		} elseif ($val == 2) {
-			$titles = Db::select('select * from kiper_facturacion_prov_eu where status = '.$val);
-			foreach ($titles as $pais) {
-				echo $pais->nombre;
-			}
+  // update MySQL here	
+	if (!empty($_POST["inpPais"])) {
+    $val = $_POST["inpPais"];
+		$val = mb_strtolower($val);
+		$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
+
+		foreach ($paises as $pais) {
+			//echo $pais->nombre;
+			$this->page['paises_id'] = $pais->paises_id;
+			$this->page['nombre'] = $pais->nombre;
 		}
+	}
 
 }
 ?>
 ==
-{% set paises = listadoPaises.records %}
+{% set estados = estadoList.records %}
 <section class="iniciaSec">
 	<form method="POST" name="frmProbar" id="frmProbar">
 		<div class="ctFrm">
@@ -88,14 +87,15 @@ function onCalculate()
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required country" id="inpPais" name="inpPais">
 										<option value="">País</option>
-									{% for pais in paises %}
-										<option value="{{ pais.status }}" data-code-pais="{{ pais.codigo }}">{{ pais.pais }}</option>
-									{% endfor %}
+										<option value="MX" data-status-pais="1" data-id-pais="1">México</option>
 									</select>
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required" id="inpEdo" name="inpEdo" disabled>
-										<option value="">Estado / Distrito</option>
+										<option value="">Estado / Distrito</option>}
+									{% for estado in estados %}
+										<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+									{% endfor %}
 									</select>
 									<div id="response"></div>
 								</div>
