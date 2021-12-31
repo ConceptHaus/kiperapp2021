@@ -2,7 +2,41 @@ title = "Inicia tu Prueba"
 url = "/comenzar-ahora"
 layout = "layout"
 is_hidden = 0
+
+[builderList listadoPaises]
+modelClass = "Kiper\Facturacion\Models\Pais"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "pais"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+recordsPerPage = 20
+pageNumber = "{{ :page }}"
+sortColumn = "id"
+sortDirection = "asc"
 ==
+<?php
+function onCalculate()
+{
+    // update MySQL here
+		$val = $_POST["inpPais"];
+		if($val == 1) {
+			$titles = Db::select('select * from kiper_facturacion_prov_mex where status = '.$val);
+			foreach ($titles as $pais) {
+				echo $pais->nombre;
+			}
+		} elseif ($val == 2) {
+			$titles = Db::select('select * from kiper_facturacion_prov_eu where status = '.$val);
+			foreach ($titles as $pais) {
+				echo $pais->nombre;
+			}
+		}
+
+}
+?>
+==
+{% set paises = listadoPaises.records %}
 <section class="iniciaSec">
 	<form method="POST" name="frmProbar" id="frmProbar">
 		<div class="ctFrm">
@@ -52,16 +86,18 @@ is_hidden = 0
 									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<select class="form-select required" id="inpPais" name="inpPais" >
-										<option value="1">País</option>
-										<!-- <option value="9">México</option> -->
+									<select class="form-select required country" id="inpPais" name="inpPais">
+										<option value="">País</option>
+									{% for pais in paises %}
+										<option value="{{ pais.status }}" data-code-pais="{{ pais.codigo }}">{{ pais.pais }}</option>
+									{% endfor %}
 									</select>
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<select class="form-select required" id="inpEdo" name="inpEdo" >
-										<option value="1">Estado / Distrito</option>
-										<!-- <option value="9">Morelos</option> -->
+									<select class="form-select required" id="inpEdo" name="inpEdo" disabled>
+										<option value="">Estado / Distrito</option>
 									</select>
+									<div id="response"></div>
 								</div>
 								<div class="col col-md-6 inputStyle">
 									<input type="text" name="inpMunicipio" id="inpMunicipio" class="form-control" placeholder="Alcaldía / Municipio" />

@@ -1,0 +1,17 @@
+fields:
+    pais:
+        label: 'Nombre Pais'
+        span: auto
+        type: text
+    codigo:
+        label: 'Código de país'
+        span: auto
+        type: text
+    moneda:
+        label: 'Moneda pais'
+        span: auto
+        type: text
+    status:
+        label: Estatus
+        span: auto
+        type: number

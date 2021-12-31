@@ -1,0 +1,4 @@
+title: Paises
+modelClass: Kiper\Facturacion\Models\Pais
+toolbar:
+    buttons: reorder_toolbar

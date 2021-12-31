@@ -1,0 +1,10 @@
+name: Usa
+form: $/kiper/facturacion/models/eua/fields.yaml
+modelClass: Kiper\Facturacion\Models\Eua
+defaultRedirect: kiper/facturacion/usa
+create:
+    redirect: 'kiper/facturacion/usa/update/:id'
+    redirectClose: kiper/facturacion/usa
+update:
+    redirect: kiper/facturacion/usa
+    redirectClose: kiper/facturacion/usa

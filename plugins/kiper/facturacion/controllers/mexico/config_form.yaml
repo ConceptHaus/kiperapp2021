@@ -1,0 +1,10 @@
+name: Mexico
+form: $/kiper/facturacion/models/mex/fields.yaml
+modelClass: Kiper\Facturacion\Models\Mex
+defaultRedirect: kiper/facturacion/mexico
+create:
+    redirect: 'kiper/facturacion/mexico/update/:id'
+    redirectClose: kiper/facturacion/mexico
+update:
+    redirect: kiper/facturacion/mexico
+    redirectClose: kiper/facturacion/mexico

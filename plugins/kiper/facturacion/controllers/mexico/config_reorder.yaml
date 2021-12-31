@@ -1,0 +1,4 @@
+title: Mexico
+modelClass: Kiper\Facturacion\Models\Mex
+toolbar:
+    buttons: reorder_toolbar

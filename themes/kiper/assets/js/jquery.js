@@ -222,6 +222,31 @@ $(function(){
     var dataMob = $(this).attr('data-mobile');
     $(dataMob).toggle( "slow" );
   });
+
+  // $('#inpPais').change(function() {
+  //   var for_item = $(this).val();
+  //   if(for_item != '' && for_item.length > 0) {
+  //     $('')
+  //   }
+  // });
+
+  $("select.country").on('change', function(){
+    var selectedCountry = $(".country option:selected").val();
+    // console.log(selectedCountry);
+    // $.request('onCalculate',{
+    //     data: { codigo : selectedCountry } 
+    // }).done(function(data){
+    //     $("#response").html(data);
+    // });
+    $('form').request('onCalculate', {
+      data: {
+        codigo: selectedCountry
+      },
+      success: function(data) {
+        console.log(data + 'hola');
+      }
+    });
+  });
 });
 
 function wowData() {

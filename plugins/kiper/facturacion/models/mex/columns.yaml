@@ -1,0 +1,20 @@
+columns:
+    nombre:
+        label: Estado
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: Estatus
+        type: text
+        searchable: true
+        sortable: true
+    paises_id:
+        label: 'País ID'
+        type: number
+        searchable: true
+        sortable: true
+    id:
+        label: ID
+        type: number
+        sortable: true

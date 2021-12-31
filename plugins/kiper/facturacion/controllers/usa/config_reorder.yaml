@@ -1,0 +1,4 @@
+title: Usa
+modelClass: Kiper\Facturacion\Models\Eua
+toolbar:
+    buttons: reorder_toolbar

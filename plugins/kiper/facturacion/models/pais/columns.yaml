@@ -1,0 +1,24 @@
+columns:
+    pais:
+        label: País
+        type: text
+        searchable: true
+        sortable: true
+    codigo:
+        label: 'Código de país'
+        type: text
+        searchable: true
+        sortable: true
+    moneda:
+        label: 'Moneda País'
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: Estatus
+        type: number
+        sortable: true
+    id:
+        label: ID
+        type: number
+        sortable: true

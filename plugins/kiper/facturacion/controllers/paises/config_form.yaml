@@ -1,0 +1,10 @@
+name: Paises
+form: $/kiper/facturacion/models/pais/fields.yaml
+modelClass: Kiper\Facturacion\Models\Pais
+defaultRedirect: kiper/facturacion/paises
+create:
+    redirect: 'kiper/facturacion/paises/update/:id'
+    redirectClose: kiper/facturacion/paises
+update:
+    redirect: kiper/facturacion/paises
+    redirectClose: kiper/facturacion/paises

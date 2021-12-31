@@ -1,0 +1,36 @@
+plugin:
+    name: 'kiper.facturacion::lang.plugin.name'
+    description: 'kiper.facturacion::lang.plugin.description'
+    author: Kiper
+    icon: oc-icon-bank
+    homepage: 'https://kiper.app'
+permissions:
+    Facturaciones.admin:
+        tab: 'Administrar Facturación'
+        label: "\t Administrar Facturación"
+navigation:
+    main-menu-item:
+        label: 'Comenzar Ahora'
+        url: kiper/facturacion/paises
+        icon: icon-area-chart
+        permissions:
+            - Facturaciones.admin
+        sideMenu:
+            side-menu-item:
+                label: 'Categoría paises'
+                url: kiper/facturacion/paises
+                icon: icon-sitemap
+                permissions:
+                    - Facturaciones.admin
+            side-menu-item2:
+                label: México
+                url: kiper/facturacion/mexico
+                icon: icon-star
+                permissions:
+                    - Facturaciones.admin
+            side-menu-item3:
+                label: EUA
+                url: kiper/facturacion/usa
+                icon: icon-star
+                permissions:
+                    - Facturaciones.admin

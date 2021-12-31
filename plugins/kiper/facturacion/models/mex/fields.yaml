@@ -1,0 +1,9 @@
+fields:
+    nombre:
+        label: Estado
+        span: auto
+        type: text
+    status:
+        label: Estatus
+        span: auto
+        type: number
