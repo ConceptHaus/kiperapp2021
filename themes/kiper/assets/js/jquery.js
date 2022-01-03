@@ -257,6 +257,7 @@ $(function(){
   $valorChecado = $('[data-check-btn]:checked').val();
   $('#subtotal').text('$'+$valorChecado);
   $('#subTotalPrice').val($valorChecado);
+  $('#totalFin').text('$'+$valorChecado);
   $('#totalPriceFin').val($valorChecado);
   
   $valPersonal = $('#cantidad-ct-1');

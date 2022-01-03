@@ -479,6 +479,9 @@ form {
   }
   & input {
     border: none; border-radius: 0;
+    &.error-label {
+      border-color: $rojo!important;
+    }
     &:focus {
       outline: none!important;
     }
@@ -486,8 +489,17 @@ form {
       outline: none!important;
     }
   }
+  & select {
+    border: none; border-radius: 0;
+    &.error-label {
+      border-color: $rojo!important;
+    }
+  }
   & textarea {
     border: none; border-radius: 0;
+    &.error-label {
+      border-color: $rojo!important;
+    }
     &:focus {
       outline: none!important;
     }
@@ -617,7 +629,7 @@ form {
       }
     }
     & div.error-label {
-      width: 100%; height: 20px; line-height: 20px; background-color: rgba($gris, 0.10); color: $rojo; font-size: rem(11px); padding: 0; margin: 0; @include position(relative, null null null null); z-index: 3; text-align: center; @include box-sizing(border-box);
+      width: 100%; height: 20px; line-height: 20px; background-color: transparent; color: $rojo; font-size: rem(11px); padding: 0 10px; margin: 0; @include position(relative, null null null null); z-index: 3; text-align: left; @include box-sizing(border-box);
     }
   }
   &--divider {
