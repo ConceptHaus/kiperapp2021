@@ -20,17 +20,19 @@ sortDirection = "asc"
 function onTest()
 {
   // update MySQL here	
-	if (!empty($_POST["inpPais"])) {
-    $val = $_POST["inpPais"];
-		$val = mb_strtolower($val);
-		$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
+	//if (!empty($_POST["inpPais"])) {
+    //$val = $_POST["inpPais"];
+		//$val = mb_strtolower($val);
+		//$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
 
-		foreach ($paises as $pais) {
+		//foreach ($paises as $pais) {
 			//echo $pais->nombre;
-			$this->page['paises_id'] = $pais->paises_id;
-			$this->page['nombre'] = $pais->nombre;
-		}
-	}
+			//$this->page['paises_id'] = $pais->paises_id;
+			//$this->page['nombre'] = $pais->nombre;
+		//}
+	//}
+
+	return Redirect::to('/carrito-de-compra');
 
 }
 ?>
@@ -76,10 +78,10 @@ function onTest()
 									<h2 class="frmInicia__title">Datos de la empresa</h2>
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="text" name="inpDominio" id="inpDominio" class="form-control required" placeholder="Dominio de tu negocio*" />
 									<div class="frmInicia__alerta alert alert-info" role="alert">
 										<small>Si aún no cuentas con tu sitio web ingresa el nombre comercial de tu empresa seguido de: kiper.app</small>
 									</div>
+									<input type="text" name="inpDominio" id="inpDominio" class="form-control required" placeholder="Dominio de tu negocio*" />
 								</div>
 								<div class="col-12 inputStyle">
 									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />

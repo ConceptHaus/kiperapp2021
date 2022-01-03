@@ -253,6 +253,34 @@ $(function(){
   //     }
   //   });
   // });
+
+  $valorChecado = $('[data-check-btn]:checked').val();
+  $('#subtotal').text('$'+$valorChecado);
+  $('#subTotalPrice').val($valorChecado);
+  $('#totalPriceFin').val($valorChecado);
+  
+  $valPersonal = $('#cantidad-ct-1');
+  $checks = $("[data-check-btn]");
+  $checks.on('change', function() {
+    var subPrecio = parseFloat($(this).val());
+    var subPerso = parseFloat($('#cantidad-ct-1').val());
+    var multiplyVal = (subPrecio*subPerso);
+    var string = $checks.filter(":checked").map(function(i,v){
+      return this.value;
+    }).get().join(" ");
+    console.log(multiplyVal);
+    $('#subtotal').text('$'+string);
+    $('#subTotalPrice').val(string);
+    $('#totalFin').text('$'+multiplyVal);
+    $('#totalPriceFin').val(multiplyVal);
+  });
+  // $valPersonal.on('change', function() {
+  //   var subPrecio = parseFloat($('[data-check-btn]:checked').val());
+  //   var subPerso = parseFloat($(this).val());
+  //   var y = valor;
+  //   $('#totalFin').text('$'+subPrecio*++y);
+  //   $('#totalPriceFin').val(subPrecio*++y);
+  // });
 });
 
 function wowData() {
@@ -271,50 +299,58 @@ function wowData() {
 function extrasInput(id, idx, cant) {
   var valor = $(cant).val();
   var x = valor;
+  var y = valor;
+  var z = valor;
   // console.log(valor + 'Personas');
   $(id).click(function () {
+    var valorUno = parseFloat($('[data-check-btn]:checked').val());
     $(cant).attr('value', ++x);
+    $('#totalFin').text('$'+valorUno*++y);
+    $('#totalPriceFin').val(valorUno*++z);
     if($(cant).val() > 1) {
       $(idx).removeClass('disabled');
     }
   });
   $(idx).click(function () {
     console.log($(cant).val());
+    var valorDos = parseFloat($('[data-check-btn]:checked').val());
     if ($(cant).val() <= 1) {
       // console.log('Aquí bloqueas');
       $(idx).addClass('disabled');
     } else {
       $(cant).attr('value', --x);
+      $('#totalFin').text('$'+valorDos*--y);
+      $('#totalPriceFin').val(valorDos*--z);
     }
   });
 }
 
-function validaDominio(){
-}
+// function validaDominio(){
+// }
 
 
 $(function() {
 
 
-jQuery.extend(jQuery.validator.messages, {
-    required: "Campo requerido",
-    email: "Email inválido",
-    number: "Ingrese solo digitos",
-    digits: "Ingrese solo digitos",
-    creditcard: "Número de tarjeta inválido",
-    equalTo: "El email debe ser igual",
-    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
-    minlength: jQuery.validator.format("Please enter at least {0} characters."),
-    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
-    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
-    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
-    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
-});
+// jQuery.extend(jQuery.validator.messages, {
+//     required: "Campo requerido",
+//     email: "Email inválido",
+//     number: "Ingrese solo digitos",
+//     digits: "Ingrese solo digitos",
+//     creditcard: "Número de tarjeta inválido",
+//     equalTo: "El email debe ser igual",
+//     maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+//     minlength: jQuery.validator.format("Please enter at least {0} characters."),
+//     rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+//     range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+//     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+//     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+// });
 
      //validación con formulario inicia 
     $("#frmProbar").validate({
        errorElement: 'div',
-      // errorClass: 'error-line',
+      errorClass: 'error-label',
       rules: {
         inpNombres: {
           required: true 
@@ -332,7 +368,8 @@ jQuery.extend(jQuery.validator.messages, {
           equalTo: "#inpEmail"
         },
         inpDominio: {
-          required: true
+          required: true,
+          url: true
         },
         inpNegocio: {
           required: true 
@@ -346,23 +383,35 @@ jQuery.extend(jQuery.validator.messages, {
       },
       messages: {
         inpNombres: {
-          required: "Este campo es requerido"
+          required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+        },
+        inpApellidos: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
         },
         inpEmail: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-          email: '<i class="fa fa-exclamation-triangle"></i>'
+          email: '<i class="fa fa-exclamation-triangle"></i> Email inválido'
         },
         inpConfEmail: {
-          required: "Campo requerido",
-          equalTo: "Los email no coinciden"
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+          equalTo: '<i class="fa fa-exclamation-triangle"></i> Los email no coinciden'
+        },
+        inpDominio: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+          url: '<i class="fa fa-exclamation-triangle"></i> URL Válida'
         },
         inpTelefono: {
-          required: '<i class="fa fa-exclamation-triangle"></i>',
-          number: '<i class="fa fa-exclamation-triangle"></i>'
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+          number: '<i class="fa fa-exclamation-triangle"></i> Sólo números'
         },
-        inpNegocio: 
-        {
+        inpNegocio: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido'
+        },
+        inpPais: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un país' 
+        },
+        inpEdo:{
+          required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un estado' 
         }
       },
       submitHandler: function(form) {
@@ -372,24 +421,33 @@ jQuery.extend(jQuery.validator.messages, {
         console.log("hola");
         console.log(url);
         console.log(data);
-        $.ajax({
-          type: 'POST',
-          url: url,
-          data: data,
-          dataType: 'json',
-          success: function (json) {
-            console.log(json);
-          },
-          error: function(json){
-            var error = '';
-      
-            console.log("error");
-            console.log(json);
-          }
+        // $.ajax({
+        //   type: 'POST',
+        //   url: url,
+        //   data: data,
+        //   dataType: 'json',
+        //   success: function (json) {
+        //     console.log(json);
+        //   },
+        //   error: function(json){
+        //     var error = '';      
+        //     console.log("error");
+        //     console.log(json);
+        //   }
+        // });
+        form.request('onTest', {
+              // data: {
+              //   inpPais: selectedCountry
+              // },
+              // success: function(data) {
+              //   $("#inpEdo").html(data);
+              //   $('#inpEdo').prop("disabled", false);
+              // }
+          // redirect: '/dashboard'
         });
       }
     });
 
-    $("#frmProbar").removeAttr("novalidate");
+    // $("#frmProbar").removeAttr("novalidate");
 
 });
