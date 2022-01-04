@@ -992,10 +992,10 @@ form {
   &__fac {
     width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; text-align: right;
     & .titleFac {
-      padding: 0; margin: 0 20px 0 0; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 600; display: inline-block;
+      padding: 0; margin: 0 10px 0 0; @include fluid-type(13px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 600; display: inline-block;
     }
     & .priceFac {
-      padding: 0; margin: 0; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; display: inline-block;
+      padding: 0; margin: 0; @include fluid-type(13px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; display: inline-block; width: 100px;
     }
   }
   &__tot {

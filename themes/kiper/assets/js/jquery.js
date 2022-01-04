@@ -278,13 +278,15 @@ $(function(){
     $('#totalFin').text('$'+multiplyVal);
     $('#totalPriceFin').val(multiplyVal);
   });
-  // $valPersonal.on('change', function() {
-  //   var subPrecio = parseFloat($('[data-check-btn]:checked').val());
-  //   var subPerso = parseFloat($(this).val());
-  //   var y = valor;
-  //   $('#totalFin').text('$'+subPrecio*++y);
-  //   $('#totalPriceFin').val(subPrecio*++y);
-  // });
+  $('#facturaSi').on('change', function() {
+    var tasa = 16;
+    var monto = $("#totalPriceFin").val();
+    var iva = (monto * tasa)/100;
+    
+    $("#iva").text(iva);
+    $("#totalIva").val(iva);
+    $("#totalPriceFin").val(parseInt(monto)+parseInt(iva));
+  });
 });
 
 function wowData() {
