@@ -255,8 +255,11 @@ $(function(){
   // });
 
   $valorChecado = $('[data-check-btn]:checked').val();
+  // Subtotal valor incial
   $('#subtotal').text('$'+$valorChecado);
+  // $('#currencyField').formatCurrency('.currencyLabel');
   $('#subTotalPrice').val($valorChecado);
+  // Total valor inicial
   $('#totalFin').text('$'+$valorChecado);
   $('#totalPriceFin').val($valorChecado);
   

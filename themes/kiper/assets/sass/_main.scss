@@ -986,7 +986,16 @@ form {
   &__sub {
     margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 18px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1;
     &--price {
-      margin: 0 0 20px; padding: 0; color: $gris; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; line-height: 1;
+      margin: 0 0 5px; padding: 0; color: $gris; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; line-height: 1;
+    }
+  }
+  &__fac {
+    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; text-align: right;
+    & .titleFac {
+      padding: 0; margin: 0 20px 0 0; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 600; display: inline-block;
+    }
+    & .priceFac {
+      padding: 0; margin: 0; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; display: inline-block;
     }
   }
   &__tot {
@@ -994,6 +1003,21 @@ form {
     &--price {
       margin: 0; padding: 0; color: $rojo; @include fluid-type(16px, 30px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 500; line-height: 1;
     }
+  }
+}
+.factCt {
+  width: 100%; height: auto; padding: 10px; margin: 0 0 10px; position: relative; background-color: rgba($gris, 0.02); border-radius: 5px; text-align: left;
+  &__desc {
+    display: block; padding: 0; margin: 10px 0 0; @include fluid-type(13px, 14px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1;
+  }
+}
+.boxCantidad {
+  width: 100%; height: auto; padding: 0 0 10px; margin: 0 0 10px; position: relative; @include displayFlex(flex, row, flex-start, center, wrap); border-bottom: 1px solid rgba($gris, 0.20);
+  & .inpInc {
+    width: auto;
+  }
+  & .frmInicia__label {
+    margin: 0 25px 0 0;
   }
 }
 

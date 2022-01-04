@@ -151,22 +151,34 @@ is_hidden = 0
 						<div class="frmInicia frmInicia--divider">
 							<div class="row">
 								
-								<div class="col-12 col-md-6 col-lg-4">
-									<label class="frmInicia__label">Número de usuarios</label>
-									<div class="inpInc">
-										<div class="inpInc__inputs">
-											<button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
-											<div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0" max="4" readonly></div>
-											<button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
-										</div><!-- end.inpInc__inputs -->
-									</div><!-- end.inpInc -->
+								<div class="col-12">
+									<div class="boxCantidad">
+										<label class="frmInicia__label">Número de usuarios</label>
+										<div class="inpInc">
+											<div class="inpInc__inputs">
+												<button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
+												<div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0" max="4" readonly></div>
+												<button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
+											</div><!-- end.inpInc__inputs -->
+										</div><!-- end.inpInc -->
+									</div><!-- end.boxCantidad -->
 								</div>
-								<div class="col-12 col-md-6 col-lg-8">
+								<div class="col-12">
+									<div class="factCt">
+										<input type="checkbox" name="facturaSi" id="facturaSi" class="CheckStyle">
+										<label for="facturaSi">¿Requieres factura?</label>
+										<p class="factCt__desc">Al facturar se cobrará el 16% del total de tu compra.<br><small>* Aplican siempre en cargos posteriores.</small></p>
+									</div>
+								</div>
+								<div class="col-12">
 									<input type="hidden" name="subTotalPrice" id="subTotalPrice" value="">
 									<input type="hidden" name="totalPriceFin" id="totalPriceFin" value="">
 									<div class="boxPrices">
 										<p class="boxPrices__sub">Subtotal:</p>
 										<p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
+										<div class="boxPrices__fac">
+											<p class="titleFac">Facturación</p><p class="priceFac">$300.80</p>
+										</div>
 										<p class="boxPrices__tot">Total:</p>
 										<p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
 									</div>
