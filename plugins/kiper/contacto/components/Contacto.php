@@ -79,10 +79,39 @@ class Contacto extends ComponentBase
             ];
             
             $to = ['desarrollo@kiper.app' => 'desarollo'];
-            // if ($sucursal == "Carretera nacional"){
-            //     $to = ['rsalazar@toyotacarreteranacional.com' => 'rsalazar', 'krodriguez@toyotamonterrey.com.mx' => 'krodriguez'];
-            // }
+           
+            //Se envía la información a CRM kiper
+                        
+            $curl = curl_init();
 
+            curl_setopt_array($curl, [
+              CURLOPT_URL => "https://kiper.kiper.io/api/v1/forms/register?token=RmcK798C571HdA3532yu6Sio79hu782r",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "POST",
+              CURLOPT_POSTFIELDS => "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"nombre\"\r\n\r\n".$usuario->nombre."\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"fuente\"\r\n\r\n6\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"telefono\"\r\n\r\n".$usuario->telefono."\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"correo\"\r\n\r\n".$usuario->email."\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"assigment\"\r\n\r\nSitio Web Kiper\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"nombre_campana\"\r\n\r\nForm Contacto Sitio Web\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mensaje\"\r\n\r\n".$usuario->mensaje."\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"empresa\"\r\n\r\n".$usuario->negocio."\r\n-----011000010111000001101001--\r\n",
+              CURLOPT_HTTPHEADER => [
+                "Content-Type: multipart/form-data; boundary=---011000010111000001101001"
+              ],
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+               $response;
+            }
+            
+            
+            
+            
             try {
                     Mail::sendTo($to, 'Kiper.Contacto::Contacto', $data);
                 } catch (Exception $e) {
