@@ -282,10 +282,15 @@ $(function(){
     var tasa = 16;
     var monto = $("#totalPriceFin").val();
     var iva = (monto * tasa)/100;
-    
-    $("#iva").text(iva);
-    $("#totalIva").val(iva);
-    $("#totalPriceFin").val(parseInt(monto)+parseInt(iva));
+
+    if($('#facturaSi').is(':checked')) {
+      $('.boxPrices__fac').fadeIn();
+      $("#iva").text(iva);
+      $("#totalIva").val(iva);
+      $("#totalPriceFin").val(parseInt(monto)+parseInt(iva));
+    } else {
+      $('.boxPrices__fac').fadeOut();
+    }
   });
 });
 
