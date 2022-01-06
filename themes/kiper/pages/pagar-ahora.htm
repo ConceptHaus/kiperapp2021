@@ -167,7 +167,7 @@ is_hidden = 0
 									<div class="factCt">
 										<input type="checkbox" name="facturaSi" id="facturaSi" class="CheckStyle" value="1">
 										<label for="facturaSi">¿Requieres factura?</label>
-										<p class="factCt__desc">Al facturar se cobrará el 16% del total de tu compra.<br><small>* Aplican siempre en cargos posteriores.</small></p>
+										<p class="factCt__desc">Al facturar se cobrará el 16% IVA del total de tu compra.<br><small>* Aplican siempre en cargos posteriores.</small></p>
 									</div>
 								</div>
 								<div class="col-12">
@@ -176,11 +176,14 @@ is_hidden = 0
 									<input type="hidden" name="totalPriceFin" id="totalPriceFin" value="">
 									<div class="boxPrices">
 										<div class="boxPrices__boxPr">
-											<p class="boxPrices__sub">Subtotal:</p>
+											<p class="boxPrices__sub">Costo del Plan:</p>
 											<p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
 										</div>
+										<div class="boxPrices__boxPr">
+											<p class="titleFac">Número de licencias:</p><p class="priceFac" id="cantidadLic">0</p>
+										</div>
 										<div class="boxPrices__fac">
-											<p class="titleFac">Facturación</p><p class="priceFac" id="iva">$0</p>
+											<p class="titleFac">Costo por facturación:</p><p class="priceFac" id="iva">$0</p>
 										</div>
 										<div class="boxPrices__boxPr boxPrices__boxPr--total">
 											<p class="boxPrices__tot">Total:</p>
@@ -198,13 +201,13 @@ is_hidden = 0
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="factCt">
 							<p class="factCt__message">
-								¿Requieres atención personzliada para tu compra?<br>O Costo preferencial por No. de licencias a contratar.
+								¿Requieres atención personalizada para tu compra?<br>O costo preferencial por número de licencias a contratar.
 							</p>
 							<h2 class="factCt__title">Ponte en contacto con nosotros:</h2>
 							<ul class="factCt__list">
-								<li><a href="https://api.whatsapp.com/send/?phone=5255667788&text&app_absent=0" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
-								<li><a href="mailto:hola@kiper.app" target="_blank"><i class="fa fa-envelope"></i></a></li>
-								<li><a href="tel:5255667788" target="_blank"><i class="fa fa-phone"></i></a></li>
+								<li><a href="https://api.whatsapp.com/send/?phone=52551078003&text&app_absent=0" target="_blank"><i class="fa fa-whatsapp"></i> <span>2551078003</span></a></li>
+								<li><a href="mailto:hola@kiper.app" target="_blank"><i class="fa fa-envelope"></i> <span>hola@kiper.app</span></a></li>
+								<li><a href="tel:5255667788" target="_blank"><i class="fa fa-phone"></i> <span>5566 7788</span></a></li>
 							</ul>
 						</div>
 					</div> <!-- end.col-*-->

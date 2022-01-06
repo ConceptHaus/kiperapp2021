@@ -5,6 +5,7 @@ $fontR: '../fonts/';
 $rojo: #E53F28;
 $gris: #3D3D3D;
 $gris2: #F6F6F6;
+$gris3: #464646;
 $azul: #50D4F1;
 $ama: #FACF38;
 $negro: #212529;
@@ -79,7 +80,7 @@ article {
     //   width: 100%; max-width: 50px; height: auto; padding: 0; margin: 0 auto 20px; display: block;
     // }
     & h2 {
-      margin: 0 0 20px 0; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); text-shadow: 0px 4px 4px rgba($black, 0.25); line-height: 1.2;
+      margin: 0 0 20px 0; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); line-height: 1.2;
     }
     & p {
       margin: 0; padding: 0; text-align: left; @include fluid-type(15px, 24px, 320px, 1200px);
@@ -307,9 +308,9 @@ article {
     width: 100%; height: auto; display: block; text-align: center; @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($rojo, 0.55); font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0 0 10px; line-height: 1;
   }
   &__monto {
-    width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
+    width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 800; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
     &--black {
-      color: $gris; margin-bottom: 15px; font-size: rem(40px);
+      color: $gris3; margin-bottom: 15px; font-size: rem(40px);
       // @include fluid-type(18px, 50px, 320px, 1200px);
       & .price-old {
         font-size: rem(14px); color: $gris; text-decoration:line-through; display: block; margin-bottom: 10px; font-weight: 800;
@@ -330,7 +331,7 @@ article {
     }
     &.selPrice {
       // @include fluid-type(18px, 70px, 320px, 1200px);
-      color: $rojo; font-size: rem(70px);
+      color: $gris3; font-size: rem(70px);
       @media all and (min-width: 992px) {
         font-size: rem(70px);
       }
@@ -989,48 +990,51 @@ form {
   &__sub {
     margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 18px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1; display: inline-block;
     &--price {
-      margin: 0 0 5px; padding: 0; color: $gris; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; line-height: 1; width: 100px;
+      margin: 0 0 5px; padding: 0; color: $gris; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; line-height: 1; width: 140px;
     }
   }
   &__boxPr {
     width: 100%; height: auto; padding: 0; margin: 0; position: relative; text-align: right;
     &--total {
-      margin: 30px 0 0;
+      margin: 20px 0 0;
     }
   }
   &__fac {
     width: 100%; height: auto; padding: 0; margin: 0; position: relative; text-align: right; display: none;
-    & .titleFac {
-      padding: 0; margin: 0 10px 0 0; @include fluid-type(13px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 600; display: inline-block;
-    }
-    & .priceFac {
-      padding: 0; margin: 0; @include fluid-type(13px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; display: inline-block; width: 100px;
-    }
   }
   &__tot {
-    margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 20px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1; display: inline-block;
+    margin: 0 0 10px; padding: 0; color: $rojo; @include fluid-type(16px, 20px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1; display: inline-block;
     &--price {
-      margin: 0; padding: 0; color: $rojo; @include fluid-type(16px, 30px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 500; line-height: 1; width: 100px;
+      margin: 0; padding: 0; color: $rojo; @include fluid-type(16px, 30px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 500; line-height: 1; width: 140px;
     }
   }
 }
+.titleFac {
+  padding: 0; margin: 0 5px 0 0; @include fluid-type(12px, 16px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; display: inline-block; color: $gris;
+}
+.priceFac {
+  padding: 0; margin: 0; @include fluid-type(12px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; display: inline-block; width: 140px; color: $gris;
+}
 .factCt {
-  width: 100%; height: auto; padding: 10px; margin: 0 0 20px; position: relative; background-color: rgba($gris, 0.02); border-radius: 5px; text-align: left;
+  width: 100%; height: auto; padding: 10px 20px; margin: 0 0 20px; position: relative; background-color: rgba($gris, 0.02); border-radius: 5px; text-align: left;
   &__desc {
     display: block; padding: 0; margin: 10px 0 0; @include fluid-type(13px, 14px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1;
   }
   &__message {
-    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1; text-align: center;
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1; text-align: left;
   }
   &__title {
-    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(15px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 700; color: $gris; line-height: 1.1; text-align: center;
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(15px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 700; color: $gris; line-height: 1.1; text-align: left;
   }
   &__list {
-    list-style-type: none; padding: 0; margin: 0;  @include displayFlex(flex, row, center, center, wrap);
+    list-style-type: none; padding: 0; margin: 0;  @include displayFlex(flex, column, flex-start, flex-start, wrap);
     & li {
-      list-style-type: none; padding: 0; margin: 0 10px 0 0;
+      list-style-type: none; padding: 0; margin: 0 0 3px;
       & a {
-        display: block; width: 32px; height: 32px; line-height: 32px; border: none; color: $rojo; font-size: rem(22px); text-align: center; @include transition(all 300ms);
+        display: inline-block; width: 100%; height: auto; border: none; color: $rojo; font-size: rem(22px); text-align: center; @include transition(all 300ms); font-family: 'Gotham-Light'; font-weight: 400; text-decoration: none; vertical-align: middle;
+        span {
+          font-size: rem(15px);
+        }
         &:hover {
           color: $gris;
         }
