@@ -1,6 +1,0 @@
-plugin:
-    name: 'kiper.comenzarahora::lang.plugin.name'
-    description: 'kiper.comenzarahora::lang.plugin.description'
-    author: kiper
-    icon: oc-icon-adjust
-    homepage: ''

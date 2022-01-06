@@ -73,11 +73,11 @@ is_hidden = 0
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-1" data-check-btn value="Plan Standard Mensual">
+												<input type="radio" class="btn-check" name="planes" id="opcion-1" value="349" data-check-btn data-price-ch="Plan Standard Mensual">
 												<label class="planesct__link" for="opcion-1">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-2" data-check-btn value="Plan Standard Anual" checked>
+												<input type="radio" class="btn-check" name="planes" id="opcion-2" value="290" data-check-btn data-price-ch="Plan Standard Anual" checked>
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -128,11 +128,11 @@ is_hidden = 0
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-3" data-check-btn value="Plan Pro Mensual">
+												<input type="radio" class="btn-check" name="planes" id="opcion-3" data-price-ch="Plan Pro Mensual" data-check-btn value="949">
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-4" data-check-btn value="Plan Pro Anual">
+												<input type="radio" class="btn-check" name="planes" id="opcion-4" data-price-ch="Plan Pro Anual" data-check-btn value="880">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -151,22 +151,41 @@ is_hidden = 0
 						<div class="frmInicia frmInicia--divider">
 							<div class="row">
 								
-								<div class="col-12 col-md-6 col-lg-4">
-									<label class="frmInicia__label">Número de usuarios</label>
-									<div class="inpInc">
-										<div class="inpInc__inputs">
-											<button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
-											<div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0" max="4" readonly></div>
-											<button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
-										</div><!-- end.inpInc__inputs -->
-									</div><!-- end.inpInc -->
+								<div class="col-12">
+									<div class="boxCantidad">
+										<label class="frmInicia__label">Número de usuarios</label>
+										<div class="inpInc">
+											<div class="inpInc__inputs">
+												<button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
+												<div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0" max="4" readonly></div>
+												<button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
+											</div><!-- end.inpInc__inputs -->
+										</div><!-- end.inpInc -->
+									</div><!-- end.boxCantidad -->
 								</div>
-								<div class="col-12 col-md-6 col-lg-8">
+								<div class="col-12">
+									<div class="factCt">
+										<input type="checkbox" name="facturaSi" id="facturaSi" class="CheckStyle" value="1">
+										<label for="facturaSi">¿Requieres factura?</label>
+										<p class="factCt__desc">Al facturar se cobrará el 16% del total de tu compra.<br><small>* Aplican siempre en cargos posteriores.</small></p>
+									</div>
+								</div>
+								<div class="col-12">
+									<input type="hidden" name="subTotalPrice" id="subTotalPrice" value="">
+									<input type="hidden" name="totalIva" id="totalIva" value="">
+									<input type="hidden" name="totalPriceFin" id="totalPriceFin" value="">
 									<div class="boxPrices">
-										<p class="boxPrices__sub">Subtotal:</p>
-										<p class="boxPrices__sub boxPrices__sub--price">Sub Total:</p>
-										<p class="boxPrices__tot">Total:</p>
-										<p class="boxPrices__tot boxPrices__tot--price">$698.00</p>
+										<div class="boxPrices__boxPr">
+											<p class="boxPrices__sub">Subtotal:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
+										</div>
+										<div class="boxPrices__fac">
+											<p class="titleFac">Facturación</p><p class="priceFac" id="iva">$0</p>
+										</div>
+										<div class="boxPrices__boxPr boxPrices__boxPr--total">
+											<p class="boxPrices__tot">Total:</p>
+											<p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
+										</div>
 									</div>
 								</div>
 
@@ -174,7 +193,20 @@ is_hidden = 0
 						</div><!-- end.frmInicia -->
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7">
-						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Pagar Ahora">  
+						<input class="planesct__link planesct__link--width" type="submit" class="btn btn-gral btnSubmit" value="Pagar Ahora">  
+					</div> <!-- end.col-*-->
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="factCt">
+							<p class="factCt__message">
+								¿Requieres atención personzliada para tu compra?<br>O Costo preferencial por No. de licencias a contratar.
+							</p>
+							<h2 class="factCt__title">Ponte en contacto con nosotros:</h2>
+							<ul class="factCt__list">
+								<li><a href="https://api.whatsapp.com/send/?phone=5255667788&text&app_absent=0" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+								<li><a href="mailto:hola@kiper.app" target="_blank"><i class="fa fa-envelope"></i></a></li>
+								<li><a href="tel:5255667788" target="_blank"><i class="fa fa-phone"></i></a></li>
+							</ul>
+						</div>
 					</div> <!-- end.col-*-->
 				</div><!-- end.row -->
 			</div><!-- end.container -->

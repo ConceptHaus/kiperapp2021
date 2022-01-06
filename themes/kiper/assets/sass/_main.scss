@@ -410,6 +410,9 @@ article {
     &:active {
       color: $white;
     }
+    &--width {
+      width: 220px; margin: 0 auto 20px;
+    }
     @media all and (min-width: 576px) {
       height: 42px; line-height: 42px;
     }
@@ -479,6 +482,9 @@ form {
   }
   & input {
     border: none; border-radius: 0;
+    &.error-label {
+      border-color: $rojo!important;
+    }
     &:focus {
       outline: none!important;
     }
@@ -486,8 +492,17 @@ form {
       outline: none!important;
     }
   }
+  & select {
+    border: none; border-radius: 0;
+    &.error-label {
+      border-color: $rojo!important;
+    }
+  }
   & textarea {
     border: none; border-radius: 0;
+    &.error-label {
+      border-color: $rojo!important;
+    }
     &:focus {
       outline: none!important;
     }
@@ -578,7 +593,7 @@ form {
     color: $black; margin: 20px 0 0; padding: 0; text-align: center; @include fluid-type(14px, 18px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400;
   }
   &__alerta {
-    margin: 6px 0 0!important; padding: 10px!important; font-family: 'Gotham-Light'; font-weight: 400;
+    margin: 0 0 6px!important; padding: 10px!important; font-family: 'Gotham-Light'; font-weight: 400; color: $gris!important; background-color: rgba($rojo, 0.15)!important; border-color: $rojo!important;
     & small {
       font-size: rem(12px);
     }
@@ -616,9 +631,12 @@ form {
         color: #212529; background-color: #fff; border-color: $ama; outline: 0; box-shadow: 0 0 0 2px rgba($ama, 0.25);
       }
     }
+    & div.error-label {
+      width: 100%; height: 20px; line-height: 20px; background-color: transparent; color: $rojo; font-size: rem(11px); padding: 0 10px; margin: 0; @include position(relative, null null null null); z-index: 3; text-align: left; @include box-sizing(border-box);
+    }
   }
   &--divider {
-    padding: 0; margin: 50px 0 15px; padding: 0 0 15px; border-bottom: 0.5px solid rgba($gris, 0.55);
+    padding: 0; margin: 50px 0 15px; padding: 0 0 15px; border-bottom: 0.5px solid rgba($gris, 0.20);
   }
   & .cvv-details {
     width: 100%; height: auto; padding: 0; margin: 0; position: relative; text-align: left; @include box-sizing(border-box);
@@ -969,16 +987,67 @@ form {
 .boxPrices {
   width: 100%; height: auto; padding: 0 0 10px; margin: 0 0 10px; position: relative; @include box-sizing(border-box); text-align: right;
   &__sub {
-    margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 18px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1;
+    margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 18px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1; display: inline-block;
     &--price {
-      margin: 0 0 20px; padding: 0; color: $gris; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; line-height: 1;
+      margin: 0 0 5px; padding: 0; color: $gris; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; line-height: 1; width: 100px;
+    }
+  }
+  &__boxPr {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; text-align: right;
+    &--total {
+      margin: 30px 0 0;
+    }
+  }
+  &__fac {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; text-align: right; display: none;
+    & .titleFac {
+      padding: 0; margin: 0 10px 0 0; @include fluid-type(13px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 600; display: inline-block;
+    }
+    & .priceFac {
+      padding: 0; margin: 0; @include fluid-type(13px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; display: inline-block; width: 100px;
     }
   }
   &__tot {
-    margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 20px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1;
+    margin: 0 0 10px; padding: 0; color: $black; @include fluid-type(16px, 20px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 700; line-height: 1; display: inline-block;
     &--price {
-      margin: 0; padding: 0; color: $rojo; @include fluid-type(16px, 30px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 500; line-height: 1;
+      margin: 0; padding: 0; color: $rojo; @include fluid-type(16px, 30px, 320px, 1200px); font-family: 'GothamMedium'; font-weight: 500; line-height: 1; width: 100px;
     }
+  }
+}
+.factCt {
+  width: 100%; height: auto; padding: 10px; margin: 0 0 20px; position: relative; background-color: rgba($gris, 0.02); border-radius: 5px; text-align: left;
+  &__desc {
+    display: block; padding: 0; margin: 10px 0 0; @include fluid-type(13px, 14px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1;
+  }
+  &__message {
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1; text-align: center;
+  }
+  &__title {
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(15px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 700; color: $gris; line-height: 1.1; text-align: center;
+  }
+  &__list {
+    list-style-type: none; padding: 0; margin: 0;  @include displayFlex(flex, row, center, center, wrap);
+    & li {
+      list-style-type: none; padding: 0; margin: 0 10px 0 0;
+      & a {
+        display: block; width: 32px; height: 32px; line-height: 32px; border: none; color: $rojo; font-size: rem(22px); text-align: center; @include transition(all 300ms);
+        &:hover {
+          color: $gris;
+        }
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+.boxCantidad {
+  width: 100%; height: auto; padding: 0 0 10px; margin: 0 0 10px; position: relative; @include displayFlex(flex, row, flex-start, center, wrap); border-bottom: 1px solid rgba($gris, 0.20);
+  & .inpInc {
+    width: auto;
+  }
+  & .frmInicia__label {
+    margin: 0 25px 0 0;
   }
 }
 
