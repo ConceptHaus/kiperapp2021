@@ -178,19 +178,46 @@ $(function(){
       mensaje: '<i class="fa fa-exclamation-triangle"></i>',
     },
     submitHandler: function(form) {
-      var form = $("#form_contacto");
-      var url = form.attr('action');
-      var data = form.serialize();
+      //var form = $("#form_contacto");
+      //var url = form.attr('action');
+      //var data = form.serialize();
       console.log("hola");
       console.log(url);
       console.log(data);
-      $.ajax({
+      const form_new = new FormData();
+      form_new.append("nombre", $("#nombre").val());
+      form_new.append("fuente", "6");
+      form_new.append("telefono", $("#telefono").val());
+      form_new.append("correo", $("#email").val());
+      form_new.append("assigment", "Sitio Web Kiper");
+      form_new.append("nombre_campana", "Sitio Web Kiper");
+      form_new.append("utm_ter", "funnel id");
+      form_new.append("mensaje", $("#mensaje").val());
+      form_new.append("empresa", $("#negocio").val());
+
+      const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://kiper.kiper.io/api/v1/forms/register?token=RmcK798C571HdA3532yu6Sio79hu782r",
+        "method": "POST",
+        "headers": {},
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form_new
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+     /* $.ajax({
         type: 'POST',
         url: url,
         data: data,
         dataType: 'json',
         success: function (json) {
           console.log(json);
+          
         },
         error: function(json){
           var error = '';
@@ -198,7 +225,9 @@ $(function(){
           console.log("error");
           console.log(json);
         }
-      });
+      });*/
+
+          
     }
   });
   // Wow Animaciones

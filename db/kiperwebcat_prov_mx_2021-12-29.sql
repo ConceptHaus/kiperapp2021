@@ -14,7 +14,7 @@ MySQL - 10.4.21-MariaDB : Database - kip3r_web
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`kip3r_web` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 
-USE `kip3r_web`;
+
 
 /*Table structure for table `cat_prov_mx` */
 
