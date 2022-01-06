@@ -265,6 +265,7 @@ $(function(){
   
   $valPersonal = $('#cantidad-ct-1');
   $checks = $("[data-check-btn]");
+  $('#cantidadLic').text($valPersonal.val());
   $checks.on('change', function() {
     var subPrecio = parseFloat($(this).val());
     var subPerso = parseFloat($('#cantidad-ct-1').val());
@@ -272,24 +273,49 @@ $(function(){
     var string = $checks.filter(":checked").map(function(i,v){
       return this.value;
     }).get().join(" ");
-    console.log(multiplyVal);
+    var sinIvaBtn = parseFloat((string*subPerso));
+    var ivaBtn = parseFloat((string*subPerso)*.16);
+    // console.log(multiplyVal);
+
     $('#subtotal').text('$'+string);
     $('#subTotalPrice').val(string);
-    $('#totalFin').text('$'+multiplyVal);
-    $('#totalPriceFin').val(multiplyVal);
+    if($('#facturaSi').is(':checked')) {
+      $("#iva").text(ivaBtn);
+      $("#totalIva").val(ivaBtn);
+      $('#totalFin').text('$'+(multiplyVal+ivaBtn));
+      $('#totalPriceFin').val(multiplyVal+ivaBtn);
+    } else {
+      $("#iva").text('$0');
+      $("#totalIva").val('');
+      $('#totalFin').text('$'+multiplyVal);
+      $('#totalPriceFin').val(multiplyVal);
+    }
   });
+  var $monto = parseFloat($("#totalPriceFin").val());
+  console.log($monto);
   $('#facturaSi').on('change', function() {
-    var tasa = 16;
-    var monto = $("#totalPriceFin").val();
-    var iva = (monto * tasa)/100;
+    // var tasa = 16;
+    // var iva = (monto * tasa)/100;
+    var costo_plan = $checks.filter(':checked').val();
+    var no_usuarios = $('#cantidad-ct-1').val();
+    var sinIva = parseFloat((costo_plan*no_usuarios));
+    var iva = parseFloat((costo_plan*no_usuarios)*.16);
+
+    // console.log('Cotos plan: '+costo_plan+' Usuarios: '+no_usuarios + ' Saco el IVA: '+iva);
+    // console.log($monto+iva);
 
     if($('#facturaSi').is(':checked')) {
       $('.boxPrices__fac').fadeIn();
       $("#iva").text(iva);
       $("#totalIva").val(iva);
-      $("#totalPriceFin").val(parseInt(monto)+parseInt(iva));
+      $('#totalFin').text('$'+($monto+iva));
+      $("#totalPriceFin").val($monto+iva);
     } else {
       $('.boxPrices__fac').fadeOut();
+      $("#iva").text('$0');
+      $("#totalIva").val('');
+      $('#totalFin').text('$'+(sinIva));
+      $("#totalPriceFin").val(sinIva);
     }
   });
 });
@@ -312,12 +338,18 @@ function extrasInput(id, idx, cant) {
   var x = valor;
   var y = valor;
   var z = valor;
+  var w = valor;
+  var per = valor;
   // console.log(valor + 'Personas');
   $(id).click(function () {
     var valorUno = parseFloat($('[data-check-btn]:checked').val());
+    var sinIvaUno = parseFloat((valorUno*++per));
+    var ivaUno = parseFloat((valorUno*++per)*.16);
+    
     $(cant).attr('value', ++x);
     $('#totalFin').text('$'+valorUno*++y);
     $('#totalPriceFin').val(valorUno*++z);
+    $('#cantidadLic').text(++w);
     if($(cant).val() > 1) {
       $(idx).removeClass('disabled');
     }
@@ -332,6 +364,7 @@ function extrasInput(id, idx, cant) {
       $(cant).attr('value', --x);
       $('#totalFin').text('$'+valorDos*--y);
       $('#totalPriceFin').val(valorDos*--z);
+      $('#cantidadLic').text(--w);
     }
   });
 }
