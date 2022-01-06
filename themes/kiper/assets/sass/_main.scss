@@ -5,6 +5,7 @@ $fontR: '../fonts/';
 $rojo: #E53F28;
 $gris: #3D3D3D;
 $gris2: #F6F6F6;
+$gris3: #565557;
 $azul: #50D4F1;
 $ama: #FACF38;
 $negro: #212529;
@@ -79,7 +80,7 @@ article {
     //   width: 100%; max-width: 50px; height: auto; padding: 0; margin: 0 auto 20px; display: block;
     // }
     & h2 {
-      margin: 0 0 20px 0; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); text-shadow: 0px 4px 4px rgba($black, 0.25); line-height: 1.2;
+      margin: 0 0 20px 0; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); line-height: 1.2;
     }
     & p {
       margin: 0; padding: 0; text-align: left; @include fluid-type(15px, 24px, 320px, 1200px);
@@ -304,12 +305,12 @@ article {
     width: 100%; height: auto; display: block; text-align: center; @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($rojo, 0.55); font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0 0 10px; line-height: 1;
   }
   &__monto {
-    width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
+    width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 800; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
     &--black {
-      color: $gris; margin-bottom: 15px; font-size: rem(40px);
+      color: $gris3; margin-bottom: 15px; font-size: rem(40px);
       // @include fluid-type(18px, 50px, 320px, 1200px);
       & .price-old {
-        font-size: rem(14px); color: $gris; text-decoration:line-through; display: block; margin-bottom: 10px; font-weight: 800;
+        font-size: rem(14px); color: $gris3; text-decoration:line-through; display: block; margin-bottom: 10px; font-weight: 800;
       }
       & .moneda {
         @include fluid-type(13px, 20px, 320px, 1200px); vertical-align: middle; margin-left: 6px;
@@ -327,7 +328,7 @@ article {
     }
     &.selPrice {
       // @include fluid-type(18px, 70px, 320px, 1200px);
-      color: $rojo; font-size: rem(70px);
+      color: $gris3; font-size: rem(70px);
       @media all and (min-width: 992px) {
         font-size: rem(70px);
       }
