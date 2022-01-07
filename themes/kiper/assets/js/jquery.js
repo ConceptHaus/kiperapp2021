@@ -23,7 +23,39 @@ function menuMobile() {
   }
 }
 
+// Modal avisos
+var $isOpen = false,
+    $overlay = $('.overlayGenerico'),
+    $modalGen = $('#modalGen');
+var $modalGenAvi = $('#modalAvisos');
+function effectsModalAviso() {
+  TweenMax.to($overlay, 0.1, { autoAlpha: 1 });
+  TweenMax.fromTo($modalGenAvi, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
+}
+function abreModalAvisoID() {
+  $('[data-open-aviso]').each(function () {
+    $(this).click(function (e) {
+      e.preventDefault();
+      var $idProd = $(this).data('id-aviso');
+      // console.log($idProd);
+      effectsModalAviso();
+      $($idProd).delay('0.6').show('slow');
+    });
+  });
+}
+function closeModalAviso() {
+  $('[data-close-aviso]').click(function (e) {
+    e.preventDefault();
+    $('.contentInfoAviso').hide('fast');
+    TweenMax.to($overlay, 0.1, { delay: 0.55, autoAlpha: 0 });
+    TweenMax.to($modalGenAvi, 0.55, { top: '300%', ease: Power3.easeInOut, force3D: true });
+  });
+}
+
 $(function(){
+  abreModalAvisoID();
+  closeModalAviso();
+
   TweenMax.to($('#mm'), 0, { scale: 1.2, opacity: 0, zIndex: -1, force3D: true });
 
   $('#contListMenu ul li a.link').on('click', function(e) {
@@ -452,10 +484,6 @@ $(function() {
           email: true,
           equalTo: "#inpEmail"
         },
-        inpDominio: {
-          required: true,
-          url: true
-        },
         inpNegocio: {
           required: true 
         },
@@ -480,10 +508,6 @@ $(function() {
         inpConfEmail: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
           equalTo: '<i class="fa fa-exclamation-triangle"></i> Los email no coinciden'
-        },
-        inpDominio: {
-          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-          url: '<i class="fa fa-exclamation-triangle"></i> URL Válida'
         },
         inpTelefono: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',

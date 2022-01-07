@@ -4,3 +4,24 @@ description = "Modal para avisos"
 snippetCode = "modal"
 snippetName = "Modal"
 ==
+
+<div id="modalAvisos" class="modalInteres">
+  <button id="closeModalAvisoDos" class="btnCloseModal" data-close-aviso=""><i class="fa fa-times"></i></button>
+  <div id="modalAvisoDos" class="contentInfoAviso">
+    <div class="contentInfoAviso__up">
+      <div class="iconModal">
+        <img src="{{ 'assets/img/kiper.svg'|theme }}" alt="Kiper">
+      </div>
+      <div class="descUpAvi">
+        <h2>¡Gracias por tu compra!</h2>
+        <p>Tu pago a sido procesado correctamente</p>
+      </div>
+    </div>
+    <div class="contentInfoAviso__down">
+      <div class="descDownAvi">
+        <p>En breve nos comunicaremos contigo para lo últimos detalles.</p>
+        <a href="{{ 'inicio'|page }}">Regresar a inicio</a>
+      </div>
+    </div>
+  </div><!-- end.avisoUno -->
+</div>

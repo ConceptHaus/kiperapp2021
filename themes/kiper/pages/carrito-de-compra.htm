@@ -5,8 +5,22 @@ description = "Página para el carrito de compra"
 is_hidden = 0
 ==
 <?php
-function onPagar() {
-    //Redirecto::'';
+function onTest() {
+  // update MySQL here	
+	//if (!empty($_POST["inpPais"])) {
+    //$val = $_POST["inpPais"];
+		//$val = mb_strtolower($val);
+		//$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
+
+		//foreach ($paises as $pais) {
+			//echo $pais->nombre;
+			//$this->page['paises_id'] = $pais->paises_id;
+			//$this->page['nombre'] = $pais->nombre;
+		//}
+	//}
+
+	return Redirect::to('/gracias-por-tu-compra');
+
 }
 ?>
 ==
@@ -105,6 +119,7 @@ function onPagar() {
 						</div><!-- end.frmDataBox -->
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7">
+						<a data-open-aviso href="#" data-id-aviso="#modalAvisoDos">abre modal</a>
 						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Finalizar compra">  
 					</div> <!-- end.col-*-->
 				</div><!-- end.row -->
