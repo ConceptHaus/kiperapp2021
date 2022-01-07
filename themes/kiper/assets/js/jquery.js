@@ -254,13 +254,18 @@ $(function(){
   //   });
   // });
 
+  const money = 10000;
+  const currency = function(number){
+    return new Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN', minimumFractionDigits: 2}).format(number);
+  };
+
   $valorChecado = $('[data-check-btn]:checked').val();
   // Subtotal valor incial
-  $('#subtotal').text('$'+$valorChecado);
+  $('#subtotal').text(currency($valorChecado));
   // $('#currencyField').formatCurrency('.currencyLabel');
   $('#subTotalPrice').val($valorChecado);
   // Total valor inicial
-  $('#totalFin').text('$'+$valorChecado);
+  $('#totalFin').text(currency($valorChecado));
   $('#totalPriceFin').val($valorChecado);
   
   $valPersonal = $('#cantidad-ct-1');
@@ -277,11 +282,11 @@ $(function(){
     var ivaBtn = parseFloat((string*subPerso)*.16);
     // console.log(multiplyVal);
 
-    $('#subtotal').text('$'+string);
+    $('#subtotal').text(currency(string));
     $('#subTotalPrice').val(string);
-    $("#iva").text(ivaBtn);
+    $("#iva").text(currency(ivaBtn));
     $("#totalIva").val(ivaBtn);
-    $('#totalFin').text('$'+(multiplyVal+ivaBtn));
+    $('#totalFin').text(currency((multiplyVal+ivaBtn)));
     $('#totalPriceFin').val(multiplyVal+ivaBtn);
   });
   var $monto = parseFloat($("#totalPriceFin").val());
@@ -289,9 +294,9 @@ $(function(){
   var no_usuarios = $('#cantidad-ct-1').val();
   // var sinIva = parseFloat((costo_plan*no_usuarios));
   var iva = parseFloat((costo_plan*no_usuarios)*.16);
-  $("#iva").text(iva);
+  $("#iva").text(currency(iva));
   $("#totalIva").val(iva);
-  $('#totalFin').text('$'+($monto+iva));
+  $('#totalFin').text(currency(($monto+iva)));
   $("#totalPriceFin").val($monto+iva);
   // console.log($monto);
   // $('#facturaSi').on('change', function() {
@@ -338,36 +343,39 @@ function extrasInput(id, idx, cant) {
   var w = valor;
   var per1 = valor;
   var per2 = valor;
+  const currency = function(number){
+    return new Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN', minimumFractionDigits: 2}).format(number);
+  };
   // console.log(valor + 'Personas');
   $(id).click(function () {
     var valorUno = parseFloat($('[data-check-btn]:checked').val());
+    var valorDos = parseFloat($('[data-check-btn]:checked').val());
     var ivaUno = parseFloat((valorUno*++per1)*.16);
     // console.log((valorUno*++y)+ivaUno);
 
     $(cant).attr('value', ++x);
     $('#totalIva').val(ivaUno);
-    $('#iva').text(ivaUno);
-    $('#totalFin').text('$'+(valorUno*++y)+ivaUno);
-    // $('#totalPriceFin').val(valorUno*++z);
+    $('#iva').text(currency(ivaUno));
+    $('#totalFin').text(currency((valorDos*++y)+ivaUno));
+    $('#totalPriceFin').val((valorUno*++z)+ivaUno);
     $('#cantidadLic').text(++w);
     if($(cant).val() > 1) {
       $(idx).removeClass('disabled');
     }
   });
   $(idx).click(function () {
-    // console.log($(cant).val());
-    var valorDos = parseFloat($('[data-check-btn]:checked').val());
-    var ivaDos = parseFloat((valorDos*--per1)*.16);
+    var valorTres = parseFloat($('[data-check-btn]:checked').val());
+    var valorCuatro = parseFloat($('[data-check-btn]:checked').val());
+    var ivaDos = parseFloat((valorTres*--per1)*.16);
 
     if ($(cant).val() <= 1) {
-      // console.log('Aquí bloqueas');
       $(idx).addClass('disabled');
     } else {
       $(cant).attr('value', --x);
       $('#totalIva').val(ivaDos);
-      $('#iva').text(ivaDos);
-      $('#totalFin').text('$'+valorDos*--y);
-      $('#totalPriceFin').val(valorDos*--z);
+      $('#iva').text(currency(ivaDos));
+      $('#totalFin').text(currency((valorTres*--y)+ivaDos));
+      $('#totalPriceFin').val((valorCuatro*--z)+ivaDos);
       $('#cantidadLic').text(--w);
     }
   });
