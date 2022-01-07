@@ -3,6 +3,27 @@ url = "/carrito-de-compra"
 layout = "layout"
 is_hidden = 0
 ==
+<?php
+function onTest()
+{
+  // update MySQL here	
+	//if (!empty($_POST["inpPais"])) {
+    //$val = $_POST["inpPais"];
+		//$val = mb_strtolower($val);
+		//$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
+
+		//foreach ($paises as $pais) {
+			//echo $pais->nombre;
+			//$this->page['paises_id'] = $pais->paises_id;
+			//$this->page['nombre'] = $pais->nombre;
+		//}
+	//}
+
+	return Redirect::to('/pagar-ahora');
+
+}
+?>
+==
 <section class="iniciaSec">
 	<form action="POST" name="frmProbar" id="frmProbar" action="" autocomplete="off" novalidate>
 		<div class="ctFrm">
@@ -46,7 +67,7 @@ is_hidden = 0
 												</h4>
 												<p class="planesct__mensual">Anual / Usuario</p>
 												<h4 data-price="opcion-2" class="planesct__monto planesct__monto--black">
-													$290<small class="moneda">MXN</small>
+													$290*<small class="moneda">MXN</small>
 												</h4>
 											</div><!-- end.planesct__usuario -->
 										</div>
@@ -77,7 +98,7 @@ is_hidden = 0
 												<label class="planesct__link" for="opcion-1">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-2" value="290" data-check-btn data-price-ch="Plan Standard Anual" checked>
+												<input type="radio" class="btn-check" name="planes" id="opcion-2" value="{{ 290*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -97,7 +118,7 @@ is_hidden = 0
 												</h4>
 												<p class="planesct__mensual">Anual / Usuario</p>
 												<h4 data-price="opcion-4" class="planesct__monto planesct__monto--black">
-													$880<small class="moneda">MXN</small>
+													$880*<small class="moneda">MXN</small>
 												</h4>
 											</div><!-- end.planesct__usuario -->
 										</div>
@@ -132,7 +153,7 @@ is_hidden = 0
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-4" data-price-ch="Plan Pro Anual" data-check-btn value="880">
+												<input type="radio" class="btn-check" name="planes" id="opcion-4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 880*12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->

@@ -455,10 +455,6 @@ $(function() {
           email: true,
           equalTo: "#inpEmail"
         },
-        inpDominio: {
-          required: true,
-          url: true
-        },
         inpNegocio: {
           required: true 
         },
@@ -483,10 +479,6 @@ $(function() {
         inpConfEmail: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
           equalTo: '<i class="fa fa-exclamation-triangle"></i> Los email no coinciden'
-        },
-        inpDominio: {
-          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-          url: '<i class="fa fa-exclamation-triangle"></i> URL Válida'
         },
         inpTelefono: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',

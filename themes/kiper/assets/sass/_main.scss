@@ -292,10 +292,13 @@ article {
     }
   }
   &__box {
-    width: 100%; @include flex(0 0 auto); @include box-sizing(border-box); padding: 10px 0 0 0;
+    width: 100%; @include flex(0 0 auto); @include box-sizing(border-box); padding: 10px 0 0 0; position: relative;
     // @media all and (min-width: 640px) {
     //   width: 50%; @include flex(0 0 auto); @include box-sizing(border-box);
     // }
+    & .textInfo {
+      @include position(absolute, null null 0 0);
+    }
   }
   &__plan {
     // max-width: 343px;
@@ -667,7 +670,7 @@ form {
     color: $black; margin: 20px 0 0; padding: 0; text-align: center; @include fluid-type(14px, 18px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400;
   }
   &__alerta {
-    margin: 0 0 6px!important; padding: 10px!important; font-family: 'Gotham-Light'; font-weight: 400; color: $gris!important; background-color: rgba($rojo, 0.15)!important; border-color: $rojo!important;
+    margin: 0 0 6px!important; padding: 10px!important; font-family: 'Gotham-Light'; font-weight: 400; color: $gris!important; background-color: rgba($azul, 0.10)!important; border-color: $azul!important;
     & small {
       font-size: rem(12px);
     }
