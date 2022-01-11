@@ -67,7 +67,7 @@ function onTest() {
 									</div>
 								</div>
                 <div class="col-12 inputStyle">
-                  <input type="text" pattern="[0-9]" class="form-control" name="credit-number" id="credit-number" placeholder="Número de tarjeta" maxlength="19">
+                  <input class="form-control" name="credit-number" id="credit-number" placeholder="Número de tarjeta" value="" onkeypress="return checkDigit(event)">
                 </div>
 								<div class="col-12 inputStyle">
 									<input type="text" class="form-control" name="tarjeta_name" id="tarjeta_name" placeholder="Nombre completo como aparece en la tarjeta*">
@@ -76,33 +76,10 @@ function onTest() {
 									<p class="frmInicia__labelTow">Vigencia</p>
 								</div>
 								<div class="col-6 inputStyle">
-									<!-- <select name="mescard" id="mescard" class="form-select required">
-										<option value="enero">Enero</option>
-										<option value="febrero">Febrero</option>
-										<option value="marzo">Marzo</option>
-										<option value="abril">Abril</option>
-										<option value="mayo">Maya</option>
-										<option value="junio">Junio</option>
-										<option value="julio">Julio</option>
-										<option value="agosto">Agosto</option>
-										<option value="septiembre">Septiembre</option>
-										<option value="octubre">Octubre</option>
-										<option value="noviembre">Noviembre</option>
-										<option value="diciembre">Diciembre</option>
-									</select> -->
-                  <input type="text" name="mescard" id="mescard" class="form-control" placeholder="MM" maxlength="2">
+                  <input name="mescard" id="mescard" class="form-control" placeholder="MM" maxlength="2" onkeypress="return checkDigit(event)">
 								</div>
 								<div class="col-6 inputStyle">
-									<!-- <select name="yearcard" id="yearcard" class="form-select required">
-										<option value="2021">2021</option>
-										<option value="2022">2022</option>
-										<option value="2023">2023</option>
-										<option value="2024">2024</option>
-										<option value="2025">2025</option>
-										<option value="2026">2026</option>
-										<option value="2027">2027</option>
-									</select> -->
-                  <input type="text" name="mescard" id="mescard" class="form-control" placeholder="AA" maxlength="2">
+                  <input name="mescard" id="mescard" class="form-control" placeholder="AA" maxlength="2" onkeypress="return checkDigit(event)">
 								</div>
 								<div class="col-6 col-md-4 inputStyle">
 									<input type="text" class="form-control" name="credit-ccv" id="credit-ccv" placeholder="CVV" maxlength="3">
