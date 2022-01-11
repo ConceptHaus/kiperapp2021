@@ -238,9 +238,9 @@ $(function(){
   // Incremento
   extrasInput('#extras-cant-max-1', '#extras-cant-min-1', '#cantidad-ct-1');
   // Card number
-  $('#credit-number').on('keypress change blur', function () {
+  $('#credit-number').on('input', function () {
     $(this).val(function (index, value) {
-      return value.replace(new RegExp(/[^\d]/,'ig'), "").replace(/(.{4})/g, '$1 ');
+      return cc_format(value);
     });
   });
   $('#credit-ccv').on('keypress change blur', function () {
@@ -286,7 +286,6 @@ $(function(){
   //   });
   // });
 
-  const money = 10000;
   const currency = function(number){
     return new Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN', minimumFractionDigits: 2}).format(number);
   };
@@ -353,6 +352,29 @@ $(function(){
   //   }
   // });
 });
+
+function cc_format(value) {
+  var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+  var matches = v.match(/\d{4,16}/g);
+  var match = matches && matches[0] || ''
+  var parts = []
+  for (i=0, len=match.length; i<len; i+=4) {
+    parts.push(match.substring(i, i+4))
+  }
+  if (parts.length) {
+    return parts.join(' ')
+  } else {
+    return value
+  }
+}
+
+function checkDigit(event) {
+  var code = (event.which) ? event.which : event.keyCode;
+  if ((code < 48 || code > 57) && (code > 31)) {
+      return false;
+  }
+  return true;
+}
 
 function wowData() {
   var wow = new WOW({

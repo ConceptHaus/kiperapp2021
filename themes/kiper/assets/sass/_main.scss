@@ -250,13 +250,17 @@ article {
 .planesct {
   width: 100%; height: auto; padding: 0 0 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box);
   &__car {
-    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative;
+    width: 100%; height: auto; padding: 0; margin: 0 0 30px; position: relative;
     & .slick-slide {
       padding: 10px 0; @include box-sizing(border-box); margin: 0 15px;
     }
   }
   &__noslide {
     width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative;
+  }
+  &__titleLic {
+    color: $gris3; margin: 0 0 20px; padding: 0; text-align: center; font-family: 'Gotham-Light'; font-weight: 400; @include fluid-type(16px, 26px, 320px, 1200px); text-align: left;
+    & span { color: $rojo; font-weight: 800; }
   }
   &__only {
     width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); background-color: $gris2; box-shadow: 0px 4px 6px rgba($black, 0.25); border-radius: 20px; overflow: hidden; @include transition(all 300ms ease); @include displayFlex(flex, row, flex-start, center, wrap); max-height: 940px;
@@ -394,8 +398,11 @@ article {
       & .moneda {
         @include fluid-type(13px, 20px, 320px, 1200px); vertical-align: middle; margin-left: 6px;
       }
+      & .legales {
+        display: block; padding: 0; margin: 0; @include fluid-type(9px, 12px, 320px, 1200px); text-align: center; font-family: 'Gotham-Light'; font-weight: 500;
+      }
       @media all and (min-width: 992px) {
-        margin-bottom: 30px; font-size: rem(50px);
+        margin-bottom: 20px; font-size: rem(50px);
       }
     }
     &--red {
@@ -419,7 +426,7 @@ article {
       height: 100%; min-height: 240px;
     }
     @media all and (min-width: 992px) {
-      min-height: 296px;
+      min-height: 300px;
     }
   }
   &__beneficios {
@@ -489,6 +496,19 @@ article {
     }
     &--width {
       width: 220px; margin: 0 auto 20px;
+    }
+    &--widthRight {
+      width: 220px; margin: 0 0 20px auto;
+    }
+    @media all and (min-width: 576px) {
+      height: 42px; line-height: 42px;
+    }
+  }
+  &__addLink {
+    width: 220px; height: 32px; padding: 0; margin: 0 auto 20px; display: block; line-height: 1; background: rgba($gris, 0.15); border-radius: 15px; color: $gris; font-family: 'Gotham-Light'; font-weight: 800; text-decoration: none; text-transform: uppercase; text-align: center; border: 0; line-height: 32px; @include fluid-type(9px, 15px, 320px, 1200px); @include box-sizing(border-box); @include transition(all 300ms); cursor: pointer;
+    &:hover,
+    &:active {
+      color: $gris3;
     }
     @media all and (min-width: 576px) {
       height: 42px; line-height: 42px;
@@ -679,7 +699,7 @@ form {
     text-align: left; display: block; margin: 0; font-family: 'Gotham-Light'; font-weight: 700; @include fluid-type(14px, 18px, 320px, 1200px); 
   }
   &__datos {
-    width: 100%; height: auto; padding: 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box); border: 1px solid $gris; border-radius: 6px;
+    width: 100%; height: auto; padding: 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box); border: 1px solid rgba($gris, 0.40); border-radius: 6px;
     & .titleBox {
       @include position(absolute, -11px null null 20px); display: inline-block; color: $gris; padding: 0 6px; margin: 0; font-family: 'Gotham-Light'; font-weight: 700; background-color: $white; font-size: rem(13px);
     }
@@ -687,12 +707,49 @@ form {
     & input[type="email"] {
       margin-bottom: 15px;
     }
+    & .CheckStyle {
+      & ~ label:before {
+        content: ''; margin-right: 10px; display: inline-block; vertical-align: text-top; width: 20px; height: 20px; background: transparent; border: solid $black 1px; @include box-sizing(border-box); @include transition(all 0.25s ease);
+      }
+      &:hover ~ label:before {
+        background: rgba($rojo,0.35);
+      }
+      &:checked ~ label:before {
+        background: rgba($rojo,1);
+      }
+      &:checked ~ label:after {
+        content: '\f00c'; font-family: 'fontAwesome'; left: 0; top: 3px; background: transparent; width: 20px; height: 20px; color: $white; line-height: 20px; text-align: center;
+      }
+    }
+    &--admin {
+      margin: 0 0 35px;
+    }
+    &--usuario {
+      margin: 0 0 20px;
+      & .btnDelete {
+        @include transform(translateY(-50%)); border: 0; @include position(absolute, 50% -20px null null); width: 35px; height: 35px; background-color: $rojo; z-index: 2; line-height: 33px; text-align: center; color: $white; text-decoration: none; outline: 0; cursor: pointer; border-radius: 50%;
+      }
+    }
   }
   &__check {
     width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
   }
   & .checkCus {
     margin-bottom: 20px;
+    & .CheckStyle {
+      & ~ label:before {
+        content: ''; margin-right: 10px; display: inline-block; vertical-align: text-top; width: 20px; height: 20px; background: transparent; border: solid $black 1px; @include box-sizing(border-box); @include transition(all 0.25s ease);
+      }
+      &:hover ~ label:before {
+        background: rgba($rojo,0.35);
+      }
+      &:checked ~ label:before {
+        background: rgba($rojo,1);
+      }
+      &:checked ~ label:after {
+        content: '\f00c'; font-family: 'fontAwesome'; left: 0; top: 3px; background: transparent; width: 20px; height: 20px; color: $white; line-height: 20px; text-align: center;
+      }
+    }
   }
   & .inputStyle {
     position: relative;
@@ -1265,10 +1322,10 @@ span.cc{ color:#6d84b4 }
     background: rgba($rojo,0.35);
   }
   &:focus ~ label:before {
-    box-shadow: 0 0 0 3px rgba($rojo, 0.12);
+    box-shadow: 0 0 0 3px rgba($rojo, 0.12); border-color: $rojo;
   }
   &:checked ~ label:before {
-    background: rgba($rojo,1);
+    background: rgba($rojo,1); border-color: $rojo;
   }
   &:disabled ~ label {
     color: $black;
