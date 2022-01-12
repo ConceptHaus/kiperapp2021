@@ -241,13 +241,13 @@ is_hidden = 0
                       </ul><!-- end.ul -->
                     </div><!-- end.planesct__beneficios -->
                   </div><!-- end.planesct__box -->
-                  <div class="planesct__btns planesct__btns--flex">
+                  <div class="planesct__btns planesct__btns--flex" style="display: none;">
                     <div class="planesct__linkbox">
                       <input type="radio" class="btn-check" name="planes" id="opcion-1" data-check-btn value="Plan Mensual">
                       <label class="planesct__link" for="opcion-1">Plan Mensual</label>
                     </div><!-- end.planesct__linkbox -->
                     <div class="planesct__linkbox">
-                      <input type="radio" class="btn-check" name="planes" id="opcion-2" data-check-btn value="Plan Anual" checked>
+                      <input type="radio" class="btn-check" name="planes" id="opcion-2" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-2">Plan Anual</label>
                     </div><!-- end.planesct__linkbox -->
                   </div><!-- end.planesct__btns -->
@@ -298,7 +298,7 @@ is_hidden = 0
                       </ul><!-- end.ul -->
                     </div><!-- end.planesct__beneficios -->
                   </div><!-- end.planesct__box -->
-                  <div class="planesct__btns planesct__btns--flex">
+                  <div class="planesct__btns planesct__btns--flex" style="display: none;">
                     <div class="planesct__linkbox">
                       <input type="radio" class="btn-check" name="planes" id="opcion-3" data-check-btn value="Plan Mensual">
                       <label class="planesct__link" for="opcion-3">Plan Mensual</label>
@@ -314,6 +314,12 @@ is_hidden = 0
           </div><!-- end.planesct__car -->
           <div class="planesct__divider"></div>
         </div><!-- end.col-* -->
+        <div class="col-12">
+          <div class="planesct__btnNow">
+            <!-- <p class="Tienes d"></p> -->
+            <a class="planesct__link planesct__link--width" href="#frmcontact">Contacto</a>
+          </div>
+        </div>
       </div><!-- end.row -->
     </div><!-- end.container -->
   </section><!-- end.planes -->
@@ -323,21 +329,15 @@ is_hidden = 0
       <img class="img_fon_prueba wow fadeInLeft" data-wow-delay="0.6s" data-wow-duration="1s" src="{{ 'assets/img/elementos/Mobile_KIPER-2 1.png'|theme }}">
     </div>
     <div class="content_inicia_prueba">
-      <span class="inicia_prueba wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="1s">Haz que el éxito 
+      <p class="inicia_prueba wow fadeInRight" data-wow-delay="0.6s" data-wow-duration="1s">Haz que el éxito 
         <br/>de tu empresa 
         <br/>sea exponencial.
-        <br/><span class="naranja">Inicia tu prueba 
-        <br/>ahora.</span>
-  
-      </span>
-      <span class="inicia_prueba_movil">Haz que el éxito 
+      </p>
+      <p class="inicia_prueba_movil">Haz que el éxito 
         <br/>de tu empresa 
         <br/>sea exponencial.
-        <br/><span class="naranja">Inicia tu prueba 
-        <br/>ahora.</span>
-  
-      </span>
-      <a href="#frmcontact"><div class="buton_iniciar wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">COMENZAR AHORA</div>
+      </p>
+      <a href="{{ 'inicia-prueba'|page }}"><div class="buton_iniciar wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">COMENZAR AHORA</div>
         <div class="buton_iniciar_movil">COMENZAR AHORA</div></a>
     </div>
   </section>
