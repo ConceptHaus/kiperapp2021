@@ -494,6 +494,10 @@ article {
     &:active {
       color: $white;
     }
+    &.disabled,
+    &[disabled] {
+      pointer-events: none; opacity: 0.75;
+    }
     &--width {
       width: 220px; margin: 0 auto 20px;
     }
@@ -693,6 +697,9 @@ form {
     margin: 0 0 6px!important; padding: 10px!important; font-family: 'Gotham-Light'; font-weight: 400; color: $gris!important; background-color: rgba($azul, 0.10)!important; border-color: $azul!important;
     & small {
       font-size: rem(12px);
+    }
+    &--error {
+      color: $gris!important; background-color: rgba($rojo, 0.10)!important; border-color: $rojo!important;
     }
   }
   &__labelTow {
