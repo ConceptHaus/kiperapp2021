@@ -549,23 +549,26 @@ $(function() {
         var form = $("#frmProbar");
         var url = form.attr('action');
         var data = form.serialize();
-        console.log("hola");
-        console.log(url);
-        console.log(data);
-        // $.ajax({
-        //   type: 'POST',
-        //   url: url,
-        //   data: data,
-        //   dataType: 'json',
-        //   success: function (json) {
-        //     console.log(json);
-        //   },
-        //   error: function(json){
-        //     var error = '';      
-        //     console.log("error");
-        //     console.log(json);
-        //   }
-        // });
+        if($("#inpFlag").val() == 0){
+          $.ajax({
+            type: 'POST',
+            url: "http://local.adminkiper/KipersConfiguration/saveComenzarAhora",
+            data: data,
+            dataType: 'json',
+            success: function (json) {
+              console.log(json);
+              localStorage.setItem("email_cliente", $("#inpEmail").val());
+            },
+            error: function(json){
+              var error = '';      
+              console.log("error");
+              console.log(json);
+            }
+          });
+        }
+        else{
+          return false;
+        }
         form.request('onTest', {
               // data: {
               //   inpPais: selectedCountry
@@ -575,6 +578,41 @@ $(function() {
               //   $('#inpEdo').prop("disabled", false);
               // }
           // redirect: '/dashboard'
+        });
+      }
+    });
+
+    $("#inpEmail").focusout(function(){
+      var for_item = $(this).val();
+      if(for_item.length > 3){
+        $.ajax({
+          type: 'POST',
+          url: "http://local.adminkiper/KipersConfiguration/existClientRegis",
+          data: 
+          {
+            email: for_item
+          },
+          dataType: 'json',
+          success: function (data) {
+            console.log(data.code);
+            if(response.code == 404){
+              $("#inpFlag").val(0);
+              $(".msj").empty();
+              $(".content-msj").hide();
+              $(".btnSubmit").removeClass("disabled");
+            }
+            else{
+              $("#inpFlag").val(1);
+              $(".msj").text("¡El email ya se encuentra registrado!");
+              $(".content-msj").show();
+              $(".btnSubmit").addClass("disabled");
+            }
+          },
+          error: function(json){
+            var error = '';      
+            console.log("error");
+            console.log(json);
+          }
         });
       }
     });

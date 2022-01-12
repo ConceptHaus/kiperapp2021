@@ -32,14 +32,24 @@ function onTest()
 		//}
 	//}
 
-	return Redirect::to('/carrito-de-compra');
+	//return Redirect::to('/carrito-de-compra');
 
 }
 ?>
 ==
 {% set estados = estadoList.records %}
+{% put scriptFormulario %}
+<script type="text/javascript">
+	$(document).ready(function(){
+   		$('#inpConfEmail').on("cut copy paste",function(e) {
+      	e.preventDefault();
+   	});
+});
+</script>
+{% endput %}
 <section class="iniciaSec">
 	<form method="POST" name="frmProbar" id="frmProbar">
+		<input type="hidden" readonly="readonly" value="0" name="inpFlag" id="inpFlag" />
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -58,6 +68,11 @@ function onTest()
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="frmInicia">
+							<div class="col-12 inputStyle content-msj" style="display:none;">
+								<div class="frmInicia__alerta alert alert-error" role="alert">
+									<small class="msj"></small>
+								</div>
+							</div>
 							<div class="row g-3">
 								<div class="col-12 col-md-6 inputStyle">
 									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre(s)*" />
@@ -66,10 +81,10 @@ function onTest()
 									<input type="text" name="inpApellidos" id="inpApellidos" class="form-control required"  value="" placeholder="Apellido(s)*" />
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<input type="email" name="inpEmail" id="inpEmail" class="form-control required" value="" placeholder="Correo eléctronico*" />
+									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" value="" placeholder="Correo eléctronico*" />
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<input type="email" name="inpConfEmail" id="inpConfEmail" class="form-control required" value="" placeholder="Confirmar correo eléctronico*" />
+									<input type="email" name="inpConfEmail" id="inpConfEmail" autocomplete="off" class="form-control required" value="" placeholder="Confirmar correo eléctronico*" />
 								</div>
 								<div class="col-12 inputStyle">
 									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control" placeholder="Teléfono" />
@@ -89,12 +104,12 @@ function onTest()
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required country" id="inpPais" name="inpPais">
 										<option value="">País</option>
-										<option value="MX" data-status-pais="1" data-id-pais="1">México</option>
+										<option value="1" data-status-pais="1" data-id-pais="1">México</option>
 									</select>
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required" id="inpEdo" name="inpEdo" disabled>
-										<option value="">Estado / Distrito</option>}
+										<option value="">Estado / Distrito</option>
 									{% for estado in estados %}
 										<option value="{{ estado.id }}">{{ estado.nombre }}</option>
 									{% endfor %}
@@ -118,7 +133,7 @@ function onTest()
 				<div class="row justify-content-center">
 					<div class="col-12 col-md-10 col-lg-7">
 						<!-- <a class="planesct__link" href="/pagar-ahora" >Continuar</a> -->
-						<input class="planesct__link planesct__link--width" type="submit" class="btn btn-gral btnSubmit" value="Continuar">
+						<input class="planesct__link planesct__link--width  btnSubmit" type="submit" value="Continuar">
 					</div> <!-- end.col-*-->
 				</div><!-- end.row -->
 			</div><!-- end.container -->
