@@ -39,13 +39,13 @@ function onTest()
 ==
 {% set estados = estadoList.records %}
 {% put scriptFormulario %}
-<script type="text/javascript">
-	$(document).ready(function(){
-   		$('#inpConfEmail').on("cut copy paste",function(e) {
-      	e.preventDefault();
-   	});
-});
-</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#inpConfEmail').on("cut copy paste",function(e) {
+			e.preventDefault();
+		});
+	});
+	</script>
 {% endput %}
 <section class="iniciaSec">
 	<form method="POST" name="frmProbar" id="frmProbar">

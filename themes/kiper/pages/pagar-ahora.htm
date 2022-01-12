@@ -96,11 +96,11 @@ function onTest()
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-1" value="349" data-check-btn data-price-ch="Plan Standard Mensual">
+												<input type="radio" class="btn-check" name="planes" id="opcion-1" for-data="PSM001" value="349" data-check-btn data-price-ch="Plan Standard Mensual">
 												<label class="planesct__link" for="opcion-1">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-2" value="{{ 290*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
+												<input type="radio" class="btn-check" name="planes" id="opcion-2" for-data="PSA001" value="{{ 290*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -153,11 +153,11 @@ function onTest()
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-3" data-price-ch="Plan Pro Mensual" data-check-btn value="949">
+												<input type="radio" class="btn-check" name="planes" id="opcion-3" for-data="PPM002" data-price-ch="Plan Pro Mensual" data-check-btn value="949">
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 880*12 }}">
+												<input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="PPA002" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 880*12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -192,6 +192,7 @@ function onTest()
 									</div>
 								</div>
 								<div class="col-12">
+									<input type="hidden" name="planSelec" id="planSelec" value="" />
 									<input type="hidden" name="subTotalPrice" id="subTotalPrice" value="">
 									<input type="hidden" name="totalIva" id="totalIva" value="">
 									<input type="hidden" name="totalPriceFin" id="totalPriceFin" value="">

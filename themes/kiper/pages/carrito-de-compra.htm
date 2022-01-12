@@ -24,6 +24,14 @@ function onTest() {
 }
 ?>
 ==
+{% put scriptFormulario %}
+<script type="text/javascript">
+	$(document).ready(function(){
+   		
+   	});
+});
+</script>
+{% endput %}
 <section class="iniciaSec">
 	<form action="POST" name="frmProbar" id="frmProbar" action="" autocomplete="off" novalidate>
 		<div class="ctFrm">
@@ -66,9 +74,9 @@ function onTest() {
 										<label class="drinkcard-cc mastercard"for="mastercard"></label>
 									</div>
 								</div>
-                <div class="col-12 inputStyle">
-                  <input class="form-control" name="credit-number" id="credit-number" placeholder="Número de tarjeta" value="" onkeypress="return checkDigit(event)">
-                </div>
+								<div class="col-12 inputStyle">
+								<input class="form-control" name="credit-number" id="credit-number" placeholder="Número de tarjeta" value="" onkeypress="return checkDigit(event)">
+								</div>
 								<div class="col-12 inputStyle">
 									<input type="text" class="form-control" name="tarjeta_name" id="tarjeta_name" placeholder="Nombre completo como aparece en la tarjeta*">
 								</div>
@@ -76,16 +84,16 @@ function onTest() {
 									<p class="frmInicia__labelTow">Vigencia</p>
 								</div>
 								<div class="col-6 inputStyle">
-                  <input name="mescard" id="mescard" class="form-control" placeholder="MM" maxlength="2" onkeypress="return checkDigit(event)">
+                  					<input name="mescard" id="mescard" class="form-control" placeholder="MM" maxlength="2" onkeypress="return checkDigit(event)">
 								</div>
 								<div class="col-6 inputStyle">
-                  <input name="mescard" id="mescard" class="form-control" placeholder="AA" maxlength="2" onkeypress="return checkDigit(event)">
+                  					<input name="mescard" id="mescard" class="form-control" placeholder="AA" maxlength="2" onkeypress="return checkDigit(event)">
 								</div>
 								<div class="col-6 col-md-4 inputStyle">
 									<input type="text" class="form-control" name="credit-ccv" id="credit-ccv" placeholder="CVV" maxlength="3">
-                  <div class="iconTar">
-                    <img src="{{ 'assets/img/cvv.png'|theme }}" alt="">
-                  </div>
+								<div class="iconTar">
+									<img src="{{ 'assets/img/cvv.png'|theme }}" alt="">
+								</div>
 								</div>
 								<div class="col-6 col-md-8">
 									<div class="cvv-details">

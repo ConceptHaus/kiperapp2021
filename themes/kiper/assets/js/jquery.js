@@ -320,6 +320,7 @@ $(function(){
   };
 
   $valorChecado = $('[data-check-btn]:checked').val();
+  $("#planSelec").val($('[data-check-btn]:checked').attr("for-data"));
   // Subtotal valor incial
   $('#subtotal').text(currency($valorChecado));
   // $('#currencyField').formatCurrency('.currencyLabel');
@@ -348,6 +349,7 @@ $(function(){
     $("#totalIva").val(ivaBtn);
     $('#totalFin').text(currency((multiplyVal+ivaBtn)));
     $('#totalPriceFin').val(multiplyVal+ivaBtn);
+    $("#planSelec").val($('[data-check-btn]:checked').attr("for-data"));
   });
   var $monto = parseFloat($("#totalPriceFin").val());
   var costo_plan = $checks.filter(':checked').val();
@@ -555,9 +557,19 @@ $(function() {
             url: "http://local.adminkiper/KipersConfiguration/saveComenzarAhora",
             data: data,
             dataType: 'json',
-            success: function (json) {
-              console.log(json);
-              localStorage.setItem("email_cliente", $("#inpEmail").val());
+            success: function (data) {
+              console.log(data.code);
+              if(data.code == 200){
+                localStorage.setItem("email_cliente", $("#inpEmail").val());
+                localStorage.setItem("data_client", data.data_client);
+                window.location.href = siteUrl + "/carrito-de-compra";
+              }
+              else{
+                $("#inpFlag").val(1);
+                $(".msj").text("¡El email ya se encuentra registrado!");
+                $(".content-msj").show();
+                $(".btnSubmit").addClass("disabled");
+              }
             },
             error: function(json){
               var error = '';      
@@ -595,7 +607,7 @@ $(function() {
           dataType: 'json',
           success: function (data) {
             console.log(data.code);
-            if(response.code == 404){
+            if(data.code == 404){
               $("#inpFlag").val(0);
               $(".msj").empty();
               $(".content-msj").hide();
