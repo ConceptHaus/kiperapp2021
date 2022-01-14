@@ -28,9 +28,9 @@ var $isOpen = false,
     $overlay = $('.overlayGenerico'),
     $modalGen = $('#modalGen');
 var $modalGenAvi = $('#modalAvisos');
-function effectsModalAviso() {
+function effectsModalAviso(id) {
   TweenMax.to($overlay, 0.1, { autoAlpha: 1 });
-  TweenMax.fromTo($modalGenAvi, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
+  TweenMax.fromTo(id, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
 }
 function abreModalAvisoID() {
   $('[data-open-aviso]').each(function () {
@@ -38,7 +38,7 @@ function abreModalAvisoID() {
       e.preventDefault();
       var $idProd = $(this).data('id-aviso');
       // console.log($idProd);
-      effectsModalAviso();
+      effectsModalAviso($modalGenAvi);
       $($idProd).delay('0.6').show('slow');
     });
   });
@@ -51,6 +51,17 @@ function closeModalAviso() {
     TweenMax.to($modalGenAvi, 0.55, { top: '300%', ease: Power3.easeInOut, force3D: true });
   });
 }
+
+$(window).on('load', function() {
+  var dataLoader = $('.modalLoader').data('loader-kiper');
+  // console.log(dataLoader);
+  if(dataLoader == true) {
+    setTimeout(function() {
+      $('body').removeClass('loaderModal');
+      $('[data-loader-kiper]').addClass('modalLoader__out');
+    }, 2000);
+  }
+});
 
 $(function(){
   abreModalAvisoID();

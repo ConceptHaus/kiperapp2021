@@ -27,6 +27,27 @@ $white: #ffffff;
   @include display($disp); @include flex-direction($direc); @include justify-content($justify); @include align-items($items); @include flex-wrap($wrp);
 }
 
+// Modal Loader
+body.loaderModal { overflow: hidden; }
+.modalLoader {
+  @extend .overlayClass; background-color: rgba($white,0.90); z-index: 1000; @include displayFlex(flex, column, center, center, wrap); overflow: hidden; visibility: visible; opacity: 1; @include transition(opacity 300ms ease, visibility 0s);
+  &__img {
+    display: block; width: 100%; max-width: 500px; height: auto; padding: 0; margin: 0 auto 20px; border: 0; visibility: visible; opacity: 1; @include transition(opacity 300ms ease, visibility 0s);
+  }
+  &__box {
+    width: 100%; max-width: 400px; height: auto; padding: 0; margin: 0 auto; position: relative; @include box-sizing(border-box);
+    & p {
+      font-family: 'Gotham-Light'; font-weight: 500; padding: 0; margin: 0; text-align: center; color: $gris3; @include fluid-type(13px, 20px, 320px, 1200px);
+    }
+  }
+  &__out {
+    visibility: hidden; opacity: 0; z-index: -1;
+    & .modalLoader__img {
+      visibility: hidden; opacity: 0;
+    }
+  }
+}
+
 .overlayGenerico {
   @extend .overlayClass; background-color: rgba($black,0.50); z-index: 100; @include displayFlex(flex, column, center, center, wrap); opacity: 0; visibility: hidden; overflow: hidden;
 }
