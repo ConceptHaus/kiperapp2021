@@ -41,7 +41,7 @@ function onTest()
 {% put scriptFormulario %}
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#inpConfEmail').on("cut copy paste",function(e) {
+			$('#inpConfEmail').on("cut copy paste", function(e) {
 			e.preventDefault();
 		});
 	});
@@ -92,15 +92,6 @@ function onTest()
 								<div class="col-12">
 									<h2 class="frmInicia__title">Datos de la empresa</h2>
 								</div>
-								<div class="col-12 inputStyle">
-									<div class="frmInicia__alerta alert alert-info" role="alert">
-										<small>Si aún no cuentas con un sitio web puedes omitir esta información.</small>
-									</div>
-									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio de tu negocio">
-								</div>
-								<div class="col-12 inputStyle">
-									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
-								</div>
 								<div class="col-12 col-md-6 inputStyle">
 									<select class="form-select required country" id="inpPais" name="inpPais">
 										<option value="">País</option>
@@ -121,6 +112,15 @@ function onTest()
 								</div>
 								<div class="col col-md-6 inputStyle">
 									<input type="text" name="inpCodPos" id="inpCodPos" class="form-control" placeholder="Código Postal" /> 
+								</div>
+								<div class="col-12 inputStyle">
+									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
+								</div>
+								<div class="col-12 inputStyle">
+									<div class="frmInicia__alerta alert alert-info" role="alert">
+										<small>Si aún no cuentas con un sitio web puedes omitir este campo.</small>
+									</div>
+									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio de tu negocio">
 								</div>
 							</div><!-- end.row -->
 						</div><!-- end.frmInicia -->

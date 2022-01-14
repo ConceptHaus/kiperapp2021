@@ -27,6 +27,27 @@ $white: #ffffff;
   @include display($disp); @include flex-direction($direc); @include justify-content($justify); @include align-items($items); @include flex-wrap($wrp);
 }
 
+// Modal Loader
+body.loaderModal { overflow: hidden; }
+.modalLoader {
+  @extend .overlayClass; background-color: rgba($white,0.90); z-index: 1000; @include displayFlex(flex, column, center, center, wrap); overflow: hidden; visibility: visible; opacity: 1; @include transition(opacity 300ms ease, visibility 0s);
+  &__img {
+    display: block; width: 100%; max-width: 500px; height: auto; padding: 0; margin: 0 auto 20px; border: 0; visibility: visible; opacity: 1; @include transition(opacity 300ms ease, visibility 0s);
+  }
+  &__box {
+    width: 100%; max-width: 400px; height: auto; padding: 0; margin: 0 auto; position: relative; @include box-sizing(border-box);
+    & p {
+      font-family: 'Gotham-Light'; font-weight: 500; padding: 0; margin: 0; text-align: center; color: $gris3; @include fluid-type(13px, 20px, 320px, 1200px);
+    }
+  }
+  &__out {
+    visibility: hidden; opacity: 0; z-index: -1;
+    & .modalLoader__img {
+      visibility: hidden; opacity: 0;
+    }
+  }
+}
+
 .overlayGenerico {
   @extend .overlayClass; background-color: rgba($black,0.50); z-index: 100; @include displayFlex(flex, column, center, center, wrap); opacity: 0; visibility: hidden; overflow: hidden;
 }
@@ -306,7 +327,7 @@ article {
   }
   &__plan {
     // max-width: 343px;
-    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; @include box-sizing(border-box); background-color: $gris2; box-shadow: 0px 4px 6px rgba($black, 0.25); border-radius: 20px; overflow: hidden; @include transition(all 300ms ease); opacity: 0.75;
+    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; @include box-sizing(border-box); background-color: $gris2; box-shadow: 0px 4px 6px rgba($black, 0.25); border-radius: 20px; overflow: hidden; @include transition(all 300ms ease); opacity: 1;
     &--rojo {
       & .planesct__title {
         background-color: $rojo;
@@ -386,6 +407,12 @@ article {
   }
   &__mensual {
     width: 100%; height: auto; display: block; text-align: center; @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($rojo, 0.55); font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0 0 10px; line-height: 1;
+  }
+  &__btnNow {
+    width: 100%; height: auto; display: block; padding: 0; margin: 30px 0 0;
+    & .textWar {
+      @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($gris3, 0.85); font-family: 'Gotham-Light'; font-weight: 600; text-align: center; padding: 0; margin: 0;
+    }
   }
   &__monto {
     width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 800; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
@@ -818,6 +845,25 @@ form {
   }
   @media all and (min-width: 768px) {
     height: 40px; line-height: 38px; padding: 0 20px;
+  }
+}
+.btnIniciaFoo {
+  @include position(absolute, 35vw null null 51%);
+  display: block; width: auto; height: 32px; border-radius: 10px; line-height: 30px; text-align: center; border: 1px solid $rojo; background-color: transparent; @include box-sizing(border-box); margin: 0 auto 0 0; padding: 0 5px; color: $rojo; @include fluid-type(12px, 15px, 320px, 1200px); cursor: pointer; text-decoration: none; @include transition(all 300ms ease);
+  & i {
+    margin-left: 5px;
+  }
+  &:hover {
+    color: $white; background-color: $rojo;
+  }
+  @media all and (min-width: 768px) {
+    height: 40px; line-height: 38px; padding: 0 20px; top: 19vw; left: 56%;
+  }
+}
+.iniciaContacto {
+  @include position(absolute, 47vw null null 51%); padding: 0; margin: 0; color: $gris3; @include fluid-type(12px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 800; text-align: left;
+  @media all and (min-width: 768px) {
+    top: 24vw; left: 56%;
   }
 }
 
