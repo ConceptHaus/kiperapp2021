@@ -411,7 +411,7 @@ article {
   &__btnNow {
     width: 100%; height: auto; display: block; padding: 0; margin: 30px 0 0;
     & .textWar {
-      @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($rojo, 0.55); font-family: 'Gotham-Light'; font-weight: 600; text-align: center; padding: 0; margin: 0;
+      @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($gris3, 0.85); font-family: 'Gotham-Light'; font-weight: 600; text-align: center; padding: 0; margin: 0;
     }
   }
   &__monto {
@@ -845,6 +845,25 @@ form {
   }
   @media all and (min-width: 768px) {
     height: 40px; line-height: 38px; padding: 0 20px;
+  }
+}
+.btnIniciaFoo {
+  @include position(absolute, 35vw null null 51%);
+  display: block; width: auto; height: 32px; border-radius: 10px; line-height: 30px; text-align: center; border: 1px solid $rojo; background-color: transparent; @include box-sizing(border-box); margin: 0 auto 0 0; padding: 0 5px; color: $rojo; @include fluid-type(12px, 15px, 320px, 1200px); cursor: pointer; text-decoration: none; @include transition(all 300ms ease);
+  & i {
+    margin-left: 5px;
+  }
+  &:hover {
+    color: $white; background-color: $rojo;
+  }
+  @media all and (min-width: 768px) {
+    height: 40px; line-height: 38px; padding: 0 20px; top: 19vw; left: 56%;
+  }
+}
+.iniciaContacto {
+  @include position(absolute, 47vw null null 51%); padding: 0; margin: 0; color: $gris3; @include fluid-type(12px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 800; text-align: left;
+  @media all and (min-width: 768px) {
+    top: 24vw; left: 56%;
   }
 }
 

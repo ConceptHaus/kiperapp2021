@@ -552,14 +552,14 @@ width: 17.2vw;
 height: 2.4vw;
 position: absolute;
 left: 56%;
-top: 20vw;
+top: 27vw;
 border-radius: 20px;
 color: #fff;
 font-family: 'Gotham-Light';
 font-weight: 800;
-line-height: 2.4vw;
+line-height: 31px;
 letter-spacing: .05vw;
-font-size: 1vw;
+font-size: 14px;
 }
 
 
@@ -1108,8 +1108,8 @@ background-color: #E53F28;
 width: 40vw;
 height: 6.5vw;
 position: absolute;
-left: 48%;
-top: 37vw;
+left: 51%;
+top: 60vw;
 border-radius: 10px;
 color: #fff;
 font-family: 'Gotham-Light';
