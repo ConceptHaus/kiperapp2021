@@ -55,7 +55,8 @@ function closeModalAviso() {
 $(window).on('load', function() {
   var dataLoader = $('.modalLoader').data('loader-kiper');
   // console.log(dataLoader);
-  if(dataLoader == true) {
+  // if(dataLoader != false || dataLoader.lenght > 0) {
+  if(dataLoader != false) {
     setTimeout(function() {
       $('body').removeClass('loaderModal');
       $('[data-loader-kiper]').addClass('modalLoader__out');
