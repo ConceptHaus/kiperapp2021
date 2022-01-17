@@ -19,7 +19,7 @@ function onTest() {
 		//}
 	//}
 
-	return Redirect::to('/gracias-por-tu-compra');
+	//return Redirect::to('/gracias-por-tu-compra');
 
 }
 ?>
@@ -27,12 +27,77 @@ function onTest() {
 {% put scriptFormulario %}
 <script type="text/javascript">
 	$(document).ready(function(){
-   		
+		$("#data_client").val(localStorage.getItem("data_client"));
    	});
 </script>
+<script type="text/javascript" >
+	Conekta.setPublicKey('key_PyZq3477zCKyCe9ac9Uxw9A');
+  
+  
+	var conektaSuccessResponseHandler = function(token) {
+		$(".modalLoader").addClass("loaderModal").removeClass("modalLoader__out").show();
+	  	var $form = $("#card-form");
+	  //Inserta el token_id en la forma para que se envíe al servidor
+	   $form.append($('<input type="hidden" name="conektaTokenId" id="conektaTokenId">').val(token.id));
+	   $("#data_ckk").val(token.id);
+	   var form = $("#card-form");
+		var url = form.attr('action');
+		var data = form.serialize();
+	   $.ajax({
+         type: 'POST',
+         url: "https://system-admin.kiper.io/KipersConfiguration/checkoutKiper",
+         data: data,
+         dataType: 'json',
+         success: function (data) {
+			 var dataLoader = $('.modalLoader').data('loader-kiper');
+			setTimeout(function() {
+				$('body').removeClass('loaderModal');
+				$('[data-loader-kiper]').addClass('modalLoader__out');
+			}, 2000);
+           console.log(data.code);
+		   if(data.code == 200){
+				
+		   }
+		   else{
+			$("#modalAvisoDos").modal("show");
+		   }
+           
+         },
+         error: function(json){
+           var error = '';      
+           console.log("error");
+           console.log(json);
+         }
+       });
+	  //$form.get(0).submit(); //Hace submit
+	};
+	var conektaErrorResponseHandler = function(response) {
+	  var $form = $("#card-form");
+	  $form.find(".card-errors").text(response.message_to_purchaser);
+	  $form.find("button").prop("disabled", false);
+	};
+  
+  
+	//jQuery para que genere el token después de dar click en submit
+	$(function () {
+	  $("#card-form").submit(function(event) {
+		var $form = $(this);
+		// Previene hacer submit más de una vez
+		$form.find("button").prop("disabled", true);
+		Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+		return false;
+	  });
+	});
+  </script>
 {% endput %}
 <section class="iniciaSec">
-	<form action="POST" name="frmProbar" id="frmProbar" action="" autocomplete="off" novalidate>
+
+
+
+	  <form action="" method="POST" id="card-form">
+		<input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
+		<input type="hidden" name="data_ckk" id="data_ckk" value=""  readonly="readonly"/>
+		<span class="card-errors"></span>
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -67,29 +132,33 @@ function onTest() {
 								<div class="col-12">
 									<p class="frmInicia__labelTow">Selecciona tipo de tarjeta</p>
 									<div class="cc-selector">
-										<input checked="checked" id="visa" type="radio" name="credit-card" value="visa" />
+										<input checked="checked" id="visa" type="radio" name="brand" value="VISA" />
 										<label class="drinkcard-cc visa" for="visa"></label>
-										<input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+										<input id="mastercard" type="radio" name="brand" value="MASTERCARD" />
 										<label class="drinkcard-cc mastercard"for="mastercard"></label>
 									</div>
 								</div>
 								<div class="col-12 inputStyle">
-								<input class="form-control" name="credit-number" id="credit-number" placeholder="Número de tarjeta" value="" onkeypress="return checkDigit(event)">
+									<input type="text" class="form-control" autocomplete="off" name="name" id="tarjeta_name" data-conekta="card[name]" placeholder="Nombre completo como aparece en la tarjeta*">
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="text" class="form-control" name="tarjeta_name" id="tarjeta_name" placeholder="Nombre completo como aparece en la tarjeta*">
+									<input type="email" class="form-control" autocomplete="off" name="email_notif" id="email_notif" required placeholder="Email para notificaciones*">
 								</div>
+								<div class="col-12 inputStyle">
+								<input class="form-control" name="number" id="credit-number" autocomplete="off" data-conekta="card[number]" placeholder="Número de tarjeta*" value="" onkeypress="return checkDigit(event)">
+								</div>
+								
 								<div class="col-12">
 									<p class="frmInicia__labelTow">Vigencia</p>
 								</div>
 								<div class="col-6 inputStyle">
-                  					<input name="mescard" id="mescard" class="form-control" placeholder="MM" maxlength="2" onkeypress="return checkDigit(event)">
+                  					<input name="exp_month" id="mescard" class="form-control" autocomplete="off"  data-conekta="card[exp_month]" placeholder="MM*" maxlength="2" onkeypress="return checkDigit(event)">
 								</div>
 								<div class="col-6 inputStyle">
-                  					<input name="mescard" id="mescard" class="form-control" placeholder="AA" maxlength="2" onkeypress="return checkDigit(event)">
+                  					<input name="exp_year" id="mescard" class="form-control" autocomplete="off" placeholder="AAAA*" data-conekta="card[exp_year]" maxlength="4" onkeypress="return checkDigit(event)">
 								</div>
 								<div class="col-6 col-md-4 inputStyle">
-									<input type="text" class="form-control" name="credit-ccv" id="credit-ccv" placeholder="CVV" maxlength="3">
+									<input type="text" class="form-control" name="cvc" autocomplete="off" data-conekta="card[cvc]" id="credit-ccv" placeholder="CVV*" maxlength="3">
 								<div class="iconTar">
 									<img src="{{ 'assets/img/cvv.png'|theme }}" alt="">
 								</div>
@@ -103,7 +172,7 @@ function onTest() {
 						</div><!-- end.frmDataBox -->
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7">
-						<a data-open-aviso href="#" data-id-aviso="#modalAvisoDos">abre modal</a>
+						<!--<a data-open-aviso href="#" data-id-aviso="#modalAvisoDos">abre modal</a>-->
 						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Finalizar compra">  
 					</div> <!-- end.col-*-->
 				</div><!-- end.row -->

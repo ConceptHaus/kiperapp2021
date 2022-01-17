@@ -566,7 +566,7 @@ $(function() {
         if($("#inpFlag").val() == 0){
           $.ajax({
             type: 'POST',
-            url: "http://local.adminkiper/KipersConfiguration/saveComenzarAhora",
+            url: "https://system-admin.kiper.io/KipersConfiguration/saveComenzarAhora",
             data: data,
             dataType: 'json',
             success: function (data) {
@@ -611,7 +611,7 @@ $(function() {
       if(for_item.length > 3){
         $.ajax({
           type: 'POST',
-          url: "http://local.adminkiper/KipersConfiguration/existClientRegis",
+          url: "https://system-admin.kiper.io/KipersConfiguration/existClientRegis",
           data: 
           {
             email: for_item
@@ -642,5 +642,128 @@ $(function() {
     });
 
     // $("#frmProbar").removeAttr("novalidate");
+
+    $("#frmCarrito").validate({
+      errorElement: 'div',
+      errorClass: 'error-label',
+      rules: {
+        planSelec: {
+          required: true 
+        },
+        subTotalPrice: {
+          required: true 
+        },
+        totalIVA: {
+          required: true 
+        },
+        totalPriceFin: {
+          required: true 
+        }
+      },
+      messages: {
+        planSelec: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+        },
+        subTotalPrice: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+        },
+        totalIVA: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+        },
+        totalPriceFin: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+        }
+      },
+     submitHandler: function(form) {
+       var form = $("#frmCarrito");
+       var url = form.attr('action');
+       var data = form.serialize();
+         $.ajax({
+           type: 'POST',
+           url: "https://system-admin.kiper.io/KipersConfiguration/saveYouCart",
+           data: data,
+           dataType: 'json',
+           success: function (data) {
+             console.log(data.code);
+             if(data.code == 200){
+               localStorage.setItem("data_client", data.data_client);
+               window.location.href = siteUrl + "/pagar-ahora";
+             }
+             else{
+               $("#inpFlag").val(1);
+               $(".msj").text("¡El email ya se encuentra registrado!");
+               $(".content-msj").show();
+               $(".btnSubmit").addClass("disabled");
+             }
+           },
+           error: function(json){
+             var error = '';      
+             console.log("error");
+             console.log(json);
+           }
+         });
+       form.request('onTest', {
+             // data: {
+             //   inpPais: selectedCountry
+             // },
+             // success: function(data) {
+             //   $("#inpEdo").html(data);
+             //   $('#inpEdo').prop("disabled", false);
+             // }
+         // redirect: '/dashboard'
+       });
+     }
+   });
+
+   $("#frmCobro").validate({
+    errorElement: 'div',
+    errorClass: 'error-label',
+    /*
+    rules: {
+      planSelec: {
+        required: true 
+      },
+      subTotalPrice: {
+        required: true 
+      },
+      totalIVA: {
+        required: true 
+      },
+      totalPriceFin: {
+        required: true 
+      }
+    },
+    messages: {
+      planSelec: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+      },
+      subTotalPrice: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+      },
+      totalIVA: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      totalPriceFin: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      }
+    },*/
+   submitHandler: function(form) {
+     var form = $("#frmCobro");
+     var url = form.attr('action');
+     var data = form.serialize();
+      
+     form.request('onTest', {
+           // data: {
+           //   inpPais: selectedCountry
+           // },
+           // success: function(data) {
+           //   $("#inpEdo").html(data);
+           //   $('#inpEdo').prop("disabled", false);
+           // }
+       // redirect: '/dashboard'
+     });
+   }
+ });
+
 
 });
