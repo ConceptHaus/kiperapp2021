@@ -566,7 +566,7 @@ $(function() {
         if($("#inpFlag").val() == 0){
           $.ajax({
             type: 'POST',
-            url: "http://local.adminkiper/KipersConfiguration/saveComenzarAhora",
+            url: "https://system-admin.kiper.io/KipersConfiguration/saveComenzarAhora",
             data: data,
             dataType: 'json',
             success: function (data) {
@@ -611,7 +611,7 @@ $(function() {
       if(for_item.length > 3){
         $.ajax({
           type: 'POST',
-          url: "http://local.adminkiper/KipersConfiguration/existClientRegis",
+          url: "https://system-admin.kiper.io/KipersConfiguration/existClientRegis",
           data: 
           {
             email: for_item
@@ -680,7 +680,7 @@ $(function() {
        var data = form.serialize();
          $.ajax({
            type: 'POST',
-           url: "http://local.adminkiper/KipersConfiguration/saveYouCart",
+           url: "https://system-admin.kiper.io/KipersConfiguration/saveYouCart",
            data: data,
            dataType: 'json',
            success: function (data) {
