@@ -3,3 +3,97 @@ url = "/ayuda-clientes"
 layout = "layout"
 is_hidden = 0
 ==
+
+<section class="iniciaSec">
+	<form method="POST" name="frmProbar" id="frmProbar">
+		<input type="hidden" readonly="readonly" value="0" name="inpFlag" id="inpFlag" />
+		<div class="ctFrm">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-7">
+						<nav class="breadct" aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{'inicio'|page}}">Inicio</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Ayuda clientes</li>
+							</ol>
+						</nav><!-- end.breadcrumb -->
+					</div><!-- end.col-* -->
+					<div class="col-12">
+						<span class="content_pregunta">Ayuda
+						<span class="naranja">Clientes</span><br></span>
+						<span class="">¡toma el control de tus clientes potenciales e incrementa tus ventas!</span>
+					</div><!-- end.col-* -->
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="frmInicia">
+							<div class="col-12 inputStyle content-msj" style="display:none;">
+								<div class="frmInicia__alerta frmInicia__alerta--error" role="alert">
+									<small class="msj"></small>
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col-12 inputStyle">
+									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre Completo*" />
+								</div>
+								<div class="col-12 inputStyle">
+									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" placeholder="Correo eléctronico*">
+								</div>
+                <div class="col-12 col-md-6 inputStyle">
+									<select class="form-select required country" id="inpPais" name="inpPais">
+										<option value="">Contrataciones</option>
+										<option value="1" data-status-pais="1" data-id-pais="1">México</option>
+									</select>
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="email" name="inpConfEmail" id="inpConfEmail" autocomplete="off" class="form-control required" value="" placeholder="Confirmar correo eléctronico*" />
+								</div>
+								<div class="col-12 inputStyle">
+									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control" placeholder="Teléfono" />
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<select class="form-select required country" id="inpPais" name="inpPais">
+										<option value="">País</option>
+										<option value="1" data-status-pais="1" data-id-pais="1">México</option>
+									</select>
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<select class="form-select required" id="inpEdo" name="inpEdo" disabled>
+										<option value="">Estado / Distrito</option>
+										<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+									</select>
+									<div id="response"></div>
+								</div>
+								<div class="col col-md-6 inputStyle">
+									<input type="text" name="inpMunicipio" id="inpMunicipio" class="form-control" placeholder="Alcaldía / Municipio" />
+								</div>
+								<div class="col col-md-6 inputStyle">
+									<input type="text" name="inpCodPos" id="inpCodPos" class="form-control" placeholder="Código Postal" /> 
+								</div>
+								<div class="col-12 inputStyle">
+									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
+								</div>
+								<div class="col-12 inputStyle">
+									<div class="frmInicia__alerta alert alert-info" role="alert">
+										<small>Si aún no cuentas con un sitio web puedes omitir este campo.</small>
+									</div>
+									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio de tu negocio">
+								</div>
+							</div><!-- end.row -->
+						</div><!-- end.frmInicia -->
+					</div><!-- end.col-* -->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+		</div><!-- end.ctFrm -->
+		<div class="planesct">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-7">
+						<!-- <a class="planesct__link" href="/pagar-ahora" >Continuar</a> -->
+						<input class="planesct__link planesct__link--width btnSubmit" type="submit" value="Continuar">
+					</div> <!-- end.col-*-->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+
+			
+		</div><!-- end.planesct -->
+	</form><!-- end.form -->
+</section><!-- end.iniciaSec -->
