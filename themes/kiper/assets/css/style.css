@@ -549,15 +549,15 @@ text-align: left;
   display: block;
 background-color: #E53F28;
 width: 17.2vw;
-height: 2.4vw;
+height: 36px;
 position: absolute;
-left: 56%;
+left: 55.8%;
 top: 27vw;
 border-radius: 20px;
 color: #fff;
 font-family: 'Gotham-Light';
 font-weight: 800;
-line-height: 31px;
+line-height: 36px;
 letter-spacing: .05vw;
 font-size: 14px;
 }
