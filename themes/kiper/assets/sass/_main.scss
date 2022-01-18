@@ -450,10 +450,10 @@ article {
   &__usuario {
     width: 100%; height: auto; padding: 15px 0; margin: 0; position: relative; @include box-sizing(border-box); display: block;
     @media all and (min-width: 992px) {
-      height: 100%; min-height: 240px;
+      height: 100%; min-height: 265px;
     }
     @media all and (min-width: 992px) {
-      min-height: 300px;
+      min-height: 325px;
     }
   }
   &__beneficios {
