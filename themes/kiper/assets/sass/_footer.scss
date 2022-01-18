@@ -89,7 +89,7 @@
         &.dividrLi {
           margin: 0 0 10px; padding: 0 0 10px; position: relative;
           &:after {
-            content: ''; @include position(absolute, null 0 0 null); width: 50%; height: 1px; background-color: $white; padding: 0; margin: 0;
+            content: ''; @include position(absolute, null 0 0 null); width: calc(35% - 10px); height: 1px; background-color: $white; padding: 0; margin: 0;
           }
         }
       }
