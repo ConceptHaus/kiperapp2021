@@ -28,9 +28,9 @@ var $isOpen = false,
     $overlay = $('.overlayGenerico'),
     $modalGen = $('#modalGen');
 var $modalGenAvi = $('#modalAvisos');
-function effectsModalAviso(id) {
+function effectsModalAviso() {
   TweenMax.to($overlay, 0.1, { autoAlpha: 1 });
-  TweenMax.fromTo(id, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
+  TweenMax.fromTo($modalGenAvi, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
 }
 function abreModalAvisoID() {
   $('[data-open-aviso]').each(function () {
@@ -38,7 +38,7 @@ function abreModalAvisoID() {
       e.preventDefault();
       var $idProd = $(this).data('id-aviso');
       // console.log($idProd);
-      effectsModalAviso($modalGenAvi);
+      effectsModalAviso();
       $($idProd).delay('0.6').show('slow');
     });
   });
@@ -51,18 +51,6 @@ function closeModalAviso() {
     TweenMax.to($modalGenAvi, 0.55, { top: '300%', ease: Power3.easeInOut, force3D: true });
   });
 }
-
-$(window).on('load', function() {
-  var dataLoader = $('.modalLoader').data('loader-kiper');
-  // console.log(dataLoader);
-  // if(dataLoader != false || dataLoader.lenght > 0) {
-  if(dataLoader != false) {
-    setTimeout(function() {
-      $('body').removeClass('loaderModal');
-      $('[data-loader-kiper]').addClass('modalLoader__out');
-    }, 2000);
-  }
-});
 
 $(function(){
   abreModalAvisoID();
@@ -120,8 +108,8 @@ $(function(){
         }
       ]
     });
-    $('[data-check-btn]:checked + label').addClass('planesct__link--select').find('[data-price="opcion-2"]').addClass('selPrice');
-    // $('[data-price="opcion-2"]').addClass('selPrice');
+    $('[data-check-btn]:checked + label').addClass('planesct__link--select');
+    $('[data-price="opcion-2"]').addClass('selPrice');
     $('[data-check-btn]').each(function(){
       var idCh = $(this).attr('id');
       // console.log(idCh);
@@ -135,61 +123,6 @@ $(function(){
         }
       });
     });
-    // //bloquear ctrl+c ctrl+v
-    // $(document).ready(function(){
-    //   $("#bloquear").on('paste', function(e){
-    //     e.preventDefault();
-    //     alert('Esta acción está prohibida');
-    //   })
-      
-    //   $("#bloquear").on('copy', function(e){
-    //     e.preventDefault();
-    //     alert('Esta acción está prohibida');
-    //   })
-    // })
-    
-    // $('[data-check-pro-btn]:checked + label').addClass('planesct__link--select');
-    // $('[data-price-pro="opcion-4"]').addClass('selPrice');
-    // $('[data-check-pro-btn]').each(function(){
-    //   var idChPro = $(this).attr('id');
-    //   // console.log(idCh);
-    //   $('#'+idChPro).click(function() {
-    //     $('[data-check-pro-btn] + label').removeClass('planesct__link--select');
-    //     $('[data-price-pro]').removeClass('selPrice');
-    //     if(this.checked) {
-    //       $(this).next().addClass('planesct__link--select');
-    //       // console.log(idCh);
-    //       $('[data-price-pro="'+idChPro+'"]').addClass('selPrice');
-    //     }
-    //   });
-    // });
-
-    // $('#envioDatos').click(function (e) {
-    //     e.preventDefault();
-    //     var form = $("#form_contacto");
-    //     var url = form.attr('action');
-    //   var data = form.serialize();
-    //   console.log("hola");
-    //   console.log(url);
-    //   console.log(data);
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: url,
-    //         data: data,
-    //         dataType: 'json',
-    //         success: function (json) {
-    //       console.log(json);
-    //     },
-    //     error: function(json){
-    //       var error = '';
-    
-    //       console.log("error");
-    //       console.log(json);
-    //     }
-    //     })
-    // });  
-
-   
 
     // Formulario Validate
   $("#form_contacto").validate({
@@ -254,22 +187,6 @@ $(function(){
       $.ajax(settings).done(function (response) {
         console.log(response);
       });
-     /* $.ajax({
-        type: 'POST',
-        url: url,
-        data: data,
-        dataType: 'json',
-        success: function (json) {
-          console.log(json);
-          
-        },
-        error: function(json){
-          var error = '';
-    
-          console.log("error");
-          console.log(json);
-        }
-      });*/
 
           
     }
@@ -305,27 +222,6 @@ $(function(){
     }
   });
 
-  // $("#inpPais").on('change', function(){
-  //   var selectedCountry = $("#inpPais").val();
-  //   var selectStatus = $("#inpPais").data('status-pais');
-  //   var selectId = $("#inpPais").data('id-pais');
-  //   console.log(selectedCountry);
-  //   $.request('onCalculate',{
-  //       data: { codigo : selectedCountry } 
-  //   }).done(function(data){
-  //       $("#response").html(data);
-  //   });
-  //   $('#frmProbar').request('onTest', {
-  //     data: {
-  //       inpPais: selectedCountry
-  //     },
-  //     success: function(data) {
-  //       // console.log(data + 'hola');
-  //       $("#inpEdo").html(data);
-  //       $('#inpEdo').prop("disabled", false);
-  //     }
-  //   });
-  // });
 
   const currency = function(number){
     return new Intl.NumberFormat('es-MX', {style: 'currency',currency: 'MXN', minimumFractionDigits: 2}).format(number);
@@ -372,28 +268,7 @@ $(function(){
   $("#totalIva").val(iva);
   $('#totalFin').text(currency(($monto+iva)));
   $("#totalPriceFin").val($monto+iva);
-  // console.log($monto);
-  // $('#facturaSi').on('change', function() {
-    // var tasa = 16;
-    // var iva = (monto * tasa)/100;
 
-    // console.log('Cotos plan: '+costo_plan+' Usuarios: '+no_usuarios + ' Saco el IVA: '+iva);
-    // console.log($monto+iva);
-
-  //   if($('#facturaSi').is(':checked')) {
-  //     $('.boxPrices__fac').fadeIn();
-  //     $("#iva").text(iva);
-  //     $("#totalIva").val(iva);
-  //     $('#totalFin').text('$'+($monto+iva));
-  //     $("#totalPriceFin").val($monto+iva);
-  //   } else {
-  //     $('.boxPrices__fac').fadeOut();
-  //     $("#iva").text('$0');
-  //     $("#totalIva").val('');
-  //     $('#totalFin').text('$'+(sinIva));
-  //     $("#totalPriceFin").val(sinIva);
-  //   }
-  // });
 });
 
 function cc_format(value) {
@@ -419,18 +294,6 @@ function checkDigit(event) {
   return true;
 }
 
-function wowData() {
-  var wow = new WOW({
-    boxClass:     'wow',      // default
-    animateClass: 'animated', // default
-    offset:       0,          // default
-    mobile:       false,       // default
-    live:         true        // default
-  })
-  setTimeout(function() {
-    wow.init();
-  }, 1000);
-}
 
 function extrasInput(id, idx, cant) {
   var valor = $(cant).val();
@@ -483,22 +346,6 @@ function extrasInput(id, idx, cant) {
 
 
 $(function() {
-
-
-// jQuery.extend(jQuery.validator.messages, {
-//     required: "Campo requerido",
-//     email: "Email inválido",
-//     number: "Ingrese solo digitos",
-//     digits: "Ingrese solo digitos",
-//     creditcard: "Número de tarjeta inválido",
-//     equalTo: "El email debe ser igual",
-//     maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
-//     minlength: jQuery.validator.format("Please enter at least {0} characters."),
-//     rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
-//     range: jQuery.validator.format("Please enter a value between {0} and {1}."),
-//     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
-//     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
-// });
 
      //validación con formulario inicia 
     $("#frmProbar").validate({
@@ -718,39 +565,8 @@ $(function() {
    $("#frmCobro").validate({
     errorElement: 'div',
     errorClass: 'error-label',
-    /*
-    rules: {
-      planSelec: {
-        required: true 
-      },
-      subTotalPrice: {
-        required: true 
-      },
-      totalIVA: {
-        required: true 
-      },
-      totalPriceFin: {
-        required: true 
-      }
-    },
-    messages: {
-      planSelec: {
-        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
-      },
-      subTotalPrice: {
-        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
-      },
-      totalIVA: {
-        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-      },
-      totalPriceFin: {
-        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-      }
-    },*/
    submitHandler: function(form) {
-     var form = $("#frmCobro");
-     var url = form.attr('action');
-     var data = form.serialize();
+     
       
      form.request('onTest', {
            // data: {
