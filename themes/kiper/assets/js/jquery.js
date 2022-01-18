@@ -28,9 +28,9 @@ var $isOpen = false,
     $overlay = $('.overlayGenerico'),
     $modalGen = $('#modalGen');
 var $modalGenAvi = $('#modalAvisos');
-function effectsModalAviso(id) {
+function effectsModalAviso() {
   TweenMax.to($overlay, 0.1, { autoAlpha: 1 });
-  TweenMax.fromTo(id, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
+  TweenMax.fromTo($modalGenAvi, 0.6, { top: '-300%' }, { delay: 0.2, top: "0%", ease: Power3.easeInOut, easeParams: [1.1, 0.7], force3D: true });
 }
 function abreModalAvisoID() {
   $('[data-open-aviso]').each(function () {
@@ -38,7 +38,7 @@ function abreModalAvisoID() {
       e.preventDefault();
       var $idProd = $(this).data('id-aviso');
       // console.log($idProd);
-      effectsModalAviso($modalGenAvi);
+      effectsModalAviso();
       $($idProd).delay('0.6').show('slow');
     });
   });
@@ -52,7 +52,7 @@ function closeModalAviso() {
   });
 }
 
-$(window).on('load', function() {
+/*$(window).on('load', function() {
   var dataLoader = $('.modalLoader').data('loader-kiper');
   // console.log(dataLoader);
   // if(dataLoader != false || dataLoader.lenght > 0) {
@@ -62,7 +62,7 @@ $(window).on('load', function() {
       $('[data-loader-kiper]').addClass('modalLoader__out');
     }, 2000);
   }
-});
+});*/
 
 $(function(){
   abreModalAvisoID();
@@ -120,8 +120,8 @@ $(function(){
         }
       ]
     });
-    $('[data-check-btn]:checked + label').addClass('planesct__link--select').find('[data-price="opcion-2"]').addClass('selPrice');
-    // $('[data-price="opcion-2"]').addClass('selPrice');
+    $('[data-check-btn]:checked + label').addClass('planesct__link--select');
+    $('[data-price="opcion-2"]').addClass('selPrice');
     $('[data-check-btn]').each(function(){
       var idCh = $(this).attr('id');
       // console.log(idCh);
@@ -419,18 +419,6 @@ function checkDigit(event) {
   return true;
 }
 
-function wowData() {
-  var wow = new WOW({
-    boxClass:     'wow',      // default
-    animateClass: 'animated', // default
-    offset:       0,          // default
-    mobile:       false,       // default
-    live:         true        // default
-  })
-  setTimeout(function() {
-    wow.init();
-  }, 1000);
-}
 
 function extrasInput(id, idx, cant) {
   var valor = $(cant).val();
@@ -748,9 +736,7 @@ $(function() {
       }
     },*/
    submitHandler: function(form) {
-     var form = $("#frmCobro");
-     var url = form.attr('action');
-     var data = form.serialize();
+     
       
      form.request('onTest', {
            // data: {
@@ -765,5 +751,20 @@ $(function() {
    }
  });
 
+ 
+
 
 });
+
+function wowData() {
+  var wow = new WOW({
+    boxClass:     'wow',      // default
+    animateClass: 'animated', // default
+    offset:       0,          // default
+    mobile:       false,       // default
+    live:         true        // default
+  })
+  setTimeout(function() {
+    wow.init();
+  }, 1000);
+}
