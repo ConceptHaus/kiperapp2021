@@ -28,14 +28,18 @@ function onTest() {
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#data_client").val(localStorage.getItem("data_client"));
+		$("body").removeClass("loaderModal");
    	});
 </script>
 <script type="text/javascript" >
-	Conekta.setPublicKey('key_PyZq3477zCKyCe9ac9Uxw9A');
+	//Conekta.setPublicKey('key_PyZq3477zCKyCe9ac9Uxw9A');
+	Conekta.setPublicKey('key_RCjWE4Q5xzQM3ug5CmgrpHA');
+	
   
   
 	var conektaSuccessResponseHandler = function(token) {
 		$(".modalLoader").addClass("loaderModal").removeClass("modalLoader__out").show();
+		$("body").addClass("loaderModal");
 	  	var $form = $("#card-form");
 	  //Inserta el token_id en la forma para que se envíe al servidor
 	   $form.append($('<input type="hidden" name="conektaTokenId" id="conektaTokenId">').val(token.id));
@@ -53,6 +57,7 @@ function onTest() {
 			setTimeout(function() {
 				$('body').removeClass('loaderModal');
 				$('[data-loader-kiper]').addClass('modalLoader__out');
+				
 			}, 2000);
            console.log(data.code);
 		   if(data.code == 200){
@@ -94,7 +99,7 @@ function onTest() {
 
 
 
-	  <form action="" method="POST" id="card-form">
+	  <form action="" method="POST" id="card-form"  accept-charset="utf-8">
 		<input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
 		<input type="hidden" name="data_ckk" id="data_ckk" value=""  readonly="readonly"/>
 		<span class="card-errors"></span>
