@@ -3,9 +3,89 @@ url = "/configurando-tu-kiper"
 layout = "layout"
 is_hidden = 0
 ==
+{% put scriptFormulario %}
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		
+		var for_item = localStorage.getItem("data_sus");
+		$.ajax({
+         type: 'POST',
+         url: "http://local.adminkiper/KipersConfiguration/getConfigSus",
+         data: {
+			 data: for_item
+		 },
+         dataType: 'json',
+         success: function (data) {		
+		   if(data.code == 200){
+				$(".numberLic").text(data.numberLic);
+				$("#keySus").val(for_item);
+				if(parseInt(data.numberLic) > 1){
+					var numberUser = 2;
+					for(var i = 0; i < (data.numberLic- 1); i++){
+						
+						html = '<div id="usuario-nuevo-1" class="col-12">\
+									<div class="frmInicia__datos frmInicia__datos--usuario">\
+										<p class="titleBox">Datos Usuario '+numberUser+'</p>\
+										<div class="row">\
+										<div class="col-12 col-md-6 inputStyle">\
+											<input type="text" class="form-control required" name="nombre'+numberUser+'" id="nombre'+numberUser+'" placeholder="Nombre(s)*">\
+										</div><!-- end.col-* -->\
+										<div class="col-12 col-md-6 inputStyle">\
+											<input type="text" class="form-control required" name="apellido'+numberUser+'" id="apellido'+numberUser+'" placeholder="Apellido(s)*">\
+										</div><!-- end.col-* -->\
+										<div class="col-12 col-md-6 inputStyle">\
+											<input type="email" class="form-control required" for="emailConfirm'+numberUser+'" name="email'+numberUser+'" id="email'+numberUser+'" placeholder="Email*">\
+										</div><!-- end.col-* -->\
+										<div class="col-12 col-md-6 inputStyle">\
+											<input type="email" class="form-control inpEMail required" for="email'+numberUser+'" name="emailConfirm'+numberUser+'" id="emailConfirm'+numberUser+'" placeholder="Confirmar Email*">\
+										</div><!-- end.col-* -->\
+										<div class="col-12 inputStyle">\
+											<input type="text" name="telefono'+numberUser+'" id="telefono'+numberUser+'" class="form-control" placeholder="Teléfono">\
+										</div><!-- end.col-* -->\
+										<div class="col-12  inputStyle">\
+											<select class="form-select required " id="rol'+numberUser+'" name="rol'+numberUser+'">\
+												<option value="">Rol de usuario* </option>\
+												<option value="2" >Líder de colaborador</option>\
+												<option value="1" >Colaborador</option>\
+											</select>\
+										</div>\
+									</div><!-- end.row -->\
+								</div><!-- end.frmInicia__datos -->';
+								$(".contenUsers").append(html);
+								numberUser++;
+
+
+					}
+				}
+				else{
+				}
+		   }
+		   else{
+			$("#modalAvisoDos").modal("show");
+		   }
+           
+         },
+         error: function(json){
+           var error = '';      
+           console.log("error");
+           console.log(json);
+         }
+       });
+
+	   $(".omPas").click(function(){
+			storage.removeItem(data_sus);
+			storage.removeItem(email_cliente);
+			storage.removeItem(data_client);
+			window.location.href = siteUrl + "/";
+	   });
+   	});
+</script>
+{% endput %}
 
 <section class="iniciaSec">
-	<form action="POST" name="frmKipers" id="frmKipers" action="" autocomplete="off" novalidate>
+	<form action="POST" name="frmKipers" id="frmKipers" action="" autocomplete="off"  accept-charset="utf-8">
+		<input type="hidden" name="keySus" readonly="readonly" value="" id="keySus" />
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -24,87 +104,50 @@ is_hidden = 0
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="frmInicia">
 							<div class="row">
-
-								<div class="col-12">
-									<h3 class="planesct__titleLic">Número de licencias: <span>3</span></h3>
-								</div>
-                <div class="col-12">
-                  <div class="frmInicia__datos frmInicia__datos--admin">
-                    <p class="titleBox">Datos Usuario Admin*</p>
-                    <div class="row">
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="email" class="form-control" name="emaildos" id="emaildos" placeholder="Confirmar Email">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 inputStyle">
-                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Teléfono">
-                      </div><!-- end.col-* -->
-											<div class="col-12 inputStyle">
-												<div class="frmInicia__check text-start">
-													<input type="checkbox" name="usardatos" id="usardatos" class="CheckStyle">
-              						<label for="usardatos">Usar datos anteriores</label>
-												</div>
-                      </div><!-- end.col-* -->
-                    </div><!-- end.row -->
-                  </div><!-- end.frmInicia__datos -->
-                </div><!-- end.col-* -->
-                <div id="usuario-nuevo-1" class="col-12">
-                  <div class="frmInicia__datos frmInicia__datos--usuario">
-                    <p class="titleBox">Datos Usuario 1</p>
-                    <div class="row">
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 col-md-6 inputStyle">
-                        <input type="email" class="form-control" name="emaildos" id="emaildos" placeholder="Confirmar Email">
-                      </div><!-- end.col-* -->
-                      <div class="col-12 inputStyle">
-                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Teléfono">
-                      </div><!-- end.col-* -->
-											<div class="col-12 inputStyle">
-												<div class="frmInicia__check text-start">
-													<input type="checkbox" name="registrarAdmin-1" id="registrarAdmin-1" class="CheckStyle">
-              						<label for="registrarAdmin-1">Registrar ahora</label>
-												</div>
-                      </div>
-                    </div><!-- end.row -->
-										<button type="button" id="deleteUsuario" class="btnDelete"><i class="fa fa-trash"></i></button>
-                  </div><!-- end.frmInicia__datos -->
-									<!-- <div class="col-12 inputStyle checkCus">
-										<div class="frmInicia__check text-end">
-											<input type="checkbox" name="registrarAdmin-1" id="registrarAdmin-1" class="CheckStyle">
-											<label for="registrarAdmin-1">Registrar ahora</label>
-										</div>
-									</div> -->
-                </div><!-- end.col-* -->
-								<div class="col-12">
-									<button class="planesct__addLink" type="button" id="addUsuario"><i class="fa fa-plus"></i> Agregar usuario</button>
+								<div class="col-12 ">
+									<a class="planesct__link omPas"  class="btn btn-gral">  Omitir este paso ahora</a>
 								</div> <!-- end.col-*-->
 
+								<div class="col-12">
+									<h3 class="planesct__titleLic">Número de licencias contratadas: <span class="numberLic"></span></h3>
+								</div>
+								<div class="col-12">
+									<div class="frmInicia__datos frmInicia__datos--admin">
+										<p class="titleBox">Datos Usuario Admin*</p>
+										<div class="row">
+											<div class="col-12 col-md-6 inputStyle">
+												<input type="text" class="form-control" name="nombreAdmin" id="nombreAdmin" placeholder="Nombre(s)*">
+											</div><!-- end.col-* -->
+											<div class="col-12 col-md-6 inputStyle">
+												<input type="text" class="form-control" name="apellidoAdmin" id="apellidoAdmin" placeholder="Apellido(s)*">
+											</div><!-- end.col-* -->
+											<div class="col-12 col-md-6 inputStyle">
+												<input type="email" class="form-control inpEMail"  for="emailAdminConfir" name="emailAdmin" id="emailAdmin" placeholder="Email*">
+											</div><!-- end.col-* -->
+											<div class="col-12 col-md-6 inputStyle">
+												<input type="email" class="form-control" name="emailAdminConfir" id="emailAdminConfir" placeholder="Confirmar Email*">
+											</div><!-- end.col-* -->
+											<div class="col-12 inputStyle">
+												<input type="text" name="telefonoAdmin" id="telefonoAdmin" class="form-control" placeholder="Teléfono*">
+											</div><!-- end.col-* -->
+											<div class="col-12  inputStyle">
+												<select class="form-select required " id="rolAdmin" name="rolAdmin">
+													<option value="3" selected="selected">Administrador</option>
+												</select>
+											</div>
+											
+										</div><!-- end.row -->
+                  					</div><!-- end.frmInicia__datos -->
+								</div><!-- end.col-* -->
+								<div class="contenUsers"></div>
 							</div><!-- end.row -->
 						</div><!-- end.frmDataBox -->
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7">
-						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Guardar configuración">  
+						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Guardar información">  
 					</div> <!-- end.col-*-->
 				</div><!-- end.row -->
-			</div><!-- end.container -->
-
-			
+			</div><!-- end.container -->			
 		</div><!-- end.planesct -->
 	</form><!-- end.form -->
 </section><!-- end.iniciaSec -->

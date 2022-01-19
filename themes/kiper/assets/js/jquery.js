@@ -614,16 +614,14 @@ $(function() {
               $(".btnSubmit").removeClass("disabled");
             }
             else{
-              $("#inpFlag").val(1);
-              $(".msj").text("¡El email ya se encuentra registrado!");
-              $(".content-msj").show();
-              $(".btnSubmit").addClass("disabled");
+              $("#modalAvisoDos").modal("show");
             }
           },
           error: function(json){
             var error = '';      
             console.log("error");
             console.log(json);
+            $("#modalAvisoDos").modal("show");
           }
         });
       }
@@ -750,6 +748,54 @@ $(function() {
      });
    }
  });
+
+ $("#frmKipers").validate({
+  errorElement: 'div',
+  errorClass: 'error-label',
+ submitHandler: function(form) {
+   var form = $("#frmKipers");
+   var url = form.attr('action');
+   var data = form.serialize();
+     $.ajax({
+       type: 'POST',
+       url: "https://system-admin.kiper.io/KipersConfiguration/saveYouConfigAccess",
+       data: data,
+       dataType: 'json',
+       success: function (data) {
+         console.log(data.code);
+         if(data.code == 200){
+            storage.removeItem(data_sus);
+            storage.removeItem(email_cliente);
+            storage.removeItem(data_client);
+            $(".modalLoader").addClass("loaderModal").removeClass("modalLoader__out").show();
+		        $("body").addClass("loaderModal");
+            setTimeout(function() {
+              window.location.href = siteUrl + "/";              
+            }, 3000);            
+         }
+         else{
+           $("#modalAvisoDos").modal("show");
+         }
+       },
+       error: function(json){
+         var error = '';      
+         console.log("error");
+         console.log(json);
+         $("#modalAvisoDos").modal("show");
+       }
+     });
+   form.request('onTest', {
+         // data: {
+         //   inpPais: selectedCountry
+         // },
+         // success: function(data) {
+         //   $("#inpEdo").html(data);
+         //   $('#inpEdo').prop("disabled", false);
+         // }
+     // redirect: '/dashboard'
+   });
+ }
+});
 
  
 

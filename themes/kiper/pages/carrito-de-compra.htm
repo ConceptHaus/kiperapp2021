@@ -61,7 +61,8 @@ function onTest() {
 			}, 2000);
            console.log(data.code);
 		   if(data.code == 200){
-				
+				localStorage.setItem("data_sus", data);
+                window.location.href = siteUrl + "/gracias-por-tu-compra";
 		   }
 		   else{
 			$("#modalAvisoDos").modal("show");
