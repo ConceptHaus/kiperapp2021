@@ -5,8 +5,8 @@ is_hidden = 0
 ==
 
 <section class="iniciaSec">
-	<form method="POST" name="frmProbar" id="frmProbar">
-		<input type="hidden" readonly="readonly" value="0" name="inpFlag" id="inpFlag" />
+	<form method="POST" name="frmAyuda" id="frmAyuda" enctype="multipart/form-data">
+		<input type="hidden" readonly="readonly" value="0" name="inpFlag" id="inpFlag">
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -35,47 +35,143 @@ is_hidden = 0
 									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre Completo*" />
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" placeholder="Correo eléctronico*">
-								</div>
-                <div class="col-12 col-md-6 inputStyle">
-									<select class="form-select required country" id="inpPais" name="inpPais">
-										<option value="">Contrataciones</option>
-										<option value="1" data-status-pais="1" data-id-pais="1">México</option>
-									</select>
-								</div>
-								<div class="col-12 col-md-6 inputStyle">
-									<input type="email" name="inpConfEmail" id="inpConfEmail" autocomplete="off" class="form-control required" value="" placeholder="Confirmar correo eléctronico*" />
+									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" placeholder="Correo eléctronico de Kiper*">
 								</div>
 								<div class="col-12 inputStyle">
-									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control" placeholder="Teléfono" />
+									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio con el que ingresas a la plataforma">
 								</div>
-								<div class="col-12 col-md-6 inputStyle">
-									<select class="form-select required country" id="inpPais" name="inpPais">
-										<option value="">País</option>
-										<option value="1" data-status-pais="1" data-id-pais="1">México</option>
+                <div class="col-12 inputStyle">
+									<input type="hidden" name="asunto" id="asunto" value="">
+									<div class="selectFormContact">
+                    <a href="#" class="collOpenForm" id="openOpsForms">
+                      <span class="labelInp" id="textChange">Área de asistencias</span>
+                      <span class="iconArrow"><i class="fad fa-sort-down"></i></span>
+                    </a><!-- end.collOpenForm -->
+                    <nav id="navOpcionform">
+                      <ul>
+                        <!-- <li><a class="btnFormContact" href="#" data-op="" data-valor="0">Todas las ubicaciones</a></li> -->
+                        <li><a class="btnFormContact" href="#" data-op="#contrataciones" data-valor="Contrataciones">Contrataciones</a></li>
+                        <li><a class="btnFormContact" href="#" data-op="#updatePlan" data-valor="Update de planes">Update de planes</a></li>
+                        <li><a class="btnFormContact" href="#" data-valor="Asistencia de usuarios">Asistencia de usuarios</a></li>
+                        <li><a class="btnFormContact" href="#" data-op="#quieroTour" data-valor="Quiero un tour">Quiero un tour</a></li>
+                        <li><a class="btnFormContact" href="#" data-op="#conexion" data-valor="Conexión de campañas">Conexión de campañas</a></li>
+                        <li><a class="btnFormContact" href="#" data-valor="Subir mis bases de datos">Subir mis bases de datos</a></li>
+                        <li><a class="btnFormContact" href="#" data-valor="Personalizaciones y desarrollos">Personalizaciones y desarrollos</a></li>
+                        <li><a class="btnFormContact" href="#" data-valor="Facturas y estado de cuenta">Facturas y estado de cuenta</a></li>
+                        <li><a class="btnFormContact" href="#" data-op="#cancelaciones" data-valor="Cancelaciones">Cancelaciones</a></li>
+                        <li><a class="btnFormContact" href="#" data-op="#reportar" data-valor="Reportar errores">Reportar errores</a></li>
+                        <li><a class="btnFormContact" href="#" data-op="#otros" data-valor="Otro">Otro</a></li>
+                      </ul>
+                    </nav><!-- end.navOpcionform -->
+                  </div><!-- end.selectFormContact -->
+								</div>
+								<div class="col-12 inputStyle boxFrmHide" id="contrataciones">
+									<select class="form-select required" id="planesFrm" name="planesFrm">
+										<option value="">Seleccionar plan</option>
+										<option value="">Plan Estandard <small>mensual $000</small></option>
+										<option value="">Plan Estandard <small>anual $000</small></option>
+										<option value="">Plan Pro <small>mensual $000</small></option>
+										<option value="">Plan Pro <small>anual $000</small></option>
 									</select>
-								</div>
-								<div class="col-12 col-md-6 inputStyle">
-									<select class="form-select required" id="inpEdo" name="inpEdo" disabled>
-										<option value="">Estado / Distrito</option>
-										<option value="{{ estado.id }}">{{ estado.nombre }}</option>
-									</select>
-									<div id="response"></div>
-								</div>
-								<div class="col col-md-6 inputStyle">
-									<input type="text" name="inpMunicipio" id="inpMunicipio" class="form-control" placeholder="Alcaldía / Municipio" />
-								</div>
-								<div class="col col-md-6 inputStyle">
-									<input type="text" name="inpCodPos" id="inpCodPos" class="form-control" placeholder="Código Postal" /> 
-								</div>
-								<div class="col-12 inputStyle">
-									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
-								</div>
-								<div class="col-12 inputStyle">
-									<div class="frmInicia__alerta alert alert-info" role="alert">
-										<small>Si aún no cuentas con un sitio web puedes omitir este campo.</small>
+								</div><!-- end#contrataciones -->
+								<div class="col-12 inputStyle boxFrmHide" id="updatePlan">
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<select class="form-select required" id="miPlanActivoFrm" name="miPlanActivoFrm">
+												<option value="">Seleccionar mi plan activo</option>
+												<option value="">Plan Estandard <small>mensual $000</small></option>
+												<option value="">Plan Estandard <small>anual $000</small></option>
+												<option value="">Plan Pro <small>mensual $000</small></option>
+												<option value="">Plan Pro <small>anual $000</small></option>
+											</select>
+										</div>
+										<div class="col-12 col-md-6">
+											<select class="form-select required" id="miPlanContratarFrm" name="miPlanContratarFrm">
+												<option value="">Seleccionar nuevo plan</option>
+												<option value="">Plan Estandard <small>mensual $000</small></option>
+												<option value="">Plan Estandard <small>anual $000</small></option>
+												<option value="">Plan Pro <small>mensual $000</small></option>
+												<option value="">Plan Pro <small>anual $000</small></option>
+											</select>
+										</div>
 									</div>
-									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio de tu negocio">
+								</div><!-- end#updatePlan -->
+								<div class="col-12 boxFrmHide" id="quieroTour">
+									<div class="row">
+										<div class="col-12 col-md-6 text-start">
+											<div class="boxFrmHide__fields">
+												<input type="radio" class="radioCustom" name="qtypersona" id="persona-1" value="1 Persona">
+												<label for="persona-1">1 Persona</label>
+											</div><!-- end.boxFrmHide__fields -->
+											<div class="boxFrmHide__fields">
+												<input type="radio" class="radioCustom" name="qtypersona" id="persona-2" value="2 a 5 Personas">
+												<label for="persona-2">2 a 5 Personas</label>
+											</div><!-- end.boxFrmHide__fields -->
+											<div class="boxFrmHide__fields">
+												<input type="radio" class="radioCustom" name="qtypersona" id="persona-3" value="6 - 10 Personas">
+												<label for="persona-3">6 - 10 Personas</label>
+											</div><!-- end.boxFrmHide__fields -->
+											<div class="boxFrmHide__fields">
+												<input type="radio" class="radioCustom" name="qtypersona" id="persona-4" value="más de 10 personas">
+												<label for="persona-4">Más de 10 personas</label>
+											</div><!-- end.boxFrmHide__fields -->
+										</div>
+										<div class="col-12 col-md-6 inputStyle">
+											<select class="form-select required" id="planContrataFrm" name="planContrataFrm">
+												<option value="">Seleccionar plan</option>
+												<option value="">Plan Estandard <small>mensual $000</small></option>
+												<option value="">Plan Estandard <small>anual $000</small></option>
+												<option value="">Plan Pro <small>mensual $000</small></option>
+												<option value="">Plan Pro <small>anual $000</small></option>
+											</select>
+										</div>
+									</div>
+								</div><!-- end#quieroTour -->
+								<div class="col-12 inputStyle boxFrmHide" id="maspersonas">
+									<input type="text" class="form-control" name="peronsamas" id="peronsamas" min="11" value="11" placeholder="agregar número de personas" onkeypress="return checkDigit(event)">
+								</div><!-- end#inoutPersonas -->
+								<div class="col-12 boxFrmHide" id="conexion">
+									<div class="row">
+										<div class="col-12 text-start">
+											<h3 class="boxFrmHide__title">¿Tienes cuenta Zapier</h3>
+											<div class="boxFrmHide__fields">
+												<input type="radio" class="radioCustom" name="zapier" id="zap-1" value="Si">
+												<label for="zap-1">Si, cuenta de Zapier propia o proveedor</label>
+											</div><!-- end.boxFrmHide__fields -->
+											<div class="boxFrmHide__fields">
+												<input type="radio" class="radioCustom" name="zapier" id="zap-2" value="No">
+												<label for="zap-2">No</label>
+											</div><!-- end.boxFrmHide__fields -->
+										</div>
+									</div>
+								</div><!-- end#conexion -->
+								<div class="col-12 boxFrmHide" id="cancelaciones">
+									<div class="row">
+										<div class="col-12 inputStyle">
+											<select class="form-select required" id="cancelacionFrm" name="cancelacionFrm">
+												<option value="">Plan contratado actual</option>
+												<option value="">Plan Estandard <small>mensual $000</small></option>
+												<option value="">Plan Estandard <small>anual $000</small></option>
+												<option value="">Plan Pro <small>mensual $000</small></option>
+												<option value="">Plan Pro <small>anual $000</small></option>
+											</select>
+											<p class="boxFrmHide__info">Para hacer efectiva tu cancelación y eliminación de cuenta, tu suscripción debe estar al corriente</p>
+										</div>
+									</div>
+								</div><!-- end#cancelaciones -->
+								<div class="col-12 boxFrmHide" id="reportar">
+									<div class="row">
+										<div class="col-12 inputStyle boxFrmHide__flieLabel">
+											<label for="fileError" class="form-label">Cargar Archivos <small>solo png y jpg</small></label>
+											<input class="form-control" type="file" id="fileError" name="fileError">
+										</div>
+									</div>
+								</div><!-- end#reportar -->
+								<div class="col-12 boxFrmHide inputStyle" id="otros">
+									<input type="text" class="form-control" name="asunto2" id="asunto2" placeholder="Asunto">
+								</div><!-- end#otros -->
+								<div class="col-12 inputStyle">
+									<textarea name="solicitud" id="solicitud" cols="30" rows="5" class="form-control" placeholder="Escribe tu solicitud o problema"></textarea>
 								</div>
 							</div><!-- end.row -->
 						</div><!-- end.frmInicia -->

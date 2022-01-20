@@ -394,6 +394,7 @@ $(function(){
   //     $("#totalPriceFin").val(sinIva);
   //   }
   // });
+  selectorPer('#navOpcionform', '#openOpsForms');
 });
 
 function cc_format(value) {
@@ -813,4 +814,62 @@ function wowData() {
   setTimeout(function() {
     wow.init();
   }, 1000);
+}
+
+function selectorPer(id, btn) {
+  var $modal = $(id);
+  var tl = new TimelineMax({ paused: true });
+  tl.staggerTo(id + " ul li", 0.1, { autoAlpha: 1 }, 0.1);
+  TweenMax.set($modal, { autoAlpha: 0, y: 20, zIndex: -1 });
+  var $animation = TweenMax.to($modal, 0.30, { autoAlpha: 1, y: 0, zIndex: 4, ease: Circ.easeOut }).reversed(true);
+  $(btn).click(function (e) {
+    e.preventDefault();
+    $(this).toggleClass('activeMod');
+    toggleInfo($animation);
+    if ($(this).hasClass('activeMod')) {
+      tl.play();
+    } else {
+      tl.reverse();
+    }
+  });
+  // cambia texto
+  let envol = $(id + ' ul li a.activo');
+  let tetxInit = envol.text();
+  if (tetxInit.length != '') {
+    $('#textChange').text(tetxInit);
+  }
+  $(id + ' ul li a').click(function (e) {
+    e.preventDefault();
+    let texto = $(this).text();
+    let valores = $(this).data('valor');
+    let opcion = $(this).data('op');
+    $('#textChange').text(texto);
+    $('#asunto').val(valores);
+    $('.boxFrmHide').removeClass('show');
+    $(opcion).addClass('show');
+  });
+  $(id + ' ul li a.btnFormContact').click(function(e){
+    e.preventDefault();
+    toggleInfo($animation);
+    if ($(btn).hasClass('activeMod')) {
+      tl.play().timeScale(1);
+      $(btn).removeClass('activeMod');
+    } else {
+      tl.reverse().timeScale(3);
+    }
+    $(btn).addClass('activeRes');
+  });
+  // Valid Numero de personas
+  $('[name="qtypersona"]').on('change', function(){
+    let idRadio = $(this).attr('id');
+    // console.log(idRadio);
+    if(idRadio == 'persona-4') {
+      $('#maspersonas').addClass('show');
+    } else {
+      $('#maspersonas').removeClass('show');
+    }
+  });
+}
+function toggleInfo(anim) {
+  anim.reversed(!anim.reversed());
 }
