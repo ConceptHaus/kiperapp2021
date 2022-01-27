@@ -162,7 +162,7 @@ body.loaderModal { overflow: hidden; }
   }
 }
 .content {
-  width: 100%; height: auto; position: relative; padding: 0; margin: 0; z-index: 3;
+  width: 100%; height: auto; position: relative; padding: 0; margin: 0; z-index: 3; background-color: $white;
 }
 article {
   width: 100%; height: auto; padding: 0; margin: 0; position: relative;
@@ -274,6 +274,12 @@ article {
 }
 .planesct {
   width: 100%; height: auto; padding: 0 0 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box);
+  &__padd {
+    padding-top: 0;
+    @media all and (min-width: 768px) {
+      padding-top: 3rem;
+    }
+  }
   &__car {
     width: 100%; height: auto; padding: 0; margin: 0 0 30px; position: relative;
     & .slick-slide {
