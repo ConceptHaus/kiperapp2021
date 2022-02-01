@@ -1223,13 +1223,25 @@ form {
     display: block; padding: 0; margin: 10px 0 0; @include fluid-type(13px, 14px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1;
   }
   &__message {
-    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1; text-align: left;
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(13px, 16px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400; color: $gris; line-height: 1.1; text-align: center;
   }
   &__title {
-    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(15px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 700; color: $gris; line-height: 1.1; text-align: left;
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(15px, 20px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 700; color: $gris; line-height: 1.1; text-align: center;
+  }
+  &__titleBox {
+    display: block; padding: 0; margin: 0 0 10px; @include fluid-type(15px, 26px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 700; color: $gris; line-height: 1.1; text-align: center;
+  }
+  &__items {
+    width: 100%; height: auto; padding: 0; margin: 30px 0 0; @include displayFlex(flex, row, center, flex-start, wrap);
+  }
+  &__box {
+    width: 100%; height: auto; padding: 0; margin: 0;
+    @media all and (min-width: 768px) {
+      width: 50%; height: auto; padding: 0; margin: 0;
+    }
   }
   &__list {
-    list-style-type: none; padding: 0; margin: 0;  @include displayFlex(flex, column, flex-start, flex-start, wrap);
+    list-style-type: none; padding: 0; margin: 0;  @include displayFlex(flex, column, center, center, wrap);
     & li {
       list-style-type: none; padding: 0; margin: 0 0 3px;
       & a {
