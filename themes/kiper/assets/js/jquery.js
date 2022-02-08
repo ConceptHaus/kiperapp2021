@@ -352,26 +352,26 @@ $(function(){
       return this.value;
     }).get().join(" ");
     var sinIvaBtn = parseFloat((string*subPerso));
-    var ivaBtn = parseFloat((string*subPerso)*.16);
+    var ivaBtn = parseFloat((string*subPerso));
     // console.log(multiplyVal);
 
     $('#subtotal').text(currency(string));
     $('#subTotalPrice').val(string);
     $("#iva").text(currency(ivaBtn));
     $("#totalIva").val(ivaBtn);
-    $('#totalFin').text(currency((multiplyVal+ivaBtn)));
-    $('#totalPriceFin').val(multiplyVal+ivaBtn);
+    $('#totalFin').text(currency((multiplyVal)));
+    $('#totalPriceFin').val(multiplyVal);
     $("#planSelec").val($('[data-check-btn]:checked').attr("for-data"));
   });
   var $monto = parseFloat($("#totalPriceFin").val());
   var costo_plan = $checks.filter(':checked').val();
   var no_usuarios = $('#cantidad-ct-1').val();
   // var sinIva = parseFloat((costo_plan*no_usuarios));
-  var iva = parseFloat((costo_plan*no_usuarios)*.16);
+  var iva = parseFloat((costo_plan*no_usuarios));
   $("#iva").text(currency(iva));
   $("#totalIva").val(iva);
-  $('#totalFin').text(currency(($monto+iva)));
-  $("#totalPriceFin").val($monto+iva);
+  $('#totalFin').text(currency(($monto)));
+  $("#totalPriceFin").val($monto);
   // console.log($monto);
   // $('#facturaSi').on('change', function() {
     // var tasa = 16;
