@@ -46,9 +46,9 @@ left: 19vw;
 }
 .fon_kiper{
 position: absolute;
-top: 0vw;
-left: 0%;
-width: 45%;
+top: .5vw;
+left: 47%;
+width: 39.5%;
 z-index: 1;
 }
 .aumenta_movil{
@@ -807,8 +807,8 @@ margin-top: 1vw;
   .principal{height: 90vw;}
   .center{height: 14vw;}
   .fondo1{
-    width: 140vw;
-    left: 15vw;
+    width: 170vw;
+    left: 50vw;
   }
   .fon_kiper{
           top: 13vw;
