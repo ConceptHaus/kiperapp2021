@@ -915,7 +915,7 @@ form {
     border-top: 2px solid #8B90A3; margin-top: 50px; margin-bottom: 50px;
   }
   & .graphic {
-    width: 400px; height: auto; display: block; @include position(absolute, null 0 100px null);
+    width: 400px; height: auto; @include position(absolute, null 0 100px null); display: none;
   }
   & .posts-navigation {
     margin-top: 30px;
@@ -937,10 +937,10 @@ form {
   }
   @media all and (min-width: 768px) {
     & .graphic {
-      width: 300px;
+      width: 300px; display: block;
     }
   }
-  @media all and (min-width: 99px) {
+  @media all and (min-width: 992px) {
     & .graphic {
       width: 400px;
     }
