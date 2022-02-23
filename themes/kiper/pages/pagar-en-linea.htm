@@ -1,0 +1,277 @@
+title = "pagar en linea"
+url = "/contratar"
+layout = "layout"
+is_hidden = 0
+
+[builderList estadoList]
+modelClass = "Kiper\Facturacion\Models\MX"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "nombre"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+recordsPerPage = 50
+pageNumber = "{{ :page }}"
+sortColumn = "id"
+sortDirection = "asc"
+==
+<?php
+function onTest()
+{
+  // update MySQL here	
+	//if (!empty($_POST["inpPais"])) {
+    //$val = $_POST["inpPais"];
+		//$val = mb_strtolower($val);
+		//$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
+
+		//foreach ($paises as $pais) {
+			//echo $pais->nombre;
+			//$this->page['paises_id'] = $pais->paises_id;
+			//$this->page['nombre'] = $pais->nombre;
+		//}
+	//}
+
+	//return Redirect::to('/carrito-de-compra');
+
+}
+?>
+==
+{% set estados = estadoList.records %}
+{% put scriptFormulario %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#inpConfEmail').on("cut copy paste", function(e) {
+			e.preventDefault();
+		});
+	});
+	</script>
+{% endput %}
+<section class="iniciaSec">
+	<form method="POST" name="frmContratar" id="frmContratar"  accept-charset="utf-8">
+		<input type="hidden" readonly="readonly" value="0" name="inpFlag" id="inpFlag" />
+        <input type="hidden" readonly="readonly" value="2" name="plsl" id="plsl" />
+		<div class="ctFrm">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-7">
+						<nav class="breadct" aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{'inicio'|page}}">Inicio</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Comenzar Ahora</li>
+							</ol>
+						</nav><!-- end.breadcrumb -->
+					</div><!-- end.col-* -->
+					<div class="col-12">
+						<span class="content_pregunta">Pago en línea 
+						<span class="naranja">Kiper</span><br></span>
+						<span class="">¡estás a un paso de tomar el control de tus clientes potenciales e incrementar tus ventas!</span>
+					</div><!-- end.col-* -->
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="frmInicia">
+							<div class="col-12 inputStyle content-msj" style="display:none;">
+								<div class="frmInicia__alerta frmInicia__alerta--error" role="alert">
+									<small class="msj"></small>
+								</div>
+							</div>
+							<div class="row g-3">
+                                
+								<div class="col-12 col-md-12 inputStyle">
+									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre(s)*" />
+								</div>
+								<div class="col-12 col-md-12 inputStyle">
+									<input type="text" name="inpApellidos" id="inpApellidos" class="form-control required"  value="" placeholder="Apellido(s)*" />
+								</div>
+								<div class="col-12 col-md-12 inputStyle">
+									<input type="email" name="inpConfEmail" id="inpConfEmail" autocomplete="off" class="form-control required" value="" placeholder="Correo eléctronico*" />
+								</div>
+
+                                <div class="col-12">
+                                    <p class="frmInicia__labelTow">Datos del pago</p>
+                                </div>
+
+                                <div class="col-12 inputStyle">
+                                    <input type="text" class="form-control required" autocomplete="off" name="name" id="tarjeta_name" data-conekta="card[name]" placeholder="Nombre completo como aparece en la tarjeta*">
+                                </div>
+
+                                <div class="col-12 inputStyle">
+                                <input class="form-control required" name="number" id="credit-number" autocomplete="off" data-conekta="card[number]" placeholder="Número de tarjeta*" value="" onkeypress="return checkDigit(event)">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <p class="frmInicia__labelTow">Vigencia</p>
+                                </div>
+                                <div class="col-4 inputStyle">
+                                    <input name="exp_month" id="mescard" class="form-control required" autocomplete="off"  data-conekta="card[exp_month]" placeholder="MM*" maxlength="2" onkeypress="return checkDigit(event)">
+                              </div>
+                              <div class="col-4 inputStyle">
+                                    <input name="exp_year" id="mescard" class="form-control required" autocomplete="off" placeholder="AAAA*" data-conekta="card[exp_year]" maxlength="4" onkeypress="return checkDigit(event)">
+                              </div>
+                              <div class="row g-3">
+                                <div class="col-4 col-md-4 inputStyle">
+                                    <input type="text" class="form-control required" name="cvc" autocomplete="off" data-conekta="card[cvc]" id="credit-ccv" placeholder="CVV*" maxlength="3">
+                                    <div class="iconTar">
+                                        <img src="{{ 'assets/img/cvv.png'|theme }}" alt="">
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-12 justify-content-end d-flex">
+                                    <div class="cvv-details">
+                                        <p>3 dígitos generalmente se encuentran<br>a un costado de la firma</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+
+                                <div class="col-12">
+                                    <div class="planesct__noslide">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-md-12 col-lg-12">
+                                                <div class="planesct__plan planesct__plan--negro">
+                                                    <div class="planesct__title--linea--red">
+                                                        <h3>Plan Standard</h3>
+                                                    </div><!-- end.planesct__title -->
+                                                    <div class="planesct__box mt-4">
+                                                        <div class="planesct__usuario--linea ">
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-md-6 col-lg-6">
+                                                                    <p class="planesct__mensual">Mensual / Usuario</p>
+                                                                    <h4 data-price="opcion-1" class="planesct__monto planesct__monto--black">
+                                                                        <!--<small class="price-old">$500 MXN</small>-->
+                                                                        $199<small class="moneda">MXN</small>
+                                                                        <span class="legales">Por usuario, por mes con pago mensual</span>
+                                                                    </h4>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-lg-6">
+                                                                    <p class="planesct__mensual">Anual / Usuario</p>
+                                                                    <h4 data-price="opcion-2" class="planesct__monto planesct__monto--black">
+                                                                        $159<small class="moneda">MXN</small>
+                                                                        <span class="legales">Por usuario, por mes con pago anual</span>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            
+                                                        </div><!-- end.planesct__usuario -->
+                                                    </div>
+                                                   
+                                                    <div class="planesct__btns planesct__btns--flex">
+                                                        <div class="planesct__linkbox">
+                                                            <input type="radio" class="btn-check" name="planes" id="opcion-1" for-data="1" value="199" data-check-btn data-price-ch="Plan Standard Mensual">
+                                                            <label class="planesct__link" for="opcion-1">Plan Mensual</label>
+                                                        </div><!-- end.planesct__linkbox -->
+                                                        <div class="planesct__linkbox">
+                                                            <input type="radio" class="btn-check" name="planes" id="opcion-2" for-data="2" value="{{ 159*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
+                                                            <label class="planesct__link" for="opcion-2">Plan Anual</label>
+                                                        </div><!-- end.planesct__linkbox -->
+                                                    </div><!-- end.planesct__btns -->
+                                                </div><!-- end.planesct__plan -->
+                                            </div><!-- end.col-* -->
+                                            <div class="col-12 col-md-12 col-lg-12 mt-4">
+                                                <div class="planesct__plan planesct__plan--rojo">
+                                                    <div class="planesct__title--linea--black">
+                                                        <h3>Plan Pro</h3>
+                                                    </div><!-- end.planesct__title -->
+                                                    <div class="planesct__usuario--linea mt-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-lg-6">
+                                                                <p class="planesct__mensual">Mensual / Usuario</p>
+                                                                <h4 data-price="opcion-3" class="planesct__monto planesct__monto--black">
+                                                                    <!--<small class="price-old">$800 MXN</small>-->
+                                                                    $299<small class="moneda">MXN</small>
+                                                                    <span class="legales">Por usuario, por mes con pago mensual</span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-lg-6">
+                                                                <p class="planesct__mensual">Anual / Usuario</p>
+                                                                <h4 data-price="opcion-4" class="planesct__monto planesct__monto--black">
+                                                                    $239<small class="moneda">MXN</small>
+                                                                    <span class="legales">Por usuario, por mes con pago anual</span>
+                                                                </h4>
+                                                            </div><!-- end.planesct__usuario -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="planesct__btns planesct__btns--flex">
+                                                        <div class="planesct__linkbox">
+                                                            <input type="radio" class="btn-check" name="planes" id="opcion-3" for-data="3" data-price-ch="Plan Pro Mensual" data-check-btn value="299">
+                                                            <label class="planesct__link" for="opcion-3">Plan Mensual</label>
+                                                        </div><!-- end.planesct__linkbox -->
+                                                        <div class="planesct__linkbox">
+                                                            <input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239*12 }}">
+                                                            <label class="planesct__link" for="opcion-4">Plan Anual</label>
+                                                        </div><!-- end.planesct__linkbox -->
+                                                    </div><!-- end.planesct__btns -->
+                                                </div><!-- end.planesct__plan -->
+                                            </div><!-- end.col-* -->
+                                        </div><!-- end.row -->
+                                    </div><!-- end.planesct__car -->
+                                    <div class="planesct__divider"></div>
+                                </div><!-- end.col-* -->
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="frmInicia frmInicia--divider">
+                                        <div class="row">
+                                            
+                                            <div class="col-12">
+                                                <div class="boxCantidad">
+                                                    <label class="frmInicia__label">Número de usuarios</label>
+                                                    <div class="inpInc">
+                                                        <div class="inpInc__inputs">
+                                                            <button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
+                                                            <div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0"  readonly></div>
+                                                            <button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
+                                                        </div><!-- end.inpInc__inputs -->
+                                                    </div><!-- end.inpInc -->
+                                                </div><!-- end.boxCantidad -->
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="hidden" name="planSelec" id="planSelec" value="" readonly="readonly" />
+                                                <input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
+                                                <input type="hidden" name="subTotalPrice" id="subTotalPrice" value="" readonly="readonly" />
+                                                <input type="hidden" name="totalIva" id="totalIva" value=""  readonly="readonly"/>
+                                                <input type="hidden" name="totalPriceFin" id="totalPriceFin" value=""  readonly="readonly"/>
+                                                <div class="boxPrices">
+                                                    <div class="boxPrices__boxPr">
+                                                        <p class="boxPrices__sub">Costo del Plan:</p>
+                                                        <p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
+                                                    </div>
+                                                    <div class="boxPrices__boxPr">
+                                                        <p class="titleFac">Número de licencias:</p><p class="priceFac" id="cantidadLic">0</p>
+                                                    </div>
+                                                    <div class="boxPrices__fac">
+                                                        <p class="titleFac">IVA 16.0%:</p><p class="priceFac" id="iva">$0</p>
+                                                    </div>
+                                                    <div class="boxPrices__boxPr boxPrices__boxPr--total">
+                                                        <p class="boxPrices__tot">Total:</p>
+                                                        <p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+            
+                                        </div><!-- end.row -->
+                                    </div><!-- end.frmInicia -->
+                                </div><!-- end.col-* -->
+								
+							</div><!-- end.row -->
+
+                            
+                           
+						</div><!-- end.frmInicia -->
+					</div><!-- end.col-* -->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+		</div><!-- end.ctFrm -->
+		<div class="planesct">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-7">
+						<!-- <a class="planesct__link" href="/pagar-ahora" >Continuar</a> -->
+						<input class="planesct__link planesct__link--width btnSubmit" type="submit" value="Pagar ahora">
+					</div> <!-- end.col-*-->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+
+			
+		</div><!-- end.planesct -->
+	</form><!-- end.form -->
+</section><!-- end.iniciaSec -->

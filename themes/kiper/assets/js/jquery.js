@@ -274,6 +274,13 @@ $(function(){
           
     }
   });
+
+  $(".btn-check").click(function(){
+    var for_value = $(this).attr("for-data");
+    console.log(for_value);
+  });
+
+
   // Wow Animaciones
   wowData();
   // Incremento
@@ -352,7 +359,7 @@ $(function(){
       return this.value;
     }).get().join(" ");
     var sinIvaBtn = parseFloat((string*subPerso));
-    var ivaBtn = parseFloat((string*subPerso));
+    var ivaBtn = parseFloat(0);
     // console.log(multiplyVal);
 
     $('#subtotal').text(currency(string));
@@ -436,14 +443,14 @@ function extrasInput(id, idx, cant) {
   $(id).click(function () {
     var valorUno = parseFloat($('[data-check-btn]:checked').val());
     var valorDos = parseFloat($('[data-check-btn]:checked').val());
-    var ivaUno = parseFloat((valorUno*++per1)*.16);
+    var ivaUno = parseFloat((valorUno*++per1));
     // console.log((valorUno*++y)+ivaUno);
 
     $(cant).attr('value', ++x);
     $('#totalIva').val(ivaUno);
     $('#iva').text(currency(ivaUno));
-    $('#totalFin').text(currency((valorDos*++y)+ivaUno));
-    $('#totalPriceFin').val((valorUno*++z)+ivaUno);
+    $('#totalFin').text(currency((valorDos*++y)));
+    $('#totalPriceFin').val((valorUno*++z));
     $('#cantidadLic').text(++w);
     if($(cant).val() > 1) {
       $(idx).removeClass('disabled');
@@ -452,7 +459,7 @@ function extrasInput(id, idx, cant) {
   $(idx).click(function () {
     var valorTres = parseFloat($('[data-check-btn]:checked').val());
     var valorCuatro = parseFloat($('[data-check-btn]:checked').val());
-    var ivaDos = parseFloat((valorTres*--per1)*.16);
+    var ivaDos = parseFloat((valorTres*--per1));
 
     if ($(cant).val() <= 1) {
       $(idx).addClass('disabled');
@@ -460,8 +467,8 @@ function extrasInput(id, idx, cant) {
       $(cant).attr('value', --x);
       $('#totalIva').val(ivaDos);
       $('#iva').text(currency(ivaDos));
-      $('#totalFin').text(currency((valorTres*--y)+ivaDos));
-      $('#totalPriceFin').val((valorCuatro*--z)+ivaDos);
+      $('#totalFin').text(currency((valorTres*--y)));
+      $('#totalPriceFin').val((valorCuatro*--z));
       $('#cantidadLic').text(--w);
     }
   });
@@ -799,6 +806,81 @@ $(function() {
 });
 
  
+ //validación con formulario contratar cc 
+ $("#frmContratar").validate({
+  errorElement: 'div',
+ errorClass: 'error-label',
+ rules: {
+   inpNombres: {
+     required: true 
+   },
+   inpApellidos: {
+     required: true 
+   },
+   inpConfEmail: {
+     required: true,
+     email: true,
+   },
+ },
+ messages: {
+   inpNombres: {
+     required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+   },
+   inpApellidos: {
+     required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+   },
+   inpConfEmail: {
+     required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+   }
+ },
+ submitHandler: function(form) {
+   var form = $("#frmContratar");
+   var url = form.attr('action');
+   var data = form.serialize();
+   if($("#inpFlag").val() == 0){
+     $.ajax({
+       type: 'POST',
+       url: "https://system-admin.kiper.io/KipersConfiguration/saveContratar",
+       data: data,
+       dataType: 'json',
+       success: function (data) {
+         console.log(data.code);
+         if(data.code == 200){
+           localStorage.setItem("email_cliente", $("#inpEmail").val());
+           localStorage.setItem("data_client", data.data_client);
+           window.location.href = siteUrl + "/gracias-por-tu-compra";
+         }
+         else{
+           $("#inpFlag").val(1);
+           $(".msj").text("¡El email ya se encuentra registrado!");
+           $(".content-msj").show();
+           $(".btnSubmit").addClass("disabled");
+         }
+       },
+       error: function(json){
+         var error = '';      
+         console.log("error");
+         console.log(json);
+       }
+     });
+   }
+   else{
+     return false;
+   }
+   form.request('onTest', {
+         // data: {
+         //   inpPais: selectedCountry
+         // },
+         // success: function(data) {
+         //   $("#inpEdo").html(data);
+         //   $('#inpEdo').prop("disabled", false);
+         // }
+     // redirect: '/dashboard'
+   });
+ }
+});
+
+
 
 
 });
