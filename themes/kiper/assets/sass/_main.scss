@@ -414,6 +414,42 @@ article {
         font-size: rem(40px);
       }
     }
+
+    &--linea{
+      
+      &--black{
+        background-color: $negro;
+        text-align: left !important;
+        justify-content: start;
+        display: flex;
+        padding: 1% 0% 1% 5%;
+        width: 100%; height: auto; @include box-sizing(border-box); text-align: center; 
+        
+        & h3 {
+          color: $white; margin: 0; padding: 0; text-align: center; font-family: 'Gotham-Light'; font-weight: 700; font-size: rem(30px);
+          // @include fluid-type(12px, 40px, 320px, 1200px);
+          @media all and (min-width: 768px) {
+            font-size: rem(25px);
+          }
+        }
+      }
+      &--red{
+        background-color: $rojo;
+        text-align: left !important;
+        justify-content: start;
+        display: flex;
+        padding: 1% 0% 1% 5%;
+        width: 100%; height: auto; @include box-sizing(border-box); text-align: center; 
+        
+        & h3 {
+          color: $white; margin: 0; padding: 0; text-align: center; font-family: 'Gotham-Light'; font-weight: 700; font-size: rem(30px);
+          // @include fluid-type(12px, 40px, 320px, 1200px);
+          @media all and (min-width: 768px) {
+            font-size: rem(25px);
+          }
+        }
+      }
+    }
   }
   &__mensual {
     width: 100%; height: auto; display: block; text-align: center; @include fluid-type(9px, 16px, 320px, 1200px); color: rgba($rojo, 0.55); font-family: 'Gotham-Light'; font-weight: 600; padding: 0; margin: 0 0 10px; line-height: 1;
@@ -464,6 +500,14 @@ article {
     }
     @media all and (min-width: 992px) {
       min-height: 325px;
+    }
+    &--linea{
+      @media all and (min-width: 992px) {
+        height: 100%; min-height: 160px; padding-top: 2%;
+      }
+      @media all and (min-width: 992px) {
+        min-height: 160px; padding-top: 2%;
+      }
     }
   }
   &__beneficios {
