@@ -274,6 +274,9 @@ article {
 }
 .planesct {
   width: 100%; height: auto; padding: 0 0 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box);
+  &.planesPad {
+    padding: 0;
+  }
   &__padd {
     padding-top: 0;
     @media all and (min-width: 768px) {

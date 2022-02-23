@@ -17,8 +17,7 @@ sortColumn = "id"
 sortDirection = "asc"
 ==
 <?php
-function onTest()
-{
+function onTest() {
   // update MySQL here	
 	//if (!empty($_POST["inpPais"])) {
     //$val = $_POST["inpPais"];
@@ -42,8 +41,8 @@ function onTest()
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#inpConfEmail').on("cut copy paste", function(e) {
-			e.preventDefault();
-		});
+				e.preventDefault();
+			});
 	});
 	</script>
 {% endput %}
@@ -121,6 +120,13 @@ function onTest()
 										<small>Si aún no cuentas con un sitio web puedes omitir este campo.</small>
 									</div>
 									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio de tu negocio">
+								</div>
+								<div class="col-12 checkCus">
+									<input type="checkbox" class="CheckStyle" name="terminos" id="terminos" value="Acepto">
+									<label for="terminos">Acepto <a href="{{ 'terminos-de-uso'|page }}">Términos de uso</a></label>
+								</div>
+								<div class="col-12 captcha">
+									
 								</div>
 							</div><!-- end.row -->
 						</div><!-- end.frmInicia -->

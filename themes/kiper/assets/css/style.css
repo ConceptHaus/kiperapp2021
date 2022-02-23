@@ -44,6 +44,11 @@ width: 61vw;
 position: relative;
 left: 19vw;
 }
+@media all and (max-width: 1300px) {
+  .fondo1{
+    width: 71vw;
+  }
+}
 .fon_kiper{
 position: absolute;
 top: .5vw;
