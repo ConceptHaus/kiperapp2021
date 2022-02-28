@@ -511,6 +511,9 @@ $(function() {
           required: true,
           email: true
         },
+        inpTelefono: {
+          required: true
+        },
         inpConfEmail: {
           required: true,
           email: true,
@@ -537,9 +540,8 @@ $(function() {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
           email: '<i class="fa fa-exclamation-triangle"></i> Email inválido'
         },
-        inpConfEmail: {
-          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-          equalTo: '<i class="fa fa-exclamation-triangle"></i> Los email no coinciden'
+        inpEmail: {
+          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido'
         },
         inpTelefono: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
@@ -806,81 +808,7 @@ $(function() {
 });
 
  
- //validación con formulario contratar cc 
- $("#frmContratar").validate({
-  errorElement: 'div',
- errorClass: 'error-label',
- rules: {
-   inpNombres: {
-     required: true 
-   },
-   inpApellidos: {
-     required: true 
-   },
-   inpConfEmail: {
-     required: true,
-     email: true,
-   },
- },
- messages: {
-   inpNombres: {
-     required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
-   },
-   inpApellidos: {
-     required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
-   },
-   inpConfEmail: {
-     required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-   }
- },
- submitHandler: function(form) {
-   var form = $("#frmContratar");
-   var url = form.attr('action');
-   var data = form.serialize();
-   if($("#inpFlag").val() == 0){
-     $.ajax({
-       type: 'POST',
-       url: "https://system-admin.kiper.io/KipersConfiguration/saveContratar",
-       data: data,
-       dataType: 'json',
-       success: function (data) {
-         console.log(data.code);
-         if(data.code == 200){
-           localStorage.setItem("email_cliente", $("#inpEmail").val());
-           localStorage.setItem("data_client", data.data_client);
-           window.location.href = siteUrl + "/gracias-por-tu-compra";
-         }
-         else{
-           $("#inpFlag").val(1);
-           $(".msj").text("¡El email ya se encuentra registrado!");
-           $(".content-msj").show();
-           $(".btnSubmit").addClass("disabled");
-         }
-       },
-       error: function(json){
-         var error = '';      
-         console.log("error");
-         console.log(json);
-       }
-     });
-   }
-   else{
-     return false;
-   }
-   form.request('onTest', {
-         // data: {
-         //   inpPais: selectedCountry
-         // },
-         // success: function(data) {
-         //   $("#inpEdo").html(data);
-         //   $('#inpEdo').prop("disabled", false);
-         // }
-     // redirect: '/dashboard'
-   });
- }
-});
-
-
+ 
 
 
 });
