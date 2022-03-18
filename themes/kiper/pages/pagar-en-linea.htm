@@ -39,18 +39,109 @@ function onTest()
 ==
 {% set estados = estadoList.records %}
 {% put scriptFormulario %}
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#inpConfEmail').on("cut copy paste", function(e) {
-			e.preventDefault();
-		});
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#data_client").val(localStorage.getItem("data_client"));
+		//$("body").removeClass("loaderModal");
+   	});
+</script>
+<script type="text/javascript" >
+
+    /*
+            $.ajax({
+                type: 'POST',
+                url: urlServices+"/KipersConfiguration/saveCarritoCC",
+                data: data,
+                dataType: 'json',
+                success: function (data) {
+                    console.log("se creo el cliente correctamente");
+                    localStorage.setItem("email_cliente", $("#inpEmail").val());
+                    localStorage.setItem("data_client", data.data_client);
+                    
+                
+                },
+                error: function(json){
+                var error = '';      
+                console.log("error" + data.msj);
+                console.log(json);
+                }
+            });
+*/
+
+  </script>
+
+<script type="text/javascript" >
+	//Conekta.setPublicKey('key_PyZq3477zCKyCe9ac9Uxw9A');
+	Conekta.setPublicKey('key_RCjWE4Q5xzQM3ug5CmgrpHA');
+	
+  
+  
+	var conektaSuccessResponseHandler = function(token) {
+		$(".modalLoader").addClass("loaderModal").removeClass("modalLoader__out").show();
+		$("body").addClass("loaderModal");
+	  	var $form = $("#card-form");
+	  //Inserta el token_id en la forma para que se envíe al servidor
+	   $form.append($('<input type="hidden" name="conektaTokenId" id="conektaTokenId">').val(token.id));
+	   $("#data_ckk").val(token.id);
+	   var form = $("#card-form");
+		var url = form.attr('action');
+		var data = form.serialize();
+	   $.ajax({
+         type: 'POST',
+         url: urlServices+"/KipersConfiguration/saveCarritoCC",
+         data: data,
+         dataType: 'json',
+         success: function (data) {
+			 var dataLoader = $('.modalLoader').data('loader-kiper');
+			setTimeout(function() {
+				$('body').removeClass('loaderModal');
+				$('[data-loader-kiper]').addClass('modalLoader__out');
+				
+			}, 2000);
+           console.log(data.code);
+		   if(data.code == 200){
+				localStorage.setItem("data_sus", data);
+                window.location.href = siteUrl + "/gracias-por-tu-compra";
+		   }
+		   else{
+			$("#modalAvisoDos").modal("show");
+		   }
+           
+         },
+         error: function(json){
+           var error = '';      
+           console.log("error");
+           console.log(json);
+         }
+       });
+	  //$form.get(0).submit(); //Hace submit
+	};
+	var conektaErrorResponseHandler = function(response) {
+	  var $form = $("#card-form");
+	  $form.find(".card-errors").text(response.message_to_purchaser);
+	  $form.find("button").prop("disabled", false);
+	};
+  
+  
+	//jQuery para que genere el token después de dar click en submit
+	$(function () {
+	  $("#card-form").submit(function(event) {
+		var $form = $(this);
+		// Previene hacer submit más de una vez
+		$form.find("button").prop("disabled", true);
+		Conekta.Token.create($form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
+		return false;
+	  });
 	});
-	</script>
+  </script>
 {% endput %}
 <section class="iniciaSec">
-	<form method="POST" name="frmContratar" id="frmContratar"  accept-charset="utf-8">
+	<form method="POST"  id="card-form"  accept-charset="utf-8">
 		<input type="hidden" readonly="readonly" value="0" name="inpFlag" id="inpFlag" />
         <input type="hidden" readonly="readonly" value="2" name="plsl" id="plsl" />
+        <input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
+		<input type="hidden" name="data_ckk" id="data_ckk" value=""  readonly="readonly"/>
+		<span class="card-errors"></span>
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -77,13 +168,13 @@ function onTest()
 							<div class="row g-3">
                                 
 								<div class="col-12 col-md-12 inputStyle">
-									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre(s)*" />
+									<input type="text" name="inpNombres" id="inpNombres" class="form-control required" placeholder="Nombre Completo*" />
 								</div>
-								<div class="col-12 col-md-12 inputStyle">
-									<input type="text" name="inpApellidos" id="inpApellidos" class="form-control required"  value="" placeholder="Apellido(s)*" />
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" value="" placeholder="Correo eléctronico*" />
 								</div>
-								<div class="col-12 col-md-12 inputStyle">
-									<input type="email" name="inpConfEmail" id="inpConfEmail" autocomplete="off" class="form-control required" value="" placeholder="Correo eléctronico*" />
+                                <div class="col-12 col-md-6 inputStyle">
+									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control required"  value="" placeholder="Teléfono*" />
 								</div>
 
                                 <div class="col-12">
@@ -238,9 +329,9 @@ function onTest()
                                                     <div class="boxPrices__boxPr">
                                                         <p class="titleFac">Número de licencias:</p><p class="priceFac" id="cantidadLic">0</p>
                                                     </div>
-                                                    <div class="boxPrices__fac">
+                                                    <!--<div class="boxPrices__fac">
                                                         <p class="titleFac">IVA 16.0%:</p><p class="priceFac" id="iva">$0</p>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="boxPrices__boxPr boxPrices__boxPr--total">
                                                         <p class="boxPrices__tot">Total:</p>
                                                         <p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
@@ -266,7 +357,7 @@ function onTest()
 				<div class="row justify-content-center">
 					<div class="col-12 col-md-10 col-lg-7">
 						<!-- <a class="planesct__link" href="/pagar-ahora" >Continuar</a> -->
-						<input class="planesct__link planesct__link--width btnSubmit" type="submit" value="Pagar ahora">
+						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Finalizar compra"> 
 					</div> <!-- end.col-*-->
 				</div><!-- end.row -->
 			</div><!-- end.container -->
