@@ -273,11 +273,11 @@ $(function(){
         "processData": false,
         "contentType": false,
         "mimeType": "multipart/form-data",
-        "data": form_new
+        "data": form_new2
       };
 
       $.ajax(settings2).done(function (response) {
-        console.log(response);
+        alert(response);
       });
      /* $.ajax({
         type: 'POST',
