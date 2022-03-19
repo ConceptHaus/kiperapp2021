@@ -254,6 +254,22 @@ $(function(){
       $.ajax(settings).done(function (response) {
         console.log(response);
       });
+
+      const settings2 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://redactpro.kiper.io/api/v1/forms/register?token=68af68519PKfmpqRV0LXjFEhl8lwWkLV",
+        "method": "POST",
+        "headers": {},
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form_new
+      };
+
+      $.ajax(settings2).done(function (response) {
+        console.log(response);
+      });
      /* $.ajax({
         type: 'POST',
         url: url,
