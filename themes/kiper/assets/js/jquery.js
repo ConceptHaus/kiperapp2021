@@ -793,7 +793,7 @@ $(function() {
          console.log(json);
          $("#modalAvisoDos").modal("show");
        }
-     });
+    });
    form.request('onTest', {
          // data: {
          //   inpPais: selectedCountry
