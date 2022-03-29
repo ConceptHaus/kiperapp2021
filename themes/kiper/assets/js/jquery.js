@@ -811,7 +811,7 @@ $(function() {
          console.log(json);
          $("#modalAvisoDos").modal("show");
        }
-     });
+    });
    form.request('onTest', {
          // data: {
          //   inpPais: selectedCountry
@@ -823,6 +823,79 @@ $(function() {
      // redirect: '/dashboard'
    });
  }
+});
+
+/* Ayuda cliente validación */
+ $("#frmAyuda").validate({
+  errorElement: 'div',
+  errorClass: 'error-label',
+  ignore: [],
+  onkeyup: false,
+  rules: {
+    inpNombres: {
+      required: true 
+    },
+    inpEmail: {
+      required: true,
+      email: true
+    },
+    inpDominio: {
+      required: true,
+      url: true 
+    },
+    asunto: {
+      required: true 
+    }
+  },
+  messages: {
+    inpNombres: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+    },
+    inpEmail: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido',
+      email: '<i class="fa fa-exclamation-triangle"></i> Correo inválido'
+    },
+    inpDominio: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      url: '<i class="fa fa-exclamation-triangle"></i> URL inválida'
+    },
+    asunto: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+    }
+  },
+  submitHandler: function(form) {
+    var form = $("#frmAyuda");
+    var url = form.attr('action');
+    var data = form.serialize();
+      $.ajax({
+        type: 'POST',
+        url: "https://system-admin.kiper.app/ayudaclientes/addticket",
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+          console.log(data.code);
+          if(data.code == 200){
+              storage.removeItem(data_sus);
+              storage.removeItem(email_cliente);
+              storage.removeItem(data_client);
+              $(".modalLoader").addClass("loaderModal").removeClass("modalLoader__out").show();
+              $("body").addClass("loaderModal");
+              setTimeout(function() {
+                window.location.href = siteUrl + "/";              
+              }, 3000);            
+          }
+          else{
+            $("#modalAvisoDos").modal("show");
+          }
+        },
+        error: function(json){
+          var error = '';      
+          console.log("error");
+          console.log(json);
+          $("#modalAvisoDos").modal("show");
+        }
+      });
+  }
 });
 
  

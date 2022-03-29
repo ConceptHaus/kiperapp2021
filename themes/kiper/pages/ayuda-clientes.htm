@@ -41,12 +41,12 @@ is_hidden = 0
 									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio con el que ingresas a la plataforma">
 								</div>
                 <div class="col-12 inputStyle">
-									<input type="hidden" name="asunto" id="asunto" value="">
 									<div class="selectFormContact">
-                    <a href="#" class="collOpenForm" id="openOpsForms">
-                      <span class="labelInp" id="textChange">Área de asistencias</span>
+										<a href="#" class="collOpenForm" id="openOpsForms">
+											<span class="labelInp" id="textChange">Área de asistencias</span>
                       <span class="iconArrow"><i class="fad fa-sort-down"></i></span>
                     </a><!-- end.collOpenForm -->
+										<input type="hidden" name="asunto" id="asunto" value="">
                     <nav id="navOpcionform">
                       <ul>
                         <!-- <li><a class="btnFormContact" href="#" data-op="" data-valor="0">Todas las ubicaciones</a></li> -->
@@ -69,9 +69,9 @@ is_hidden = 0
 									<select class="form-select required" id="planesFrm" name="planesFrm">
 										<option value="">Seleccionar plan</option>
 										<option value="plan-standard-349">Plan Estandard <small>mensual $349</small></option>
-										<option value="plan-standard-290">Plan Estandard <small>anual $290 por 12 meses</small></option>
+										<option value="plan-standard-290">Plan Estandard <small>anual ${{ 290 * 12 }}</small></option>
 										<option value="plan-pro-549">Plan Pro <small>mensual $549</small></option>
-										<option value="plan-pro-470">Plan Pro <small>anual $470 por 12 meses</small></option>
+										<option value="plan-pro-470">Plan Pro <small>anual ${{ 470 * 12 }}</small></option>
 									</select>
 								</div><!-- end#contrataciones -->
 								<div class="col-12 inputStyle boxFrmHide" id="updatePlan">
@@ -80,18 +80,18 @@ is_hidden = 0
 											<select class="form-select required" id="miPlanActivoFrm" name="miPlanActivoFrm">
 												<option value="">Seleccionar mi plan activo</option>
 												<option value="plan-activo-standard-349">Plan Estandard <small>mensual $349</small></option>
-												<option value="plan-activo-standard-290">Plan Estandard <small>anual $290 por 12 meses</small></option>
+												<option value="plan-activo-standard-290">Plan Estandard <small>anual ${{ 290 * 12 }}</small></option>
 												<option value="plan-activo-pro-549">Plan Pro <small>mensual $549</small></option>
-												<option value="plan-activo-pro-470">Plan Pro <small>anual $470 por 12 meses</small></option>
+												<option value="plan-activo-pro-470">Plan Pro <small>anual ${{ 470 * 12 }}</small></option>
 											</select>
 										</div>
 										<div class="col-12 col-md-6">
 											<select class="form-select required" id="miPlanContratarFrm" name="miPlanContratarFrm">
 												<option value="">Seleccionar nuevo plan</option>
 												<option value="plan-nuevo-standard-349">Plan Estandard <small>mensual $349</small></option>
-												<option value="plan-nuevo-standard-290">Plan Estandard <small>anual $290 por 12 meses</small></option>
+												<option value="plan-nuevo-standard-290">Plan Estandard <small>anual ${{ 290 * 12 }}</small></option>
 												<option value="plan-nuevo-pro-549">Plan Pro <small>mensual $549</small></option>
-												<option value="plan-nuevo-pro-470">Plan Pro <small>anual $470 por 12 meses</small></option>
+												<option value="plan-nuevo-pro-470">Plan Pro <small>anual ${{ 470 * 12 }}</small></option>
 											</select>
 										</div>
 									</div>
@@ -137,7 +137,7 @@ is_hidden = 0
 									</div>
 								</div>
 								<div class="col-12 inputStyle boxFrmHide" id="maspersonas">
-									<input type="text" class="form-control" name="peronsamas" id="peronsamas" min="11" value="11" placeholder="agregar número de personas" onkeypress="return checkDigit(event)">
+									<input type="text" class="form-control" name="peronsamas" id="peronsamas" min="11" value="11" placeholder="agregar número de personas" onkeypress="checkDigit(event)">
 								</div><!-- end#inoutPersonas -->
 								<div class="col-12 boxFrmHide" id="conexion">
 									<div class="row">
@@ -160,9 +160,9 @@ is_hidden = 0
 											<select class="form-select required" id="cancelacionFrm" name="cancelacionFrm">
 												<option value="">Plan contratado actual</option>
 												<option value="plan-cancelar-standard-349">Plan Estandard <small>mensual $349</small></option>
-												<option value="plan-cancelar-standard-290">Plan Estandard <small>anual $290 por 12 meses</small></option>
+												<option value="plan-cancelar-standard-290">Plan Estandard <small>anual ${{ 290 * 12 }}</small></option>
 												<option value="plan-cancelar-pro-549">Plan Pro <small>mensual $549</small></option>
-												<option value="plan-cancelar-pro-470">Plan Pro <small>anual $470 por 12 meses</small></option>
+												<option value="plan-cancelar-pro-470">Plan Pro <small>anual ${{ 470 * 12 }}</small></option>
 											</select>
 											<p class="boxFrmHide__info">Para hacer efectiva tu cancelación y eliminación de cuenta, tu suscripción debe estar al corriente</p>
 										</div>

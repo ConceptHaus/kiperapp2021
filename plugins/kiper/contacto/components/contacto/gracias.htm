@@ -1,1 +1,10 @@
-Gracias por dejarnos tus datos.
+<div class="alert alert-success">Gracias por dejarnos tus datos.</div>
+
+<script type="text/javascript">
+  $(function(){
+    $('#frmContacto').trigger("reset");
+    setTimeout(() => {
+      $('#gracias').fadeOut('slow');
+    }, 2000);
+  });
+</script>
