@@ -29,6 +29,11 @@ function onTest() {
 	$(document).ready(function(){
 		$("#data_client").val(localStorage.getItem("data_client"));
 		//$("body").removeClass("loaderModal");
+
+		$(".btn__cancel").click(function(){
+			$(".content-modal").css("display", "none");
+			$("body").removeClass("overflowH");
+		});
    	});
 </script>
 <script type="text/javascript" >
@@ -65,7 +70,8 @@ function onTest() {
                 window.location.href = siteUrl + "/gracias-por-tu-compra";
 		   }
 		   else{
-			$("#modalAvisoDos").modal("show");
+			$(".content-modal").css("display", "block");
+			$("body").addClass("overflowH");
 		   }
            
          },
@@ -191,6 +197,9 @@ function onTest() {
 						<br>
 						<label>¿Tienes dudas? Ponte en contacto con nostros: hola@kiper.app </label>
 					</div> <! -- end.col -->
+
+					
+					
 				</div><!-- end.row -->
 			</div><!-- end.container -->
 
