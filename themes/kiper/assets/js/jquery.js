@@ -521,6 +521,12 @@ $(function() {
 //     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 // });
 
+    $('.stSlider__slider').slick({
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 2
+    });
+
      //validación con formulario inicia 
     $("#frmProbar").validate({
        errorElement: 'div',

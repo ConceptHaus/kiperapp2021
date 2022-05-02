@@ -171,23 +171,39 @@ article {
   }
 }
 .hero-sec {
-  @include position(relative, null null null null); width: 100%; height: 388px; padding: 0; margin: 0; z-index: 1; overflow: hidden;
+  @include position(relative, null null null null); width: 100%; height: 380px; padding: 0; margin: 0; z-index: 1; overflow: hidden;
+  &__img {
+    @include position(absolute, 50% null null 50%); @include transform(translate(-50%, -50%)); display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; z-index: 1;
+  }
   &__desc {
-    @include position(absolute, 30px null null 0); width: 100%; height: auto; padding: 0; margin: 0; z-index: 2;
-    // & img {
-    //   width: 100%; max-width: 50px; height: auto; padding: 0; margin: 0 auto 20px; display: block;
-    // }
+    @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); width: 100%; height: auto; padding: 0; margin: 0; z-index: 3;
+    & .logoKiperHero {
+      width: 100%; max-width: 200px; height: auto; padding: 0; margin: 0 auto 20px 0; display: block;
+      @media all and (min-width: 768px) {
+        max-width: 300px;
+      }
+    }
     & h2 {
-      margin: 0 0 20px 0; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); line-height: 1.2;
+      margin: 0; padding: 0; text-align: left; @include fluid-type(20px, 40px, 320px, 1200px); line-height: 1.2; color: $white; font-family: 'Gotham-Light'; font-weight: 600; box-sizing: border-box;
+      strong {
+        font-family: 'GothamMedium';
+      }
     }
-    & p {
-      margin: 0; padding: 0; text-align: left; @include fluid-type(15px, 24px, 320px, 1200px);
+    @media all and (min-width: 768px) {
+      & h2 {
+        padding: 0 0 0 15px;
+      }
     }
-    @media all and (min-width: 480px) {
-      top: 40px;
+    @media all and (min-width: 992px) {
+      & h2 {
+        padding: 0 0 0 30px;
+      }
     }
-    @media all and (min-width: 576px) {
-      top: 87px;
+  }
+  &:after {
+    content: ''; @include position(absolute, 0 null null 0); width: 100%; height: 100%; background-color: rgba($black, 0.25); z-index: 2; display: block;
+    @media all and (min-width: 768px) {
+      display: none;
     }
   }
   &__btns {
@@ -206,18 +222,21 @@ article {
     }
   }
   @media all and (min-width: 480px) {
-    height: 430px;
+    height: 420px;
   }
   @media all and (min-width: 576px) {
-    height: 490px;
+    height: 450px;
   }
   @media all and (min-width: 640px) {
     height: 500px;
   }
   @media all and (min-width: 768px) {
-    height: 540px;
+    height: 550px;
   }
   @media all and (min-width: 1200px) {
+    height: 100vh;
+  }
+  @media all and (min-width: 1366px) {
     height: 590px;
   }
 }
@@ -1599,4 +1618,45 @@ span.cc{ color:#6d84b4 }
 }
 .radioCustom:checked + label:before {
   background-color: $rojo; color: $white;
+}
+
+// home new
+.stSlider {
+  width: 100%; padding: 0 5px; margin: 0; position: relative; box-sizing: border-box;
+  & .slick-slide {
+    padding: 0 5px; margin: 0 0 10px; box-sizing: border-box;
+  }
+  &__btns {
+    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; overflow: hidden; background-color: #f5f5f5; box-sizing: border-box; @include displayFlex(flex, row, flex-start, flex-start, wrap);
+  }
+  &__boxSer {
+    width: 50%; height: auto; margin: 0; padding: 0 5px; position: relative;
+  }
+}
+.serviciosCt {
+  width: 100%; max-width: 1400px; height: auto; padding: 40px 0; margin: 0; position: relative; overflow: hidden; background-color: $white;
+  &__desc {
+    width: 100%; max-width: 1400px; height: auto; padding: 40px 0; margin: 0; position: relative; overflow: hidden; background-color: $white;
+  }
+}
+.boxServices {
+  width: 100%; height: auto; padding: 30px 40px; margin: 0; position: relative; overflow: hidden; background-color: #f5f5f5; box-sizing: border-box;
+  &__icon {
+    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; overflow: hidden; background-color: #f5f5f5; box-sizing: border-box; @include displayFlex(flex, row, flex-start, flex-start, wrap);
+    & img {
+      width: 28px; height: auto; display: inline-block; padding: 0; margin: 0 10px 0 0;
+    }
+    & h4 {
+      color: $rojo; padding: 0; margin: 0; text-transform: uppercase; @include fluid-type(16px, 26px, 320px,320px); line-height: 1;
+    }
+  }
+  & .imgServices {
+    display: block; width: 100%; height: auto; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover";
+  }
+  &__fig {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; overflow: hidden; background-color: #f5f5f5; box-sizing: border-box;
+  }
+}
+.btnGenSlide {
+  width: 100%; height: 32px; line-height: 32px; border: 0; padding: 0; margin: 0; background-color: $rojo; display: block; text-align: center; box-sizing: border-box; color: $white;
 }

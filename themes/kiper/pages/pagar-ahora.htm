@@ -79,7 +79,7 @@ function onTest()
 												</h4>
 												<p class="planesct__mensual">Anual / Usuario</p>
 												<h4 data-price="opcion-2" class="planesct__monto planesct__monto--black">
-													$159<small class="moneda">MXN</small>
+													${{ 159 * 12 }}<small class="moneda">MXN</small>
 													<span class="legales">Por usuario, por mes con pago anual</span>
 												</h4>
 											</div><!-- end.planesct__usuario -->
@@ -132,7 +132,7 @@ function onTest()
 												</h4>
 												<p class="planesct__mensual">Anual / Usuario</p>
 												<h4 data-price="opcion-4" class="planesct__monto planesct__monto--black">
-													$239<small class="moneda">MXN*</small>
+													${{ 239 * 12 }}<small class="moneda">MXN*</small>
 													<span class="legales">Por usuario, por mes con pago anual</span>
 												</h4>
 											</div><!-- end.planesct__usuario -->
@@ -168,7 +168,7 @@ function onTest()
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239*12 }}">
+												<input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
