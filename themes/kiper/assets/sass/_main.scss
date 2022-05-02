@@ -1620,6 +1620,7 @@ span.cc{ color:#6d84b4 }
   background-color: $rojo; color: $white;
 }
 
+<<<<<<< HEAD
 // home new
 .stSlider {
   width: 100%; padding: 0 5px; margin: 0; position: relative; box-sizing: border-box;
@@ -1659,4 +1660,18 @@ span.cc{ color:#6d84b4 }
 }
 .btnGenSlide {
   width: 100%; height: 32px; line-height: 32px; border: 0; padding: 0; margin: 0; background-color: $rojo; display: block; text-align: center; box-sizing: border-box; color: $white;
+=======
+
+.content-modal{
+  position: absolute;   z-index: 300;   width: 100%;  height: 100%;  background-color: rgba(0,0,0,0.65);  top: 0;  justify-content: center;  display: flex;  padding-top: 5%;
+  &__body{
+    text-align: center;border: solid 2px #E53F28;padding: 3%;margin-top: 3%;border-radius: 25px;position: absolute;background-color: #fff; -webkit-box-shadow: -2px -2px 32px 6px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px -2px 32px 6px rgba(0,0,0,0.75);
+    box-shadow: -2px -2px 32px 6px rgba(0,0,0,0.75);
+  }
+}
+
+.overflowH{
+  overflow: hidden !important;
+>>>>>>> 32b9916d77c790ec46c230757cf46374594e3d5a
 }

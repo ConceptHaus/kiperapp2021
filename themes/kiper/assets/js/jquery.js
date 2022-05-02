@@ -255,14 +255,7 @@ $(function(){
         console.log(response);
       });
 
-      const form_new2 = new FormData();
-      form_new.append("nombre", $("#nombre").val());
-      form_new.append("fuente", "6");
-      form_new.append("telefono", $("#telefono").val());
-      form_new.append("correo", $("#email").val());
-      form_new.append("assigment", "Sitio Web Kiper");
-      form_new.append("mensaje", $("#mensaje").val());
-      form_new.append("empresa", $("#negocio").val());
+     
 
       const settings2 = {
         "async": true,
@@ -273,7 +266,7 @@ $(function(){
         "processData": false,
         "contentType": false,
         "mimeType": "multipart/form-data",
-        "data": form_new2
+        "data": form_new
       };
 
       $.ajax(settings2).done(function (response) {

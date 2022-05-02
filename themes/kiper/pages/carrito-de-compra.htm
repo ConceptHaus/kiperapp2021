@@ -29,6 +29,11 @@ function onTest() {
 	$(document).ready(function(){
 		$("#data_client").val(localStorage.getItem("data_client"));
 		//$("body").removeClass("loaderModal");
+
+		$(".btn__cancel").click(function(){
+			$(".content-modal").css("display", "none");
+			$("body").removeClass("overflowH");
+		});
    	});
 </script>
 <script type="text/javascript" >
@@ -65,7 +70,8 @@ function onTest() {
                 window.location.href = siteUrl + "/gracias-por-tu-compra";
 		   }
 		   else{
-			$("#modalAvisoDos").modal("show");
+			$(".content-modal").css("display", "block");
+			$("body").addClass("overflowH");
 		   }
            
          },
@@ -180,10 +186,20 @@ function onTest() {
 							</div>
 						</div><!-- end.frmDataBox -->
 					</div><!-- end.col-* -->
-					<div class="col-12 col-md-10 col-lg-7">
+					<div class="col-12 col-md-10 col-lg-7" style="display: block;">
 						<!--<a data-open-aviso href="#" data-id-aviso="#modalAvisoDos">abre modal</a>-->
 						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Finalizar compra">  
 					</div> <!-- end.col-*-->
+					<!--<div class="col-12">
+						<h3 class="planesct__disclaimer">ESTAMOS EXPERIMENTANDO PROBLEMAS CON NUESTRA PLATAFORMA DE PAGO</h3>
+						<br/>
+						<label>Sentimos las molestias que esto pueda ocasionar, pero estamos trabajando en ello.<br/>Tus datos quedan registrados para continuar con otra manera de pago y activar tu kiper.</label>
+						<br>
+						<label>¿Tienes dudas? Ponte en contacto con nostros: hola@kiper.app </label>
+					</div> <! -- end.col -->
+
+					
+					
 				</div><!-- end.row -->
 			</div><!-- end.container -->
 
