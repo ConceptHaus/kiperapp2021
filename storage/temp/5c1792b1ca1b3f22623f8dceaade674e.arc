@@ -1,0 +1,1 @@
+Incompatible version. Please update to a newer version of October CMS (Build 475+ or v1.1.10+) and try again.

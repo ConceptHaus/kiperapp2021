@@ -1635,8 +1635,54 @@ span.cc{ color:#6d84b4 }
 }
 .serviciosCt {
   width: 100%; max-width: 1400px; height: auto; padding: 40px 0; margin: 0; position: relative; overflow: hidden; background-color: $white;
+  &__divider {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative;
+    & img {
+      display: block; width: 100%; max-width: 30px; height: auto; margin: 0 auto; padding: 0;
+    }
+  }
   &__desc {
-    width: 100%; max-width: 1400px; height: auto; padding: 40px 0; margin: 0; position: relative; overflow: hidden; background-color: $white;
+    width: 100%; height: auto; padding: 40px 0; margin: 0; position: relative; overflow: hidden; background-color: $white;
+    & h2 {
+      margin: 0; padding: 0; text-align: center; font-size: rem(36px); line-height: 1.2; color: $gris3; font-family: 'Gotham-Light'; font-weight: 500; box-sizing: border-box;
+      & span {
+        background-color: $rojo; position: relative; display: inline; color: $white; @include margin(null 15px null 15px);
+        &:after, &:before {
+          content: ''; @include position(absolute, 0 0 null null); width: 15px; height: auto; background-color: transparent;
+        }
+        &:after {
+          right: -15px; border-right: 15px solid transparent; border-top: 38px solid $rojo;
+        }
+        &:before {
+          left: -15px; border-left: 15px solid transparent; border-bottom: 38px solid $rojo;
+        }
+      }
+      strong {
+        font-family: 'GothamMedium';
+      }
+    }
+    @media all and (min-width: 992px) {
+      & h2 {
+        font-size: rem(28px);
+        &:after {
+          border-top: 38px solid $rojo;
+        }
+        &:before {
+          border-bottom: 38px solid $rojo;
+        }
+      }
+    }
+    @media all and (min-width: 1024px) {
+      & h2 {
+        font-size: rem(36px);
+        &:after {
+          border-top: 38px solid $rojo;
+        }
+        &:before {
+          border-bottom: 38px solid $rojo;
+        }
+      }
+    }
   }
 }
 .boxServices {
@@ -1668,7 +1714,6 @@ span.cc{ color:#6d84b4 }
     box-shadow: -2px -2px 32px 6px rgba(0,0,0,0.75);
   }
 }
-
 .overflowH {
   overflow: hidden !important;
 }
