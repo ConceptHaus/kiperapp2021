@@ -1717,3 +1717,8 @@ span.cc{ color:#6d84b4 }
 .overflowH {
   overflow: hidden !important;
 }
+
+// Factura inputs
+.inputsFact {
+  width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; overflow: hidden; background-color: $white; box-sizing: border-box; display: none;
+}
