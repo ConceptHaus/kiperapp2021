@@ -28,6 +28,7 @@ function onTest()
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#data_client").val(localStorage.getItem("data_client"));
+		$(".body").removeClass("loaderModal").addClass("modalLoader__out");
    	});
 </script>
 {% endput %}
