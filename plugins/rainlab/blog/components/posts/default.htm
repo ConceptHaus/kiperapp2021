@@ -87,7 +87,7 @@
                     <li class="page-item"><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}" class="page-link page--prev" tabindex="-1" aria-disabled="true"><i class="fa fa-chevron-left"></i></a></li>
                 {% endif %}
                 
-                {% if posts.lastPage < 5 %}
+                {% if posts.lastPage < 10 %}
                 {% for page in 1..posts.lastPage %}
                     <li class="page-item"> 
                         <a class="page-link {{ posts.currentPage == page ? 'active' : null }}" {{ posts.currentPage == page ? 'aria-current="page"' : null }} href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>

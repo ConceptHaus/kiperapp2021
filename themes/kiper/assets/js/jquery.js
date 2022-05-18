@@ -329,6 +329,18 @@ $(function(){
       $('#inpEdo').prop("disabled", true);
     }
   });
+  $('#dataFactura').hide();
+  $('#facturaSi').change(function() {
+    if (this.checked) {
+      console.log('listo');
+      $('#dataFactura').show('slow');
+      $('[data-validacion]').addClass('required');
+    } else {
+      console.log('ya lo quitaste');
+      $('#dataFactura').hide('slow');
+      $('[data-validacion]').removeClass('required error-label');
+    }
+  });
 
   // $("#inpPais").on('change', function(){
   //   var selectedCountry = $("#inpPais").val();
@@ -388,22 +400,22 @@ $(function(){
     $('#totalPriceFin').val(multiplyVal);
     $("#planSelec").val($('[data-check-btn]:checked').attr("for-data"));
   });
-  var $monto = parseFloat($("#totalPriceFin").val());
-  var costo_plan = $checks.filter(':checked').val();
-  var no_usuarios = $('#cantidad-ct-1').val();
+  // var $monto = parseFloat($("#totalPriceFin").val());
+  // var costo_plan = $checks.filter(':checked').val();
+  // var no_usuarios = $('#cantidad-ct-1').val();
   // var sinIva = parseFloat((costo_plan*no_usuarios));
-  var iva = parseFloat((costo_plan*no_usuarios));
-  $("#iva").text(currency(iva));
-  $("#totalIva").val(iva);
-  $('#totalFin').text(currency(($monto)));
-  $("#totalPriceFin").val($monto);
+  // var iva = parseFloat((costo_plan*no_usuarios));
+  // $("#iva").text(currency(iva));
+  // $("#totalIva").val(iva);
+  // $('#totalFin').text(currency(($monto)));
+  // $("#totalPriceFin").val($monto);
   // console.log($monto);
   // $('#facturaSi').on('change', function() {
-    // var tasa = 16;
-    // var iva = (monto * tasa)/100;
+  //   var tasa = 16;
+  //   var iva = ($monto * tasa)/100;
 
-    // console.log('Cotos plan: '+costo_plan+' Usuarios: '+no_usuarios + ' Saco el IVA: '+iva);
-    // console.log($monto+iva);
+  //   console.log('Cotos plan: '+costo_plan+' Usuarios: '+no_usuarios + ' Saco el IVA: '+currency(iva));
+  //   console.log(currency($monto+iva));
 
   //   if($('#facturaSi').is(':checked')) {
   //     $('.boxPrices__fac').fadeIn();
@@ -513,6 +525,12 @@ $(function() {
 //     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
 //     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 // });
+
+    $('.stSlider__slider').slick({
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 2
+    });
 
      //validación con formulario inicia 
     $("#frmProbar").validate({
@@ -657,6 +675,7 @@ $(function() {
 
     // $("#frmProbar").removeAttr("novalidate");
 
+    // console.log($("#facturaSi").val().length <= 0);
     $("#frmCarrito").validate({
       errorElement: 'div',
       errorClass: 'error-label',
