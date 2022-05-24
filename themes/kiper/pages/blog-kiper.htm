@@ -2,6 +2,8 @@ title = "Blog Kiper"
 url = "/blog/:order?post-blog/:page?1"
 layout = "layout"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -21,6 +23,8 @@ categoryPage = "blog-kiper"
 postPage = "nota"
 
 [frmNewsletter]
+
+[SeoCmsPage]
 ==
 {% set populares = blogPupulares.posts %}
 
