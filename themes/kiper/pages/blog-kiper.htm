@@ -2,6 +2,8 @@ title = "Blog Kiper"
 url = "/blog/:order?post-blog/:page?1"
 layout = "layout"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -21,6 +23,8 @@ categoryPage = "blog-kiper"
 postPage = "nota"
 
 [frmNewsletter]
+
+[SeoCmsPage]
 ==
 {% set populares = blogPupulares.posts %}
 
@@ -47,7 +51,7 @@ postPage = "nota"
               </div>
           {% endif %}
               <div class="boxBlog__desc">
-                <h4><a href="{{ popular.url }}">{{popular.title}}</a></h4>
+                <h4 class="titleDescrip"><a href="{{ popular.url }}">{{popular.title}}</a></h4>
               </div><!-- end.boxBlog__image -->
             </div><!-- end.boxBlog -->
         {% endfor %}

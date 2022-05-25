@@ -329,17 +329,22 @@ $(function(){
       $('#inpEdo').prop("disabled", true);
     }
   });
-  $('#dataFactura').hide();
+  // $('#dataFactura').hide();
   $('#facturaSi').change(function() {
     if (this.checked) {
-      console.log('listo');
-      $('#dataFactura').show('slow');
-      $('[data-validacion]').addClass('required');
+      // console.log('listo');
+      // $('#dataFactura').show('slow');
+      // $('[data-validacion]').addClass('required');
+      $('#dataFactura').modal('show');
     } else {
-      console.log('ya lo quitaste');
-      $('#dataFactura').hide('slow');
-      $('[data-validacion]').removeClass('required error-label');
+      // console.log('ya lo quitaste');
+      // $('#dataFactura').hide('slow');
+      // $('[data-validacion]').removeClass('required error-label');
+      // $('#dataFactura').modal('hide');
     }
+  });
+  $('#closeModalRFC').click(function(e){
+    $('#dataFactura').modal('hide');
   });
 
   // $("#inpPais").on('change', function(){
@@ -676,7 +681,12 @@ $(function() {
     // $("#frmProbar").removeAttr("novalidate");
 
     // console.log($("#facturaSi").val().length <= 0);
-    $("#frmCarrito").validate({
+    jQuery.validator.setDefaults({
+      debug: true,
+      success: "valid"
+    });
+    var formCarrito = $( "#frmCarrito" );
+    formCarrito.validate({
       errorElement: 'div',
       errorClass: 'error-label',
       rules: {
@@ -747,6 +757,82 @@ $(function() {
        });
      }
    });
+  //  console.log(formCarrito.valid() + ' es la validación');
+
+  var formRFC = $( "#frmRegRFC" );
+  formRFC.validate({
+    errorElement: 'div',
+    errorClass: 'error-label',
+    rules: {
+      razon: {
+        required: true 
+      },
+      rfc: {
+        required: true 
+      },
+      direccion: {
+        required: true 
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      colonia: {
+        required: true 
+      },
+      cpostal: {
+        required: true 
+      },
+      estado: {
+        required: true 
+      },
+      municipio: {
+        required: true 
+      },
+      telfijo: {
+        required: true 
+      },
+      telmovil: {
+        required: true 
+      }
+    },
+    messages: {
+      razon: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+      },
+      rfc: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
+      },
+      direccion: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      email: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+        email: '<i class="fa fa-exclamation-triangle"></i> Email inválido'
+      },
+      colonia: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      cpostal: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      estado: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      municipio: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      telfijo: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      },
+      telmovil: {
+        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
+      }
+    },
+   submitHandler: function(form) {
+     return true;
+   }
+ });
 
    $("#frmCobro").validate({
     errorElement: 'div',

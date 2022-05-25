@@ -2,6 +2,8 @@ title = "Nota"
 url = "/nota/:slug"
 layout = "layout"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -17,6 +19,9 @@ noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog-kiper"
 postPage = "nota"
+
+[SeoBlogPost]
+post = "post"
 ==
 {% set populares = blogPupulares.posts %}
 
@@ -48,7 +53,7 @@ postPage = "nota"
                       </div>
                   {% endif %}
                       <div class="boxBlog__desc">
-                        <h4><a href="{{ popular.url }}">{{popular.title}}</a></h4>
+                        <h4 class="titleDescrip"><a href="{{ popular.url }}">{{popular.title}}</a></h4>
                       </div><!-- end.boxBlog__image -->
                     </div><!-- end.boxBlog -->
                 {% endfor %}
