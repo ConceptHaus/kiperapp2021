@@ -1,0 +1,180 @@
+title = "Carrito Whatsapp"
+url = "/carrito-whatsapp"
+layout = "layout"
+description = "Pagina para Carrito Whatsapp"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+{% put scriptFormulario %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#data_client").val(localStorage.getItem("data_client"));
+   	});
+</script>
+{% endput %}
+
+<section class="iniciaSec">
+	<form action="POST" name="frmCarrito" id="frmCarrito" action="" autocomplete="off" novalidate>
+		<div class="ctFrm whats">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12">
+						<h1 class="content_pregunta">Carrito de
+						<span class="naranja">Compra</span><br></h1>
+						<p class="">Estas a un paso de tomar el control de tus clientes<br>potenciales e incrementar tus ventas</p>
+					</div><!-- end.col-* -->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+		</div><!-- end.ctFrm -->
+		<div class="planesct">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12">
+						<div class="planesct__dividerDiagNew">
+							<img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
+						</div>
+					</div>
+					<div class="col-12 col-md-10 col-lg-8">
+						<div class="planWhatsCt">
+							<h4>Selecciona tu plan y en 48 horas<br>tendrás activado<br><strong>WhatsApp Bidireccional</strong></h4>
+						</div><!-- end.planWhatsCt -->
+						<div class="planesct__dividerWhats">
+							<img src="{{ 'assets/img/Logo_whats_Business.png'|theme }}" alt="WhatsApp Business">
+						</div>
+					</div><!-- end.col-* -->
+					<div class="col-12 col-md-10">
+						<div class="planesct__noslide">
+							<div class="row justify-content-center">
+								<div class="col-12">
+									<div class="planesct__plan planesct__plan--green">
+										<div class="planesct__title">
+											<h3>Business Plan</h3>
+										</div><!-- end.planesct__title -->
+										<div class="row">
+											<div class="col-12 col-md-6">
+												<div class="planesct__box">
+													<div class="planesct__usuarioWhats">
+														<p class="planesct__mensual">Anual / Usuario</p>
+														<h4 data-price="opcion-2" class="planesct__monto planesct__monto--black">
+															$900<small class="moneda">MXN</small>
+															<span class="legales">Por usuario, por mes con pago mensual</span>
+														</h4>
+													</div><!-- end.planesct__usuario -->
+												</div>
+												<div class="planesct__btns planesct__btns--whats">
+													<div class="planesct__linkbox">
+														<input type="radio" class="btn-check" name="planes" id="opcion-2" for-data="2" value="900" data-check-btn data-price-ch="Plan Standard Anual" checked>
+														<label class="planesct__link" for="opcion-2">Upgrade</label>
+													</div><!-- end.planesct__linkbox -->
+												</div><!-- end.planesct__btns -->
+											</div><!-- end.col-* -->
+											<div class="col-12 col-md-6">
+												<div class="planesct__box">
+													<div class="planesct__usuarioWhats">
+														<p class="planesct__mensual">Mensual / Usuario</p>
+														<h4 data-price="opcion-3" class="planesct__monto planesct__monto--black">
+															<!--<small class="price-old">$800 MXN</small>-->
+															$1,250<small class="moneda">MXN</small>
+															<span class="legales">Por usuario, por mes con pago mensual</span>
+														</h4>
+													</div><!-- end.planesct__usuario -->
+												</div>
+												<div class="planesct__btns planesct__btns--whats">
+													<div class="planesct__linkbox">
+														<input type="radio" class="btn-check" name="planes" id="opcion-3" for-data="3" data-price-ch="Plan Pro Mensual" data-check-btn value="1250">
+														<label class="planesct__link" for="opcion-3">Upgrade</label>
+													</div><!-- end.planesct__linkbox -->
+												</div><!-- end.planesct__btns -->
+											</div><!-- end.col-* -->
+										</div><!-- end.row -->
+									</div><!-- end.planesct__plan -->
+								</div>
+							</div><!-- end.row -->
+						</div><!-- end.planesct__car -->
+						<div class="planesct__divider"></div>
+					</div><!-- end.col-* -->
+					<div class="col-12 col-md-10 col-lg-8">
+						<div class="frmInicia frmInicia--divider">
+							<div class="row">
+								
+								<div class="col-12">
+									<div class="boxCantidad">
+										<label class="frmInicia__label"><img src="{{ 'assets/img/icon-whatsapp.png'|theme }}" alt="WhatsApp"> Cantidad de usuarios para WhatsApp</label>
+										<div class="inpInc">
+											<div class="inpInc__inputs">
+												<button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
+												<div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0"  readonly></div>
+												<button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
+											</div><!-- end.inpInc__inputs -->
+										</div><!-- end.inpInc -->
+									</div><!-- end.boxCantidad -->
+								</div>
+								<div class="col-12">
+									<div class="factCt">
+										<input type="checkbox" name="facturaSi" id="facturaSi" class="CheckStyle" value="1">
+										<label for="facturaSi"><strong>¿Requieres factura? *</strong></label>
+										<!-- <p class="factCt__desc">Al facturar se cobrará el 16% IVA del total de tu compra.<br><small>* Aplican siempre en cargos posteriores.</small></p> -->
+										<p class="factCt__desc">* Disponible 2 dias hábiles después de la confirmación de tu compra.</p>
+									</div>
+								</div><!-- end-col-* -->
+								<div class="col-12">
+									<input type="hidden" name="planSelec" id="planSelec" value="" readonly="readonly" />
+									<input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
+									<input type="hidden" name="subTotalPrice" id="subTotalPrice" value="" readonly="readonly" />
+									<input type="hidden" name="totalIva" id="totalIva" value=""  readonly="readonly"/>
+									<input type="hidden" name="totalPriceFin" id="totalPriceFin" value=""  readonly="readonly"/>
+									<div class="boxPrices">
+										<div class="boxPrices__boxPr">
+											<p class="boxPrices__sub">Costo del Plan:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
+										</div>
+										<div class="boxPrices__boxPr">
+											<p class="titleFac">Número de licencias:</p><p class="priceFac" id="cantidadLic">0</p>
+										</div>
+										<!-- <div class="boxPrices__fac">
+											<p class="titleFac">IVA 16.0%:</p><p class="priceFac" id="iva">$0</p>
+										</div> -->
+										<div class="boxPrices__boxPr boxPrices__boxPr--total">
+											<p class="boxPrices__tot">Total:</p>
+											<p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
+										</div>
+									</div>
+								</div>
+
+							</div><!-- end.row -->
+						</div><!-- end.frmInicia -->
+					</div><!-- end.col-* -->
+					<div class="col-12 col-md-10 col-lg-8">
+						<input class="planesct__link planesct__link--widthRight btnSubmit" type="submit" value="Pagar Ahora">  
+					</div> <!-- end.col-*-->
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="factCt">
+							<p class="factCt__message">
+								¿Requieres atención personalizada para tu compra,<br>ó costo preferencial por número de licencias a contratar?
+							</p>
+							<h2 class="factCt__title">Ponte en contacto con nuestro equipo:</h2>
+							<div class="factCt__items">
+								<div class="factCt__box">
+									<h2 class="factCt__titleBox">Escríbenos:</h2>
+									<ul class="factCt__list">
+										<li><a href="https://api.whatsapp.com/send/?phone=5537170725&text&app_absent=0" target="_blank"><i class="fab fa-whatsapp"></i> <span>55 3717 0725</span></a></li>
+										<li><a href="mailto:hola@kiper.app" target="_blank"><i class="fa fa-envelope"></i> <span>hola@kiper.app</span></a></li>
+									</ul>
+								</div><!-- end.factCt__box -->
+								<div class="factCt__box">
+									<h2 class="factCt__titleBox">Llámanos:</h2>
+									<ul class="factCt__list">
+										<li><a href="tel:5255667788" target="_blank"><i class="fa fa-phone"></i> <span>5566 7788</span></a></li>
+									</ul>
+								</div><!-- end.factCt__box -->
+							</div><!-- end.factCt__items -->
+						</div>
+					</div> <!-- end.col-*-->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+
+			
+		</div><!-- end.planesct -->
+	</form><!-- end.form -->
+</section><!-- end.iniciaSec -->

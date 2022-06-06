@@ -8,6 +8,9 @@ $gris2: #F6F6F6;
 $gris3: #464646;
 $azul: #50D4F1;
 $ama: #FACF38;
+$ver: #cef4cb;
+$whats: #00ce5e;
+$verText: #002d18;
 $negro: #212529;
 $black: #000000;
 $white: #ffffff;
@@ -293,10 +296,28 @@ article {
 .colsPad {
   padding: 10px; @include box-sizing(border-box);
 }
+.planWhatsCt {
+  width: 100%; height: auto; padding: 20px 20px; margin: 0 0 20px; position: relative; background-color: $ver; box-sizing: border-box; border-radius: 10px; box-shadow: 0 2px 4px rgba($black, 0.20);
+  & h4 {
+    color: $verText; padding: 0; margin: 0; text-align: center; line-height: 1.2; @include fluid-type(16px, 30px, 320px, 1200px);
+  }
+}
 .planesct {
   width: 100%; height: auto; padding: 0 0 20px; margin: 0 0 10px; position: relative; @include box-sizing(border-box);
   &.planesPad {
     padding: 0;
+  }
+  &__dividerDiagNew {
+    width: 100%; height: auto; padding: 0; margin: 0 0 30px; position: relative;
+    & img {
+      display: block; width: 100%; max-width: 30px; height: auto; margin: 0 auto; padding: 0;
+    }
+  }
+  &__dividerWhats {
+    width: 100%; height: auto; padding: 0; margin: 0 0 30px; position: relative;
+    & img {
+      display: block; width: 100%; max-width: 280px; height: auto; margin: 0 auto; padding: 0;
+    }
   }
   &__padd {
     padding-top: 0;
@@ -365,6 +386,24 @@ article {
   &__plan {
     // max-width: 343px;
     width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative; @include box-sizing(border-box); background-color: $gris2; box-shadow: 0px 4px 6px rgba($black, 0.25); border-radius: 20px; overflow: hidden; @include transition(all 300ms ease); opacity: 1;
+    &--green {
+      & .planesct__title {
+        background-color: $ver;
+        & h3 {
+          color: $verText;
+        }
+      }
+      &:hover {
+        box-shadow: 0 4px 8px rgba($ver, 0.75);
+      }
+      & .planesct__link {
+        background: $white; color: $rojo; border: 1px solid $rojo;
+        &:hover,
+        &:active {
+          color: $white; background: $rojo; border-color: $rojo;
+        }
+      }
+    }
     &--rojo {
       & .planesct__title {
         background-color: $rojo;
@@ -537,6 +576,23 @@ article {
       }
     }
   }
+  &__usuarioWhats {
+    width: 100%; height: auto; padding: 15px 0; margin: 0; position: relative; @include box-sizing(border-box); display: block;
+    @media all and (min-width: 992px) {
+      height: 100%; min-height: 165px;
+    }
+    @media all and (min-width: 992px) {
+      min-height: 190px;
+    }
+    &--linea{
+      @media all and (min-width: 992px) {
+        height: 100%; min-height: 160px; padding-top: 2%;
+      }
+      @media all and (min-width: 992px) {
+        min-height: 160px; padding-top: 2%;
+      }
+    }
+  }
   &__beneficios {
     width: 100%; height: 100%; min-height: 450px; padding: 0 20px; margin: 0 0 20px; position: relative; @include box-sizing(border-box);
     & ul {
@@ -642,6 +698,12 @@ article {
     }
     &--flex {
       @include displayFlex(flex, row, flex-start, center, wrap);
+      @media all and (min-width: 640px) {
+        @include flex-direction(row);
+      }
+    }
+    &--whats {
+      @include displayFlex(flex, row, center, center, wrap);
       @media all and (min-width: 640px) {
         @include flex-direction(row);
       }
@@ -795,6 +857,9 @@ form {
 // Prueba ahora Section
 .ctFrm {
   width: 100%; height: auto; padding: 0; margin: 50px 0 30px; @include box-sizing(border-box); position: relative;
+  &.whats {
+    margin: 50px 0 0;
+  }
 }
 .frmInicia {
   width: 100%; height: auto; padding: 0; margin: 30px 0 30px; @include box-sizing(border-box); position: relative;
@@ -806,6 +871,9 @@ form {
   }
   &__label {
     color: $black; margin: 20px 0 0; padding: 0; text-align: center; @include fluid-type(14px, 18px, 320px, 1200px); font-family: 'Gotham-Light'; font-weight: 400;
+    & img {
+      display: inline; vertical-align: middle; margin: 0; padding: 0; width: 30px; height: auto;
+    }
   }
   &__alerta {
     margin: 0 0 6px!important; padding: 10px!important; font-family: 'Gotham-Light'; font-weight: 400; color: $gris!important; background-color: rgba($azul, 0.10)!important; border-color: $azul!important;
