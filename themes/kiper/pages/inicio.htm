@@ -16,8 +16,16 @@ robot_follow = "follow"
   <section class="hero-sec">
     <!--<img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/headerKiper.png'|theme }}" >
     <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/bgsKiper.svg'|theme }}" >-->
-    <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/bg_slider.svg'|theme }}" >
-    <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" >
+
+    <!-- <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/bg_slider.svg'|theme }}" >
+    <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" > -->
+
+    <picture>
+      <source srcset="{{ 'assets/img/foto_2.png'|theme }}" media="(min-width: 992px)">
+      <source srcset="{{ 'assets/img/foto_01.png'|theme }}" media="(min-width: 768px)">
+      <img class="hero-sec__imgBgHero" src="{{ 'assets/img/foto_2.png'|theme }}" alt="MDN">
+    </picture>
+
     <div class="hero-sec__desc">
       <div class="container">
         <div class="row justify-content-start">
