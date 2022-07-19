@@ -1,0 +1,73 @@
+$fontR: '../font/';
+
+@include font-face("kiperFont", "#{$fontR}kiperFont", $file-formats: eot ttf woff svg);
+.kf {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'kiperFont' !important; font-style: normal; font-variant: normal; text-rendering: auto; line-height: 1; font-weight: 900; display: inline-block;
+/* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+.kf-transferencia:before {
+  content: "\e913";
+}
+.kf-deposito:before {
+  content: "\e914";
+}
+.kf-test:before {
+  content: "\e912";
+}
+.kf-basura:before {
+  content: "\e90a";
+}
+.kf-no-disponible:before {
+  content: "\e90b";
+}
+.kf-buscador:before {
+  content: "\e90c";
+}
+.kf-codigo:before {
+  content: "\e90d";
+}
+.kf-editar:before {
+  content: "\e90e";
+}
+.kf-encendido:before {
+  content: "\e90f";
+}
+.kf-estadisticas:before {
+  content: "\e910";
+}
+.kf-estadisticas-no:before {
+  content: "\e911";
+}
+.kf-chatbot:before {
+  content: "\e905";
+}
+.kf-contacto:before {
+  content: "\e906";
+}
+.kf-personas:before {
+  content: "\e907";
+}
+.kf-vcard:before {
+  content: "\e908";
+}
+.kf-whatsapp:before {
+  content: "\e909";
+}
+.kf-archivo:before {
+  content: "\e900";
+}
+.kf-audio:before {
+  content: "\e901";
+}
+.kf-imagen:before {
+  content: "\e902";
+}
+.kf-mensaje:before {
+  content: "\e903";
+}
+.kf-video:before {
+  content: "\e904";
+}
