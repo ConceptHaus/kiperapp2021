@@ -12,6 +12,29 @@ robot_follow = "follow"
 
 [SeoCmsPage]
 ==
+{% put scriptPayPal %}
+  <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+  <script>
+    paypal.Buttons({
+    style: {
+      shape: 'pill',
+      color: 'gold',
+      layout: 'vertical',
+      label: 'subscribe'
+    },
+    createSubscription: function(data, actions) {
+      return actions.subscription.create({
+        /* Creates the subscription */
+        plan_id: 'P-1M940434D0991100XMLLQCMQ'
+      });
+    },
+    onApprove: function(data, actions) {
+      alert(data.subscriptionID); // You can add optional success message for the subscriber here
+    }
+    }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
+  </script>
+{% endput %}
+
 <article class="gen-ct">
   <section class="hero-sec">
     <!--<img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/headerKiper.png'|theme }}" >
@@ -117,6 +140,16 @@ robot_follow = "follow"
                         </label>
                       </a>
                     </div><!-- end.planesct__linkbox -->
+                    <div class="planesct__newTools">
+                      <img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
+                      <p class="textTools">- Otras formas de pago -</p>
+                      <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
+                      <div class="dividerGray"></div>
+                      <div class="planesct__btnsPay">
+                        <a href=""><i class="kf kf-transferencia"></i>Pagar por transferencia</a>
+                        <a href=""><i class="kf kf-deposito"></i> Ficha de depósito</a>
+                      </div>
+                    </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">
                       <input type="radio" class="btn-check" name="planes" id="opcion-2" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-2">Plan Anual</label>
@@ -178,6 +211,16 @@ robot_follow = "follow"
                         </label>
                       </a>
                     </div><!-- end.planesct__linkbox -->
+                    <div class="planesct__newTools">
+                      <img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
+                      <p class="textTools">- Otras formas de pago -</p>
+                      <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
+                      <div class="dividerGray"></div>
+                      <div class="planesct__btnsPay">
+                        <a href=""><i class="kf kf-transferencia"></i>Pagar por transferencia</a>
+                        <a href=""><i class="kf kf-deposito"></i> Ficha de depósito</a>
+                      </div>
+                    </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">
                       <input type="radio" class="btn-check" name="planes" id="opcion-4" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-4">Plan Anual</label>
