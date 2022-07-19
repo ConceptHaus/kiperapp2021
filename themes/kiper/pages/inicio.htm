@@ -13,11 +13,11 @@ robot_follow = "follow"
 [SeoCmsPage]
 ==
 <article class="gen-ct">
-  <section class="hero-sec">
+  <section class="hero-sec" style="background-image: url(https://kiper.app/themes/kiper/assets/img/nuevo/bgs_slider.png); background-position: cover;">
     <!--<img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/headerKiper.png'|theme }}" >
     <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/bgsKiper.svg'|theme }}" >-->
-    <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/bg_slider.svg'|theme }}" >
-    <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" >
+    <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s"  >
+    <!--<img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" >-->
     <div class="hero-sec__desc">
       <div class="container">
         <div class="row justify-content-start">
@@ -107,6 +107,27 @@ robot_follow = "follow"
                         <label class="planesct__link" >
                         ¡Contratar ahora!
                         </label>
+                        <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-1M940434D0991100XMLLQCMQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
+</script>
                       </a>
                     </div><!-- end.planesct__linkbox -->
                     <div class="planesct__linkbox" style="display: none;">
