@@ -249,21 +249,57 @@ article {
   }
 }
 .secHeroInt {
-  @include position(relative, null null null null); width: 100%; max-width: 1440px; height: auto; padding: 80px 0; margin: 0 auto; z-index: 1; overflow: hidden; background-color: $gris2; display: block;
+  @include position(relative, null null null null); width: 100%; max-width: 1440px; height: auto; padding: 40px 0; margin: 0 auto; z-index: 1; overflow: hidden; background-color: $gris2; display: block;
   & .container {
     position: relative; z-index: 4;
+  }
+  & .descMain {
+    & h1 {
+      padding: 0; margin: 0 0 15px; text-align: center; line-height: 1; @include fluid-type(20px, 55px, 320px, 1200px);
+    }
+    & p {
+      padding: 0; margin: 0; text-align: center; line-height: 1.2; @include fluid-type(14px, 20px, 320px, 1200px);
+    }
+    @media all and (min-width: 768px) {
+      & h1 {
+        text-align: left;
+      }
+      & p {
+        padding: 0 0 0 30px; text-align: left;
+      }
+    }
+  }
+  & .descIntMain {
+    & h1 {
+      padding: 0; margin: 0 0 15px; text-align: left; line-height: 1; @include fluid-type(20px, 55px, 320px, 1200px);
+    }
+    & p {
+      padding: 0; margin: 0; text-align: left; line-height: 1; @include fluid-type(16px, 26px, 320px, 1200px);
+      & img {
+        display: inline; vertical-align: middle; width: 30px; height: auto; padding: 0; margin: 0 8px 0 0; border: none;
+      }
+    }
+  }
+  &__bgImg {
+    display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; position: absolute; top: 0; left: 0; z-index: 1;
   }
   &__lines {
     @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); display: block; width: 10px; height: auto; padding: 0; margin: 0; z-index: 2;
   }
   &__img {
-    @include position(absolute, 50% 0 null null); @include transform(translateY(-50%)); display: block; width: 100%; max-width: 500px; height: auto; padding: 0; margin: 0; z-index: 3;
+    display: block; width: 100%; height: auto; padding: 0; margin: 0 0 20px;
+    // @include position(absolute, 50% 0 null null); @include transform(translateY(-50%)); z-index: 3;
+    @media all and (min-width: 768px) {
+      margin: 0;
+    }
   }
-  & h1 {
-    padding: 0; margin: 0 0 15px; text-align: left; line-height: 1; @include fluid-type(20px, 50px, 320px, 1200px);
-  }
-  & p {
-    padding: 0 0 0 30px; margin: 0; text-align: left; line-height: 1.2; @include fluid-type(14px, 20px, 320px, 1200px);
+  &.bgHeroInt {
+    & h1 {
+      color: $white;
+    }
+    & p {
+      color: $white;
+    }
   }
 }
 // Menu Mobile
@@ -1892,16 +1928,38 @@ span.cc{ color:#6d84b4 }
 .faqsCt {
   width: 100%; height: auto; padding: 50px 0; margin: 0; position: relative; background-color: $white;
 }
+.boxSloganFaq {
+  width: 100%; height: 320px; padding: 0; margin: 0 0 20px; position: relative; @include box-sizing(border-box); display: flex; justify-content: center; align-items: center;
+  &__img {
+    width: 100%; max-width: 300px; height: auto; padding: 0; margin: 0; position: relative;
+    & img {
+      display: block; width: 100%; height: auto; padding: 0; margin: 0;
+    }
+    &:after {
+      content: ''; @include position(absolute, null -20px 4px null); width: 20px; height: 16px; background-image: url('#{$imgR}iconsnews/Diagonal_rojo.svg'); background-position: center; background-repeat: no-repeat; background-size: 100%;
+    }
+  }
+  &:after {
+    content: ''; @include position(absolute, null 20px 20px null); z-index: 2; width: 20px; height: 20px; background-color: $rojo;
+  }
+}
 .boxFaq {
   width: 100%; height: 320px; padding: 0; margin: 0 0 20px; position: relative; @include box-sizing(border-box); overflow: hidden;
   & figcaption {
-    width: 100%; height: auto; @include position(absolute, 50% null null 0); margin: 0; padding: 0; z-index: 2; @include transform(translateY(-50%));
+    width: 100%; height: auto; @include position(absolute, 50% null null 0); margin: 0; padding: 0; z-index: 3; @include transform(translateY(-50%));
+  }
+  &:after {
+    content: ''; @include position(absolute, null null 20px null); z-index: 2; width: 20px; height: 20px; background-color: $rojo; opacity: 0; @include transition(250ms transform ease-in-out, opacity 250ms); @include transform(translatey(100%));
   }
   &--left {
-    
+    &:after {
+      left: 20px;
+    }
   }
   &--right {
-
+    &:after {
+      right: 20px;
+    }
   }
   &__img {
     display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; position: relative; @include transform(scale(1.0)); @include transition(transform 900ms ease-in-out); z-index: 1;
@@ -1913,6 +1971,66 @@ span.cc{ color:#6d84b4 }
     margin: 0; padding: 0; text-align: center; line-height: 1; color: $white; font-family: 'Gotham-Light'; font-weight: 600; box-sizing: border-box; @include fluid-type(16px, 24px, 320px, 1200px);
   }
   &__link {
-    @include position(absolute, 0 null null 0); width: 100%; height: 100%; margin: 0; padding: 0; text-decoration: none; text-indent: -9999px; font-size: 0; opacity: 0; z-index: 3;
+    @include position(absolute, 0 null null 0); width: 100%; height: 100%; margin: 0; padding: 0; text-decoration: none; text-indent: -9999px; font-size: 0; opacity: 0; z-index: 4;
+  }
+  &:hover {
+    & .boxFaq__img {
+      @include transform(scale(1.04));
+    }
+    &:after {
+      @include transform(translatey(0)); opacity: 1;
+    }
+  }
+}
+// Accordion Stilos
+.faqInt {
+  width: 100%; height: auto; padding: 40px 0; margin: 0; position: relative; box-sizing: border-box;
+  &__title {
+    margin: 0; padding: 0; @include fluid-type(16px, 20px, 320px, 1200px);
+  }
+  &__desc {
+    width: 100%; height: auto; margin: 0; padding: 20px 40px; box-sizing: border-box; position: relative; border-bottom: 1px solid $rojo;
+    & p {
+      @include fluid-type(13px, 16px, 320px, 1200px); margin: 0; padding: 0; text-align: left;
+    }
+    & img {
+      width: 100%; height: auto; padding: 0; margin: 0 0 20px; display: block; border: 0;
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 60px 0;
+  }
+}
+.ratio {
+  position: relative; width: 100%; margin-bottom: 20px;
+  & > * {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
+  &.ratio-16x9 {
+    --bs-aspect-ratio: calc(9 / 16 * 100%);
+  }
+  &:before {
+    display: block; padding-top: var(--bs-aspect-ratio); content: "";
+  }
+}
+.faqsAcc {
+  margin: 0; border: none; border-radius: none;
+  & dt {
+    border-bottom: 1px solid #DDD; cursor: pointer; padding: 8px 40px 8px 20px; margin: 0; box-sizing: border-box; position: relative; text-align: left;
+    &:before {
+      content: "\f067"; @include position(absolute, 50% 0 null null); width: 30px; height: 30px; line-height: 30px; font-family: 'fontAwesome'; text-align: center; @include transform(translateY(-50%));
+    }
+    &.faqsAcc-active {
+      &:before {
+        content: "\f068"; padding-right: 5px;
+      }
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+  & dd {
+    display: none; padding: 0;
+    // border-bottom: 1px solid #DDD;
   }
 }
