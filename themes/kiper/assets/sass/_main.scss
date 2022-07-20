@@ -1888,3 +1888,31 @@ span.cc{ color:#6d84b4 }
     }
   }
 }
+// Preguntas frecuentes
+.faqsCt {
+  width: 100%; height: auto; padding: 50px 0; margin: 0; position: relative; background-color: $white;
+}
+.boxFaq {
+  width: 100%; height: 320px; padding: 0; margin: 0 0 20px; position: relative; @include box-sizing(border-box); overflow: hidden;
+  & figcaption {
+    width: 100%; height: auto; @include position(absolute, 50% null null 0); margin: 0; padding: 0; z-index: 2; @include transform(translateY(-50%));
+  }
+  &--left {
+    
+  }
+  &--right {
+
+  }
+  &__img {
+    display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; position: relative; @include transform(scale(1.0)); @include transition(transform 900ms ease-in-out); z-index: 1;
+  }
+  &__icon {
+    width: 40px; height: auto; margin: 0 auto 20px; padding: 0; border: 0; display: block;
+  }
+  &__titleFaq {
+    margin: 0; padding: 0; text-align: center; line-height: 1; color: $white; font-family: 'Gotham-Light'; font-weight: 600; box-sizing: border-box; @include fluid-type(16px, 24px, 320px, 1200px);
+  }
+  &__link {
+    @include position(absolute, 0 null null 0); width: 100%; height: 100%; margin: 0; padding: 0; text-decoration: none; text-indent: -9999px; font-size: 0; opacity: 0; z-index: 3;
+  }
+}
