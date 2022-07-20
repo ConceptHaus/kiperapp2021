@@ -1,0 +1,68 @@
+description = "Modla para pagos"
+
+[viewBag]
+snippetCode = "modalgastos"
+snippetName = "Modal Gastos"
+==
+
+<div class="modal fade" id="modalTranferencia" tabindex="-1" role="dialog" aria-labelledby="modalTranferenciaLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="POST" name="frmRegRFC" id="frmRegRFC" action="" autocomplete="off" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTranferenciaLabel">Datos de transferencia</h5>
+          <button type="button" class="closeModalFac close" id="closeModalTrans" data-close-modal="#modalTranferencia">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="inputsFact">
+            <div class="inputsFact__inputs">
+              <div class="frmInicia modalCtFrm">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <p>contenido</p>
+                  </div>
+                </div><!-- end.row -->
+              </div>
+            </div><!-- end.inputsFact -->
+          </div><!-- end#modalTranferencia -->
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="submit" id="submit" class="bgtnSendFac bgtnSendFac--widthCenter">Cerrar</button>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalDeposito" tabindex="-1" role="dialog" aria-labelledby="modalDepositoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="POST" name="frmRegRFC" id="frmRegRFC" action="" autocomplete="off" novalidate>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTranferenciaLabel">Ficha de Deposito</h5>
+          <button type="button" class="closeModalFac close" id="closeModalDep" data-close-modal="#modalDeposito">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="inputsFact">
+            <div class="inputsFact__inputs">
+              <div class="frmInicia modalCtFrm">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <p>contenido</p>
+                  </div>
+                </div><!-- end.row -->
+              </div>
+            </div><!-- end.inputsFact -->
+          </div><!-- end#modalTranferencia -->
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="submit" id="submit" class="bgtnSendFac bgtnSendFac--widthCenter">Cerrar</button>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>
