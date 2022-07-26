@@ -148,16 +148,6 @@ function onTest()
 												<input type="radio" class="btn-check" name="planes" id="opcion-2" for-data="2" value="{{ 159*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
-											<div class="planesct__newTools">
-												<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
-												<p class="textTools">- Otras formas de pago -</p>
-												<div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
-												<div class="dividerGray"></div>
-												<div class="planesct__btnsPay">
-													<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
-													<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
-												</div>
-											</div><!-- end.planesct__newTools -->
 										</div><!-- end.planesct__btns -->
 									</div><!-- end.planesct__plan -->
 								</div><!-- end.col-* -->
@@ -215,16 +205,6 @@ function onTest()
 												<input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
-											<div class="planesct__newTools">
-												<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
-												<p class="textTools">- Otras formas de pago -</p>
-												<div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
-												<div class="dividerGray"></div>
-												<div class="planesct__btnsPay">
-													<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
-													<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
-												</div>
-											</div><!-- end.planesct__newTools -->
 										</div><!-- end.planesct__btns -->
 									</div><!-- end.planesct__plan -->
 								</div><!-- end.col-* -->
@@ -283,8 +263,22 @@ function onTest()
 							</div><!-- end.row -->
 						</div><!-- end.frmInicia -->
 					</div><!-- end.col-* -->
-					<div class="col-12 col-md-10 col-lg-7">
-						<input class="planesct__link planesct__link--widthRight btnSubmit" type="submit" value="Pagar Ahora">  
+					<div class="col-12 col-md-10 col-lg-7 mb-4">
+						<input class="planesct__link planesct__link--widthRight btnSubmit" type="submit" value="Pagar desde el sitio">
+						<div class="row justify-content-center">
+							<div class="col-12 col-md-8">
+								<div class="planesct__newTools">
+									<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
+									<p class="textTools">- Otras formas de pago -</p>
+									<div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
+									<div class="dividerGray"></div>
+									<div class="planesct__btnsPay">
+										<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
+										<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
+									</div>
+								</div><!-- end.planesct__newTools -->
+							</div>
+						</div>
 					</div> <!-- end.col-*-->
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="factCt">
