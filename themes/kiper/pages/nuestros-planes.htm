@@ -23,6 +23,20 @@ is_hidden = 0
       alert(data.subscriptionID); // You can add optional success message for the subscriber here
     }
     }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
+    $(function(){
+      $('[data-modal-pago]').click(function() {
+        let idMod = $(this).data('modal-pago');
+        $(idMod).modal('show');
+      });
+      $('#closeModalTrans').click(function(e){
+        let idModClose = $(this).data('close-modal');
+        $(idModClose).modal('hide');
+      });
+      $('#closeModalDep').click(function(e){
+        let idModClose = $(this).data('close-modal');
+        $(idModClose).modal('hide');
+      });
+    });
   </script>
 {% endput %}
 
@@ -92,7 +106,7 @@ is_hidden = 0
                     <div class="planesct__linkbox">
                       <input type="radio" class="btn-check" name="planes" id="opcion-1" data-check-btn value="Plan Mensual">
                       <a href="/comenzar-ahora" style="text-decoration: none;">
-                        <label class="planesct__link" >
+                        <label class="planesct__link planesct__link--widthCenter">
                         ¡Contratar ahora!
                         </label>
                       </a>
@@ -124,8 +138,8 @@ is_hidden = 0
 </script>
                       <div class="dividerGray"></div>
                       <div class="planesct__btnsPay">
-                        <a href=""><i class="kf kf-transferencia"></i>Pagar por transferencia</a>
-                        <a href=""><i class="kf kf-deposito"></i> Ficha de depósito</a>
+                        <button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
+                        <button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
                       </div>
                     </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">
@@ -184,7 +198,7 @@ is_hidden = 0
                     <div class="planesct__linkbox">
                       <input type="radio" class="btn-check" name="planes" id="opcion-3" data-check-btn value="Plan Mensual">
                       <a href="/comenzar-ahora" style="text-decoration: none;">
-                        <label class="planesct__link" >
+                        <label class="planesct__link planesct__link--widthCenter">
                           ¡Contratar ahora!
                         </label>
                       </a>
@@ -195,8 +209,8 @@ is_hidden = 0
                       <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
                       <div class="dividerGray"></div>
                       <div class="planesct__btnsPay">
-                        <a href=""><i class="kf kf-transferencia"></i>Pagar por transferencia</a>
-                        <a href=""><i class="kf kf-deposito"></i> Ficha de depósito</a>
+                        <button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
+                        <button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
                       </div>
                     </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">

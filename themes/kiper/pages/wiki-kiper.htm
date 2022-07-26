@@ -1,0 +1,195 @@
+title = "Wiki Kiper"
+url = "/wiki-kiper"
+layout = "layout"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+
+{% put scriptAccordeon %}
+<script>
+  $(function($){
+    $('.tab-content').slice(1).hide();
+    $('.faqTabs__tabMenu li.faqTabs__item').eq(0).addClass('active');
+    $('.faqTabs__tabMenu li.faqTabs__item a').click(function(e) {
+        e.preventDefault();
+        var content = $(this).attr('href');
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+        $(content).show();
+        $(content).siblings('.tab-content').hide();
+    });
+  });
+</script>
+{% endput %}
+
+<section class="secHeroInt bgHeroInt">
+  <img class="secHeroInt__bgImg" src="{{ 'assets/img/faqs/big/Contrataciones_Suscripciones.png'|theme }}">
+  <img class="secHeroInt__lines" src="{{ 'assets/img/iconsnews/Cuadros_colores.svg'|theme }}">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 order-md-2">
+        <img class="secHeroInt__img" src="{{ 'assets/img/iconsnews/mensaje_completo_blanco.svg'|theme }}">
+      </div><!-- end.col-* -->
+      <div class="col-12 col-md-6 order-md-1">
+        <div class="descIntMain">
+          <h1>FAQs</h1>
+          <p><img src="{{ 'assets/img/iconsnews/Wiki_kiper.svg'|theme }}">Wiki Kiper</p>
+        </div>
+      </div><!-- end.col-* -->
+    </div><!-- end.row -->
+  </div><!-- end.container -->
+</section><!-- end.secHeroInt -->
+
+<section class="faqTabs">
+  <ul class="faqTabs__tabMenu">
+    <li class="faqTabs__item"><a href="#tab-1">Prospectos</a></li>
+    <li class="faqTabs__item"><a href="#tab-2">Alertas</a></li>
+    <li class="faqTabs__item"><a href="#tab-3">Oportunidades</a></li>
+    <li class="faqTabs__item"><a href="#tab-4">Ventas</a></li>
+  </ul><!-- end.faqTabs__tabMenu -->
+</section><!-- end.faqTabs -->
+
+<section class="faqInt">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <div id="tab-1" class="tab-content">
+          <dl id="prospectos" data-acc class="faqsAcc">
+            <dt>
+              <h3 class="faqInt__title">Prospectos Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-1 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/PXB1q9mWvPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-2 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <img src="{{ 'assets/img/faqs/big/Plan_standard.png'|theme }}" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-3 -->
+          </dl><!-- end.faqsAcc -->
+        </div><!-- end.tab-content -->
+        <div id="tab-2" class="tab-content">
+          <dl id="alertas" data-acc class="faqsAcc">
+            <dt>
+              <h3 class="faqInt__title">Alertas Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-1 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/PXB1q9mWvPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-2 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <img src="{{ 'assets/img/faqs/big/Plan_standard.png'|theme }}" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-3 -->
+          </dl><!-- end.faqsAcc -->
+        </div><!-- end.tab-content -->
+        <div id="tab-3" class="tab-content">
+          <dl id="oportunidades" data-acc class="faqsAcc">
+            <dt>
+              <h3 class="faqInt__title">Oportunidades Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-1 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/PXB1q9mWvPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-2 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <img src="{{ 'assets/img/faqs/big/Plan_standard.png'|theme }}" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-3 -->
+          </dl><!-- end.faqsAcc -->
+        </div><!-- end.tab-content -->
+        <div id="tab-4" class="tab-content">
+          <dl id="ventas" data-acc class="faqsAcc">
+            <dt>
+              <h3 class="faqInt__title">Ventas Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-1 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/PXB1q9mWvPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-2 -->
+            <dt>
+              <h3 class="faqInt__title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quisquam autem eius vitae labore voluptates nulla quaerat?</h3>
+            </dt>
+            <dd>
+              <div class="faqInt__desc">
+                <img src="{{ 'assets/img/faqs/big/Plan_standard.png'|theme }}" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et reiciendis officiis deleniti dignissimos numquam magnam quibusdam nostrum similique nulla, cupiditate qui libero earum ipsum repudiandae perspiciatis, tempora ipsam placeat aut?</p>
+              </div>
+            </dd><!-- end.tab-3 -->
+          </dl><!-- end.faqsAcc -->
+        </div><!-- end.tab-content -->
+
+      </div><!-- end.col-* -->
+      <div class="col-12">
+        <div class="faqInt__divider">
+          <img src="{{ 'assets/img/1x/cuadros_colores.png'|theme }}" alt="Divider Kiper">
+        </div><!-- end.faqInt__divider -->
+      </div><!-- end.col-* -->
+    </div><!-- end.row -->
+  </div><!-- end.container -->
+</section><!-- end.faqInt -->
