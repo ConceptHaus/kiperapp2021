@@ -115,8 +115,6 @@ description = "Layout General"
       {% partial 'site/modal-aviso' %}
     </div>
 
-    {% partial 'site/modal-pago' %}
-
     {% if this.page.title == 'Carrito de Compra' %}
     {% partial 'site/loader-modal' %}
     {% endif %}
@@ -127,6 +125,7 @@ description = "Layout General"
 
     {% if this.page.title == 'Pagar ahora' %}
     {% partial 'site/modal-factura' %}
+    {% partial 'site/modal-pago' %}
     {% endif %}
     {% if this.page.title == 'Carrito Whatsapp' %}
     {% partial 'site/modal-factura' %}
