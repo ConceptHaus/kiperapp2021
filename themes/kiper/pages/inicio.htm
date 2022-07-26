@@ -12,48 +12,12 @@ robot_follow = "follow"
 
 [SeoCmsPage]
 ==
-{% put scriptPayPal %}
-  <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-  <script>
-    paypal.Buttons({
-    style: {
-      shape: 'pill',
-      color: 'gold',
-      layout: 'vertical',
-      label: 'subscribe'
-    },
-    createSubscription: function(data, actions) {
-      return actions.subscription.create({
-        /* Creates the subscription */
-        plan_id: 'P-1M940434D0991100XMLLQCMQ'
-      });
-    },
-    onApprove: function(data, actions) {
-      alert(data.subscriptionID); // You can add optional success message for the subscriber here
-    }
-    }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
-  </script>
-{% endput %}
-
 <article class="gen-ct">
   <section class="hero-sec" style="background-image: url(https://kiper.app/themes/kiper/assets/img/nuevo/bgs_slider.png); background-position: cover;">
     <!--<img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/headerKiper.png'|theme }}" >
     <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/bgsKiper.svg'|theme }}" >-->
-<<<<<<< HEAD
     <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s"  >
     <!--<img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" >-->
-=======
-
-    <!-- <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/bg_slider.svg'|theme }}" >
-    <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" > -->
-
-    <picture>
-      <source srcset="{{ 'assets/img/foto_2.png'|theme }}" media="(min-width: 992px)">
-      <source srcset="{{ 'assets/img/foto_01.png'|theme }}" media="(min-width: 768px)">
-      <img class="hero-sec__imgBgHero" src="{{ 'assets/img/foto_2.png'|theme }}" alt="MDN">
-    </picture>
-
->>>>>>> c27771838494dd986ca42be40f66823ce2e232b0
     <div class="hero-sec__desc">
       <div class="container">
         <div class="row justify-content-start">
@@ -141,41 +105,31 @@ robot_follow = "follow"
                       <input type="radio" class="btn-check" name="planes" id="opcion-1" data-check-btn value="Plan Mensual">
                       <a href="/comenzar-ahora" style="text-decoration: none;">
                         <label class="planesct__link" >
-                        ¡Contratar ahora!
+                          Pagar desde el sitio
                         </label>
                         <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-<script>
-  paypal.Buttons({
-      style: {
-          shape: 'pill',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          /* Creates the subscription */
-          plan_id: 'P-1M940434D0991100XMLLQCMQ'
-        });
-      },
-      onApprove: function(data, actions) {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
-      }
-  }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
-</script>
+                      <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                      <script>
+                        paypal.Buttons({
+                            style: {
+                                shape: 'pill',
+                                color: 'gold',
+                                layout: 'vertical',
+                                label: 'subscribe'
+                            },
+                            createSubscription: function(data, actions) {
+                              return actions.subscription.create({
+                                /* Creates the subscription */
+                                plan_id: 'P-1M940434D0991100XMLLQCMQ'
+                              });
+                            },
+                            onApprove: function(data, actions) {
+                              alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                            }
+                        }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
+                      </script>
                       </a>
                     </div><!-- end.planesct__linkbox -->
-                    <div class="planesct__newTools">
-                      <img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
-                      <p class="textTools">- Otras formas de pago -</p>
-                      <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
-                      <div class="dividerGray"></div>
-                      <div class="planesct__btnsPay">
-                        <a href=""><i class="kf kf-transferencia"></i>Pagar por transferencia</a>
-                        <a href=""><i class="kf kf-deposito"></i> Ficha de depósito</a>
-                      </div>
-                    </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">
                       <input type="radio" class="btn-check" name="planes" id="opcion-2" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-2">Plan Anual</label>
@@ -237,16 +191,6 @@ robot_follow = "follow"
                         </label>
                       </a>
                     </div><!-- end.planesct__linkbox -->
-                    <div class="planesct__newTools">
-                      <img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
-                      <p class="textTools">- Otras formas de pago -</p>
-                      <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
-                      <div class="dividerGray"></div>
-                      <div class="planesct__btnsPay">
-                        <a href=""><i class="kf kf-transferencia"></i>Pagar por transferencia</a>
-                        <a href=""><i class="kf kf-deposito"></i> Ficha de depósito</a>
-                      </div>
-                    </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">
                       <input type="radio" class="btn-check" name="planes" id="opcion-4" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-4">Plan Anual</label>
