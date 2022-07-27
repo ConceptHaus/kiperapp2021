@@ -32,9 +32,42 @@ function onTest()
    	});
 </script>
 {% endput %}
-
-
-
+{% put scriptPayPal %}
+  <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+  <script>
+    paypal.Buttons({
+    style: {
+      shape: 'pill',
+      color: 'gold',
+      layout: 'vertical',
+      label: 'subscribe'
+    },
+    createSubscription: function(data, actions) {
+      return actions.subscription.create({
+        /* Creates the subscription */
+        plan_id: 'P-1M940434D0991100XMLLQCMQ'
+      });
+    },
+    onApprove: function(data, actions) {
+      alert(data.subscriptionID); // You can add optional success message for the subscriber here
+    }
+    }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
+    $(function(){
+      $('[data-modal-pago]').click(function() {
+        let idMod = $(this).data('modal-pago');
+        $(idMod).modal('show');
+      });
+      $('#closeModalTrans').click(function(e){
+        let idModClose = $(this).data('close-modal');
+        $(idModClose).modal('hide');
+      });
+      $('#closeModalDep').click(function(e){
+        let idModClose = $(this).data('close-modal');
+        $(idModClose).modal('hide');
+      });
+    });
+  </script>
+{% endput %}
 
 <section class="iniciaSec">
 	<form action="POST" name="frmCarrito" id="frmCarrito" action="" autocomplete="off" novalidate>
@@ -115,6 +148,16 @@ function onTest()
 												<input type="radio" class="btn-check" name="planes" id="opcion-2" for-data="2" value="{{ 159*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
+											<div class="planesct__newTools">
+												<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
+												<p class="textTools">- Otras formas de pago -</p>
+												<div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
+												<div class="dividerGray"></div>
+												<div class="planesct__btnsPay">
+													<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
+													<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
+												</div>
+											</div><!-- end.planesct__newTools -->
 										</div><!-- end.planesct__btns -->
 									</div><!-- end.planesct__plan -->
 								</div><!-- end.col-* -->
@@ -172,6 +215,16 @@ function onTest()
 												<input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
+											<div class="planesct__newTools">
+												<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
+												<p class="textTools">- Otras formas de pago -</p>
+												<div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
+												<div class="dividerGray"></div>
+												<div class="planesct__btnsPay">
+													<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
+													<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
+												</div>
+											</div><!-- end.planesct__newTools -->
 										</div><!-- end.planesct__btns -->
 									</div><!-- end.planesct__plan -->
 								</div><!-- end.col-* -->

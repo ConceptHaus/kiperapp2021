@@ -146,6 +146,30 @@ body.loaderModal { overflow: hidden; }
 .wow {
   visibility: hidden; @include transform-origin(0 50%);
 }
+.newDescription {
+  width: 100%; height: auto; padding: 40px 0 40px; margin: 0; position: relative; @include box-sizing(border-box); border-bottom: 1px solid rgba($black, 0.08);
+  & h1, & h2, & h3, & h4, & h5, & h6 {
+    color: $negro; text-align: center; font-family: 'GothamMedium'; font-weight: 900; font-size: 26px; margin: 0 0 10px;
+    & span {
+      color: $rojo;
+    }
+  }
+  & p {
+    color: $negro; font-family: 'Gotham-Light'; font-weight: 600; font-size: 16px; text-align: center; margin: 0; padding: 0;
+    & span {
+      color: $rojo;
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 80px 0 40px;
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      font-size: 40px; margin: 0 0 20px;
+    }
+    & p {
+      font-size: 18px;
+    }
+  }
+}
 .fullwidth-page {
   width: 100%; height: auto; padding: 80px 0 40px; margin: 0; position: relative; @include box-sizing(border-box);
   & .rteText {
