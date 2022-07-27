@@ -44,20 +44,89 @@ is_hidden = 0
 <article class="gen-ct">
 
   <section id="content_planes" class="questionSec section_pregunta">
-    <span class="content_pregunta wow fadeInDown" data-wow-delay="0.6s" data-wow-duration="0.6s">¿Estás listo para aumentar <br/>tus ventas de la  manera 
-    <span class="naranja wow fadeInDown" data-wow-delay="0.8s" data-wow-duration="0.6s">más simple?</span></span>
-    <!-- <span class="content_planes wow fadeIn" data-wow-delay="1s" data-wow-duration="0.6s" id="content_planes">Planes</span></span>-->
-    <span class="content_pregunta_movil">¿Estás listo para <br/>gestionar tus planes <br/>de la  manera<br/> 
-    <span class="naranja">más simple?</span></span>
-    <!-- <br>
-    <hr class="hr_movil">-->
-    <!--<span class="content_planes">Planes</span></span>-->
-  </section>
-  
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <span class="content_pregunta wow fadeInDown" data-wow-delay="0.6s" data-wow-duration="0.6s">¿Estás listo para aumentar <br/>tus ventas de la  manera 
+          <span class="naranja wow fadeInDown" data-wow-delay="0.8s" data-wow-duration="0.6s">más simple?</span></span>
+          <!-- <span class="content_planes wow fadeIn" data-wow-delay="1s" data-wow-duration="0.6s" id="content_planes">Planes</span></span>-->
+          <span class="content_pregunta_movil">¿Estás listo para <br/>gestionar tus planes <br/>de la  manera<br/> 
+          <span class="naranja">más simple?</span></span>
+          <!-- <br>
+          <hr class="hr_movil">-->
+          <!--<span class="content_planes">Planes</span></span>-->
+        </div><!-- emd.col-12 -->
+      </div><!-- end.row -->
+    </div><!-- end.container -->
+  </section><!-- end.questionSec -->
  
   <section class="planesct pt-5">
     <div class="container"><!-- end.containerSlide -->
-      <div class="row">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="planesct__dividerDiagNew">
+            <img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
+          </div><!-- end.planesct__dividerDiagNew -->
+          <div class="planesct__dividerWhats">
+            <img src="{{ 'assets/img/whats_bidireccional.svg'|theme }}" alt="WhatsApp Business">
+          </div><!-- end.planesct__dividerWhats -->
+        </div><!-- end.col-* -->
+        <div class="col-12 col-lg-10">
+          <div class="planesct__noslide">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="planesct__plan planesct__plan--green">
+                  <div class="planesct__title">
+                    <h3><i class="fab fa-whatsapp"></i> Business Plan</h3>
+                  </div><!-- end.planesct__title -->
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="planesct__box">
+                        <div class="planesct__usuarioWhats">
+                          <p class="planesct__mensual">Mensual / Usuario</p>
+                          <h4 data-price="opcion-business-1" class="planesct__monto planesct__monto--black noMar selPrice">
+                            $1,250<small class="moneda">MXN</small>
+                            <span class="legales">Por usuario, por mes con pago mensual</span>
+                          </h4>
+                        </div><!-- end.planesct__usuario -->
+                      </div>
+                      <div class="planesct__btns planesct__btns--whats">
+                        <div class="planesct__linkbox">
+                          <input type="radio" class="btn-check" name="planes" id="opcion-business-1" for-data="1" value="900" data-check-btn data-price-ch="Bussiness Plan Mensual" checked>
+                          <label class="planesct__link planesct__link--widthCenter" for="opcion-business-1">Contratar</label>
+                        </div><!-- end.planesct__linkbox -->
+                      </div><!-- end.planesct__btns -->
+                    </div><!-- end.col-* -->
+                    <div class="col-12 col-md-6">
+                      <div class="planesct__box">
+                        <div class="planesct__usuarioWhats">
+                          <p class="planesct__mensual">Anual / Usuario</p>
+                          <h4 data-price="opcion-business-2" class="planesct__monto planesct__monto--black noMar">
+                            <!--<small class="price-old">$800 MXN</small>-->
+                            <span class="descuento">$1,250</span><small class="moneda">CON</small>
+                            <span class="price-discount">20% de descuento</span>
+                            <span class="legales">Por usuario, por mes con pago mensual</span>
+                          </h4>
+                        </div><!-- end.planesct__usuario -->
+                      </div>
+                      <div class="planesct__btns planesct__btns--whats">
+                        <div class="planesct__linkbox">
+                          <input type="radio" class="btn-check" name="planes" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-btn value="{{ 1250 - (1250 * 0.20) }}">
+                          <label class="planesct__link planesct__link--widthCenter" for="opcion-business-2">Contratar</label>
+                        </div><!-- end.planesct__linkbox -->
+                      </div><!-- end.planesct__btns -->
+                    </div><!-- end.col-* -->
+                  </div><!-- end.row -->
+                </div><!-- end.planesct__plan -->
+              </div><!-- end.col-* -->
+            </div><!-- end.row -->
+          </div><!-- end.planesct__car -->
+        </div><!-- end.col-* -->
+        <div class="col-12">
+          <div class="titlePlanWhats">
+            <h2 class="titlePlanWhats__title">- Más de nuestros Planes -</h2>
+          </div>
+        </div>
         <div class="col-12">
           <div class="planesct__car wow fadeInDown" data-wow-delay="1.4s" data-wow-duration="0.6s">
             <div class="row justify-content-center">
@@ -67,15 +136,18 @@ is_hidden = 0
                     <h3>Plan Standard</h3>
                   </div><!-- end.planesct__title -->
                   <div class="planesct__box">
-                    <div class="planesct__usuario">
+                    <div class="planesct__usuario planesct__usuario--autoHeight">
                       <p class="planesct__mensual">Mensual / Usuario</p>
-                      <h4 data-price="opcion-1" class="planesct__monto planesct__monto--black">
+                      <h4 data-price="opcion-1" class="planesct__monto planesct__monto--black bigPriuce">
                         <!--<small class="price-old">$500 MXN</small>-->
                         $199<small class="moneda">MXN</small>
                         <span class="legales">Por usuario, por mes con pago mensual</span>
                       </h4>
+                      <div class="planesct__divSmall">
+                        <img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
+                      </div><!-- end.planesct__dividerDiagNew -->
                       <p class="planesct__mensual">Anual / Usuario</p>
-                      <h4 data-price="opcion-2" class="planesct__monto planesct__monto--black">
+                      <h4 data-price="opcion-2" class="planesct__monto planesct__monto--black bigPriuce redPrice">
                         $159<small class="moneda">MXN</small>
                         <span class="legales">Por usuario, por mes con pago anual</span>
                       </h4>
@@ -85,20 +157,24 @@ is_hidden = 0
                     <a href="#" data-mobile="#planStandar" class="planesct__linkPlan">Ver más <i class="fa fa-chevron-down"></i></a>
                     <div id="planStandar" class="planesct__benefitsEdit">
                       <ul>
-                        <li>Ingreso manual de prospectos</li>
-                        <li>Almacenamiento de archivos por prospecto</li>
-                        <li>Fichas de prospecto</li>
-                        <li>Historial de seguimiento por prospecto</li>
-                        <li>Asignación de prospectos al equipo</li>
-                        <li>Generación de oportunidades</li>
-                        <li>Etiquetado de oportunidades</li>
-                        <li>Enlistamiento de oportunidades (Funelización)</li>
-                        <li>Personalización de funeles</li>
-                        <li>Integración de campañas digitales</li>
-                        <li>Análisis de estadisticas en tiempo real</li>
-                        <li>WhatsApp Web</li>
-                        <li>Seguimiento a incidencias a través de tickets 24/7</li>
-                        <li>Acceso a nuestras Apps móviles (Android - iOs)</li>
+                        <li class="checkList">Ingreso manual de prospectos</li>
+                        <li class="checkList">Almacenamiento de archivos por prospecto</li>
+                        <li class="checkList">Fichas de prospecto</li>
+                        <li class="checkList">Historial de seguimiento por prospecto</li>
+                        <li class="checkList">Asignación de prospectos al equipo</li>
+                        <li class="checkList">Generación de oportunidades</li>
+                        <li class="checkList">Etiquetado de oportunidades</li>
+                        <li class="checkList">Enlistamiento de oportunidades (Funelización)</li>
+                        <li class="checkList">Personalización de funeles</li>
+                        <li class="checkList">Integración de campañas digitales</li>
+                        <li class="checkList">Análisis de estadisticas en tiempo real</li>
+                        <li class="checkList">WhatsApp Web</li>
+                        <li class="checkList">Seguimiento a incidencias a través de tickets 24/7</li>
+                        <li class="checkList">Acceso a nuestras Apps móviles (Android - iOs)</li>
+                        <li class="no-checkList">Envío másivo de correos con segmentación</li>
+                        <li class="no-checkList">Creación de alertas (50 alertas por usuario)</li>
+                        <li class="no-checkList">Integración de Gmail bidireccional</li>
+                        <li class="no-checkList">Línea directa de atención personalizada</li>
                       </ul><!-- end.ul -->
                     </div><!-- end.planesct__beneficios -->
                   </div><!-- end.planesct__box -->
@@ -111,7 +187,7 @@ is_hidden = 0
                         </label>
                       </a>
                     </div><!-- end.planesct__linkbox -->
-                    <div class="planesct__newTools">
+                    <!-- <div class="planesct__newTools">
                       <img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
                       <p class="textTools">- Otras formas de pago -</p>
                       <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
@@ -120,7 +196,7 @@ is_hidden = 0
                         <button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
                         <button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
                       </div>
-                    </div><!-- end.planesct__newTools -->
+                    </div> -->
                     <div class="planesct__linkbox" style="display: none;">
                       <input type="radio" class="btn-check" name="planes" id="opcion-2" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-2">Plan Anual</label>
@@ -134,15 +210,18 @@ is_hidden = 0
                     <h3>Plan Pro</h3>
                   </div><!-- end.planesct__title -->
                   <div class="planesct__box">
-                    <div class="planesct__usuario">
+                    <div class="planesct__usuario planesct__usuario--autoHeight">
                       <p class="planesct__mensual">Mensual / Usuario</p>
-                      <h4 data-price="opcion-3" class="planesct__monto planesct__monto--black">
+                      <h4 data-price="opcion-3" class="planesct__monto planesct__monto--black bigPriuce">
                         <!--<small class="price-old">$800 MXN</small>-->
                         $299<small class="moneda">MXN</small>
                         <span class="legales">Por usuario, por mes con pago mensual</span>
                       </h4>
+                      <div class="planesct__divSmall">
+                        <img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
+                      </div><!-- end.planesct__divSmall -->
                       <p class="planesct__mensual">Anual / Usuario</p>
-                      <h4 data-price="opcion-4" class="planesct__monto planesct__monto--black">
+                      <h4 data-price="opcion-4" class="planesct__monto planesct__monto--black bigPriuce redPrice">
                         $239<small class="moneda">MXN</small>
                         <span class="legales">Por usuario, por mes con pago anual</span>
                       </h4>
@@ -152,24 +231,24 @@ is_hidden = 0
                     <a href="#" data-mobile="#planPro" class="planesct__linkPlan">Ver más <i class="fa fa-chevron-down"></i></a>
                     <div id="planPro" class="planesct__benefitsEdit">
                       <ul>
-                        <li>Ingreso manual de prospectos</li>
-                        <li>Almacenamiento de archivos por prospecto</li>
-                        <li>Fichas de prospecto</li>
-                        <li>Historial de seguimiento por prospecto</li>
-                        <li>Asignación de prospectos al equipo</li>
-                        <li>Generación de oportunidades</li>
-                        <li>Etiquetado de oportunidades</li>
-                        <li>Enlistamiento de oportunidades (Funelización)</li>
-                        <li>Personalización de funeles</li>
-                        <li>Integración de campañas digitales</li>
-                        <li>Análisis de estadisticas en tiempo real</li>
-                        <li>WhatsApp Web</li>
-                        <li>Seguimiento a incidencias a través de tickets 24/7</li>
-                        <li>Acceso a nuestras Apps móviles (Android - iOs)</li>
-                        <li>Envío másivo de correos con segmentación</li>
-                        <li>Creación de alertas (50 alertas por usuario)</li>
-                        <li>Integración de Gmail bidireccional</li>
-                        <li>Línea directa de atención personalizada</li>
+                        <li class="checkList">Ingreso manual de prospectos</li>
+                        <li class="checkList">Almacenamiento de archivos por prospecto</li>
+                        <li class="checkList">Fichas de prospecto</li>
+                        <li class="checkList">Historial de seguimiento por prospecto</li>
+                        <li class="checkList">Asignación de prospectos al equipo</li>
+                        <li class="checkList">Generación de oportunidades</li>
+                        <li class="checkList">Etiquetado de oportunidades</li>
+                        <li class="checkList">Enlistamiento de oportunidades (Funelización)</li>
+                        <li class="checkList">Personalización de funeles</li>
+                        <li class="checkList">Integración de campañas digitales</li>
+                        <li class="checkList">Análisis de estadisticas en tiempo real</li>
+                        <li class="checkList">WhatsApp Web</li>
+                        <li class="checkList">Seguimiento a incidencias a través de tickets 24/7</li>
+                        <li class="checkList">Acceso a nuestras Apps móviles (Android - iOs)</li>
+                        <li class="checkList">Envío másivo de correos con segmentación</li>
+                        <li class="checkList">Creación de alertas (50 alertas por usuario)</li>
+                        <li class="checkList">Integración de Gmail bidireccional</li>
+                        <li class="checkList">Línea directa de atención personalizada</li>
                       </ul><!-- end.ul -->
                     </div><!-- end.planesct__beneficios -->
                   </div><!-- end.planesct__box -->
@@ -182,16 +261,6 @@ is_hidden = 0
                         </label>
                       </a>
                     </div><!-- end.planesct__linkbox -->
-                    <div class="planesct__newTools">
-                      <img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
-                      <p class="textTools">- Otras formas de pago -</p>
-                      <div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
-                      <div class="dividerGray"></div>
-                      <div class="planesct__btnsPay">
-                        <button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
-                        <button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
-                      </div>
-                    </div><!-- end.planesct__newTools -->
                     <div class="planesct__linkbox" style="display: none;">
                       <input type="radio" class="btn-check" name="planes" id="opcion-4" data-check-btn value="Plan Anual">
                       <label class="planesct__link" for="opcion-4">Plan Anual</label>

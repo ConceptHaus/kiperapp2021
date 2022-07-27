@@ -610,10 +610,22 @@ article {
   &__monto {
     width: 100%; height: auto; display: block; text-align: center; font-family: 'Gotham-Light'; font-weight: 800; padding: 0; margin: 0; line-height: 1; @include transition(all 300ms ease);
     &--black {
-      color: $gris3; margin-bottom: 15px; font-size: rem(40px);
+      color: $black; margin-bottom: 15px; font-size: rem(40px);
       // @include fluid-type(18px, 50px, 320px, 1200px);
+      &.noMar {
+        margin-bottom: 0;
+      }
+      & .descuento {
+        position: relative;
+        &:after {
+          content: ''; width: 100%; height: 4px; @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); background-color: $rojo;
+        }
+      }
       & .price-old {
         font-size: rem(14px); color: $gris; text-decoration:line-through; display: block; margin-bottom: 10px; font-weight: 800;
+      }
+      & .price-discount {
+        font-size: rem(14px); color: $rojo; display: block; margin: 10px 0 5px; font-weight: 900; text-transform: uppercase
       }
       & .moneda {
         @include fluid-type(13px, 20px, 320px, 1200px); vertical-align: middle; margin-left: 6px;
@@ -639,6 +651,15 @@ article {
         font-size: rem(70px);
       }
     }
+    &.bigPriuce {
+      @include fluid-type(18px, 70px, 320px, 1200px);
+      &.redPrice {
+        color: $rojo;
+        & .legales {
+          color: $black;
+        }
+      }
+    }
   }
   &__usuario {
     width: 100%; height: auto; padding: 15px 0; margin: 0; position: relative; @include box-sizing(border-box); display: block;
@@ -655,6 +676,9 @@ article {
       @media all and (min-width: 992px) {
         min-height: 160px; padding-top: 2%;
       }
+    }
+    &--autoHeight {
+      height:auto; min-height: auto;
     }
   }
   &__usuarioWhats {
@@ -703,6 +727,17 @@ article {
         }
         &:last-child {
           border-bottom: 0;
+        }
+        &.checkList {
+          &:before {
+            content: '\f058'; color: $whats;
+          }
+        }
+        &.no-checkList {
+          text-decoration:line-through;
+          &:before {
+            content: '\f057'; color: #a00000;
+          }
         }
       }
     }
@@ -824,8 +859,26 @@ article {
       }
     }
   }
+  &__divSmall {
+    width: 100%; height: auto; padding: 0; margin: 0 0 20px; position: relative;
+    & img {
+      display: block; width: 100%; max-width: 20px; height: auto; margin: 0 auto; padding: 0;
+    }
+  }
   &__divider {
     width: 100%; max-width: 879px; height: 1px; background-color: rgba($gris, 0.40); margin: 0 auto; padding: 0;
+  }
+}
+.titlePlanWhats {
+  width: 100%; height: auto; padding: 15px 0; margin: 0; box-sizing: border-box; position: relative;
+  &__title {
+    color: $rojo; text-align: center; margin: 0; padding: 0; font-family: 'GothamMedium'; @include fluid-type(18px, 45px, 320px, 1200px);
+  }
+  @media all and (min-width: 768px) {
+    padding: 25px 0;
+  }
+  @media all and (min-width: 992px) {
+    padding: 30px 0;
   }
 }
 .slick-current {
