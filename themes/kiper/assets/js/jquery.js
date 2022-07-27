@@ -121,7 +121,7 @@ $(function(){
       ]
     });
     $('[data-check-btn]:checked + label').addClass('planesct__link--select');
-    $('[data-price="opcion-2"]').addClass('selPrice');
+    // $('[data-price="opcion-2"]').addClass('selPrice');
     $('[data-check-btn]').each(function(){
       var idCh = $(this).attr('id');
       // console.log(idCh);
