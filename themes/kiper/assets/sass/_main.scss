@@ -2123,6 +2123,9 @@ span.cc{ color:#6d84b4 }
   }
   &.ratio-16x9 {
     --bs-aspect-ratio: calc(9 / 16 * 100%);
+    & ol{
+      text-align: left;
+    }
   }
   &:before {
     display: block; padding-top: var(--bs-aspect-ratio); content: "";
