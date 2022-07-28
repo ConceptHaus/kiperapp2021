@@ -33,40 +33,36 @@ function onTest()
 </script>
 {% endput %}
 {% put scriptPayPal %}
-  <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-  <script>
-    paypal.Buttons({
-    style: {
-      shape: 'pill',
-      color: 'gold',
-      layout: 'vertical',
-      label: 'subscribe'
-    },
-    createSubscription: function(data, actions) {
-      return actions.subscription.create({
-        /* Creates the subscription */
-        plan_id: 'P-1M940434D0991100XMLLQCMQ'
-      });
-    },
-    onApprove: function(data, actions) {
-      alert(data.subscriptionID); // You can add optional success message for the subscriber here
-    }
-    }).render('#paypal-button-container-P-1M940434D0991100XMLLQCMQ'); // Renders the PayPal button
-    $(function(){
-      $('[data-modal-pago]').click(function() {
-        let idMod = $(this).data('modal-pago');
-        $(idMod).modal('show');
-      });
-      $('#closeModalTrans').click(function(e){
-        let idModClose = $(this).data('close-modal');
-        $(idModClose).modal('hide');
-      });
-      $('#closeModalDep').click(function(e){
-        let idModClose = $(this).data('close-modal');
-        $(idModClose).modal('hide');
-      });
-    });
-  </script>
+<script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+paypal.Buttons({
+	style: {
+		shape: 'pill',
+		color: 'gold',
+		layout: 'vertical',
+		label: 'subscribe'
+	},
+	createSubscription: function(data, actions) {
+		return actions.subscription.create({
+		/* Creates the subscription */
+		plan_id: 'P-4A539591X15401926MLQXQAA',
+		quantity: $("#cantidad-ct-1").val() // The quantity of the product for a subscription
+		});
+	},
+	onApprove: function(data, actions) {
+		alert(data.subscriptionID); // You can add optional success message for the subscriber here
+	}
+}).render('#paypal-button-container-P-4A539591X15401926MLQXQAA'); // Renders the PayPal button
+
+$(".btnMkBtn").click(function(){
+	makeBtnPay();
+});
+
+function makeBtnPay(){
+	//alert("hola");
+}
+
+</script>
 {% endput %}
 
 <section class="iniciaSec">
@@ -83,7 +79,7 @@ function onTest()
 							</ol>
 						</nav><!-- end.breadcrumb -->
 					</div><!-- end.col-* -->
-					<div class="col-12">
+					<div class="col-12 col-md-10 col-lgl7 text-center">
 						<span class="content_pregunta">Carrito de
 						<span class="naranja">Compra</span><br></span>
 						<span class="">Estas a un paso de tomar el control de tus clientes potenciales e incrementar tus ventas</span>
@@ -94,14 +90,14 @@ function onTest()
 		<div class="planesct">
 			<div class="container">
 				<div class="row justify-content-center">
-					<div class="col-12">
+					<!--<div class="col-12">
 						<div class="planesct__dividerDiagNew">
 							<img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
-						</div><!-- end.planesct__dividerDiagNew -->
+						</div><!- - end.planesct__dividerDiagNew  ->
 						<div class="planesct__dividerWhats">
 							<img src="{{ 'assets/img/whats_bidireccional.svg'|theme }}" alt="WhatsApp Business">
-						</div><!-- end.planesct__dividerWhats -->
-					</div><!-- end.col-* -->
+						</div><! -- end.planesct__dividerWhats -- >
+					</div><!- - end.col-* -- >
 					<div class="col-12 col-lg-10">
 						<div class="planesct__noslide">
 							<div class="row justify-content-center">
@@ -109,7 +105,7 @@ function onTest()
 									<div class="planesct__plan planesct__plan--green">
 										<div class="planesct__title">
 											<h3><i class="fab fa-whatsapp"></i> Business Plan</h3>
-										</div><!-- end.planesct__title -->
+										</div><!- - end.planesct__title - ->
 										<div class="row">
 											<div class="col-12 col-md-6">
 												<div class="planesct__box">
@@ -119,45 +115,45 @@ function onTest()
 															$1,250<small class="moneda">MXN</small>
 															<span class="legales">Por usuario, por mes con pago mensual</span>
 														</h4>
-													</div><!-- end.planesct__usuario -->
+													</div><!- - end.planesct__usuario - ->
 												</div>
 												<div class="planesct__btns planesct__btns--whats">
 													<div class="planesct__linkbox">
 														<input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-1" for-data="1" value="900" data-check-plan-btn data-price-ch="Bussiness Plan Mensual" checked="checked">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-business-1">Contratar</label>
-													</div><!-- end.planesct__linkbox -->
-												</div><!-- end.planesct__btns -->
-											</div><!-- end.col-* -->
+													</div><! - end.planesct__linkbox - ->
+												</div><!- - end.planesct__btns - ->
+											</div><!- - end.col-* - ->
 											<div class="col-12 col-md-6">
 												<div class="planesct__box">
 													<div class="planesct__usuarioWhats">
 														<p class="planesct__mensual">Anual / Usuario</p>
 														<h4 data-price-plan="opcion-business-2" class="planesct__monto planesct__monto--black noMar">
-															<!--<small class="price-old">$800 MXN</small>-->
+															<! --<small class="price-old">$800 MXN</small>- ->
 															<span class="descuento">$1,250</span><small class="moneda">CON</small>
 															<span class="price-discount">20% de descuento</span>
 															<span class="legales">Por usuario, por mes con pago mensual</span>
 														</h4>
-													</div><!-- end.planesct__usuario -->
+													</div><! -- end.planesct__usuario -- >
 												</div>
 												<div class="planesct__btns planesct__btns--whats">
 													<div class="planesct__linkbox">
 														<input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-plan-btn value="{{ 1250 - (1250 * 0.20) }}">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-business-2">Contratar</label>
-													</div><!-- end.planesct__linkbox -->
-												</div><!-- end.planesct__btns -->
-											</div><!-- end.col-* -->
-										</div><!-- end.row -->
-									</div><!-- end.planesct__plan -->
-								</div><!-- end.col-* -->
-							</div><!-- end.row -->
-						</div><!-- end.planesct__car -->
-					</div><!-- end.col-* -->
-					<div class="col-12">
+													</div><! -- end.planesct__linkbox  -- >
+												</div><! -- end.planesct__btns -- >
+											</div><!- - end.col-* - ->
+										</div><! -- end.row - ->
+									</div><!- - end.planesct__plan -- >
+								</div><! -- end.col-* -- >
+							</div><!  -- end.row - ->
+						</div><! -- end.planesct__car -- >
+					</div><! -- end.col-* -- >
+					<!- -<div class="col-12">
 						<div class="titlePlanWhats">
 							<h2 class="titlePlanWhats__title">- Más de nuestros Planes -</h2>
 						</div>
-					</div>
+					</div>-->
 					<div class="col-12">
 						<div class="planesct__noslide">
 							<div class="row justify-content-center">
@@ -211,11 +207,11 @@ function onTest()
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-1" for-data="1" value="199" data-check-btn data-price-ch="Plan Standard Mensual">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-1" for-data="1" value="199" data-check-btn data-price-ch="Plan Standard Mensual">
 												<label class="planesct__link" for="opcion-1">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-2" for-data="2" value="{{ 159*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-2" for-data="2" value="{{ 159*12 }}" data-check-btn data-price-ch="Plan Standard Anual" checked>
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -271,11 +267,11 @@ function onTest()
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-3" for-data="3" data-price-ch="Plan Pro Mensual" data-check-btn value="299">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-3" for-data="3" data-price-ch="Plan Pro Mensual" data-check-btn value="299">
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -294,9 +290,9 @@ function onTest()
 										<label class="frmInicia__label">Número de usuarios</label>
 										<div class="inpInc">
 											<div class="inpInc__inputs">
-												<button type="button" id="extras-cant-min-1"><i class="fa fa-minus"></i></button>
+												<button type="button" id="extras-cant-min-1" class="btnMkBtn"><i class="fa fa-minus"></i></button>
 												<div class="inpText"><span class="inpText__novisible">Cantidad:</span> <input type="text" name="cantidad-ct-1" id="cantidad-ct-1" value="1" min="0"  readonly></div>
-												<button type="button" id="extras-cant-max-1"><i class="fa fa-plus"></i></button>
+												<button type="button" id="extras-cant-max-1" class="btnMkBtn"><i class="fa fa-plus"></i></button>
 											</div><!-- end.inpInc__inputs -->
 										</div><!-- end.inpInc -->
 									</div><!-- end.boxCantidad -->
@@ -338,20 +334,21 @@ function onTest()
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7 mb-4">
 						<input class="planesct__link planesct__link--widthRight btnSubmit" type="submit" value="Pagar desde el sitio">
-						<div class="row justify-content-center">
+					<!--	<div class="row justify-content-center">
 							<div class="col-12 col-md-8">
 								<div class="planesct__newTools">
 									<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
 									<p class="textTools">- Otras formas de pago -</p>
-									<div id="paypal-button-container-P-1M940434D0991100XMLLQCMQ" class="PayContainer"></div>
+									<div id="paypal-button-container-P-4A539591X15401926MLQXQAA"></div>
+									
 									<div class="dividerGray"></div>
 									<div class="planesct__btnsPay">
 										<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
 										<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
 									</div>
-								</div><!-- end.planesct__newTools -->
+								</div><! -- end.planesct__newTools - ->
 							</div>
-						</div>
+						</div>-->
 					</div> <!-- end.col-*-->
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="factCt">

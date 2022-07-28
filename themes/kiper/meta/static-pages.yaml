@@ -1,1 +1,2 @@
-static-pages: {  }
+static-pages:
+    pagar-en-linea: {  }
