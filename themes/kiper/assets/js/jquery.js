@@ -121,7 +121,7 @@ $(function(){
       ]
     });
     $('[data-check-btn]:checked + label').addClass('planesct__link--select');
-    // $('[data-price="opcion-2"]').addClass('selPrice');
+    $('[data-price="opcion-2"]').addClass('selPrice');
     $('[data-check-btn]').each(function(){
       var idCh = $(this).attr('id');
       // console.log(idCh);
@@ -132,6 +132,22 @@ $(function(){
           $(this).next().addClass('planesct__link--select');
           // console.log(idCh);
           $('[data-price="'+idCh+'"]').addClass('selPrice');
+        }
+      });
+    });
+    
+    $('[data-check-plan-btn]:checked + label').addClass('planesct__link--select');
+    $('[data-price-plan="opcion-business-1"]').addClass('selPrice');
+    $('[data-check-plan-btn]').each(function(){
+      var idCh = $(this).attr('id');
+      // console.log(idCh);
+      $('#'+idCh).click(function() {
+        $('[data-check-plan-btn] + label').removeClass('planesct__link--select');
+        $('[data-price-plan]').removeClass('selPrice');
+        if(this.checked) {
+          $(this).next().addClass('planesct__link--select');
+          // console.log(idCh);
+          $('[data-price-plan="'+idCh+'"]').addClass('selPrice');
         }
       });
     });
