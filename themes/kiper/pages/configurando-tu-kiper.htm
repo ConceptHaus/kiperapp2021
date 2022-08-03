@@ -2,7 +2,23 @@ title = "Configurando tu Kiper"
 url = "/configurando-tu-kiper"
 layout = "layout"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[builderList estadosList]
+modelClass = "Kiper\Facturacion\Models\MX"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "nombre"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+recordsPerPage = 50
+pageNumber = "{{ :page }}"
+sortColumn = "id"
+sortDirection = "asc"
 ==
+{% set estados = estadosList.records %}
 {% put scriptFormulario %}
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -82,7 +98,6 @@ is_hidden = 0
    	});
 </script>
 {% endput %}
-
 <section class="iniciaSec">
 	<form action="POST" name="frmKipers" id="frmKipers" action="" autocomplete="off"  accept-charset="utf-8">
 		<input type="hidden" name="keySus" readonly="readonly" value="" id="keySus" />
@@ -103,8 +118,43 @@ is_hidden = 0
 
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="frmInicia">
+							<div class="row g-3">
+								<div class="col-12">
+									<h2 class="frmInicia__title">Datos de la empresa</h2>
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<select class="form-select required country" id="inpPais" name="inpPais">
+										<option value="">País</option>
+										<option value="1" data-status-pais="1" data-id-pais="1">México</option>
+									</select>
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<select class="form-select required" id="inpEdo" name="inpEdo" disabled>
+										<option value="">Estado / Distrito</option>
+									{% for estado in estados %}
+										<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+									{% endfor %}
+									</select>
+									<div id="response"></div>
+								</div>
+								<div class="col col-md-6 inputStyle">
+									<input type="text" name="inpMunicipio" id="inpMunicipio" class="form-control" placeholder="Alcaldía / Municipio" />
+								</div>
+								<div class="col col-md-6 inputStyle">
+									<input type="text" name="inpCodPos" id="inpCodPos" class="form-control" placeholder="Código Postal" /> 
+								</div>
+								<div class="col-12 inputStyle">
+									<input type="text" name="inpNegocio" id="inpNegocio" class="form-control required" placeholder="Giro de negocio*" />
+								</div>
+								<div class="col-12 inputStyle mb-4">
+									<div class="frmInicia__alerta alert alert-info" role="alert">
+										<small>Si aún no cuentas con un sitio web puedes omitir este campo.</small>
+									</div>
+									<input type="text" name="inpDominio" id="inpDominio" class="form-control" placeholder="Dominio de tu negocio">
+								</div>
+							</div>
 							<div class="row">
-								<div class="col-12 ">
+								<div class="col-12">
 									<a class="planesct__link omPas"  class="btn btn-gral">  Omitir este paso ahora</a>
 								</div> <!-- end.col-*-->
 

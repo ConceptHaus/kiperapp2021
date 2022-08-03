@@ -901,6 +901,28 @@ $(function() {
  $("#frmKipers").validate({
   errorElement: 'div',
   errorClass: 'error-label',
+  rules: {
+    inpNegocio: {
+      required: true 
+    },
+    inpPais: {
+      required: true 
+    },
+    inpEdo:{
+      required: true 
+    }
+  },
+  messages: {
+    inpNegocio: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido'
+    },
+    inpPais: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un país' 
+    },
+    inpEdo:{
+      required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un estado' 
+    }
+  },
  submitHandler: function(form) {
    var form = $("#frmKipers");
    var url = form.attr('action');
