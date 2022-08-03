@@ -1748,19 +1748,25 @@ span.cc{ color:#6d84b4 }
     }
   }
   &__link {
-    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); text-align: center; z-index: 2;
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); text-align: center; z-index: 2; display: flex; justify-content: center;
     & a {
-      display: block; width: 200px; height: 42px; border: none; color: $white; font-size: rem(20px); text-align: center; margin: 0 auto; padding: 0; background-color: $rojo; @include transition(all 300ms); font-family: 'Gotham-Light'; font-weight: 400; text-decoration: none; border-radius: 6px; line-height: 42px;
+      display: block; width: 220px; height: 42px; border: none; color: $white; font-size: rem(20px); text-align: center; margin: 0 0 15px 0; padding: 0; background-color: $rojo; @include transition(all 300ms); font-family: 'Gotham-Light'; font-weight: 400; text-decoration: none; border-radius: 6px; line-height: 42px;
       span {
         font-size: rem(15px);
       }
       &:hover {
         color: $white;
       }
+      &:last-child {
+        margin: 0;
+      }
     }
   }
   @media all and (min-width: 768px) {
     height: 100vh; padding: 0;
+    & a {
+      margin: 0 10px 0 0;
+    }
   }
   &:after {
     content: ''; width: 100%; height: 100%; @include position(absolute, 0 null null 0); background-image: url('#{$imgR}funky-lines.png'); background-repeat: repeat; z-index: 1; background-color: $white; opacity: 0.25;
