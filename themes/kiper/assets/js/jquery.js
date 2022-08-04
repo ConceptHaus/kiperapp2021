@@ -351,7 +351,8 @@ $(function(){
       // console.log('listo');
       // $('#dataFactura').show('slow');
       // $('[data-validacion]').addClass('required');
-      $('#dataFactura').modal('show');
+   //   $('#dataFactura').modal('show');
+      $("#data_clientFac").val($("#data_client").val());
     } else {
       // console.log('ya lo quitaste');
       // $('#dataFactura').hide('slow');
@@ -553,6 +554,11 @@ $(function() {
       slidesToScroll: 2
     });
 
+    
+      
+     
+
+
      //validación con formulario inicia 
     $("#frmProbar").validate({
        errorElement: 'div',
@@ -575,15 +581,6 @@ $(function() {
           required: true,
           email: true,
           equalTo: "#inpEmail"
-        },
-        inpNegocio: {
-          required: true 
-        },
-        inpPais: {
-          required: true 
-        },
-        inpEdo:{
-          required: true 
         }
       },
       messages: {
@@ -603,25 +600,18 @@ $(function() {
         inpTelefono: {
           required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
           number: '<i class="fa fa-exclamation-triangle"></i> Sólo números'
-        },
-        inpNegocio: {
-          required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido'
-        },
-        inpPais: {
-          required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un país' 
-        },
-        inpEdo:{
-          required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un estado' 
         }
       },
       submitHandler: function(form) {
+        //var urlServices = "https://system-admin.kiper.io";
+        var urlServices = "http://local.adminkiper";
         var form = $("#frmProbar");
         var url = form.attr('action');
         var data = form.serialize();
         if($("#inpFlag").val() == 0){
           $.ajax({
             type: 'POST',
-            url: "https://system-admin.kiper.io/KipersConfiguration/saveComenzarAhora",
+            url: urlServices+"/KipersConfiguration/saveComenzarAhoraSmall",
             data: data,
             dataType: 'json',
             success: function (data) {
@@ -694,7 +684,7 @@ $(function() {
       }
     });
 
-    // $("#frmProbar").removeAttr("novalidate");
+    
 
     // console.log($("#facturaSi").val().length <= 0);
     jQuery.validator.setDefaults({
@@ -775,23 +765,20 @@ $(function() {
    });
   //  console.log(formCarrito.valid() + ' es la validación');
 
-  var formRFC = $( "#frmRegRFC" );
-  formRFC.validate({
+  $(".bgtnSendFac").click(function(){
+    alert("gola");
+    $("#frmRegRFC").removeAttr("novalidate");
+    $("#frmRegRFC").submit();
+  });
+  $("#frmRegRFC").validate({
     errorElement: 'div',
     errorClass: 'error-label',
     rules: {
-      razon: {
-        required: true 
-      },
       rfc: {
         required: true 
       },
       direccion: {
         required: true 
-      },
-      email: {
-        required: true,
-        email: true
       },
       colonia: {
         required: true 
@@ -805,26 +792,19 @@ $(function() {
       municipio: {
         required: true 
       },
-      telfijo: {
-        required: true 
+      comprobante:{
+        required: true
       },
-      telmovil: {
-        required: true 
+      tipo_persona: {
+        required: true
       }
     },
     messages: {
-      razon: {
-        required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
-      },
       rfc: {
         required: '<i class="fa fa-exclamation-triangle"></i> Este campo es requerido'
       },
       direccion: {
         required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-      },
-      email: {
-        required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
-        email: '<i class="fa fa-exclamation-triangle"></i> Email inválido'
       },
       colonia: {
         required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
@@ -838,16 +818,40 @@ $(function() {
       municipio: {
         required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
       },
-      telfijo: {
+      comprobante:{
         required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
       },
-      telmovil: {
+      tipo_persona: {
         required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido',
       }
     },
    submitHandler: function(form) {
-     return true;
+      //var urlServices = "https://system-admin.kiper.io";
+      var urlServices = "http://local.adminkiper";
+      var form = $("#frmRegRFC");
+      var data = form.serialize();
+        $.ajax({
+          type: 'POST',
+          url: urlServices+"/KipersConfiguration/saveInfoFactura",
+          data: data,
+          dataType: 'json',
+          success: function (data) {
+            console.log(data.code);
+          },
+          error: function(json){
+            var error = '';      
+            console.log("error");
+            console.log(json);
+          }
+        });
+     
    }
+ });
+
+ $("#tipo_persona").change(function(){
+   var valor_item = $(this).val();
+   $(".customInpFac").hide();
+   $("."+valor_item).show();
  });
 
    $("#frmCobro").validate({
@@ -901,6 +905,28 @@ $(function() {
  $("#frmKipers").validate({
   errorElement: 'div',
   errorClass: 'error-label',
+  rules: {
+    inpNegocio: {
+      required: true 
+    },
+    inpPais: {
+      required: true 
+    },
+    inpEdo:{
+      required: true 
+    }
+  },
+  messages: {
+    inpNegocio: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Campo requerido'
+    },
+    inpPais: {
+      required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un país' 
+    },
+    inpEdo:{
+      required: '<i class="fa fa-exclamation-triangle"></i> Selecciona un estado' 
+    }
+  },
  submitHandler: function(form) {
    var form = $("#frmKipers");
    var url = form.attr('action');

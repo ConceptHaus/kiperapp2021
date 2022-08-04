@@ -35,7 +35,7 @@ function onTest()
 {% put scriptPayPal %}
 <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
-paypal.Buttons({
+/*paypal.Buttons({
 	style: {
 		shape: 'pill',
 		color: 'gold',
@@ -44,7 +44,7 @@ paypal.Buttons({
 	},
 	createSubscription: function(data, actions) {
 		return actions.subscription.create({
-		/* Creates the subscription */
+		/ * Creates the subscription * /
 		plan_id: 'P-4A539591X15401926MLQXQAA',
 		quantity: $("#cantidad-ct-1").val() // The quantity of the product for a subscription
 		});
@@ -52,7 +52,7 @@ paypal.Buttons({
 	onApprove: function(data, actions) {
 		alert(data.subscriptionID); // You can add optional success message for the subscriber here
 	}
-}).render('#paypal-button-container-P-4A539591X15401926MLQXQAA'); // Renders the PayPal button
+}).render('#paypal-button-container-P-4A539591X15401926MLQXQAA'); // Renders the PayPal button*/
 
 $(".btnMkBtn").click(function(){
 	makeBtnPay();
@@ -90,14 +90,14 @@ function makeBtnPay(){
 		<div class="planesct">
 			<div class="container">
 				<div class="row justify-content-center">
-					<!--<div class="col-12">
+					<div class="col-12">
 						<div class="planesct__dividerDiagNew">
 							<img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
-						</div><!- - end.planesct__dividerDiagNew  ->
+						</div><!-- end.planesct__dividerDiagNew  -->
 						<div class="planesct__dividerWhats">
 							<img src="{{ 'assets/img/whats_bidireccional.svg'|theme }}" alt="WhatsApp Business">
-						</div><! -- end.planesct__dividerWhats -- >
-					</div><!- - end.col-* -- >
+						</div><!-- end.planesct__dividerWhats -->
+					</div><!-- end.col-* -->
 					<div class="col-12 col-lg-10">
 						<div class="planesct__noslide">
 							<div class="row justify-content-center">
@@ -105,7 +105,7 @@ function makeBtnPay(){
 									<div class="planesct__plan planesct__plan--green">
 										<div class="planesct__title">
 											<h3><i class="fab fa-whatsapp"></i> Business Plan</h3>
-										</div><!- - end.planesct__title - ->
+										</div><!-- end.planesct__title-->
 										<div class="row">
 											<div class="col-12 col-md-6">
 												<div class="planesct__box">
@@ -115,45 +115,45 @@ function makeBtnPay(){
 															$1,250<small class="moneda">MXN</small>
 															<span class="legales">Por usuario, por mes con pago mensual</span>
 														</h4>
-													</div><!- - end.planesct__usuario - ->
+													</div><!-- end.planesct__usuario-->
 												</div>
 												<div class="planesct__btns planesct__btns--whats">
 													<div class="planesct__linkbox">
 														<input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-1" for-data="1" value="900" data-check-plan-btn data-price-ch="Bussiness Plan Mensual" checked="checked">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-business-1">Contratar</label>
-													</div><! - end.planesct__linkbox - ->
-												</div><!- - end.planesct__btns - ->
-											</div><!- - end.col-* - ->
+													</div><! - end.planesct__linkbox-->
+												</div><!-- end.planesct__btns-->
+											</div><!-- end.col-*-->
 											<div class="col-12 col-md-6">
 												<div class="planesct__box">
 													<div class="planesct__usuarioWhats">
 														<p class="planesct__mensual">Anual / Usuario</p>
 														<h4 data-price-plan="opcion-business-2" class="planesct__monto planesct__monto--black noMar">
-															<! --<small class="price-old">$800 MXN</small>- ->
+															<!--<small class="price-old">$800 MXN</small>-->
 															<span class="descuento">$1,250</span><small class="moneda">CON</small>
 															<span class="price-discount">20% de descuento</span>
 															<span class="legales">Por usuario, por mes con pago mensual</span>
 														</h4>
-													</div><! -- end.planesct__usuario -- >
+													</div><!-- end.planesct__usuario -->
 												</div>
 												<div class="planesct__btns planesct__btns--whats">
 													<div class="planesct__linkbox">
 														<input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-plan-btn value="{{ 1250 - (1250 * 0.20) }}">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-business-2">Contratar</label>
-													</div><! -- end.planesct__linkbox  -- >
-												</div><! -- end.planesct__btns -- >
-											</div><!- - end.col-* - ->
-										</div><! -- end.row - ->
-									</div><!- - end.planesct__plan -- >
-								</div><! -- end.col-* -- >
-							</div><!  -- end.row - ->
-						</div><! -- end.planesct__car -- >
-					</div><! -- end.col-* -- >
-					<!- -<div class="col-12">
+													</div><!-- end.planesct__linkbox  -->
+												</div><!-- end.planesct__btns -->
+											</div><!-- end.col-*-->
+										</div><!-- end.row-->
+									</div><!-- end.planesct__plan -->
+								</div><!-- end.col-* -->
+							</div><!-- end.row-->
+						</div><!-- end.planesct__car -->
+					</div><!-- end.col-* -->
+					<div class="col-12">
 						<div class="titlePlanWhats">
 							<h2 class="titlePlanWhats__title">- Más de nuestros Planes -</h2>
 						</div>
-					</div>-->
+					</div>
 					<div class="col-12">
 						<div class="planesct__noslide">
 							<div class="row justify-content-center">
@@ -346,7 +346,7 @@ function makeBtnPay(){
 										<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
 										<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
 									</div>
-								</div><! -- end.planesct__newTools - ->
+								</div><!-- end.planesct__newTools-->
 							</div>
 						</div>-->
 					</div> <!-- end.col-*-->
