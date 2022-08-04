@@ -12,16 +12,20 @@ robot_follow = "follow"
 
 [SeoCmsPage]
 ==
+
 <article class="gen-ct">
-  <section class="hero-sec" style="background-image: url(https://kiper.app/themes/kiper/assets/img/nuevo/bgs_slider.png); background-position: cover;">
-    <!--<img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s" src="{{ 'assets/img/headerKiper.png'|theme }}" >
-    <img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/bgsKiper.svg'|theme }}" >-->
-    <img class="fondo1 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="0.2s"  >
-    <!--<img class="fon_kiper wow fadeInRight" data-wow-delay="0.2s" data-wow-duration="0.3s" src="{{ 'assets/img/Pantalla_OK_KIPER.png'|theme }}" >-->
+  <section class="hero-sec">
+
+    <picture>
+      <source srcset="{{ 'assets/img/foto_2.png'|theme }}" media="(min-width: 992px)">
+      <source srcset="{{ 'assets/img/foto_01.png'|theme }}" media="(min-width: 768px)">
+      <img class="hero-sec__imgBgHero" src="{{ 'assets/img/foto_2.png'|theme }}" alt="MDN">
+    </picture>
+
     <div class="hero-sec__desc">
       <div class="container">
         <div class="row justify-content-start">
-          <div class="col-6 col-md-8 col-lg-5">
+          <div class="col-7 col-md-8 col-lg-5">
             <h2 class="aumenta wow fadeInDown" data-wow-delay="0.6s" data-wow-duration="0.3s">Sistema CRM<br><span class="naranja">que aumenta<br>tus ventas</span></h2>
             <p class="herramienta wow fadeInDown" data-wow-delay="1s" data-wow-duration="0.3s">Somos la herramienta digital de ventas más fácil de usar.<br/><span class="simple">Así de <span class="naranja">simple.</span></span></p>
             <div class="hero-sec__btns">
@@ -68,8 +72,70 @@ robot_follow = "follow"
   <section class="planesct planesPad">
     <div class="container"><!-- end.containerSlide -->
       <div class="row justify-content-center">
-       
-        
+        <div class="col-12">
+          <div class="planesct__dividerDiagNew">
+            <img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
+          </div><!-- end.planesct__dividerDiagNew -->
+          <div class="planesct__dividerWhats">
+            <img src="{{ 'assets/img/whats_bidireccional.svg'|theme }}" alt="WhatsApp Business">
+          </div><!-- end.planesct__dividerWhats -->
+        </div><!-- end.col-* -->
+        <div class="col-12 col-lg-10">
+          <div class="planesct__noslide">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="planesct__plan planesct__plan--green">
+                  <div class="planesct__title">
+                    <h3><i class="fab fa-whatsapp"></i> Business Plan</h3>
+                  </div><!-- end.planesct__title -->
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="planesct__box">
+                        <div class="planesct__usuarioWhats">
+                          <p class="planesct__mensual">Mensual / Usuario</p>
+                          <h4 data-price-plan="opcion-business-1" class="planesct__monto planesct__monto--black noMar selPrice">
+                            $1,250<small class="moneda">MXN</small>
+                            <span class="legales">Por usuario, por mes con pago mensual</span>
+                          </h4>
+                        </div><!-- end.planesct__usuario -->
+                      </div>
+                      <div class="planesct__btns planesct__btns--whats">
+                        <div class="planesct__linkbox">
+                          <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-1" for-data="1" value="900" data-check-plan-btn data-price-ch="Bussiness Plan Mensual" checked>
+                          <label class="planesct__link planesct__link--widthCenter" for="opcion-business-1">Contratar</label>
+                        </div><!-- end.planesct__linkbox -->
+                      </div><!-- end.planesct__btns -->
+                    </div><!-- end.col-* -->
+                    <div class="col-12 col-md-6">
+                      <div class="planesct__box">
+                        <div class="planesct__usuarioWhats">
+                          <p class="planesct__mensual">Anual / Usuario</p>
+                          <h4 data-price-plan="opcion-business-2" class="planesct__monto planesct__monto--black noMar">
+                            <!--<small class="price-old">$800 MXN</small>-->
+                            <span class="descuento">$1,250</span><small class="moneda">CON</small>
+                            <span class="price-discount">20% de descuento</span>
+                            <span class="legales">Por usuario, por mes con pago mensual</span>
+                          </h4>
+                        </div><!-- end.planesct__usuario -->
+                      </div>
+                      <div class="planesct__btns planesct__btns--whats">
+                        <div class="planesct__linkbox">
+                          <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-plan-btn value="{{ 1250 - (1250 * 0.20) }}">
+                          <label class="planesct__link planesct__link--widthCenter" for="opcion-business-2">Contratar</label>
+                        </div><!-- end.planesct__linkbox -->
+                      </div><!-- end.planesct__btns -->
+                    </div><!-- end.col-* -->
+                  </div><!-- end.row -->
+                </div><!-- end.planesct__plan -->
+              </div><!-- end.col-* -->
+            </div><!-- end.row -->
+          </div><!-- end.planesct__car -->
+        </div><!-- end.col-* -->
+        <div class="col-12">
+          <div class="titlePlanWhats">
+            <h2 class="titlePlanWhats__title">- Más de nuestros Planes -</h2>
+          </div>
+        </div>
         <div class="col-12">
           <div class="planesct__car wow fadeInDown" data-wow-delay="1.4s" data-wow-duration="0.6s">
             <div class="row justify-content-center">
@@ -125,8 +191,8 @@ robot_follow = "follow"
                     <div class="planesct__linkbox">
                       <input type="radio" class="btn-check" name="planes" id="opcion-1" data-check-btn value="Plan Mensual">
                       <a href="/comenzar-ahora" style="text-decoration: none;">
-                        <label class="planesct__link" >
-                          Contratar ahora
+                        <label class="planesct__link planesct__link--widthCenter">
+                        ¡Contratar ahora!
                         </label>
                       </a>
                     </div><!-- end.planesct__linkbox -->
@@ -189,7 +255,7 @@ robot_follow = "follow"
                     <div class="planesct__linkbox">
                       <input type="radio" class="btn-check" name="planes" id="opcion-3" data-check-btn value="Plan Mensual">
                       <a href="/comenzar-ahora" style="text-decoration: none;">
-                        <label class="planesct__link" >
+                        <label class="planesct__link planesct__link--widthCenter">
                           ¡Contratar ahora!
                         </label>
                       </a>
