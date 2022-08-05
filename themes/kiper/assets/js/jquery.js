@@ -311,7 +311,7 @@ $(function(){
 
   $(".btn-check").click(function(){
     var for_value = $(this).attr("for-data");
-    console.log(for_value);
+    // console.log(for_value);
   });
 
 
