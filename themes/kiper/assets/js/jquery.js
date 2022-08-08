@@ -1121,3 +1121,61 @@ function selectorPer(id, btn) {
 function toggleInfo(anim) {
   anim.reversed(!anim.reversed());
 }
+
+function getPaypalPlanID(){
+
+  //var urlServices = "https://system-admin.kiper.io";
+  var urlServices = "http://local.adminkiper";
+  var planSelected = $('[data-check-btn]:checked').attr("for-data");
+  var ttlUsr = $("#cantidad-ct-1").val();
+
+  if( planSelected >= 0){
+    $.ajax({
+      type: 'GET',
+      url: urlServices+"/Paypal/getplan?id=" + planSelected,
+      dataType: 'json',
+      success: function (data) {
+        if(data.code == 200){
+          console.log(data.result)
+          $("#paypal-plan-id").val( data.result.id_plan_paypal)
+        }else{
+         console.log("something was wrong")
+        }
+      },
+      error: function(json){
+        var error = '';      
+        console.log("error");
+        console.log(json);
+      }
+    });
+  }
+}
+
+$(document).ready(function(){
+  getPaypalPlanID()
+})
+
+function savePlanPayment(data){
+  //var urlServices = "https://system-admin.kiper.io";
+  var urlServices = "http://local.adminkiper";
+  $.ajax({
+    type: 'POST',
+    url: urlServices+"/Paypal/savePlanPayment",
+    data: data,
+    dataType: 'json',
+    success: function (data) {
+      if(data.code == 200){
+        window.location.href = siteUrl + "/gracias-por-tu-compra";
+        
+      }else{
+       console.log("something was wrong")
+      }
+    },
+    error: function(json){
+      var error = '';      
+      console.log("error");
+      console.log(json);
+    }
+  });
+
+}

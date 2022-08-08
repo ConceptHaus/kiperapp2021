@@ -33,9 +33,9 @@ function onTest()
 </script>
 {% endput %}
 {% put scriptPayPal %}
-<script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AX_TA9pgPV3oN1E0IBr8k2E37stbZZPgXMVy7_xFbrIZe5pZhGescm0_X9Fm7Loj5J4_U8mGS0LOvhpu&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
-/*paypal.Buttons({
+paypal.Buttons({
 	style: {
 		shape: 'pill',
 		color: 'gold',
@@ -43,16 +43,17 @@ function onTest()
 		label: 'subscribe'
 	},
 	createSubscription: function(data, actions) {
-		return actions.subscription.create({
-		/ * Creates the subscription * /
-		plan_id: 'P-4A539591X15401926MLQXQAA',
-		quantity: $("#cantidad-ct-1").val() // The quantity of the product for a subscription
-		});
+  		var ttlUsr = $("#cantidad-ct-1").val();
+  		var plan_id = $("#paypal-plan-id").val();
+			return actions.subscription.create({
+				plan_id: plan_id,
+				quantity: ttlUsr // The quantity of the product for a subscription
+			});
 	},
 	onApprove: function(data, actions) {
-		alert(data.subscriptionID); // You can add optional success message for the subscriber here
+		savePlanPayment( data ); // You can add optional success message for the subscriber here
 	}
-}).render('#paypal-button-container-P-4A539591X15401926MLQXQAA'); // Renders the PayPal button*/
+}).render('#paypal-button-container-P'); // Renders the PayPal button
 
 $(".btnMkBtn").click(function(){
 	makeBtnPay();
@@ -123,7 +124,7 @@ function makeBtnPay(){
 												</div>
 												<div class="planesct__btns planesct__btns--whats">
 													<div class="planesct__linkbox">
-														<input type="radio" class="btn-check" name="planes" id="opcion-5" for-data="1" value="1250" data-check-btn data-price-ch="Bussiness Plan Mensual" checked="checked">
+														<input type="radio" class="btn-check" name="planes" id="opcion-5" onclick="getPaypalPlanID()" for-data="5" value="1250" data-check-btn data-price-ch="Bussiness Plan Mensual" checked="checked">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-5">Plan Mensual</label>
 														<!-- <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-1" for-data="1" value="900" data-check-plan-btn data-price-ch="Bussiness Plan Mensual" checked="checked">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-business-1">Plan Anual</label> -->
@@ -150,7 +151,7 @@ function makeBtnPay(){
 												</div>
 												<div class="planesct__btns planesct__btns--whats">
 													<div class="planesct__linkbox">
-														<input type="radio" class="btn-check" name="planes" id="opcion-6" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-btn value="{{ (1250 - (1250 * 0.20)) * 12 }}">
+														<input type="radio" class="btn-check" name="planes" id="opcion-6" onclick="getPaypalPlanID()" for-data="6" data-price-ch="Bussiness Plan Anual" data-check-btn value="{{ (1250 - (1250 * 0.20)) * 12 }}">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-6">Plan Anual</label>
 														<!-- <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-plan-btn value="{{ 1250 - (1250 * 0.20) }}">
 														<label class="planesct__link planesct__link--widthCenter" for="opcion-business-2">Plan Mensual</label> -->
@@ -221,11 +222,11 @@ function makeBtnPay(){
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-1" for-data="1" value="199" data-check-btn data-price-ch="Plan Standard Mensual">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-1" onclick="getPaypalPlanID()" for-data="1" value="199" data-check-btn data-price-ch="Plan Standard Mensual">
 												<label class="planesct__link" for="opcion-1">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-2" for-data="2" value="{{ 159 * 12 }}" data-check-btn data-price-ch="Plan Standard Anual">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-2" onclick="getPaypalPlanID()" for-data="2" value="{{ 159 * 12 }}" data-check-btn data-price-ch="Plan Standard Anual">
 												<label class="planesct__link" for="opcion-2">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -281,11 +282,11 @@ function makeBtnPay(){
 										</div><!-- end.planesct__box -->
 										<div class="planesct__btns planesct__btns--flex">
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-3" for-data="3" data-price-ch="Plan Pro Mensual" data-check-btn value="299">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-3" onclick="getPaypalPlanID()" for-data="3" data-price-ch="Plan Pro Mensual" data-check-btn value="299">
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div><!-- end.planesct__linkbox -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-4" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-4" onclick="getPaypalPlanID()" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}">
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
@@ -347,20 +348,23 @@ function makeBtnPay(){
 						</div><!-- end.frmInicia -->
 					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7 mb-4">
-						<input class="planesct__link planesct__link--widthRight btnSubmit" type="submit" value="Pagar desde el sitio">
+						<!-- <input class="planesct__link planesct__link--widthRight btnSubmit" type="submit" value="Pagar desde el sitio"> -->
 						<div class="row justify-content-center">
 							<div class="col-12 col-md-8">
 								<div class="planesct__newTools">
 									<img class="diagDivider" src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="">
 									<p class="textTools">- Otras formas de pago -</p>
-									<div id="paypal-button-container-P-4A539591X15401926MLQXQAA"></div>
+									<div class="paypal-container">
+										<div id="paypal-button-container-P"></div>
+										<input type="hidden" readonly id="paypal-plan-id" value="">
+									</div>
 									
 									<div class="dividerGray"></div>
 									<div class="planesct__btnsPay">
 										<button type="button" data-modal-pago="#modalTranferencia"><i class="kf kf-transferencia"></i>Pagar por transferencia</button>
 										<button type="button" data-modal-pago="#modalDeposito"><i class="kf kf-deposito"></i> Ficha de depósito</button>
 									</div>
-								</div>end.planesct__newTools
+								</div><!-- end.planesct__newTools -->
 							</div>
 						</div>
 					</div> <!-- end.col-*-->
