@@ -1124,8 +1124,8 @@ function toggleInfo(anim) {
 
 function getPaypalPlanID(){
 
-  //var urlServices = "https://system-admin.kiper.io";
-  var urlServices = "http://local.adminkiper";
+  var urlServices = "https://system-admin.kiper.io";
+  //var urlServices = "http://local.adminkiper";
   var planSelected = $('[data-check-btn]:checked').attr("for-data");
   var ttlUsr = $("#cantidad-ct-1").val();
 
@@ -1161,8 +1161,8 @@ $(document).ready(function(){
 })
 
 function savePlanPayment(data){
-  //var urlServices = "https://system-admin.kiper.io";
-  var urlServices = "http://local.adminkiper";
+  var urlServices = "https://system-admin.kiper.io";
+  //var urlServices = "http://local.adminkiper";
   $.ajax({
     type: 'POST',
     url: urlServices+"/Paypal/savePlanPayment",
