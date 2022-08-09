@@ -1153,6 +1153,11 @@ function getPaypalPlanID(){
 
 $(document).ready(function(){
   getPaypalPlanID()
+  if(localStorage.email_cliente === undefined){
+    $(".paypal-container").hide()
+  }else{
+    $(".paypal-container").show()
+  }
 })
 
 function savePlanPayment(data){
