@@ -94,15 +94,19 @@ robot_follow = "follow"
                         <div class="planesct__usuarioWhats">
                           <p class="planesct__mensual">Mensual / Usuario</p>
                           <h4 data-price-plan="opcion-business-1" class="planesct__monto planesct__monto--black noMar selPrice">
-                            $1,250<small class="moneda">MXN</small>
+                            $700<small class="moneda">MXN</small>
                             <span class="legales">Por usuario, por mes con pago mensual</span>
                           </h4>
                         </div><!-- end.planesct__usuario -->
                       </div>
                       <div class="planesct__btns planesct__btns--whats">
                         <div class="planesct__linkbox">
-                          <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-1" for-data="1" value="900" data-check-plan-btn data-price-ch="Bussiness Plan Mensual" checked>
-                          <label class="planesct__link planesct__link--widthCenter" for="opcion-business-1">Contratar</label>
+                          <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-1" for-data="1" value="700" data-check-plan-btn data-price-ch="Bussiness Plan Mensual" checked>
+                          <a href="/comenzar-ahora" style="text-decoration: none;">
+                            <label class="planesct__link planesct__link--widthCenter">
+                            ¡Contratar ahora!
+                            </label>
+                          </a>
                         </div><!-- end.planesct__linkbox -->
                       </div><!-- end.planesct__btns -->
                     </div><!-- end.col-* -->
@@ -110,18 +114,20 @@ robot_follow = "follow"
                       <div class="planesct__box">
                         <div class="planesct__usuarioWhats">
                           <p class="planesct__mensual">Anual / Usuario</p>
-                          <h4 data-price-plan="opcion-business-2" class="planesct__monto planesct__monto--black noMar">
-                            <!--<small class="price-old">$800 MXN</small>-->
-                            <span class="descuento">$1,250</span><small class="moneda">CON</small>
-                            <span class="price-discount">20% de descuento</span>
-                            <span class="legales">Por usuario, por mes con pago mensual</span>
+                          <h4 data-price-plan="opcion-business-1" class="planesct__monto planesct__monto--black noMar selPrice">
+                            $560<small class="moneda">MXN</small>
+                            <span class="legales">Por usuario, por mes con pago anual</span>
                           </h4>
                         </div><!-- end.planesct__usuario -->
                       </div>
                       <div class="planesct__btns planesct__btns--whats">
                         <div class="planesct__linkbox">
-                          <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-plan-btn value="{{ 1250 - (1250 * 0.20) }}">
-                          <label class="planesct__link planesct__link--widthCenter" for="opcion-business-2">Contratar</label>
+                          <input type="radio" class="btn-check" name="planes-bussines" id="opcion-business-2" for-data="2" data-price-ch="Bussiness Plan Anual" data-check-plan-btn value="{{ 560 * 12 }}">
+                          <a href="/comenzar-ahora" style="text-decoration: none;">
+                            <label class="planesct__link planesct__link--widthCenter">
+                            ¡Contratar ahora!
+                            </label>
+                          </a>
                         </div><!-- end.planesct__linkbox -->
                       </div><!-- end.planesct__btns -->
                     </div><!-- end.col-* -->
