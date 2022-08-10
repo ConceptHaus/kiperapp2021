@@ -603,8 +603,8 @@ $(function() {
         }
       },
       submitHandler: function(form) {
-        //var urlServices = "https://system-admin.kiper.io";
-        var urlServices = "http://local.adminkiper";
+        var urlServices = "https://system-admin.kiper.io";
+       // var urlServices = "http://local.adminkiper";
         var form = $("#frmProbar");
         var url = form.attr('action');
         var data = form.serialize();
