@@ -83,18 +83,18 @@ $(function(){
 
   $('.cuadro_dialogo').hide();
   $('.cuadro_dialogo').hide();
-		$('.globo').click(function () {
-	// body... 
-			$('.globo').hide(400);
-			$('.cuadro_dialogo').show(400);
+    $('.globo').click(function () {
+  // body... 
+      $('.globo').hide(400);
+      $('.cuadro_dialogo').show(400);
 
-		})
-		$('.cerrar').click(function () {
-	// body... 
-			$('.globo').show(400);
-			$('.cuadro_dialogo').hide(0);
+    })
+    $('.cerrar').click(function () {
+  // body... 
+      $('.globo').show(400);
+      $('.cuadro_dialogo').hide(0);
 
-		});
+    });
     $('.slidePlanes').slick({
       centerMode: true,
       centerPadding: '60px',
@@ -603,8 +603,8 @@ $(function() {
         }
       },
       submitHandler: function(form) {
-        var urlServices = "https://system-admin.kiper.io";
-       // var urlServices = "http://local.adminkiper";
+        //var urlServices = "https://system-admin.kiper.io";
+        var urlServices = "http://local.adminkiper";
         var form = $("#frmProbar");
         var url = form.attr('action');
         var data = form.serialize();
@@ -943,7 +943,7 @@ $(function() {
             storage.removeItem(email_cliente);
             storage.removeItem(data_client);
             $(".modalLoader").addClass("loaderModal").removeClass("modalLoader__out").show();
-		        $("body").addClass("loaderModal");
+            $("body").addClass("loaderModal");
             setTimeout(function() {
               window.location.href = siteUrl + "/";              
             }, 3000);            
@@ -1124,8 +1124,8 @@ function toggleInfo(anim) {
 
 function getPaypalPlanID(){
 
-  var urlServices = "https://system-admin.kiper.io";
-  //var urlServices = "http://local.adminkiper";
+  //var urlServices = "https://system-admin.kiper.io";
+  var urlServices = "http://local.adminkiper";
   var planSelected = $('[data-check-btn]:checked').attr("for-data");
   var ttlUsr = $("#cantidad-ct-1").val();
 
@@ -1138,6 +1138,8 @@ function getPaypalPlanID(){
         if(data.code == 200){
           console.log(data.result)
           $("#paypal-plan-id").val( data.result.id_plan_paypal)
+          $("#paypal-plan-prefijo").val( data.result.prefijo_id)
+          $("#kiper-plan-id").val( data.result.id_plan );
         }else{
          console.log("something was wrong")
         }
@@ -1161,8 +1163,16 @@ $(document).ready(function(){
 })
 
 function savePlanPayment(data){
-  var urlServices = "https://system-admin.kiper.io";
-  //var urlServices = "http://local.adminkiper";
+  //var urlServices = "https://system-admin.kiper.io";
+  var urlServices = "http://local.adminkiper";
+  console.log(data);
+
+  var dataPayment = data;
+  dataPayment.email = localStorage.email_cliente;
+  dataPayment.num_users = $("#cantidad-ct-1").val();
+  dataPayment.prefijo = $("#paypal-plan-prefijo").val();
+  dataPayment.id_plan = $("#kiper-plan-id").val();
+
   $.ajax({
     type: 'POST',
     url: urlServices+"/Paypal/savePlanPayment",
