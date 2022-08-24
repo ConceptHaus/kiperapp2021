@@ -651,38 +651,38 @@ $(function() {
       }
     });
 
-    $("#inpEmail").focusout(function(){
-      var for_item = $(this).val();
-      if(for_item.length > 3){
-        $.ajax({
-          type: 'POST',
-          url: "https://system-admin.kiper.io/KipersConfiguration/existClientRegis",
-          data: 
-          {
-            email: for_item
-          },
-          dataType: 'json',
-          success: function (data) {
-            console.log(data.code);
-            if(data.code == 404){
-              $("#inpFlag").val(0);
-              $(".msj").empty();
-              $(".content-msj").hide();
-              $(".btnSubmit").removeClass("disabled");
-            }
-            else{
-              $("#modalAvisoDos").modal("show");
-            }
-          },
-          error: function(json){
-            var error = '';      
-            console.log("error");
-            console.log(json);
-            $("#modalAvisoDos").modal("show");
-          }
-        });
-      }
-    });
+    // $("#inpEmail").focusout(function(){
+    //   var for_item = $(this).val();
+    //   if(for_item.length > 3){
+    //     $.ajax({
+    //       type: 'POST',
+    //       url: "https://system-admin.kiper.io/KipersConfiguration/existClientRegis",
+    //       data: 
+    //       {
+    //         email: for_item
+    //       },
+    //       dataType: 'json',
+    //       success: function (data) {
+    //         console.log(data.code);
+    //         if(data.code == 404){
+    //           $("#inpFlag").val(0);
+    //           $(".msj").empty();
+    //           $(".content-msj").hide();
+    //           $(".btnSubmit").removeClass("disabled");
+    //         }
+    //         else{
+    //           $("#modalAvisoDos").modal("show");
+    //         }
+    //       },
+    //       error: function(json){
+    //         var error = '';      
+    //         console.log("error");
+    //         console.log(json);
+    //         $("#modalAvisoDos").modal("show");
+    //       }
+    //     });
+    //   }
+    // });
 
     
 
