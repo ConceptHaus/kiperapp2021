@@ -21,7 +21,7 @@ categoryPage = "blog-kiper"
 postPage = "nota"
 
 [SeoBlogPost]
-post = "post"
+post = "nota"
 ==
 {% set populares = blogPupulares.posts %}
 
@@ -35,6 +35,7 @@ post = "post"
                 <div class="col-md-9">
 									<div class="row">
                     {% component 'blogPost' %}
+                    {% component 'SeoBlogPost' data=nota %}
 									</div>
                 </div><!-- end.col-* -->
                 <div class="col-md-3">
