@@ -57,7 +57,7 @@ return [
              'engine'     => 'InnoDB',
              'host'       => 'localhost',
              'port'       => 3306,
-             'database'   => 'kiperapp2021',
+             'database'   => 'kip3r_web',
              'username'   => 'root',
             // 'password'   => '3&-_spHXjB#Vk%FaU7jYBxUz'',
             'password'   => '',
