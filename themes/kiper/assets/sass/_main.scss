@@ -326,6 +326,63 @@ article {
     }
   }
 }
+.heroInt {
+  @include position(relative, null null null null); width: 100%; max-width: 1440px; height: 280px; padding: 40px 0; margin: 0 auto; z-index: 1; overflow: hidden; background-color: $gris2; display: block;
+  @media all and (min-width: 768px) {
+    height: 400px;
+  }
+  &__img {
+    display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; position: absolute; top: 0; left: 0; z-index: 1;
+  }
+  &__desc {
+    @include position(absolute, 50% null null 0); width: 100%; height: auto; padding: 0; margin: 0; z-index: 2; @include transform(translateY(-50%));
+  }
+  &__title {
+    margin: 0; padding: 0; text-align: center; @include fluid-type(30px, 120px, 320px, 1200px); line-height: 1; color: $white; position: relative; display: inline-block; font-family: 'GothamMedium'; font-weight: 400;
+    &:after, &:before {
+      content: ''; width: 8px; height: 8px; background-color: $rojo; @include position(absolute, null null 2px null);
+    }
+    &:before {
+      left: -20px;
+    }
+    &:after {
+      right: -20px;
+    }
+    @media all and (min-width: 480px) {
+      &:after, &:before {
+        width: 12px; height: 12px; bottom: 3px;
+      }
+      &:before {
+        left: -30px;
+      }
+      &:after {
+        right: -30px;
+      }
+    }
+    @media all and (min-width: 576px) {
+      &:after, &:before {
+        width: 13px; height: 13px; bottom: 5px;
+      }
+      &:before {
+        left: -40px;
+      }
+      &:after {
+        right: -40px;
+      }
+    }
+    @media all and (min-width: 768px) {
+      &:after, &:before {
+        width: 16px; height: 16px; bottom: 8px;
+      }
+      &:before {
+        left: -50px;
+      }
+      &:after {
+        right: -50px;
+      }
+    }
+  }
+}
 // Menu Mobile
 .cont-menu-mobile {
   @extend .overlayClass; background-color: rgba($rojo, 0.90); z-index: -1; overflow-y: auto;

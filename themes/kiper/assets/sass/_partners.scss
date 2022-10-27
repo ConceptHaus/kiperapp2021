@@ -1,0 +1,163 @@
+.secGenFirst {
+  width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); z-index: 2;
+  & .container {
+    z-index: 3; position: relative;
+  }
+  &__title {
+    width: 100%; height: auto; padding: 20px 0; margin: 0; position: relative; @include box-sizing(border-box);
+    & h2 {
+      margin: 0; padding: 0; text-align: center; @include fluid-type(30px, 70px, 320px, 1200px); line-height: 1.2; color: $negro; font-family: 'GothamMedium'; font-weight: 400;
+      & span {
+        color: $rojo;
+      }
+    }
+    @media all and (min-width: 768px) {
+      & h2 {
+        text-align: left;
+      }
+    }
+  }
+  &__icon {
+    display: block; width: 100%; max-width: 150px; height: auto; padding: 0; margin: 0 auto 20px auto;
+    @media all and (min-width: 768px) {
+      margin: 0 0 0 auto; max-width: 200px;
+    }
+  }
+  &__desc {
+    width: 100%; height: auto; padding: 40px 0 120px; margin: 0; position: relative; @include box-sizing(border-box); z-index: 2;
+    & p {
+      color: $negro; font-family: 'Gotham-Light'; font-weight: 600; @include fluid-type(13px, 16px, 320px, 1200px); text-align: center; margin: 0; padding: 0; position: relative; display: inline-block;
+      & span {
+        color: $rojo;
+      }
+      &:after {
+        content: ''; width: 15px; height: 25px; background-color: $rojo; @include position(absolute, null -20px 2px null); @include transform(skewX(-32deg));
+      }
+    }
+    @media all and (min-width: 768px) {
+      padding: 40px 0 150px;
+      & p {
+        text-align: left;
+      }
+    }
+  }
+  &__cuadro {
+    width: 13px; height: 13px; background-color: $rojo; @include position(absolute, null null 2px 0); z-index: 1; margin: 0; padding: 0;
+    @media all and (min-width: 768px) {
+      width: 20px; height: 20px;
+    }
+  }
+  &__lines {
+    @include position(absolute, 50% null null 0); @include transform(translateY(-50%)); display: block; width: 10px; height: auto; padding: 0; margin: 0; z-index: 2;
+  }
+  & .diagsCt {
+    width: 105px; height: 35px; margin: 0; padding: 0; @include position(absolute, null null 50px 50%); @include transform(translateX(-50%)); z-index: 2;
+    &:before,
+    &:after {
+      content: ''; width: 20px; height: 35px; margin: 0; padding: 0; @include position(absolute, 0 null null null); background-color: $rojo; z-index: 2; @include transform(skewX(-31deg));
+    }
+    &:before {
+      background-color: $azul; left: 0;
+    }
+    &:after {
+      background-color: $ama; right: 0;
+    }
+    span {
+      width: 20px; height: 35px; margin: 0; padding: 0; @include position(absolute, 0 null null 50%); background-color: $rojo; z-index: 2; @include transform(translateX(-50%) skewX(-31deg));
+    }
+    @media all and (min-width: 768px) {
+      bottom: 50px;
+    }
+  }
+  & .bgDiag {
+    width: 250px; height: 100%; margin: 0; padding: 0; @include position(absolute, 0 0 null null); background-color: $gris2; z-index: 1; @include transform(skewX(-31deg));
+    @media all and (min-width: 768px) {
+      width: 400px;
+    }
+  }
+  & .bgDiagSmall {
+    width: 20px; height: 25px; margin: 0; padding: 0; @include position(absolute, 0 150px null null); background-color: $rojo; z-index: 2; @include transform(skewX(-32deg));
+    @media all and (min-width: 768px) {
+      width: 30px; height: 35px; right: 330px;
+    }
+  }
+}
+.secGenSecond {
+  width: 100%; height: auto; padding: 0 0 150px; margin: 0; position: relative; @include box-sizing(border-box); z-index: 2;
+  & .ctGridBen {
+    width: 100%; max-width: 1400px; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); display: flex; justify-content: center;
+    &__box {
+      width: 50%; height: auto; padding: 0; margin: 0; position: relative;
+      & .imgBigBen {
+        width: calc(100% - 120px); height: auto; padding: 0; margin: 0; display: block;
+      }
+    }
+    &__title {
+      width: 100%; height: auto; padding: 0 10px 100px; margin: 0; position: relative; @include box-sizing(border-box);
+      & h3 {
+        margin: 0 0 10px; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); line-height: 1; color: $black; font-family: 'Gotham-Light'; font-weight: 400;
+      }
+    }
+    &__logoKiper {
+      width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box); display: flex; align-items: center; justify-content: flex-start;
+      & img {
+        display: block; width: 180px; height: auto; padding: 0; margin: 0 15px 0 0;
+      }
+      & h4 {
+        margin: 0; padding: 0; text-align: left; font-size: 45px; line-height: 1; color: $rojo; font-family: 'GothamMedium'; font-weight: 400;
+      }
+    }
+    &__ben {
+      width: 100%; height: auto; padding: 0 10px; margin: 0; position: relative; @include box-sizing(border-box); display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;
+    }
+    &__benBox {
+      width: 50%; height: 180px; padding: 0 10px; margin: 0 0 20px; position: relative; border-right: 1px solid $negro; display: flex; justify-content: flex-start; flex-direction: column;
+      & img.iconBene {
+        display: block; width: auto; height: 30px; padding: 0; margin: 0 auto 20px 0;
+      }
+      & p {
+        color: $negro; font-family: 'Gotham-Light'; font-weight: 400; @include fluid-type(13px, 16px, 320px, 1200px); text-align: left; margin: 0; padding: 0;
+        & strong {
+          font-family: 'Gotham-Light'; font-weight: 600;
+        }
+      }
+      & .countBox {
+        @include position(absolute, null 10px 0 null); z-index: 1; width: 100%; height: auto; padding: 0; margin: 0; text-align: right;
+        & p {
+          padding: 0; margin: 0; font-size: 15px; position: relative; display: inline-block;
+          &:after {
+            content: ''; width: 100%; height: 1px; @include position(absolute, null 0 0 null); background-color: $rojo;
+          }
+        }
+      }
+      &:nth-child(2n+1) {
+        border-left: 1px solid $negro;
+      }
+      &--image {
+        display: flex; justify-content: center; align-items: center;
+        & img.sloganBene {
+          display: block; width: 100%; max-width: 230px; height: auto; padding: 0; margin: 0 auto;
+        }
+      }
+    }
+  }
+  & .diagsCt {
+    width: 105px; height: 35px; margin: 0; padding: 0; @include position(absolute, null null 50px 50%); @include transform(translateX(-50%)); z-index: 2;
+    &:before,
+    &:after {
+      content: ''; width: 20px; height: 35px; margin: 0; padding: 0; @include position(absolute, 0 null null null); background-color: $rojo; z-index: 2; @include transform(skewX(-31deg));
+    }
+    &:before {
+      background-color: $azul; left: 0;
+    }
+    &:after {
+      background-color: $ama; right: 0;
+    }
+    span {
+      width: 20px; height: 35px; margin: 0; padding: 0; @include position(absolute, 0 null null 50%); background-color: $rojo; z-index: 2; @include transform(translateX(-50%) skewX(-31deg));
+    }
+    @media all and (min-width: 768px) {
+      bottom: 50px;
+    }
+  }
+}
