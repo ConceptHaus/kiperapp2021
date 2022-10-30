@@ -2,11 +2,11 @@ title = "Partners"
 url = "/partners"
 layout = "layout"
 description = "Pagina para Partners"
+meta_title = "Partners"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 ==
-
 <article class="gen-ct">
   <section class="heroInt">
     <img src="{{ 'assets/images/partners/foto_slider.png'|theme }}" alt="Partner's" class="heroInt__img">
@@ -132,14 +132,291 @@ robot_follow = "follow"
     </div><!-- end.secFrmReg__bgDiag -->
     <div class="secFrmReg__cont">
       <div class="container">
-        <div class="row">
-          <div class="col-12"></div><!-- end.col-* -->
-          <div class="col-12"></div><!-- end.col-* -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-7">
+            <div class="secFrmReg__contDesc">
+              <h2>¿Cómo ingresar al programa <span>partner?</span></h2>
+              <img src="{{ 'assets/img/Diagonal_rojo.svg'|theme }}" alt="Diagonal Kiper">
+            </div><!-- end.secFrmReg__contDesc -->
+          </div><!-- end.col-* -->
+          <div class="col-12">
+            <div class="secFrmReg__contFrm">
+              <form id="frmSoli" name="frmSoli" action="">
+                <div class="row">
+                  <div class="col-12">
+                    <h3 class="titleFrm">Envía tu solicitud</h3>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                    <label for="nombreSol" class="form-label">Nombre*</label>
+                    <input type="text" class="form-control" name="nombreSol" id="nombreSol">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                    <label for="apellidoSol" class="form-label">Apellidos*</label>
+                    <input type="text" class="form-control" name="apellidoSol" id="apellidoSol">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                    <label for="emailSol" class="form-label">Email*</label>
+                    <input type="email" class="form-control" name="emailSol" id="emailSol">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                    <label for="puestoSol" class="form-label">Puesto*</label>
+                    <input type="text" class="form-control" name="puestoSol" id="puestoSol">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                    <label for="razonSol" class="form-label">Razón Social*</label>
+                    <input type="text" class="form-control" name="razonSol" id="razonSol">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                    <label for="empleadoSol" class="form-label">Número de Empleados*</label>
+                    <select class="form-select" name="empleadoSol" id="empleadoSol">
+                      <option value=""></option>
+                      <option value="1">1 - 5 empleados</option>
+                      <option value="2">6 - 10 empleados</option>
+                      <option value="3">11 - 20+ empleados</option>
+                    </select>
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3 inptStyleSol">
+                    <label for="serviSol" class="form-label">¿Qué servicios brindas?</label>
+                    <input type="text" class="form-control" name="serviSol" id="serviSol">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3 inptStyleSol">
+                    <label for="mensajeSol" class="form-label">Dejamos un comentario</label>
+                    <textarea class="form-control" name="mensajeSol" id="mensajeSol" cols="10" rows="2"></textarea>
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3">
+                    <h3 class="subTitleFrm"><i class="fa fa-caret-right"></i> Datos de ubicación</h3>
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 col-lg-3 mb-3 inptStyleSol">
+                    <label for="paisSol" class="form-label">País*</label>
+                    <select class="form-select" name="paisSol" id="paisSol">
+                      <option value=""></option>
+                      <option value="">México</option>
+                    </select>
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 col-lg-3 mb-3 inptStyleSol">
+                    <label for="estadoSol" class="form-label">Estado*</label>
+                    <select class="form-select" name="estadoSol" id="estadoSol">
+                      <option value=""></option>
+                      <option value="">CDMX</option>
+                    </select>
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 col-lg-3 mb-3 inptStyleSol">
+                    <label for="delmunSol" class="form-label">Del/Mun*</label>
+                    <select class="form-select" name="delmunSol" id="delmunSol">
+                      <option value=""></option>
+                      <option value="">Cuauhtémoc</option>
+                    </select>
+                  </div><!-- end.col-* -->
+                  <div class="col-12 col-md-6 col-lg-3 mb-3 inptStyleSol">
+                    <label for="cpSol" class="form-label">C.P.*</label>
+                    <input type="number" class="form-control" name="cpSol" id="cpSol">
+                  </div><!-- end.col-* -->
+                </div><!-- end.row -->
+                <div class="mb-3 row">
+                  <label for="numEstSol" class="col-12 col-sm-7 col-lg-8 col-form-label">Número de clientes mensuales estimados para Kiper</label>
+                  <div class="col-12 col-sm-5 col-lg-4 inptStyleSol">
+                    <select class="form-select" name="numEstSol" id="numEstSol">
+                      <option value=""></option>
+                      <option value="2">2</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="datosKiper" name="datosKiper">
+                      <label class="form-check-label" for="datosKiper">No cuento con este dato por el momento</label>
+                    </div><!-- end.form-check -->
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3">
+                    <div class="inpAddFile">
+                      <input class="form-control" type="file" id="formFile">
+                    </div><!-- end.inpAddFile -->
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="aceptoSol" name="aceptoSol">
+                      <label class="form-check-label" for="aceptoSol">Acepto <a href="#" target="_blank" rel="noopener noreferrer">condiciones y términos del programa partner.</a></label>
+                    </div><!-- end.form-check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="suscripSol" name="suscripSol">
+                      <label class="form-check-label" for="suscripSol">Acepto suscribirme para más novedades de kiper</label>
+                    </div><!-- end.form-check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="llamadaSol" name="llamadaSol">
+                      <label class="form-check-label" for="llamadaSol">Deseo que me contacten por llamada.</label>
+                    </div><!-- end.form-check -->
+                  </div><!-- end.col-* -->
+                  <div class="col-12">
+                    <div class="secFrmReg__btnConf">
+                      <button class="btn" type="submit" name="submit" id="submit-reg" disabled>Enviar</button>
+                    </div>
+                  </div><!-- end.col-12 -->
+                </div><!-- end.row -->
+              </form><!-- end.form -->
+            </div><!-- end.secFrmReg__contFrm -->
+          </div><!-- end.col-* -->
         </div><!-- end.row -->
       </div><!-- end.container -->
     </div><!-- end.secFrmReg__cont -->
   </section><!-- end.secFrmReg -->
-  <section></section>
-  <section></section>
-  <section></section>
+  <section class="secMemb">
+    <div class="secMemb__title">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>Algunos miembros destacados <strong>del programa Partner</strong></h2>
+          </div><!-- end.col-* -->
+        </div><!-- end.row -->
+      </div><!-- end.container -->
+    </div><!-- end.secMemb__title -->
+    <div class="secMemb__logos">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <figure class="secMemb__imgLogo">
+              <img src="{{ 'assets/images/partners/concepthaus.png'|theme }}" alt="ConceptHaus">
+            </figure><!-- end.secMemb__imgLogo -->
+          </div><!-- end.col-* -->
+          <div class="col-12 col-md-4">
+            <figure class="secMemb__imgLogo">
+              <img src="{{ 'assets/images/partners/inhausfilms.png'|theme }}" alt="InHausFilms">
+            </figure><!-- end.secMemb__imgLogo -->
+          </div><!-- end.col-* -->
+          <div class="col-12 col-md-4">
+            <figure class="secMemb__imgLogo">
+              <img src="{{ 'assets/images/partners/treehaus.png'|theme }}" alt="TreeHaus">
+            </figure><!-- end.secMemb__imgLogo -->
+          </div><!-- end.col-* -->
+        </div><!-- end.row -->
+      </div><!-- end.container -->
+    </div><!-- end.secMemb__logos -->
+    <div class="secMemb__btn">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <a href="#">Unirme al Programa</a>
+          </div><!-- end.col-* -->
+        </div><!-- end.row -->
+      </div><!-- end.container -->
+    </div><!-- end.secMemb__btn -->
+    <div class="diagsCt">
+      <span></span>
+    </div><!-- end.diagsCt -->
+  </section><!-- end.secMemb -->
+  <section class="secOpt">
+    <div class="boxGraySec boxGraySec--left"></div><!-- end.boxGraySec -->
+    <div class="container">
+      <div class="row align-items-md-end">
+        <div class="col-12 col-md-6">
+          <h2 class="secOpt__title">¿Estás listo para <strong>optimizar tus ventas</strong>?</h2>
+        </div><!-- end.col-* -->
+        <div class="col-12 col-md-6">
+          <div class="secOpt__desc">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ratione deserunt itaque blanditiis possimus distinctio libero. Harum quod accusantium, numquam ab exercitationem consequatur nisi, aut non sit eligendi earum atque.</p>
+          </div><!-- end.secOpt__desc -->
+        </div><!-- end.col-* -->
+      </div><!-- end.row -->
+    </div><!-- end.container -->
+    <div class="boxGraySec boxGraySec--right"></div><!-- end.boxGraySec -->
+  </section><!-- end.secOpt -->
+  <section class="secContrata">
+    <figure class="secContrata__fig">
+      <img src="{{ 'assets/images/partners/imagen_2.png'|theme }}" alt="">
+    </figure>
+    <div class="secContrata__link">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <a href="#" target="_blank" rel="noopener noreferrer">Contratar Kiper</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- end.secContrata -->
+  <section class="secFrmDudas">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-5">
+          <h3 class="secFrmDudas__title">¿Tienes dudas sobre nuestro programa <strong>Partner</strong>?</h3>
+        </div>
+        <div class="col-12 col-md-6 col-lg-7">
+          <div class="secFrmDudas__frmCt">
+            <form id="frmDudas" name="frmDudas" action="" method="post">
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                  <label for="nameDu" class="form-label">Nombre*</label>
+                  <input type="text" class="form-control" name="nameDu" id="nameDu" required>
+                </div><!-- end.col-* -->
+                <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                  <label for="mailDu" class="form-label">Mail*</label>
+                  <input type="email" class="form-control" name="mailDu" id="mailDu" required>
+                </div><!-- end.col-* -->
+                <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                  <label for="nameDu" class="form-label">Tipo de Negocio*</label>
+                  <input type="text" class="form-control" name="nameDu" id="nameDu" required>
+                </div><!-- end.col-* -->
+                <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                  <label for="mailDu" class="form-label">Teléfono*</label>
+                  <input type="email" class="form-control" name="mailDu" id="mailDu" required>
+                </div><!-- end.col-* -->
+                </div>
+                <div class="row align-items-center">
+                <div class="col-12 mb-3 inptStyleSol">
+                  <label for="mensajeDu" class="form-label">Mensaje</label>
+                  <textarea class="form-control" name="mensajeDu" id="mensajeDu" cols="10" rows="2"></textarea>
+                </div><!-- end.col-* -->
+                <div class="col-12 col-md-6 col-lg-7">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="deseoDu" name="deseoDu" value="1">
+                    <label class="form-check-label" for="deseoDu">Deseo que me contacten por llamada.</label>
+                  </div><!-- end.form-check -->
+                </div><!-- end.col-* -->
+                <div class="col-12 col-md-6 col-lg-5">
+                  <div class="secFrmDudas__btnConf">
+                    <button class="btn" type="submit" name="submit" id="submit-dudas" disabled>Enviar</button>
+                  </div>
+                </div><!-- end.col-* -->
+              </div><!-- end.row -->
+            </form><!-- end.form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- end.secFrmDudas -->
+  <section class="secComuni">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="secComuni__title">Puedes Comunicarte</h2>
+        </div><!-- end.col-* -->
+        <div class="col-12 col-md-4">
+          <div class="secComuni__box">
+            <img src="{{ 'assets/images/partners/telefono.svg'|theme }}" alt="Telefono">
+            <p><a href="tel:+525525154736" target="_blank">55 2515 4736</a> / <a href="tel:+525514673476" target="_blank">55 1467 3476</a></p>
+          </div><!-- end.secComuni__box -->
+        </div><!-- end.col-* -->
+        <div class="col-12 col-md-4">
+          <div class="secComuni__box">
+            <img src="{{ 'assets/images/partners/mail.svg'|theme }}" alt="Mail">
+            <p><a href="mailto:hola@kiper.app" target="_blank">hola@kiper.app</a></p>
+          </div><!-- end.secComuni__box -->
+        </div><!-- end.col-* -->
+        <div class="col-12 col-md-4">
+          <div class="secComuni__box">
+            <img src="{{ 'assets/images/partners/reloj.svg'|theme }}" alt="Reloj">
+            <p>L - V de 8am a 20pm</p>
+          </div><!-- end.secComuni__box -->
+        </div><!-- end.col-* -->
+        <div class="col-12">
+          <div class="sloganPartner">
+            <div class="sloganPartner__img">
+              <img src="{{ 'assets/img/iconsnews/kiper_slogan_color.svg'|theme }}" alt="Así de simple">
+            </div>
+          </div>
+        </div><!-- end.col-* -->
+      </div>
+    </div>
+  </section><!-- end.secComuni -->
 </article><!-- end.gen-ct -->
