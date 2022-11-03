@@ -3,6 +3,14 @@
   & .container {
     z-index: 3; position: relative;
   }
+  &--bidi {
+    & .secGenFirst__desc {
+      padding: 40px 0 20px;
+      @media all and (min-width: 768px) {
+        padding: 60px 0 20px;
+      }
+    }
+  }
   &__title {
     width: 100%; height: auto; padding: 20px 0; margin: 0; position: relative; @include box-sizing(border-box);
     & h2 {
@@ -84,12 +92,45 @@
 }
 .secGenSecond {
   width: 100%; height: auto; padding: 0 0 150px; margin: 0; position: relative; @include box-sizing(border-box); z-index: 2;
+  &__imgBan {
+    width: 100%; height: 450px; padding: 0; margin: 0 0 40px; position: relative; @include box-sizing(border-box); overflow: hidden;
+    & img {
+      display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; @include position(absolute, 0 null null 0); z-index: 1;
+    }
+    & .bannerTitleSec {
+      @include position(absolute, 30px 20px null null); width: auto; height: auto; padding: 0; z-index: 2; margin: 0;
+      & h2 {
+        margin: 0; padding: 0; text-align: left; @include fluid-type(20px, 50px, 320px, 1200px); line-height: 1.2; color: $negro; font-family: 'Gotham-Light'; font-weight: 600;
+        & strong {
+          color: $rojo; font-family: 'GothamMedium'; font-weight: 400;
+        }
+      }
+    }
+    @media all and (min-width: 768px) {
+      height: 500px;
+      & .bannerTitleSec {
+        top: 40px; right: 50px;
+      }
+    }
+    @media all and (min-width: 992px) {
+      height: 600px;
+      & img {
+        width: 100%; height: auto;
+      }
+      & .bannerTitleSec {
+        top: 50px; right: 90px;
+      }
+    }
+  }
   & .ctGridBen {
     width: 100%; max-width: 1400px; height: auto; padding: 0; margin: 0 auto; position: relative; @include box-sizing(border-box); display: flex; justify-content: center;
     &__box {
       width: 100%; height: auto; padding: 0; margin: 0; position: relative;
       & .imgBigBen {
         width: calc(100% - 120px); height: auto; padding: 0; margin: 0; display: block;
+      }
+      & .imgBigChica {
+        @include position(absolute, null 0 0 null); width: 100%; max-width: 700px; height: auto; padding: 0; margin: 0; display: block;
       }
       &:nth-child(1) {
         display: none;
@@ -144,6 +185,9 @@
           padding: 0; margin: 0; font-size: 15px; position: relative; display: inline-block;
           &:after {
             content: ''; width: 100%; height: 1px; @include position(absolute, null 0 0 null); background-color: $rojo;
+          }
+          & a {
+            text-decoration: none; color: $negro;
           }
         }
       }
@@ -646,5 +690,169 @@
     &:after {
       right: 20px; bottom: 20px; width: 20px; height: 20px;
     }
+  }
+}
+// Business plan
+.whatsBidPlan {
+  width: 100%; height: auto; padding: 40px 0 60px; margin: 0; position: relative; @include box-sizing(border-box);
+  &__img {
+    width: 100%; max-width: 500px; display: block; width: 100%; height: auto; padding: 0; margin: 0 auto;
+  }
+}
+.whatsUpCt {
+  width: 100%; height: auto; padding: 30px 0 60px; margin: 0; position: relative; box-sizing: border-box;
+  &__bgChat {
+    width: 100%; height: auto; padding: 0; margin: 0 0 50px; position: relative; box-sizing: border-box; background-image: url('../../../../../assets/img/Diagonal_gris.svg'); background-repeat: no-repeat; background-position: center; background-size: contain;
+    & .imgSlogan {
+      display: block; width: 100%; max-width: 200px; height: auto; margin: 0 auto 20px; padding: 0; border: 0;
+    }
+    & .imgCuadro {
+      display: block; width: 15px; height: auto; margin: 0; padding: 0; border: 0; position: absolute; bottom: 60px; left: 30px;
+    }
+  }
+  &__bxChat {
+    width: 100%; display: block; height: auto; margin: 0 auto 30px; padding: 60px 10px; border: 0; position: relative; overflow: hidden;
+    & .imgChat {
+      position: absolute; top: 0; left: 0;  display: block; width: 100%; height: 100%; padding: 0; margin: 0; object-fit: cover; font-family: "object-fit: cover"; z-index: 1;
+    }
+  }
+  &__ChatText {
+    width: 100%; display: block; height: auto; margin: 0; padding: 0; border: 0; position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: flex-start;
+  }
+  &__textBox {
+    width: 50%; height: auto; padding: 0 10px; margin: 0 0 20px; box-sizing: border-box;
+    & .imgBidLogo {
+      display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto 20px 0; padding: 0; border: 0;
+    }
+    & .imgChats {
+      display: block; width: 100%; max-width: 400px; height: auto; margin: 0 0 20px auto; padding: 5px; border: 0; box-sizing: border-box; background-color: rgba(0, 0, 0, 0.55); border-radius: 15px;
+      & img {
+        width: 100%; display: block; margin: 0; padding: 0; border: 0;
+      }
+    }
+    & h3 {
+      color: $white; padding: 0; margin: 0 0 20px; text-align: right;
+    }
+    @media all and (min-width: 768px) {
+      width: 50%; margin: 0;
+    }
+  }
+  &__dividerDiag {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative;
+    & img {
+      display: block; width: 100%; max-width: 20px; height: auto; margin: 0 auto; padding: 0;
+    }
+  }
+  &__link {
+    width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
+    & a {
+      display: block; width: 250px; height: 40px; border-radius: 5px; line-height: 40px; text-align: center; border: none; background-color: $rojo; @include box-sizing(border-box); margin: 0 auto; padding: 0; position: relative; color: $white; font-size: rem(17px); cursor: pointer; font-family: 'Gotham-Light'; font-weight: 800; text-decoration: none;
+      &:hover {
+        color: $white; background-color: #ce3925;
+      }
+    }
+    @media all and (min-width: 768px) {
+      & a {
+        width: 330px; height: 50px; border-radius: 10px; line-height: 50px; font-size: rem(24px);
+      }
+    }
+  }
+  @media all and (min-width: 768px) {
+    padding: 40px 0 70px;
+  }
+}
+// Plan Pro
+.listFunc {
+  width: 100%; height: auto; margin: 0 0 40px; padding: 0; position: relative; @include box-sizing(border-box);
+  &__items {
+    width: 100%; height: auto; padding: 0; margin: 0; list-style-type: none; display: flex; flex-direction: column;
+  }
+  &__list {
+    list-style-type: none; margin: 0 0 10px; padding: 0 0 0 25px; position: relative; @include box-sizing(border-box); line-height: 1; text-align: left; font-family: 'Gotham-Light'; font-weight: 400; color: $black; @include fluid-type(13px, 16px, 320px, 1200px);
+    &:before {
+      content: '\f00c'; width: 13px; height: 13px; background-color: #4BB543; border-radius: 50%; line-height: 13px; text-align: center; @include position(absolute, 0 null null 0); font-family: 'fontAwesome'; color: $white; font-size: 8px;
+    }
+    @media all and (min-width: 768px) {
+      margin: 0 0 15px;
+      &:before {
+        width: 13px; height: 13px;line-height: 13px;font-size: 8px;
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+    @media all and (min-width: 992px) {
+      margin: 0 0 20px;
+      &:before {
+        width: 13px; height: 13px;line-height: 13px;font-size: 8px;
+      }
+    }
+  }
+}
+.boxColorPro {
+  margin: 0; padding: 0; position: absolute; z-index: 2;
+  &--right {
+    width: 12px; height: 115px; top: 100px; right: 0;
+    & span {
+      width: 12px; height: 25px; @include position(absolute, 50% null null 0); @include transform(translateY(-50%));
+    }
+    &:before,
+    &:after {
+      width: 12px; height: 25px; right: 0;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+    @media all and (min-width: 768px) {
+      top: 60px;
+    }
+    @media all and (min-width: 992px) {
+      top: 50px;
+    }
+  }
+  &--rightBottom {
+    width: 115px; height: 12px; bottom: 0; right: 100px;
+    & span {
+      width: 25px; height: 12px; @include position(absolute, 0 null null 50%); @include transform(translateX(-50%));
+    }
+    &:before,
+    &:after {
+      width: 25px; height: 12px; top: 0;
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+    @media all and (min-width: 768px) {
+      right: 30px;
+    }
+    @media all and (min-width: 992px) {
+      right: 20px;
+    }
+  }
+  &:before,
+  &:after {
+    content: ''; margin: 0; padding: 0; @include position(absolute, null null null null); background-color: $rojo; z-index: 2;
+  }
+  &:before {
+    background-color: $azul;
+  }
+  &:after {
+    background-color: $ama;
+  }
+  span {
+    margin: 0; padding: 0; background-color: $rojo; z-index: 2;
+  }
+}
+.sloganSecond {
+  width: 100%; height: auto; padding: 0; margin: 0; position: relative; @include box-sizing(border-box);
+  & .sloganBene {
+    width: 100%; max-width: 300px; height: auto; padding: 0; margin: 0 auto; display: block;
   }
 }
