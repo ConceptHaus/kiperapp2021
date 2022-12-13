@@ -162,11 +162,11 @@ robot_follow = "follow"
                     <label for="puestoSol" class="form-label">Puesto*</label>
                     <input type="text" class="form-control" name="puestoSol" id="puestoSol">
                   </div><!-- end.col-* -->
-                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                  <div class="col-12 mb-3 inptStyleSol">
                     <label for="razonSol" class="form-label">Razón Social*</label>
                     <input type="text" class="form-control" name="razonSol" id="razonSol">
                   </div><!-- end.col-* -->
-                  <div class="col-12 col-md-6 mb-3 inptStyleSol">
+                  <!-- <div class="col-12 col-md-6 mb-3 inptStyleSol">
                     <label for="empleadoSol" class="form-label">Número de Empleados*</label>
                     <select class="form-select" name="empleadoSol" id="empleadoSol">
                       <option value=""></option>
@@ -174,13 +174,21 @@ robot_follow = "follow"
                       <option value="2">6 - 10 empleados</option>
                       <option value="3">11 - 20+ empleados</option>
                     </select>
-                  </div><!-- end.col-* -->
+                  </div> -->
                   <div class="col-12 mb-3 inptStyleSol">
-                    <label for="serviSol" class="form-label">¿Qué servicios brindas?</label>
+                    <label for="serviSol" class="form-label">Nicho o Giro de tu Empresa</label>
                     <input type="text" class="form-control" name="serviSol" id="serviSol">
                   </div><!-- end.col-* -->
                   <div class="col-12 mb-3 inptStyleSol">
-                    <label for="mensajeSol" class="form-label">Dejamos un comentario</label>
+                    <label for="urlWeb" class="form-label">URL Web</label>
+                    <input type="url" class="form-control" name="urlWeb" id="urlWeb" placeholder="">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3 inptStyleSol">
+                    <label for="urlSociales" class="form-label">Redes Sociales</label>
+                    <input type="url" class="form-control" name="urlSociales" id="urlSociales">
+                  </div><!-- end.col-* -->
+                  <div class="col-12 mb-3 inptStyleSol">
+                    <label for="mensajeSol" class="form-label">Déjamos un comentario</label>
                     <textarea class="form-control" name="mensajeSol" id="mensajeSol" cols="10" rows="2"></textarea>
                   </div><!-- end.col-* -->
                   <div class="col-12 mb-3">
@@ -230,10 +238,11 @@ robot_follow = "follow"
                     </div><!-- end.form-check -->
                   </div><!-- end.col-* -->
                   <div class="col-12 mb-3">
-                    <div class="inpAddFile">
+                    <!-- <div class="inpAddFile">
                       <input class="form-control" type="file" id="formFile">
-                    </div><!-- end.inpAddFile -->
-                  </div><!-- end.col-* -->
+                    </div> -->
+                    <hr>
+                  </div>
                   <div class="col-12 mb-3">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="aceptoSol" name="aceptoSol">
@@ -243,10 +252,10 @@ robot_follow = "follow"
                       <input class="form-check-input" type="checkbox" id="suscripSol" name="suscripSol">
                       <label class="form-check-label" for="suscripSol">Acepto suscribirme para más novedades de kiper</label>
                     </div><!-- end.form-check -->
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="llamadaSol" name="llamadaSol">
                       <label class="form-check-label" for="llamadaSol">Deseo que me contacten por llamada.</label>
-                    </div><!-- end.form-check -->
+                    </div> -->
                   </div><!-- end.col-* -->
                   <div class="col-12">
                     <div class="secFrmReg__btnConf">
@@ -262,7 +271,7 @@ robot_follow = "follow"
       </div><!-- end.container -->
     </div><!-- end.secFrmReg__cont -->
   </section><!-- end.secFrmReg -->
-  <section class="secMemb">
+  <section class="secMemb" style="display: none;">
     <div class="secMemb__title">
       <div class="container">
         <div class="row">
@@ -306,7 +315,7 @@ robot_follow = "follow"
       <span></span>
     </div><!-- end.diagsCt -->
   </section><!-- end.secMemb -->
-  <section class="secOpt">
+  <section class="secOpt" style="display: none;">
     <div class="boxGraySec boxGraySec--left"></div><!-- end.boxGraySec -->
     <div class="container">
       <div class="row align-items-md-end">
@@ -322,7 +331,7 @@ robot_follow = "follow"
     </div><!-- end.container -->
     <div class="boxGraySec boxGraySec--right"></div><!-- end.boxGraySec -->
   </section><!-- end.secOpt -->
-  <section class="secContrata">
+  <section class="secContrata" style="display: none;">
     <figure class="secContrata__fig">
       <img src="{{ 'assets/images/partners/imagen_2.png'|theme }}" alt="">
     </figure>
