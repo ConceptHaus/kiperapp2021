@@ -37,16 +37,17 @@ function onTest()
 <script>
 paypal.Buttons({
 	style: {
-		shape: 'pill',
-		color: 'gold',
-		layout: 'vertical',
-		label: 'subscribe'
-	},
+    shape: 'rect',
+    color: 'gold',
+    layout: 'vertical',
+    label: 'subscribe'
+  },
 	createSubscription: function(data, actions) {
   		var ttlUsr = $("#cantidad-ct-1").val();
   		var plan_id = $("#paypal-plan-id").val();
 			return actions.subscription.create({
-				plan_id: plan_id,
+				// plan_id: plan_id,
+				plan_id: 'P-2NH51550NH867854KMONB5FY',
 				quantity: ttlUsr // The quantity of the product for a subscription
 			});
 	},
@@ -153,7 +154,7 @@ function makeBtnPay(){
 												<label class="planesct__link" for="opcion-3">Plan Mensual</label>
 											</div> -->
 											<div class="planesct__linkbox">
-												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-4" onclick="getPaypalPlanID()" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 239 * 12 }}" checked>
+												<input type="radio" class="btn-check btnMkBtn" name="planes" id="opcion-4" onclick="getPaypalPlanID()" for-data="4" data-price-ch="Plan Pro Anual" data-check-btn value="{{ 500 * 12 }}" checked>
 												<label class="planesct__link" for="opcion-4">Plan Anual</label>
 											</div><!-- end.planesct__linkbox -->
 										</div><!-- end.planesct__btns -->
