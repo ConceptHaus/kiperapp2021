@@ -1,0 +1,163 @@
+title = "pago customer services"
+url = "/customerservices-pay-suscription"
+layout = "layout"
+description = "Página para el carrito de compra"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+==
+<?php
+function onTest() {
+  // update MySQL here	
+	//if (!empty($_POST["inpPais"])) {
+    //$val = $_POST["inpPais"];
+		//$val = mb_strtolower($val);
+		//$paises = Db::select('select * from kiper_facturacion_prov_'.$val.' where status = 1');
+
+		//foreach ($paises as $pais) {
+			//echo $pais->nombre;
+			//$this->page['paises_id'] = $pais->paises_id;
+			//$this->page['nombre'] = $pais->nombre;
+		//}
+	//}
+
+	//return Redirect::to('/gracias-por-tu-compra');
+
+}
+?>
+==
+{% put scriptFormulario %}
+<script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'white',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-5KE76118DB2987619MLZMP7Y',
+          quantity: 1 // The quantity of the product for a subscription
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-5KE76118DB2987619MLZMP7Y'); // Renders the PayPal button
+</script>
+{% endput %}
+<section class="iniciaSec">
+
+
+
+	  <form action="" method="POST" id="card-form"  accept-charset="utf-8">
+		<input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
+		<input type="hidden" name="data_ckk" id="data_ckk" value=""  readonly="readonly"/>
+		<span class="card-errors"></span>
+		<div class="ctFrm">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12">
+						<span class="content_pregunta">Pago
+						<span class="naranja">customer services</span><br></span>
+						<span class="">Este apartado es solo para procesos de pago guíados por un agente de servicio a</span>
+					</div><!-- end.col-* -->
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+		</div><!-- end.ctFrm -->
+		<div class="planesct">
+			<div class="container">
+				<div class="row justify-content-center">
+
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="frmInicia">
+							<div class="row g-3">
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="text" name="keyPay" id="keyPay" class="form-control required" placeholder="Clave de pago proporcionada por agente*" />
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" value="" placeholder="Correo eléctronico que usas kiper*" />
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="text" name="inpApellidos" id="inpApellidos" class="form-control required"  value="" placeholder="Nombre completo*" />
+								</div>
+
+								<div class="col-12 col-md-6 inputStyle">
+									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control required" placeholder="Teléfono*" />
+								</div>
+
+								<div class="col-12 col-md-12 inputStyle text-left">
+									<span class="content_pregunta" style="font-size: 1.3rem;">Detalle de la
+										<span class="naranja">suscripción</span><br></span>
+								</div>
+
+								<div class="col-12 col-md-6 inputStyle">
+									<div class="boxPrices">
+										<div class="boxPrices__boxPr">
+											<p class="boxPrices__sub">Nombre del Plan:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" id="" style="font-size: 1rem;">Pla PRO Mensual</p>
+										</div>
+										<div class="boxPrices__boxPr">											
+											<p class="boxPrices__sub">Costo del Plan:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
+										</div>
+									</div>
+									<div class="boxPrices">
+										<div class="boxPrices__boxPr">
+											<p class="boxPrices__sub">Número de licencias:</p>
+											<p class="priceFac" id="cantidadLic">0</p>
+										</div>
+										<div class="boxPrices__boxPr boxPrices__boxPr--total">
+											<p class="boxPrices__tot">Total:</p>
+											<p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6 inputStyle">
+									<div id="paypal-button-container-P-5KE76118DB2987619MLZMP7Y"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- end.col-* -->
+
+					<div class="col-12 col-md-10 col-lg-7">
+						<div class="frmInicia">
+							<div class="row g-3">
+								
+								<div id="paypal-button-container-P-5KE76118DB2987619MLZMP7Y"></div>
+
+								
+								<div class="col-12 checkCus">
+									<input type="checkbox" class="CheckStyle" name="terminos" id="terminos" value="Acepto">
+									<label for="terminos">Acepto <a href="{{ 'terminos-de-uso'|page }}">Términos de uso</a></label>
+								</div>
+								<div class="col-12 captcha">
+									
+								</div>
+							</div><!-- end.row -->
+						</div>
+					</div>
+					<div class="col-12 col-md-10 col-lg-7" style="display: block;">
+						<!--<a data-open-aviso href="#" data-id-aviso="#modalAvisoDos">abre modal</a>-->
+						<input class="planesct__link" type="submit" class="btn btn-gral btnSubmit" value="Finalizar compra">  
+					</div> <!-- end.col-*-->
+					<!--<div class="col-12">
+						<h3 class="planesct__disclaimer">ESTAMOS EXPERIMENTANDO PROBLEMAS CON NUESTRA PLATAFORMA DE PAGO</h3>
+						<br/>
+						<label>Sentimos las molestias que esto pueda ocasionar, pero estamos trabajando en ello.<br/>Tus datos quedan registrados para continuar con otra manera de pago y activar tu kiper.</label>
+						<br>
+						<label>¿Tienes dudas? Ponte en contacto con nostros: hola@kiper.app </label>
+					</div> <! -- end.col -->
+
+					
+					
+				</div><!-- end.row -->
+			</div><!-- end.container -->
+
+			
+		</div><!-- end.planesct -->
+	</form><!-- end.form -->
+</section><!-- end.iniciaSec -->
