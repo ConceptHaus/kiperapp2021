@@ -27,6 +27,7 @@ function onTest() {
 ?>
 ==
 {% put scriptFormulario %}
+
 <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
   paypal.Buttons({
@@ -39,14 +40,13 @@ function onTest() {
       createSubscription: function(data, actions) {
         return actions.subscription.create({
           /* Creates the subscription */
-          plan_id: 'P-5KE76118DB2987619MLZMP7Y',
-          quantity: 1 // The quantity of the product for a subscription
+          plan_id: 'P-4YD914622C639802TMQM7S7Y'
         });
       },
       onApprove: function(data, actions) {
         alert(data.subscriptionID); // You can add optional success message for the subscriber here
       }
-  }).render('#paypal-button-container-P-5KE76118DB2987619MLZMP7Y'); // Renders the PayPal button
+  }).render('#paypal-button-container-P-4YD914622C639802TMQM7S7Y'); // Renders the PayPal button
 </script>
 {% endput %}
 <section class="iniciaSec">
@@ -126,23 +126,25 @@ function onTest() {
 											<p class="boxPrices__sub boxPrices__sub--price" id="" style="font-size: 1rem;">Pla PRO Mensual</p>
 										</div>
 										<div class="boxPrices__boxPr">											
-											<p class="boxPrices__sub">Costo del Plan:</p>
-											<p class="boxPrices__sub boxPrices__sub--price" id="subtotal">Sub Total</p>
+											<p class="boxPrices__sub">Total licencias:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">1</p>
 										</div>
-									</div>
-									<div class="boxPrices">
-										<div class="boxPrices__boxPr">
-											<p class="boxPrices__sub">Número de licencias:</p>
-											<p class="priceFac" id="cantidadLic">0</p>
+										<div class="boxPrices__boxPr">											
+											<p class="boxPrices__sub">Recurrencia:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">Mensual</p>
+										</div>
+										<div class="boxPrices__boxPr">											
+											<p class="boxPrices__sub">Costo del Plan:</p>
+											<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">299.00</p>
 										</div>
 										<div class="boxPrices__boxPr boxPrices__boxPr--total">
 											<p class="boxPrices__tot">Total:</p>
-											<p class="boxPrices__tot boxPrices__tot--price" id="totalFin">Total</p>
+											<p class="boxPrices__tot boxPrices__tot--price" >299.00</p>
 										</div>
 									</div>
 								</div>
 								<div class="col-12 col-md-6 inputStyle">
-									<div id="paypal-button-container-P-5KE76118DB2987619MLZMP7Y"></div>
+									<div id="paypal-button-container-P-4YD914622C639802TMQM7S7Y"></div>
 								</div>
 							</div>
 						</div>
