@@ -64,7 +64,6 @@ function onTest() {
       onApprove: function(data, actions) {
         alert(data.subscriptionID); 
 		var urlServices = "https://system-admin.kiper.io";
-		console.log(data);
 
 		var dataPayment = data;
 		dataPayment.email    = localStorage.email_cliente;
@@ -72,19 +71,17 @@ function onTest() {
 		dataPayment.email    = localStorage.inpEmail;
 		dataPayment.nombre   = localStorage.inpNombre;
 		dataPayment.telefono = localStorage.inpTelefono;
-
 		$.ajax({
 			type: 'POST',
 			url: urlServices+"/Paypal/savePlanPaymentCustomer",
 			data: data,
 			dataType: 'json',
 			success: function (data) {
-			if(data.code == 200){
-				window.location.href = siteUrl + "/gracias-por-tu-compra";
-				
-			}else{
-			console.log("something was wrong")
-			}
+				if(data.code == 200){
+					window.location.href = siteUrl + "/gracias-por-tu-compra";				
+				}else{
+				console.log("something was wrong")
+				}
 			},
 			error: function(json){
 			var error = '';      
