@@ -1,4 +1,4 @@
-title = "pago customer services"
+title = "Pago Customer Services"
 url = "/customerservices-pay-suscription"
 layout = "layout"
 description = "Página para el carrito de compra"
@@ -30,6 +30,23 @@ function onTest() {
 
 <script src="https://www.paypal.com/sdk/js?client-id=AaoZIG9L9CsX1s72AeSIHNsktdKNyKJaHiKdxAbtMsmKTZVpOgs4IRwlKeTBOD9ncDZUSQbsOu4M7fwS&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
+
+	$(document).ready(function(){
+		$(".btnChckinfo").click(function(){
+			$("#card-form").validate({
+			success: function(form) {
+				localStorage.setItem("keyPay", $("#keyPay").val());
+				localStorage.setItem("inpEmail", $("#inpEmail").val());
+				localStorage.setItem("inpNombre", $("#inpNombre").val());
+				localStorage.setItem("inpTelefono", $("#inpTelefono").val());
+				$(".content-detalle").css("display", "block");
+				$(".contentForm").css("display","none");
+				}
+			});
+
+		});
+	});
+
   paypal.Buttons({
       style: {
           shape: 'rect',
@@ -40,30 +57,65 @@ function onTest() {
       createSubscription: function(data, actions) {
         return actions.subscription.create({
           /* Creates the subscription */
-          plan_id: 'P-4YD914622C639802TMQM7S7Y'
+          plan_id: 'P-4YD914622C639802TMQM7S7Y',
+		  quantity: 1
         });
       },
       onApprove: function(data, actions) {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+        alert(data.subscriptionID); 
+		var urlServices = "https://system-admin.kiper.io";
+		console.log(data);
+
+		var dataPayment = data;
+		dataPayment.email    = localStorage.email_cliente;
+		dataPayment.keyPay   = localStorage.keyPay;
+		dataPayment.email    = localStorage.inpEmail;
+		dataPayment.nombre   = localStorage.inpNombre;
+		dataPayment.telefono = localStorage.inpTelefono;
+
+		$.ajax({
+			type: 'POST',
+			url: urlServices+"/Paypal/savePlanPaymentCustomer",
+			data: data,
+			dataType: 'json',
+			success: function (data) {
+			if(data.code == 200){
+				window.location.href = siteUrl + "/gracias-por-tu-compra";
+				
+			}else{
+			console.log("something was wrong")
+			}
+			},
+			error: function(json){
+			var error = '';      
+			console.log("error");
+			console.log(json);
+			}
+		});
+
       }
   }).render('#paypal-button-container-P-4YD914622C639802TMQM7S7Y'); // Renders the PayPal button
 </script>
 {% endput %}
 <section class="iniciaSec">
-
-
-
-	  <form action="" method="POST" id="card-form"  accept-charset="utf-8">
-		<input type="hidden" name="data_client" id="data_client" value=""  readonly="readonly"/>
-		<input type="hidden" name="data_ckk" id="data_ckk" value=""  readonly="readonly"/>
+	  <form  method="POST" id="card-form"  accept-charset="utf-8">
 		<span class="card-errors"></span>
 		<div class="ctFrm">
 			<div class="container">
 				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-7">
+						<nav class="breadct" aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="{{'inicio'|page}}">Inicio</a></li>
+								<!-- <li class="breadcrumb-item"><a href="{{'inicia-prueba'|page}}">Comenzar ahora</a></li> -->
+								<li class="breadcrumb-item active" aria-current="page">{{ this.page.title }}</li>
+							</ol>
+						</nav><!-- end.breadcrumb -->
+					</div><!-- end.col-* -->
 					<div class="col-12">
 						<span class="content_pregunta">Pago
-						<span class="naranja">customer services</span><br></span>
-						<span class="">Este apartado es solo para procesos de pago guíados por un agente de servicio a</span>
+						<span class="naranja">Customer Services</span><br></span>
+						<span class="">Este apartado es solo para procesos de pago guíados por un agente de servicio a cliente</span>
 					</div><!-- end.col-* -->
 				</div><!-- end.row -->
 			</div><!-- end.container -->
@@ -73,91 +125,70 @@ function onTest() {
 				<div class="row justify-content-center">
 
 					<div class="col-12 col-md-10 col-lg-7">
-						<div class="frmInicia">
+						<div class="frmInicia contentForm">
 							<div class="row g-3">
-								<div class="col-12 col-md-6 inputStyle">
-									<input type="text" name="keyPay" id="keyPay" class="form-control required" placeholder="Clave de pago proporcionada por agente*" />
-								</div>
-								<div class="col-12 col-md-6 inputStyle">
-									<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" class="form-control required" value="" placeholder="Correo eléctronico que usas kiper*" />
-								</div>
-								<div class="col-12 col-md-6 inputStyle">
-									<input type="text" name="inpApellidos" id="inpApellidos" class="form-control required"  value="" placeholder="Nombre completo*" />
-								</div>
-
-								<div class="col-12 col-md-6 inputStyle">
-									<input type="text" name="inpTelefono" id="inpTelefono" class="form-control required" placeholder="Teléfono*" />
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-12 col-md-10 col-lg-7">
-						<div class="frmInicia">
-							<div class="row g-3">
-								
-								
-
-								
-								<div class="col-12 checkCus">
-									<input type="checkbox" class="CheckStyle" name="terminos" id="terminos" value="Acepto">
-									<label for="terminos">Acepto <a href="{{ 'terminos-de-uso'|page }}">Términos de uso</a></label>
-								</div>
-								<div class="col-12 captcha">
+									<div class="col-12 col-md-6 inputStyle">
+										<input type="text" name="keyPay" id="keyPay" class="form-control required" placeholder="Clave de pago proporcionada por agente*" autocomplete="off">
+									</div>
+									<div class="col-12 col-md-6 inputStyle">
+										<input type="email" name="inpEmail" id="inpEmail" autocomplete="off" required class="form-control required" value="" placeholder="Correo eléctronico que usas kiper*" autocomplete="off">
+									</div>
+									<div class="col-12 col-md-6 inputStyle">
+										<input type="text" name="inpNombre" id="inpNombre" class="form-control required" required  value="" placeholder="Nombre completo*" autocomplete="off">
+									</div>
+									<div class="col-12 col-md-6 inputStyle">
+										<input type="text" name="inpTelefono" id="inpTelefono" class="form-control required" required placeholder="Teléfono*" autocomplete="off">
+									</div>
 									
-								</div>
-							</div><!-- end.row -->
-						</div>
-					</div>
-
+									<div class="col-12 row d-flex justify-content-center text-center mt-5">
+										<div class="planesct__linkbox" style="width: auto; padding-left: 5% !important; padding-right: 5% !important;">
+											<input type="submit" style="text-decoration: none; width: auto; width: 400px;" class="btnChckinfo planesct__link" value="Generar botón de susripción">
+										  </div>
+									</div><!-- end.col-* -->
+							</div>
+						</div><!-- end.frmInicia -->
+					</div><!-- end.col-* -->
 					<div class="col-12 col-md-10 col-lg-7">
 						<div class="frmInicia">
 							<div class="row g-3">
-
-								<div class="col-12 col-md-12 inputStyle text-left">
-									<span class="content_pregunta" style="font-size: 1.3rem;">Detalle de la
-										<span class="naranja">suscripción</span><br></span>
-								</div>
-
-								<div class="col-12 col-md-6 inputStyle">
-									<div class="boxPrices">
-										<div class="boxPrices__boxPr">
-											<p class="boxPrices__sub">Nombre del Plan:</p>
-											<p class="boxPrices__sub boxPrices__sub--price" id="" style="font-size: 1rem;">Pla PRO Mensual</p>
-										</div>
-										<div class="boxPrices__boxPr">											
-											<p class="boxPrices__sub">Total licencias:</p>
-											<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">1</p>
-										</div>
-										<div class="boxPrices__boxPr">											
-											<p class="boxPrices__sub">Recurrencia:</p>
-											<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">Mensual</p>
-										</div>
-										<div class="boxPrices__boxPr">											
-											<p class="boxPrices__sub">Costo del Plan:</p>
-											<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">299.00</p>
-										</div>
-										<div class="boxPrices__boxPr boxPrices__boxPr--total">
-											<p class="boxPrices__tot">Total:</p>
-											<p class="boxPrices__tot boxPrices__tot--price" >299.00</p>
+								<div class="content-detalle" style="display: none;">
+									<div class="col-12 col-md-12 inputStyle text-left">
+										<span class="content_pregunta" style="font-size: 1.3rem;">Detalle de la
+											<span class="naranja">suscripción</span><br></span>
+									</div>
+									<div class="col-12">
+										<div class="boxPrices">
+											<div class="boxPrices__boxPr">
+												<p class="boxPrices__sub">Nombre del Plan:</p>
+												<p class="boxPrices__sub boxPrices__sub--price" id="" style="font-size: 1rem;">Pla PRO Mensual</p>
+											</div>
+											<div class="boxPrices__boxPr">											
+												<p class="boxPrices__sub">Total licencias:</p>
+												<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">1</p>
+											</div>
+											<div class="boxPrices__boxPr">											
+												<p class="boxPrices__sub">Recurrencia:</p>
+												<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">Mensual</p>
+											</div>
+											<div class="boxPrices__boxPr">											
+												<p class="boxPrices__sub">Costo del Plan:</p>
+												<p class="boxPrices__sub boxPrices__sub--price" style="font-size: 1rem;">299.00</p>
+											</div>
+											<div class="boxPrices__boxPr boxPrices__boxPr--total">
+												<p class="boxPrices__tot">Total:</p>
+												<p class="boxPrices__tot boxPrices__tot--price" >299.00</p>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="col-12 col-md-6 inputStyle">
-									<div id="paypal-button-container-P-4YD914622C639802TMQM7S7Y"></div>
+									<div class="col-12 col-md-12 d-flex justify-content-end inputStyle">
+										<div id="paypal-button-container-P-4YD914622C639802TMQM7S7Y"></div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div><!-- end.col-* -->
-
-					
-					
-					
-					
 				</div><!-- end.row -->
 			</div><!-- end.container -->
-
-			
 		</div><!-- end.planesct -->
 	</form><!-- end.form -->
 </section><!-- end.iniciaSec -->
